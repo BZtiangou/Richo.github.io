@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="计算机体系结构1.进制转换这里主要提一嘴特殊方法：16-&gt;2 进制，可以把每个十六进制位展开成四位二进制位，因为2^4&#x3D;16 所以不用担心溢出。 比如说：4b(16)&#x3D;1001011(2)       比如说的，错了不怪我。 其他一般方法就是按十进制转那样子操作就好了，我真不信我的读者不会。 算了，我还是真怕你不会，给出例子把。这是我自己研究的算法，又快又准：使用短除法+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Richo blog">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="计算机体系结构1.进制转换这里主要提一嘴特殊方法：16-&gt;2 进制，可以把每个十六进制位展开成四位二进制位，因为2^4&#x3D;16 所以不用担心溢出。 比如说：4b(16)&#x3D;1001011(2)       比如说的，错了不怪我。 其他一般方法就是按十进制转那样子操作就好了，我真不信我的读者不会。 算了，我还是真怕你不会，给出例子把。这是我自己研究的算法，又快又准：使用短除法+">
+<meta property="og:locale">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/f4oSUesT.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/DdXUPg8C.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/0Wgl208O.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/k80gopP1.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/19/esYNBrbO.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/19/YMPrDCy4.png">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/BPtOMnVE.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/YpJ8YVhC.jpg">
+<meta property="article:published_time" content="2023-06-16T14:01:44.780Z">
+<meta property="article:modified_time" content="2023-06-18T17:04:11.755Z">
+<meta property="article:author" content="Richo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/06/18/f4oSUesT.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-计算机体系结构期末复习篇(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h1><h2 id="1-进制转换"><a href="#1-进制转换" class="headerlink" title="1.进制转换"></a>1.进制转换</h2><p>这里主要提一嘴特殊方法：16-&gt;2 进制，可以把每个十六进制位展开成四位二进制位，因为2^4&#x3D;16 所以不用担心溢出。</p>
+<p>比如说：4b(16)&#x3D;1001011(2)       <del>比如说的，错了不怪我</del>。</p>
+<p>其他一般方法就是按十进制转那样子操作就好了，<strong>我真不信我的读者不会</strong>。</p>
+<p>算了，我还是真怕你不会，给出例子把。这是我自己研究的算法，又快又准：使用短除法+余数表示法，最后倒序输出就是答案了。</p>
+<p>如图：</p>
+<h2 id="2-原码-反码-补码"><a href="#2-原码-反码-补码" class="headerlink" title="2.原码-反码-补码"></a>2.原码-反码-补码</h2><h3 id="8-bit-one’s-complement"><a href="#8-bit-one’s-complement" class="headerlink" title="8-bit one’s complement"></a>8-bit one’s complement</h3><p>看起来很高级，其实是反码的意思，但又不完全是。众所周知反码是符号位不反，其他全反，正数的反码是它自己。特别注意前面是<strong>8-bit</strong>,如上述的42，他的反码就应该是00101010.全1表示-0。这也是为什么这种表示方法叫做”1的补码”。</p>
+<p>碰巧，8-bit one’s complement 一的补码，是全反。全1表示-0，1的补码在IP,TCP,UDP,ICMP等协议头中应用于计算校验和。</p>
+<h3 id="有趣的是："><a href="#有趣的是：" class="headerlink" title="有趣的是："></a>有趣的是：</h3><p>国内将1的补码翻译成反码，其求负数的反码时，”保留符号位，将其余的比特进行反转”。但是这样就不能解释为什么有-0的存在。更不能解释在IP,TCP,UDP,ICMP协议头里求校验和时所谓的”反码求和”是怎么回事。</p>
+<p>overflow的情况：声明一下：因为2^8&#x3D;256    因为有一个是符号位。然后得出范围是[-127,127]。觉得128也是的读者别忘了0和-0也是一个数字！！！所以128和-128是会溢出。</p>
+<h3 id="1的补码的加法"><a href="#1的补码的加法" class="headerlink" title="1的补码的加法"></a>1的补码的加法</h3><p>1的补码的加法跟其它的加法是一样的，只是它有个循环进位(end-around carry)概念。它要求把最后结果的进位加回到最后的结果中去。</p>
+<p><a target="_blank" rel="noopener" href="https://images0.cnblogs.com/blog/705187/201503/232319023952415.png">这里有一个数轴</a></p>
+<p>我觉都读者只要理解了这个闭环就懂了：</p>
+<p><a target="_blank" rel="noopener" href="https://images0.cnblogs.com/blog/705187/201503/232319029581286.png">闭环</a></p>
+<h3 id="8-bit-two’s-complement"><a href="#8-bit-two’s-complement" class="headerlink" title="8-bit two’s complement"></a><strong>8-bit two’s complement</strong></h3><p>其实也只是补码的意思。只需要反码+1即可。正数补码还是它自己。特别注意的还是位数。</p>
+<p>将1的补码中-0的编码空出来给-1用，后续数值依次前移，最后1000 0000会空出来，我们给它分配-128。因为正数补码是自己，而且符号位首是0，所以不是128！而是-128！！！ 因此，我们可以取值[-1,-128]U[0,127]。此处少了一个-0！</p>
+<p>因此，补码根据反码(即前文1的补码)加一来计算其实就是把-0挤掉，留了个位置给-128。</p>
+<h3 id="快速写出补码："><a href="#快速写出补码：" class="headerlink" title="快速写出补码："></a>快速写出补码：</h3><p>将原码从右往左看（权重小的开始），从第一个1出现的位置的下一位开始，反转比特，符号位不反转。比如(11010110) 的补码为10101010。</p>
+<h3 id="补码的加法："><a href="#补码的加法：" class="headerlink" title="补码的加法："></a>补码的加法：</h3><p> 同符号数相加如果结果的符号位和两加数<strong>不同</strong>，则溢出。（你说一个负数+一个负数变成了正数这吓不吓人）</p>
+<p>得出如下规律：</p>
+<p>​    ⑴不是同号数相加，则不可能溢出；<br>​    (2)同号数相加如果结果的符号位和两加数不同，则溢出</p>
+<p>结果处理：</p>
+<p>如果发现溢出，则直接溢出，结果舍去</p>
+<p>如果没有溢出，而多了一位进制，则直接舍去，不需要循环法，原因是因为-0在补码这里已经被-1替换了</p>
+<h3 id="给出4位补码补回8位的做题技巧"><a href="#给出4位补码补回8位的做题技巧" class="headerlink" title="给出4位补码补回8位的做题技巧"></a>给出4位补码补回8位的做题技巧</h3><p>第一步：先把补码变成8位<strong>原码</strong></p>
+<p>第二步：再使用快速写出补码的技巧即可！</p>
+<h2 id="3-半加器-amp-全加器"><a href="#3-半加器-amp-全加器" class="headerlink" title="3.半加器&amp;全加器"></a>3.半加器&amp;全加器</h2><p><img src="https://img1.imgtp.com/2023/06/18/f4oSUesT.jpg" alt="两者长这样"></p>
+<p>先看一下长啥样！如上图，y是和</p>
+<p>冷知识：Carry有进位的意思</p>
+<h3 id="半加器："><a href="#半加器：" class="headerlink" title="半加器："></a>半加器：</h3><p>首先确定输入和输出：</p>
+<p><strong>输入</strong>：</p>
+<p>被加数A，加数B</p>
+<p><strong>输出：</strong></p>
+<p>和数S，进位C</p>
+<p>公式：S&#x3D;A^B,A&amp;B&#x3D;C</p>
+<p>得出真值表和规律如下：</p>
+<p><img src="https://img1.imgtp.com/2023/06/18/DdXUPg8C.jpg" alt="半加器图"></p>
+<h3 id="全加器："><a href="#全加器：" class="headerlink" title="全加器："></a>全加器：</h3><p><strong>性质</strong>：全加器&#x3D;半加器*2</p>
+<p>理由如下：</p>
+<p><strong>输入：</strong></p>
+<p>C_i-1 代表上一次计算的进位</p>
+<p>A代表当前计算的第一个数</p>
+<p>B是当前计算的第二个数</p>
+<p>S_i代表当前计算的和</p>
+<p>C_i代表当前计算数的进位</p>
+<p>所以我们就可以知道全加器&#x3D;半加器*2</p>
+<p>再<strong>通俗</strong>一点：第一个半加器是A+B，第二个半加器是(A+B)和C_i-1</p>
+<p><strong>公式</strong>：</p>
+<p>y &#x3D; a ⊕ b ⊕ Cin</p>
+<p>Cout &#x3D; Cin(a ⊕ b)+ab</p>
+<p>这是真值表，逻辑电路自己推理一下，推不出再找我</p>
+<p><img src="https://img1.imgtp.com/2023/06/18/0Wgl208O.jpg" alt="全加器"></p>
+<p><strong>实操</strong>：</p>
+<p>将N个全加法器连接在一起，即一个阶段的Cout充当下一阶段的Cin。<strong>简单但缓慢</strong>。</p>
+<p> <strong>相关计算：</strong></p>
+<p>一个N位的串行进位加法器（Ripple-Carry Adder）的关键路径（Key Path）上包含了2×N+1个门（gates）的数量关系。例如，对于一个64位的串行进位加法器，其关键路径上包含了129个门。</p>
+<p>串行进位加法器是一种用于执行二进制数的加法运算的电路。在串行进位加法器中，每一位的加法都依赖于前一位的进位信号，因此在计算加法时进位需要逐位传递，导致关键路径的出现。</p>
+<p>关键路径是指电路中的最长延迟路径，它决定了电路的最大时钟频率和性能。在串行进位加法器中，关键路径上的门数量表示了在计算过程中信号必须通过的门数目。</p>
+<p>根据这段描述，对于一个N位的串行进位加法器，关键路径上的门数量为2×N+1个。这意味着每个位的加法运算需要2个门（一个与门和一个异或门），并且还有一个额外的门用于处理进位信号的传递。</p>
+<p>以64位的串行进位加法器为例，根据公式计算得到关键路径上的门数量为2×64+1&#x3D;129个门。这表示在执行64位加法时，关键路径上需要通过129个门。</p>
+<p>关键路径上的门数量是衡量串行进位加法器性能和时钟频率的一个重要指标。更少的门数量可以提高电路的运行速度和性能。</p>
+<p><strong>CLA</strong>:</p>
+<p>这句话的意思是，<strong>CLA</strong>（Carry Look-Ahead）加法器使用<strong>额外的电路</strong>来快速确定加法器输出的<strong>进位信号</strong>。</p>
+<p>在传统的串行进位加法器中，每一位的加法都需要<strong>等待</strong>前一位的进位信号计算完成才能进行。这种串行的计算方式导致了延迟较高的关键路径，限制了加法器的速度和性能。</p>
+<p>CLA加法器通过引入额外的电路来解决这个问题。这些额外的电路用于<strong>预先计算出每一位的进位信号，而不需要等待前一位的进位信号计算完成</strong>。<strong>这样可以在一次加法操作中同时计算出所有位的进位信号，从而加快了进位信号的确定速度。</strong></p>
+<p>CLA加法器的关键思想是使用预先计算的<strong>进位产生器（carry generator）和进位传播器（carry propagate）</strong>，它们通过组合逻辑电路来快速生成和传播进位信号。预先计算的进位信号在加法操作中可以立即使用，而不需要等待串行进位的传递。</p>
+<p>CLA加法器在高速计算和高性能的应用中被广泛使用，它能够在更短的时间内完成加法操作，并提供更高的运算速度和效率。通过使用额外的电路来预先计算和传播进位信号，CLA加法器大大减少了关键路径的延迟，提高了加法器的整体性能。</p>
+<p>核心公式：</p>
+<p>对于一个N位的Carry-Lookahead（进位预测）加法器，关键路径（Key Path）上只包含3个门（gates）。例如，对于一个64位的Carry-Lookahead加法器，关键路径上仍然只包含3个门。</p>
+<p>具有许多额外的晶体管，所以相对于RCA比较昂贵</p>
+<h2 id="减法器："><a href="#减法器：" class="headerlink" title="减法器："></a>减法器：</h2><p>一句话：减去一个数等于加上它的补码，补码又等于反码+1，于是就可以直接给输入那里加上一个非门，输入那里接上输入电压即可。</p>
+<h2 id="Shift-operation"><a href="#Shift-operation" class="headerlink" title="Shift operation:"></a><strong>Shift operation:</strong></h2><p>算术右移：数字向右移动，<strong>左边补符号位</strong>。也就是说会出现补1的情况，特别记一下<br>逻辑右移：数字向右移动，左边补0。<br>算术左移：数字向左移动，右边补0。<br>逻辑左移：数字向左移动，右边补0。</p>
+<h2 id="算术逻辑单元-ALU-："><a href="#算术逻辑单元-ALU-：" class="headerlink" title="算术逻辑单元(ALU)："></a>算术逻辑单元(ALU)：</h2><p><img src="https://img1.imgtp.com/2023/06/18/k80gopP1.png" alt="ALU"></p>
+<p>如图就是一种实现，F是选择线，选择哪一个操作被进行</p>
+<p><strong>ALU不能从内存加载数据，ALU不能储存数字!</strong></p>
+<p><strong>how to use</strong>:</p>
+<p>We can even use more registers for storage data, and use Multiplexers to select the data for the ALU, and use a Demultiplexer to chose a register to save the result.</p>
+<p>我们甚至可以使用更多的寄存器来存储数据，并使用多路复用器来为ALU选择数据，并使用解路复用器来选择一个寄存器来保存结果。</p>
+<p><strong>操作</strong>：</p>
+<p><img src="https://img1.imgtp.com/2023/06/19/esYNBrbO.png" alt="ALU"></p>
+<p>使用寄存器文件提供ALU输入信号并捕获输出。</p>
+<p>寄存器文件包含多个寄存器。哪个寄存器为ALU提供输入数据取决于地址(A1, A2)。哪个寄存器将存储结果取决于A3。</p>
+<p>如图，WE是决定能不能写，WD是写入数据的意思，A代表地址address，RD代表读取数据</p>
+<p><strong>如何提供带有指令的寄存器文件?</strong>(不考)</p>
+<p>We storage the instructions in the instruction memory.</p>
+<p>•Instruction memory is an area in the physical memory.</p>
+<p><strong>指令如何进入寄存器文件？</strong></p>
+<p>我们使用一个<strong>额外</strong>的寄存器和一个<strong>加法器</strong>来产生程序**计数器(**PC)信号。在每个循环中，PC的值加1。因此，指令可以一个一个地进入寄存器文件。</p>
+<p><img src="https://img1.imgtp.com/2023/06/19/YMPrDCy4.png" alt="上"></p>
+<p>我觉得讲的很清楚！就直接搬上来了。四个部分的码，分别是6+5+5+X</p>
+<h2 id="FSM有限状态机"><a href="#FSM有限状态机" class="headerlink" title="FSM有限状态机"></a>FSM有限状态机</h2><h3 id="常见模型一：Moore-machine"><a href="#常见模型一：Moore-machine" class="headerlink" title="常见模型一：Moore machine"></a>常见模型一：Moore machine</h3><p>Moore机是一种有限状态机，其输出仅依赖于当前状态。它由一组状态、输入字母表、输出字母表和状态转换函数组成。当系统处于特定状态时，它将生成一个预定义的输出，而不考虑输入。换句话说，输出只与当前状态有关，与输入无关。</p>
+<p><strong>一句话介绍</strong>：Moore机的输出仅取决于当前状态</p>
+<p>Moore机<strong>示例</strong>： 假设我们有一个自动售货机，它有三个状态：待机状态、选择商品状态和购买商品状态。该机器只有一个输出，即显示屏上的当前状态信息。不管用户输入什么，机器都会在屏幕上显示当前状态。例如，当机器处于待机状态时，屏幕显示”请插入硬币”，当用户插入硬币时，机器进入选择商品状态并显示”请选择商品”，依此类推。在这个例子中，输出仅取决于当前状态，而与输入无关。</p>
+<p>在这个示例中，输入是用户插入硬币。尽管输入不会直接影响自动售货机的输出，但它触发了状态的转换。用户插入硬币是一个事件，它导致自动售货机从待机状态转换到选择商品状态，并在显示屏上更新相应的提示信息。虽然输入本身并不直接影响输出，但它在状态转换中起着关键的触发作用。</p>
+<h3 id="常见模型二：Mealy-machines"><a href="#常见模型二：Mealy-machines" class="headerlink" title="常见模型二：Mealy machines:"></a>常见模型二：Mealy machines:</h3><p>Mealy机也是一种有限状态机，但它的输出不仅仅依赖于当前状态，还依赖于输入。与Moore机不同，Mealy机在状态转换过程中可以根据输入产生不同的输出。它由一组状态、输入字母表、输出字母表和状态转换函数组成。在每个状态下，它可以根据输入字母表中的输入和当前状态生成一个输出。</p>
+<p><strong>一句话介绍</strong>：Mealy机的输出除了取决于当前状态还取决于输入。这两种机器模型在不同的应用场景中有不同的用途和适用性。</p>
+<p>如图：</p>
+<p><img src="https://img1.imgtp.com/2023/06/18/BPtOMnVE.jpg" alt="讲解图"></p>
+<p>S表示状态，后面的两个数字分别表示状态&#x2F;输出</p>
+<p>有时候也会把输出写到输入旁边，即箭头身上的两个数字0&#x2F;空气，空气表示输出</p>
+<p>如果达到箭头所需要的输入，则会从状态x跳转到新的状态(箭头所指示的状态)</p>
+<p>当然输入也可以让你从自己的状态回到自己的状态</p>
+<p><strong>实例：</strong></p>
+<p>考虑一个闹钟系统，它具有两个状态：闹钟开启状态和闹钟关闭状态。它有两个输入：按钮A和按钮B，以及一个输出：蜂鸣器的状态。当闹钟处于关闭状态时，如果按下按钮A，闹钟将进入开启状态，并开始响铃。当闹钟处于开启状态时，如果按下按钮B，闹钟将回到关闭状态，并停止响铃。在这个例子中，输出既取决于当前状态也取决于输入！也就是既要看你按了按钮没？也要看我现在闹钟的状态。</p>
+<p><strong>区别主要是在于输出是否要看输入</strong></p>
+<p>输出方程</p>
+<p><img src="https://img1.imgtp.com/2023/06/18/YpJ8YVhC.jpg" alt="输出方程"></p>
+<p>这是一道Mealy的例题</p>
+<h2 id="锁存器（Latch）、触发器（Flip-Flop）和寄存器（Register）"><a href="#锁存器（Latch）、触发器（Flip-Flop）和寄存器（Register）" class="headerlink" title="锁存器（Latch）、触发器（Flip-Flop）和寄存器（Register）"></a>锁存器（Latch）、触发器（Flip-Flop）和寄存器（Register）</h2><p>锁存器（Latch）、触发器（Flip-Flop）和寄存器（Register）是数字电路中常见的<strong>存储元件</strong>，它们在一定程度上相互关联，但也存在一些区别。</p>
+<h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><ol>
+<li>功能和使用：锁存器主要用于在某个时刻将输入数据锁定（存储）并保持输出，它可以通过控制信号进行状态保持；触发器是在时钟信号的作用下，在特定的时钟边沿或脉冲到来时改变输出状态；而寄存器则是由多个触发器组成的存储设备，用于存储和操作多位二进制数据。</li>
+<li>输出更新方式：锁存器的输出可以在<strong>控制信号</strong>作用下即时更新，而触发器的输出在<strong>时钟信号</strong>到来时才更新；寄存器可以通过<strong>时钟信号</strong>进行批量更新，将多个触发器的状态同时更新。</li>
+<li>电路结构：锁存器通常是由逻辑门和反馈电路组成，形成一个带有自反馈路径的电路；<strong>触发器是特殊的锁存器</strong>，通常由逻辑门和存储元件（如双稳态元件）组成；寄存器是由多个触发器按照一定的连接方式构成，形成一个多位存储器。</li>
+</ol>
+<h3 id="联系："><a href="#联系：" class="headerlink" title="联系："></a>联系：</h3><ol>
+<li>存储功能：锁存器、触发器和寄存器<strong>都具有存储数据</strong>的功能，可以在特定的时刻保持输入的值。</li>
+<li>时序控制：触发器和寄存器都与<strong>时钟信号</strong>密切相关，可以根据时钟信号来控制数据的存储和传输。</li>
+<li>组合使用：锁存器可以作为触发器和寄存器的<strong>构建单元</strong>，多个锁存器可以组合成触发器，而多个触发器又可以组合成寄存器。</li>
+<li>数据操作：寄存器在锁存数据的基础上，还具有对数据进行<strong>操作和移位</strong>的能力，例如并行加载、并行存储、串行移位等。</li>
+</ol>
+<h3 id="More-detail"><a href="#More-detail" class="headerlink" title="More detail:"></a>More detail:</h3><p>毛刺，闪烁(glitches)：当一个电路中的输入信号发生变化时，根据电路的逻辑和时序关系，输出信号应该相应地进行更新。然而，在一些情况下，由于信号的传播延迟或时序问题，输出信号可能会在短暂的时间内出现非预期的变化。这种非预期的输出变化被称为输出闪烁。</p>
+<p>专业点：当时钟信号统一使得锁存器使能时，会产生的不必要波动。统一很重要，避免错误信号产生混乱，在到达下一个时钟周期，其他电路必须对寄存器采样</p>
+<p>启用触发器添加另一个称为<strong>EN</strong>或<strong>ENABLE</strong>的输入，以确定数据是否加载到时钟边沿。 当 EN 为 TRUE 时，启用触发器的行为类似于普通的 D 触发器。当 EN 为 FALSE 时，启用触发器将忽略时钟并保持其状态。</p>
+<p>重置触发器添加另一个称为 RESET 的输入。 当 RESET 为 FALSE 时，可重置触发器的行为类似于普通的 D 触发器。当 RESET 为 TRUE 时，可复位触发器忽略 D 并将输出复位为 0。</p>
+<h2 id="Memory-Array（存储阵列）"><a href="#Memory-Array（存储阵列）" class="headerlink" title="Memory Array（存储阵列）:"></a>Memory Array（存储阵列）:</h2><p><strong>Memory Array（存储阵列）</strong>：在计算机中，存储器用于存储和检索数据。存储阵列是存储器的一种组织方式，它由<strong>一系列存储单元</strong>（也称为存储单元或存储元件）<strong>组成</strong>。</p>
+<p><strong>位单元（Bit cell）</strong>：存储阵列是一种组织存储器的方式，它由一系列的存储单元组成。每个存储单元被称为位单元（Bit cell），它负责存储一个二进制位（0或1）的数据。位单元具有读取和写入的功能，可以根据需要读取存储的数据或写入新的数据。</p>
+<p>To <strong>read</strong> a bit cell:</p>
+<p>1.The bitline is initially <strong>left floating</strong>.</p>
+<p>2.Then the address decoder turns the <strong>wordline</strong> ON. So the stored value can drive the bitline to 0 or 1. </p>
+<p>To <strong>write</strong> a bit cell:</p>
+<p>1.The bitline is strongly driven to the desired value.</p>
+<p>2.The wordline is turned ON to connect the bit cell on the wordline.</p>
+<p>3.The strongly driven bitline overpowers the contents of the bit cell and writes the desired value into the cell. </p>
+<p>在这个过程中，有三个主要步骤：</p>
+<ol>
+<li>Bitline（位线）的强驱动：首先，将位线强力<strong>驱动</strong>到期望的数值。位线是连接到位单元的<strong>电路路径</strong>，通过<strong>对位线的电压进行调节</strong>来实现数据的写入和读取。</li>
+<li>Wordline（字线）的开启：接下来，打开与该位单元所在的字线相连的开关，即将字线置为ON状态。字线是连接存储器阵列中的行的电路路径，<strong>用于选中特定的位单元</strong>。</li>
+<li>强驱动的位线覆盖位单元内容：在字线<strong>开启的同时</strong>，通过强驱动的位线的电压，对位单元进行<strong>写入</strong>操作。强驱动的位线电压能够克服位单元中原有的内容，并将期望的数值写入位单元中。</li>
+</ol>
+<p><strong>Two-Dimensional Array（二维阵列）</strong>：二维阵列是一种具有行和列的结构，其中每个元素都可以通过行和列的<strong>索引</strong>进行访问。类似于电子表格中的单元格，二维阵列将数据组织成行和列的网格。</p>
+<p><strong>Memory Cells（存储单元）</strong>：存储单元是存储阵列的<strong>基本单元</strong>，用于存储二进制数据（例如位或字节）。每个存储单元可以存储一个特定大小的数据单元。存储单元通常由触发器、闪存电容、磁性元件等构成，具体的实现方式取决于存储器的类型和技术。每个存储单元可以存储一个特定大小的数据单元，例如一个位（bit）或一个字节（byte），以下是一些常见的存储单元类型：</p>
+<p>1.<strong>DRAM</strong>（动态随机存储器）：DRAM使用电容作为存储单元，每个存储单元由一个电容和一个访问晶体管组成。电容存储电荷，表示二进制数据的1或0。DRAM需要定期刷新以维持数据的稳定性，但相比于SRAM，它具有更高的存储密度。</p>
+<p>•When the capacitor is charged to VDD, the stored bit is 1; </p>
+<p>•When it is discharged to GND, the stored bit is 0. </p>
+<p><strong>缺点</strong>：每次读取后必须恢复(重写)数据字。即使不读取DRAM，也必须每隔几毫秒刷新(读取和重写)一次内容</p>
+<p><strong>优势</strong>：便宜又高速</p>
+<p>2.SRAM（静态随机存储器）：SRAM使用触发器作为存储单元，每个存储单元由多个触发器组成。触发器可以保持数据的稳定状态，不需要定期刷新。SRAM具有快速的读写速度和较低的功耗，但相对占用更多的芯片面积。</p>
+<p><strong>缺点</strong>昂贵且缓慢</p>
+<p><strong>优势</strong>无需刷新</p>
+<p>3.Flash存储器：Flash存储器使用闪存电容作为存储单元，类似于DRAM。然而，闪存的存储状态可以长期保持，不需要定期刷新。Flash存储器广泛应用于可擦写、非易失性存储，如闪存驱动器和闪存卡。</p>
+<p>存储单元的位宽决定了它可以存储的数据范围，例如一个存储单元可以存储一个二进制位（0或1），而多个存储单元可以组成一个字节，存储8位二进制数据。</p>
+<p>它的独特<strong>优势</strong>和矩阵有关：二维阵列的结构为存储器提供了灵活性和可扩展性，使得数据的存储和访问更加方便和高效。</p>
+<p><strong>地址解码器</strong>：基本上，地址解码器是一个解复用器。其输入端连接VDD，选择信号作为地址信号。</p>
+<h4 id="内存数组组织："><a href="#内存数组组织：" class="headerlink" title="内存数组组织："></a>内存数组组织：</h4><p>基本上，有许多位单元，它们是存储单元。每个单元可存储1位数据。每个位单元都连接到一个字行和一个位行。字行由地址解码器控制，位行链接到数据。</p>
+<h4 id="操作信息："><a href="#操作信息：" class="headerlink" title="操作信息："></a>操作信息：</h4><p>•Each bit cell stores 1 bit of data.</p>
+<p>•When the wordline is <strong>0</strong>, bitline is disconnected from the bit cell. </p>
+<p>•When the wordline is <strong>1</strong>, the stored bit transfers to or from the bitline. </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年06月19日 01:04</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" title="">https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/&title=Richo blog&pic=https://bztiangou.github.io/Richo.github.ioimages/head.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/&title=Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="post-toc-text">计算机体系结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="post-toc-text">1.进制转换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%8E%9F%E7%A0%81-%E5%8F%8D%E7%A0%81-%E8%A1%A5%E7%A0%81"><span class="post-toc-text">2.原码-反码-补码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-bit-one%E2%80%99s-complement"><span class="post-toc-text">8-bit one’s complement</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%89%E8%B6%A3%E7%9A%84%E6%98%AF%EF%BC%9A"><span class="post-toc-text">有趣的是：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1%E7%9A%84%E8%A1%A5%E7%A0%81%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="post-toc-text">1的补码的加法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-bit-two%E2%80%99s-complement"><span class="post-toc-text">8-bit two’s complement</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BF%AB%E9%80%9F%E5%86%99%E5%87%BA%E8%A1%A5%E7%A0%81%EF%BC%9A"><span class="post-toc-text">快速写出补码：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E5%8A%A0%E6%B3%95%EF%BC%9A"><span class="post-toc-text">补码的加法：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BB%99%E5%87%BA4%E4%BD%8D%E8%A1%A5%E7%A0%81%E8%A1%A5%E5%9B%9E8%E4%BD%8D%E7%9A%84%E5%81%9A%E9%A2%98%E6%8A%80%E5%B7%A7"><span class="post-toc-text">给出4位补码补回8位的做题技巧</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%8D%8A%E5%8A%A0%E5%99%A8-amp-%E5%85%A8%E5%8A%A0%E5%99%A8"><span class="post-toc-text">3.半加器&amp;全加器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%8A%E5%8A%A0%E5%99%A8%EF%BC%9A"><span class="post-toc-text">半加器：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%A8%E5%8A%A0%E5%99%A8%EF%BC%9A"><span class="post-toc-text">全加器：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%8F%E6%B3%95%E5%99%A8%EF%BC%9A"><span class="post-toc-text">减法器：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Shift-operation"><span class="post-toc-text">Shift operation:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83-ALU-%EF%BC%9A"><span class="post-toc-text">算术逻辑单元(ALU)：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FSM%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="post-toc-text">FSM有限状态机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B%E4%B8%80%EF%BC%9AMoore-machine"><span class="post-toc-text">常见模型一：Moore machine</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B%E4%BA%8C%EF%BC%9AMealy-machines"><span class="post-toc-text">常见模型二：Mealy machines:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%94%81%E5%AD%98%E5%99%A8%EF%BC%88Latch%EF%BC%89%E3%80%81%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%88Flip-Flop%EF%BC%89%E5%92%8C%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88Register%EF%BC%89"><span class="post-toc-text">锁存器（Latch）、触发器（Flip-Flop）和寄存器（Register）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="post-toc-text">区别：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%81%94%E7%B3%BB%EF%BC%9A"><span class="post-toc-text">联系：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#More-detail"><span class="post-toc-text">More detail:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Memory-Array%EF%BC%88%E5%AD%98%E5%82%A8%E9%98%B5%E5%88%97%EF%BC%89"><span class="post-toc-text">Memory Array（存储阵列）:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E6%95%B0%E7%BB%84%E7%BB%84%E7%BB%87%EF%BC%9A"><span class="post-toc-text">内存数组组织：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%93%8D%E4%BD%9C%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="post-toc-text">操作信息：</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          (no title)
+        
+      </span>
+    </a>
+  
+  
+    <a href="/Richo.github.io/2023/06/16/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
