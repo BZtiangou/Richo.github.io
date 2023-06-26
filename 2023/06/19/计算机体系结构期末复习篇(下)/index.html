@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://img1.imgtp.com/2023/06/18/mSLxDjsG.jpg">
 <meta property="og:image" content="https://img1.imgtp.com/2023/06/18/2j81QRTK.jpg">
 <meta property="article:published_time" content="2023-06-18T17:04:44.150Z">
-<meta property="article:modified_time" content="2023-06-18T17:04:44.303Z">
+<meta property="article:modified_time" content="2023-06-19T16:59:05.515Z">
 <meta property="article:author" content="Richo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img1.imgtp.com/2023/06/19/5G3V3TGS.jpg">
@@ -173,6 +173,31 @@
 <p>总结起来，内存映射I&#x2F;O是一种将I&#x2F;O设备映射到与主存储器相同的地址空间中的技术。处理器可以通过读写指定的地址来访问设备进行数据的读取和写入。通过使用内存映射I&#x2F;O，设备的访问方式更加统一和简化，处理器可以直接通过内存地址来操作设备。</p>
 <h2 id="汇编语言必须要记的两个图："><a href="#汇编语言必须要记的两个图：" class="headerlink" title="汇编语言必须要记的两个图："></a>汇编语言必须要记的两个图：</h2><p><img src="https://img1.imgtp.com/2023/06/19/QsR31e3x.jpg" alt="2"></p>
 <p><img src="https://img1.imgtp.com/2023/06/19/6Z1BYBwg.jpg" alt="3"></p>
+<h3 id="FP-GP-RA寄存器："><a href="#FP-GP-RA寄存器：" class="headerlink" title="FP,GP,RA寄存器："></a>FP,GP,RA寄存器：</h3><p>以下是对GP（General Purpose，通用寄存器）、FP（Frame Pointer，帧指针）和RA（Return Address，返回地址）寄存器的详细介绍：</p>
+<ol>
+<li><p>GP寄存器（General Purpose，通用寄存器）：</p>
+<ul>
+<li>通用寄存器是一组用于存储通用数据和中间结果的寄存器。它们被设计为具有多种用途，可根据需要用于不同的计算和操作。</li>
+<li>通常，通用寄存器以编号或名称表示，例如R0、R1、R2等。它们在程序执行期间可以用于存储临时变量、函数参数、返回值和其他临时数据。</li>
+<li>通用寄存器的数量和位宽度取决于计算机架构和处理器的设计。常见的架构中，通常有一组固定数量的通用寄存器可供程序员使用。</li>
+</ul>
+</li>
+<li><p>FP寄存器（Frame Pointer，帧指针）：</p>
+<ul>
+<li>帧指针是一个特殊的寄存器，用于在函数调用期间管理函数的活动记录（activation record）或称为帧（frame）。</li>
+<li>在函数调用时，帧指针用于指示当前函数的堆栈帧的起始位置。堆栈帧是一个包含函数局部变量、参数和其他与函数执行相关的信息的区域。</li>
+<li>帧指针的值在函数调用期间保持不变，使得函数可以通过固定偏移量来访问局部变量和参数。它还可以用于恢复函数返回时的堆栈位置。</li>
+</ul>
+</li>
+<li><p>RA寄存器（Return Address，返回地址）：</p>
+<ul>
+<li>返回地址寄存器用于存储函数调用之后要返回的地址。当一个函数调用另一个函数时，当前函数的返回地址会被保存在返回地址寄存器中。</li>
+<li>返回地址是指调用函数的指令的下一条指令的地址，即将控制权返回到调用函数后继续执行的位置。</li>
+<li>当被调用的函数执行完毕时，返回地址寄存器中的值被用来跳转回调用函数的下一条指令，从而实现函数调用的返回。</li>
+</ul>
+<h3 id="SP寄存器"><a href="#SP寄存器" class="headerlink" title="SP寄存器"></a>SP寄存器</h3><p>SP寄存器指示了栈的当前顶部地址，也就是下一个将被弹出的数据的位置。当新数据被推入栈时，SP寄存器的值会减小，指向栈中的更高地址。当数据被弹出栈时，SP寄存器的值会增加，指向栈中的较低地址。因此，SP寄存器通常用于维护和跟踪栈的顶部位置，将栈顶的地址保存在SP寄存器中。所以，陈述是正确的。</p>
+</li>
+</ol>
 <h2 id="缓存："><a href="#缓存：" class="headerlink" title="缓存："></a>缓存：</h2><p>位于CPU与内存之间：缓存-使用缓存当使用缓存时，CPU可以从缓存中请求数据。将数据立即(以非常高的速度)传输到CPU。如果缓存中包含数据(缓存命中)，则缓存可以传递如果缓存不包含数据(缓存丢失)，CPU从内存中取出数据(并将数据放在缓存中以备将来使用)。</p>
 <p>全部读取数看有多少个箭头指向cpu。</p>
 <p><img src="https://img1.imgtp.com/2023/06/19/wFwnmA3h.jpg" alt="1"></p>
@@ -193,7 +218,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年06月19日 01:04</p>
+        <p>最后更新： 2023年06月20日 00:59</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/" title="">https://bztiangou.github.io/Richo.github.io/2023/06/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -304,12 +329,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Read-only-memory"><span class="post-toc-text">Read only memory</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%82%B9%E6%A0%87%E8%AE%B0%E6%B3%95%EF%BC%88dot-notation%EF%BC%89"><span class="post-toc-text">点标记法（dot notation）:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CPU%EF%BC%9A"><span class="post-toc-text">CPU：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E5%A4%84%E7%90%86%E5%99%A8"><span class="post-toc-text">单处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Multicycle-Processor"><span class="post-toc-text">Multicycle Processor</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%A1%E7%BA%BF%E5%BC%8F%E5%A4%84%E7%90%86%E5%99%A8"><span class="post-toc-text">管线式处理器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87"><span class="post-toc-text">输入输出设备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DMA%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%EF%BC%89"><span class="post-toc-text">DMA（直接内存访问）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Port-mapped-I-x2F-O%EF%BC%88%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84I-x2F-O%EF%BC%89"><span class="post-toc-text">Port-mapped I&#x2F;O（端口映射I&#x2F;O）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Memory-mapped-I-x2F-O%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84I-x2F-O%EF%BC%89"><span class="post-toc-text">Memory-mapped I&#x2F;O（内存映射I&#x2F;O）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BF%85%E9%A1%BB%E8%A6%81%E8%AE%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9B%BE%EF%BC%9A"><span class="post-toc-text">汇编语言必须要记的两个图：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%EF%BC%9A"><span class="post-toc-text">缓存：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E9%98%B5%E5%88%97%EF%BC%88Programmable-Logic-Arrays%EF%BC%8CPLA%EF%BC%89%EF%BC%9A"><span class="post-toc-text">可编程逻辑阵列（Programmable Logic Arrays，PLA）：</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Read-only-memory"><span class="post-toc-text">Read only memory</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%82%B9%E6%A0%87%E8%AE%B0%E6%B3%95%EF%BC%88dot-notation%EF%BC%89"><span class="post-toc-text">点标记法（dot notation）:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CPU%EF%BC%9A"><span class="post-toc-text">CPU：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E5%A4%84%E7%90%86%E5%99%A8"><span class="post-toc-text">单处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Multicycle-Processor"><span class="post-toc-text">Multicycle Processor</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%A1%E7%BA%BF%E5%BC%8F%E5%A4%84%E7%90%86%E5%99%A8"><span class="post-toc-text">管线式处理器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87"><span class="post-toc-text">输入输出设备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DMA%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%EF%BC%89"><span class="post-toc-text">DMA（直接内存访问）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Port-mapped-I-x2F-O%EF%BC%88%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84I-x2F-O%EF%BC%89"><span class="post-toc-text">Port-mapped I&#x2F;O（端口映射I&#x2F;O）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Memory-mapped-I-x2F-O%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84I-x2F-O%EF%BC%89"><span class="post-toc-text">Memory-mapped I&#x2F;O（内存映射I&#x2F;O）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BF%85%E9%A1%BB%E8%A6%81%E8%AE%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9B%BE%EF%BC%9A"><span class="post-toc-text">汇编语言必须要记的两个图：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FP-GP-RA%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9A"><span class="post-toc-text">FP,GP,RA寄存器：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SP%E5%AF%84%E5%AD%98%E5%99%A8"><span class="post-toc-text">SP寄存器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%EF%BC%9A"><span class="post-toc-text">缓存：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E9%98%B5%E5%88%97%EF%BC%88Programmable-Logic-Arrays%EF%BC%8CPLA%EF%BC%89%EF%BC%9A"><span class="post-toc-text">可编程逻辑阵列（Programmable Logic Arrays，PLA）：</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          (no title)
+        
+      </span>
+    </a>
   
   
     <a href="/Richo.github.io/2023/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" id="article-nav-older" class="article-nav-link-wrap">
