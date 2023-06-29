@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="微信小程序开发基本组构：1.Pages文件夹用来存放所有的页面 2.app.json：用来存放配置信息，其”pages”:[xx]用来新增页面的存放路径，从根目录开始算起。 项目首页是pages中的第一个，同时它也是按前后顺序进行渲染。 3..js文件是逻辑交互，特别的，APP（）函数是小程序的启动函数 4.wxss是类似于CSS的一种样式表 5.json是一种数据格式，用来存写配置信息 6.si">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Richo blog">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="微信小程序开发基本组构：1.Pages文件夹用来存放所有的页面 2.app.json：用来存放配置信息，其”pages”:[xx]用来新增页面的存放路径，从根目录开始算起。 项目首页是pages中的第一个，同时它也是按前后顺序进行渲染。 3..js文件是逻辑交互，特别的，APP（）函数是小程序的启动函数 4.wxss是类似于CSS的一种样式表 5.json是一种数据格式，用来存写配置信息 6.si">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-06-28T03:25:37.657Z">
+<meta property="article:modified_time" content="2023-06-29T03:47:30.775Z">
+<meta property="article:author" content="Richo">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-微信小程序开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="微信小程序开发"><a href="#微信小程序开发" class="headerlink" title="微信小程序开发"></a>微信小程序开发</h1><h2 id="基本组构："><a href="#基本组构：" class="headerlink" title="基本组构："></a>基本组构：</h2><p>1.<strong>Pages文件夹用来存放所有的页面</strong></p>
+<p>2.app.json：用来存放配置信息，其”pages”:[xx]用来新增页面的存放路径，从根目录开始算起。</p>
+<p>项目首页是pages中的第一个，同时它也是按前后顺序进行渲染。</p>
+<p>3..js文件是逻辑交互，特别的，APP（）函数是小程序的启动函数</p>
+<p>4.wxss是类似于CSS的一种样式表</p>
+<p>5.json是一种数据格式，用来存写配置信息</p>
+<p>6.sitemap.json 是用来微信索引</p>
+<p>7.wxml 和 HTML的区别，标签不同，属性不同，提供了Vue中的模板语法</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>微信小程序的宿主环境是<strong>手机微信</strong>！</p>
+<p>官方把API分成三类：</p>
+<p><strong>1.事件监听类：</strong></p>
+<p>事件监听 API<br>特点: 以 on 开头，用来监听某些事件的触发<br>举例: wx.onwindowResize(function callback) 监听窗口尺寸变化的事件同步 </p>
+<p><strong>2.同步API：</strong><br>特点1:以 Sync 结尾的 API 都是同步 API<br>特点2: 同步 API的执行结果，可以通过函数返值直接获取，如果执行出错会抛出异常举例: wx.setStorageSync(key’，value)向本地存储中写入内容</p>
+<p><strong>3 异步 API</strong><br>特点: 类似于jQuery 中的 $.ajax(options)函数，需要通过 success、fail、complete 接收调用的结果举例: wx.request()发起网络数据请求，通过 success 回调函数接收数据</p>
+<h2 id="协同工作和发布"><a href="#协同工作和发布" class="headerlink" title="协同工作和发布"></a>协同工作和发布</h2><p><strong>管理员</strong>是大boss：</p>
+<p>小程序成员管理体现在管理员对小程序项目成员及体验成员的管理。</p>
+<p><strong>项目成员:</strong><br>表示参与小程序开发、运营的成员<br>可登录小程序管理后台<br>管理员可以添加、删除项目成员，并设置项目成员的角色</p>
+<p><strong>体验成员:</strong><br>表示参与小程序内测体验的成员</p>
+<p>可使用体验版小程序，但不属于项目成员</p>
+<p>管理员及项目成员均可添加、删除体验成员</p>
+<h3 id="我们大多是作为开发者"><a href="#我们大多是作为开发者" class="headerlink" title="我们大多是作为开发者"></a>我们大多是作为开发者</h3><p><strong>开发者权限:可使用小程序开发者工具及对小程序的功能进行代码开发</strong><br><strong>体验者权限:可使用体验版小程序</strong><br><strong>登录权限:可登录小程序管理后台，无需管理员确认</strong><br><strong>开发设置:设置小程序服务器域名、消息推送及扫描普通链接二维码打开小程序</strong><br><strong>腾讯云管理:云开发相关设置</strong></p>
+<h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><p>在data中定义，在wxml中使用。使用的时候要使用Mustach(双大括号)语法</p>
+<p>例如：Page({data:{info:”hello world”}})</p>
+<p><view><view></p>
+<h2 id="事件："><a href="#事件：" class="headerlink" title="事件："></a>事件：</h2><p>渲染层到逻辑层的通信方式。</p>
+<p><strong>常用事件：tap,input,change</strong></p>
+<p>当事件回调发生时，收到一个事件对象event。</p>
+<p>target是触发事件的组件的一些属性值集合</p>
+<p>遇到js和ts文件怎么办？</p>
+<ul>
+<li><p>ts是js的超集，即你可以在ts中使用原生js语法。</p>
+</li>
+<li><p>ts需要静态编译，它提供了强类型与更多面向对象的内容。</p>
+</li>
+<li><p>ts最终仍要编译为弱类型的js文件，基于对象的原生的js，再运行。故ts相较java&#x2F;C#这样天生面向对象语言是有区别和局限的</p>
+</li>
+<li><p>ts是由微软牵头主导的，主要来自C# TypeScript和JavaScript的对比：</p>
+</li>
+<li><p>TypeScript是一个应用程序级的JavaScript开发语言。（这也表示TypeScript比较牛逼，可以开发大型应用，或者说更适合开发大型应用）</p>
+<p>所以ts直接当js用就行了，类似于C++和C</p>
+</li>
+</ul>
+<p>事件传参：</p>
+<p><strong>不能在绑定事件的同时为事件处理函数传递参数</strong>  VUE是可以的</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年06月29日 11:47</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" title="">https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=Richo blog&pic=https://bztiangou.github.io/Richo.github.ioimages/head.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&title=Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/06/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91"><span class="post-toc-text">微信小程序开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%9E%84%EF%BC%9A"><span class="post-toc-text">基本组构：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#API"><span class="post-toc-text">API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%8F%E5%90%8C%E5%B7%A5%E4%BD%9C%E5%92%8C%E5%8F%91%E5%B8%83"><span class="post-toc-text">协同工作和发布</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%88%91%E4%BB%AC%E5%A4%A7%E5%A4%9A%E6%98%AF%E4%BD%9C%E4%B8%BA%E5%BC%80%E5%8F%91%E8%80%85"><span class="post-toc-text">我们大多是作为开发者</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="post-toc-text">数据绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="post-toc-text">事件：</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/06/29/MarkDown/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          (no title)
+        
+      </span>
+    </a>
+  
+  
+    <a href="/Richo.github.io/2023/06/23/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
