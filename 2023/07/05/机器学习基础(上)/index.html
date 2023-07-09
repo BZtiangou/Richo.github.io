@@ -16,7 +16,7 @@
 <meta property="og:description" content="机器学习涉及学科： 概率论，CS，微积分…… 神经网络雏形：感知机 图灵测试：判断是否机器具有是否具有智能 指测试者与被测试者（一个人和一台机器）隔开的情况下，通过一些装置（如键盘）向被测试者随意提问。 进行多次测试后，如果机器让平均每个参与者做出超过30%的误判，那么这台机器就通过了测试，并被认为具有人类智能。——百度百科 算法分类： 监督学习，非监督学习，半监督学习，强化学习(奖罚)。 基础术">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-05T02:52:35.954Z">
-<meta property="article:modified_time" content="2023-07-07T17:04:23.141Z">
+<meta property="article:modified_time" content="2023-07-08T10:32:37.770Z">
 <meta property="article:author" content="Richo">
 <meta name="twitter:card" content="summary">
   
@@ -220,13 +220,62 @@
 <p><strong>KNN算法的缺点:</strong><br>计算量大;</p>
 <p>样本不平衡问题(即有些类别的样本数量很多，而其它样本的数量很少)  比如99个女生，1个男生，我再找一个男生放进去，结果都可能是女生。</p>
 <p>需要大量的内存。</p>
-<h3 id="朴素贝叶斯："><a href="#朴素贝叶斯：" class="headerlink" title="朴素贝叶斯："></a>朴素贝叶斯：</h3><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p>是指在未加标签的数据中，根据数据本身之间的属性对数据进行分类，相似相近的数据分在同一类;不相似或不相近的数据分在不同的类中。本身没有绝对的对错。</p>
+<h3 id="朴素贝叶斯："><a href="#朴素贝叶斯：" class="headerlink" title="朴素贝叶斯："></a>朴素贝叶斯：</h3><p>先举个例子吧，比如去广州看见一位黑人，我们第一反应会认为他是来自非洲，当然别人也有可能来自美洲，只不过非洲的概率最高而已。</p>
+<p>贝叶斯定理：</p>
+<p>解决了现实生活里经常遇到的问题:巴知某条件概率如何得到两个事件交换后的概率，也就是在已知P(AIB)的情况下如何求得P(BIA)。</p>
+<p>例如：</p>
+<p>考虑A和B两队之间的足球比赛:假设过去的比赛中，65%的比赛A队取胜，35%的比赛B队取胜。A队胜的比赛中只有30%是在B队的主场，B队取胜的比赛中75%是在A队主场。如果下一场比赛在B队的主场进行请预测哪支球队最有可能胜出?  </p>
+<p>朴素贝叶斯分类器：<br>朴素贝叶斯分类方法(NaiveBayes)是利用贝叶斯定理来预测一个未知类别的样本属于各个类别的可能性，选择其中可能性最大的一个类别作为该样本的最终类别。</p>
+<p>适用于<strong>属性独立性比较强</strong>的时候，这时候模型得到的相关性比较好。</p>
+<p>比如职业，症状，诊断结果。这就是典型的朴素贝叶斯分类样本。</p>
+<p>假设某个体有n项特征(Feature)，分别为F1、F2、F.。现有贝叶斯分类器m个类别 (Category)，分别为C1、C2……Cm….就是计算出概率最大的那个分类，也就是求算式的最大值。</p>
+<h4 id="分类过程："><a href="#分类过程：" class="headerlink" title="分类过程："></a>分类过程：</h4><p>准备：确定特征属性，获取训练样本</p>
+<p>分类器训练阶段：对每个类别进行计算&#x3D;》对每个特征属性计算有划分的条件概率</p>
+<p>应用阶段：对每个类别进行计算，以P(xly_i)P(y_i)最大项作为x所属类别</p>
+<p>分类器就像医生，待分类项就是病人，输出就是诊断结果</p>
+<p>优点</p>
+<ul>
+<li>稳定的分类效率</li>
+<li>小规模数据表现好，多分类任务，适合增量训练</li>
+<li>可用于文本分类(比如邮件分类：”判断购买一词是垃圾邮件的概率有多高”)<br>缺点:</li>
+<li>属性较多，相关性较大时分类效果不好 (属性不相互独立)</li>
+<li>需要知道先验概率  (比如说我要知道一个黑人来自非洲人的概率，我们需要先知道非洲人有黑人的概率)</li>
+</ul>
+<p><strong>朴素贝叶斯：这是一个生成模型，需要计算联合概率分布，适用于数据较小的时候</strong></p>
+<p><strong>逻辑回归：判别模型，也是条件概率，对属性相关性要求不高，适用于数据较大的时候</strong></p>
+<h3 id="线性SVM"><a href="#线性SVM" class="headerlink" title="线性SVM"></a>线性SVM</h3><p>支持向量机：线性分类器</p>
+<p>分割间隔越大越好，&#x3D;&#x3D;最大分界，SVM找分割面进行分割</p>
+<p><strong>决策面由选择的支持向量决定</strong></p>
+<p>支持向量就是分隔的点，决定超平面方向和大小</p>
+<p>对于数学建模：</p>
+<p>求最优分类器:</p>
+<p>目标函数(分类间隔)</p>
+<p>优化对象 (决策面)</p>
+<p>构建决策面方程:</p>
+<p>二维空间: y&#x3D;ax+b&#x3D;&gt;Xz&#x3D;ax+b&#x3D;&gt; w^T x+y &#x3D;C</p>
+<p><strong>SMO算法：</strong></p>
+<p>SMO算法目的找出函数f(x)，可以对数据进行分类。将问题转换成KKT条件。</p>
+<h4 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h4><p><strong>数据非线性可分的情况</strong>:</p>
+<p>在线性不可分的情况下，得到非线性SVM主要有两个步骤:</p>
+<p>支持向量机通过某种事先选择的非线性映射(核函数)</p>
+<p>将输入变量映射到一个高维特征空间在这个空间中构造最优分类超平面。</p>
+<p><strong>SVM数据集形成的分类函数具有这样的性质:</strong><br>它是一组以支持向量为参数的非线性函数的线性组合，因此分类函数的表达式仅和支持向量的数量有关。<br>独立于空间的维度。在处理高维输入空间的分类时，这种方法尤其有效。</p>
+<p><strong>核函数的价值</strong><br>它虽然也是将特征进行从低维到高维的转换，但核函数事先在低维上进行计算。<br>将实质上的分类效果表现在了高维上，避免了直接在高维空间中的复杂计算。</p>
+<p><strong>SVM优缺点</strong><br>优点：</p>
+<p>具有较好的<strong>鲁棒性</strong></p>
+<p>可以发现目标函数的全局<strong>最小值</strong></p>
+<p>适合在<strong>小样本</strong>训练集上分类</p>
+<p>缺点：</p>
+<p>对大规模训练样本<strong>难以实施</strong></p>
+<p>解决多分类问题<strong>存在困难</strong></p>
+<p>对<strong>缺失数据敏感</strong>，对参数和核函数的选择敏感</p>
+<h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p>是指在未加标签的数据中，根据数据本身之间的属性对数据进行分类，相似相近的数据分在同一类;不相似或不相近的数据分在不同的类中。本身没有绝对的对错。</p>
 <h2 id="半监督学习"><a href="#半监督学习" class="headerlink" title="半监督学习"></a>半监督学习</h2><p>直推SSL：通过监督学习来对未来样本进行预测，比如通过学习1+1&#x3D;2，学会2+2&#x3D;4；</p>
 <p>归纳SSL：</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年07月08日 01:04</p>
+        <p>最后更新： 2023年07月08日 18:32</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80(%E4%B8%8A)/" title="">https://bztiangou.github.io/Richo.github.io/2023/07/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80(%E4%B8%8A)/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -337,12 +386,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">机器学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80%E6%9C%AF%E8%AF%AD%E5%92%8C%E6%A6%82%E5%BF%B5"><span class="post-toc-text">基础术语和概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%9A"><span class="post-toc-text">监督学习：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="post-toc-text">线性回归算法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="post-toc-text">线性回归优化：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9F%BA%E4%BA%8EModelArts%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E9%AA%8C"><span class="post-toc-text">基于ModelArts的线性回归实验</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="post-toc-text">逻辑回归</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#KNN%E7%AE%97%E6%B3%95%EF%BC%8CK%E9%82%BB%E8%BF%91%E7%AE%97%E6%B3%95"><span class="post-toc-text">KNN算法，K邻近算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%EF%BC%9A"><span class="post-toc-text">朴素贝叶斯：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">无监督学习</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">半监督学习</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">机器学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80%E6%9C%AF%E8%AF%AD%E5%92%8C%E6%A6%82%E5%BF%B5"><span class="post-toc-text">基础术语和概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%9A"><span class="post-toc-text">监督学习：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="post-toc-text">线性回归算法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="post-toc-text">线性回归优化：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9F%BA%E4%BA%8EModelArts%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%AE%9E%E9%AA%8C"><span class="post-toc-text">基于ModelArts的线性回归实验</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="post-toc-text">逻辑回归</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#KNN%E7%AE%97%E6%B3%95%EF%BC%8CK%E9%82%BB%E8%BF%91%E7%AE%97%E6%B3%95"><span class="post-toc-text">KNN算法，K邻近算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%EF%BC%9A"><span class="post-toc-text">朴素贝叶斯：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%86%E7%B1%BB%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="post-toc-text">分类过程：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BA%BF%E6%80%A7SVM"><span class="post-toc-text">线性SVM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="post-toc-text">核函数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">无监督学习</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="post-toc-text">半监督学习</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          (no title)
+        
+      </span>
+    </a>
   
   
     <a href="/Richo.github.io/2023/07/01/Java/" id="article-nav-older" class="article-nav-link-wrap">

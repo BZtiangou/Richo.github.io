@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="AI技术应用——视觉处理与识别数字图像处理基础计算机视觉：人的视觉感知的周围世界是三维结构，而计算机中的图像是二维的。计算机视觉就是研究如何让计算机像人一样“看”的科学。 计算机视觉在广义上是和图像相关的技术总称。 图像的感知和获取： 数字图像的采集过程类似人眼，使用大量的光敏传感器构成阵列以获取图像。成像的质量由传感器的单元数，尺寸和传感性能决定。 图像数字化： 多数传感器的输出是连续的电压波形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Richo blog">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="AI技术应用——视觉处理与识别数字图像处理基础计算机视觉：人的视觉感知的周围世界是三维结构，而计算机中的图像是二维的。计算机视觉就是研究如何让计算机像人一样“看”的科学。 计算机视觉在广义上是和图像相关的技术总称。 图像的感知和获取： 数字图像的采集过程类似人眼，使用大量的光敏传感器构成阵列以获取图像。成像的质量由传感器的单元数，尺寸和传感性能决定。 图像数字化： 多数传感器的输出是连续的电压波形">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-07-08T10:33:18.544Z">
+<meta property="article:modified_time" content="2023-07-08T11:55:03.928Z">
+<meta property="article:author" content="Richo">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-AI技术应用——视觉处理与识别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="AI技术应用——视觉处理与识别"><a href="#AI技术应用——视觉处理与识别" class="headerlink" title="AI技术应用——视觉处理与识别"></a>AI技术应用——视觉处理与识别</h1><h2 id="数字图像处理基础"><a href="#数字图像处理基础" class="headerlink" title="数字图像处理基础"></a>数字图像处理基础</h2><h3 id="计算机视觉："><a href="#计算机视觉：" class="headerlink" title="计算机视觉："></a>计算机视觉：</h3><p>人的视觉感知的周围世界是三维结构，而计算机中的图像是<strong>二维</strong>的。<strong>计算机视觉</strong>就是研究如何让计算机<strong>像人一样</strong>“看”的科学。</p>
+<p>计算机视觉在广义上是和图像相关的技术总称。</p>
+<p><strong>图像的感知和获取：</strong></p>
+<p>数字图像的采集过程类似人眼，使用大量的光敏传感器构成阵列以获取图像。成像的<strong>质量</strong>由传感器的单元数，尺寸和传感性能决定。</p>
+<p><strong>图像数字化：</strong></p>
+<p>多数传感器的输出是<strong>连续</strong>的<strong>电压波形</strong>，<strong>图像数字化</strong>是将连续色调的图像转换为计算机能够处理的数字影像的过程。</p>
+<p>图像数字化包括两种处理过程:<strong>采样和量化</strong></p>
+<p><strong>采样</strong><br>图像数字化的采样过程是将空间上连续的图像变化为<strong>离散的点</strong><br>采样后得到离散图像的尺寸称为图像分辨率。分辨率由宽 (width)和高 (height)两个参数构成。宽表示水平方向的细节数，高表示垂直方向的细节数。<br>例如:<br>一副1920x1080分辨率的图像，表示这幅图像是由<br>1920x1080&#x3D;2073600个点组成.</p>
+<p>不同分辨率采样的效果:<br>采样间隔越小，图像采样点数越多，空间分辨率高，图像质量好</p>
+<p><strong>量化</strong>：</p>
+<p>数字图像处理的量化过程将采样点的传感器信号转换成离散的整数值。量化后得到离散图像的每个采样点的变化范围称为**灰度级(depth)**。灰度级通常是2的整数次幂。我们用m级或者n位来表示灰度级。图像数据的灰度级越多视觉效果就越好。计算机中最常用的是8位图像例如:<br>一副8位的图像，表示每个采样点有2^8&#x3D;256级<br>从最暗到最亮，可以分辨256个级别。<br>一副32级的灰度图像，每个采样点从最暗到最亮，可以分辨32个级别</p>
+<p>不同灰度级量化的效果：<br>数据量大量化等级越多，图像层次越丰富，灰度分辨率高，图像质量好，</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年07月08日 19:55</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/" title="">https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/&title=Richo blog&pic=https://bztiangou.github.io/Richo.github.ioimages/head.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/&title=Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/07/08/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB"><span class="post-toc-text">AI技术应用——视觉处理与识别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80"><span class="post-toc-text">数字图像处理基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A"><span class="post-toc-text">计算机视觉：</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/Richo.github.io/2023/07/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80(%E4%B8%8A)/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            
+        </div>
+        <div id="sidebar-menu-box-tags">
+            
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
