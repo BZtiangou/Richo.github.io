@@ -8,15 +8,15 @@
   
     <meta name="keywords" content="Richo's Blog" />
   
-  <meta name="description" content="Java零基础入门java，文档篇 注释 使用和C&#x2F;C++的常用注释方法一样，&#x2F;&#x2F; 和&#x2F;**&#x2F;分别进行单行注释和多行注释。 标识符 类似于C&#x2F;C++&#x2F;python的变量名">
+  <meta name="description" content="Java有C&#x2F;C++基础入门java，文档篇 注释 使用和C&#x2F;C++的常用注释方法一样，&#x2F;&#x2F; 和&#x2F;**&#x2F;分别进行单行注释和多行注释。 标识符 类似于C&#x2F;C++&#x2F;python的变量名 以下内容中所有C均是C&#x2F;C++的缩写…… 数据类型和C一样，都是有那几种数据类型，只不过他把指针改成了数据引用 byte:主要用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Richo blog">
 <meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/07/01/Java/index.html">
 <meta property="og:site_name" content="Richo blog">
-<meta property="og:description" content="Java零基础入门java，文档篇 注释 使用和C&#x2F;C++的常用注释方法一样，&#x2F;&#x2F; 和&#x2F;**&#x2F;分别进行单行注释和多行注释。 标识符 类似于C&#x2F;C++&#x2F;python的变量名">
+<meta property="og:description" content="Java有C&#x2F;C++基础入门java，文档篇 注释 使用和C&#x2F;C++的常用注释方法一样，&#x2F;&#x2F; 和&#x2F;**&#x2F;分别进行单行注释和多行注释。 标识符 类似于C&#x2F;C++&#x2F;python的变量名 以下内容中所有C均是C&#x2F;C++的缩写…… 数据类型和C一样，都是有那几种数据类型，只不过他把指针改成了数据引用 byte:主要用">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-01T13:38:08.369Z">
-<meta property="article:modified_time" content="2023-07-02T14:34:24.664Z">
+<meta property="article:modified_time" content="2023-07-11T12:43:53.466Z">
 <meta property="article:author" content="Richo">
 <meta name="twitter:card" content="summary">
   
@@ -119,15 +119,55 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p>零基础入门java，文档篇</p>
+            <h1 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h1><p>有C&#x2F;C++基础入门java，文档篇</p>
 <p><strong>注释</strong></p>
 <p>使用和C&#x2F;C++的常用注释方法一样，&#x2F;&#x2F; 和&#x2F;**&#x2F;分别进行单行注释和多行注释。</p>
 <p><strong>标识符</strong></p>
 <p>类似于C&#x2F;C++&#x2F;python的变量名</p>
+<p><strong>以下内容中所有C均是C&#x2F;C++的缩写</strong>……</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><strong>数据类型</strong></h2><p>和C一样，都是有那几种数据类型，只不过他把指针改成了数据引用</p>
+<p><strong>byte</strong>:主要用于网络传输，二进制处理，编码转换  -128-127范围</p>
+<p>它有一个优化，只要你没有超过他的范围，就不需要转换，否则就要强转。</p>
+<p><strong>int</strong>:描述大部分的整型数值;<br><strong>long:<strong>主要描述文件大小或者是日期时间的数字(讲解到</strong>类库</strong>的时候会进行说明)</p>
+<p><strong>赋值</strong>的时候特别注意：</p>
+<p>在JDK1.4及以前的版本要在定义的同时给出值，但是在1.5以后可以先声明，后定义。</p>
+<p>同时你也可以在方法外开(相当于全局变量，默认0)</p>
+<p><strong>数据溢出</strong>和C一样(应该都一样，和计算机构造有关)</p>
+<p><strong>数据转换</strong></p>
+<p>数据类型小的遇到大的会<strong>自动</strong>像大的转：小遇到转大</p>
+<p><strong>手动</strong>：强制类型转换(有可能出现溢出)  方法和C一样</p>
+<p><strong>字符编码上的区别：</strong></p>
+<p>Java自己的十六进制编码，该编码的名称为“UNICODE“</p>
+<p>UNICODE 描述了一个更广阔的编码范围，其中也很好的支持有传统的 ASCI I编码，让所有的开发者在使用上不会产生任何的不适应感，由于字符<strong>可以保存中文</strong>，所以在日后进行<strong>网络数据传输</strong>的时候，如果要进行中文数据的处理，建议使用的就是 char来进行操作。</p>
+<p><strong>布尔型的区别：</strong></p>
+<p>boolean  不能使用 bool   并且，0&#x2F;1已经不能替代false跟true了</p>
+<p><strong>字符串类型</strong></p>
+<p>字符串的+ 基础类型(整，浮，字符，<strong>布尔</strong>) 都能正常完成拼接 ，没有’-‘法!!!</p>
+<p><strong>优先级：</strong></p>
+<p>如果是字符串+浮点+整型，执行顺序如下：</p>
+<p>先把浮点转换为字符串，拼接前面，再把整型转成字符串，再拼接。而<strong>不是</strong>把整形转浮点，计算后相加！</p>
+<p>如果要在字符串里放一些<strong>奇怪的符号</strong>比如双引号，单引号，<strong>转义</strong>，要记得转义！和C一样需要转义！</p>
+<p><strong>推断式变量</strong></p>
+<p>JDK1.10以后才有，关键字是var</p>
+<p>类似于C++11的auto，<strong>方便</strong>，但是也有缺点！</p>
+<p><strong>缺点</strong>：</p>
+<p>1.不适合后续维护，其他程序员真的看不懂，麻烦</p>
+<p>2.Java的Var有一个致命缺点，一旦推断出，那么该变量类型不允许改变</p>
+<h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><p><strong>运算符：</strong></p>
+<p>编程语言的本质是数学的计算   –冯诺依曼公式</p>
+<p>自增或自减性能更高(在栈内存中执行)，注意是自！别人计算有用到你，但是你自增也影响不到用你的人！</p>
+<p><strong>关系符号：</strong></p>
+<p>提醒：和C一样，字符比较是会帮你转换成数字，但是是用UNICODE编码</p>
+<p>布尔类型要作比较的时候<strong>只能用等于或者不等于，绝不能用其他关系运算符</strong>，否则会报错操作数错误</p>
+<p><strong>三目运算：</strong></p>
+<p>和C一样，主要用来判断谁来作为赋值的常量罢了。小心<strong>三目嵌套</strong>就可以了</p>
+<p><strong>逻辑运算：</strong></p>
+<p>和C不同！&amp;一个与是正常与，等同于C++的&amp;&amp;,但是JAVA的&amp;&amp;的意思是短路与，意思是我只要在判读过程中能知道结果了，我就不会在执行剩下的语句，可以显著提高性能的同时可以避免这种报错2&gt;1 &amp;&amp; 2&#x2F;0&#x3D;&#x3D;0。</p>
+<p>或也是同理</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年07月02日 22:34</p>
+        <p>最后更新： 2023年07月11日 20:43</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/01/Java/" title="">https://bztiangou.github.io/Richo.github.io/2023/07/01/Java/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -238,7 +278,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java"><span class="post-toc-text">Java</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java"><span class="post-toc-text">Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="post-toc-text">符号</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
