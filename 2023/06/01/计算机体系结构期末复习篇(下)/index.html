@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>计算机体系结构(下) | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="Read only memory只读存储器（Read Only Memory，ROM）是一种存储器类型，用于存储数据和指令，其中存储的内容在制造过程中被预设并无法被修改。ROM中的数据只能被读取，而不能被写入或擦除。 点标记法（dot notation）:以下是使用点标记法（dot notation）来表示只读存储器（ROM）的内容，并说明ROM中电流的流动方向:  “The contents o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机体系结构(下)">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="Read only memory只读存储器（Read Only Memory，ROM）是一种存储器类型，用于存储数据和指令，其中存储的内容在制造过程中被预设并无法被修改。ROM中的数据只能被读取，而不能被写入或擦除。 点标记法（dot notation）:以下是使用点标记法（dot notation）来表示只读存储器（ROM）的内容，并说明ROM中电流的流动方向:  “The contents o">
+<meta property="og:locale">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/19/5G3V3TGS.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/19/QsR31e3x.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/19/6Z1BYBwg.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/19/wFwnmA3h.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/mSLxDjsG.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/18/2j81QRTK.jpg">
+<meta property="article:published_time" content="2023-05-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-13T02:26:18.946Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="Second">
+<meta property="article:tag" content="期末考试复习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/06/19/5G3V3TGS.jpg">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-计算机体系结构期末复习篇(下)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      计算机体系结构(下)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/CS，数字电路/">CS，数字电路</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2023-06-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="Read-only-memory"><a href="#Read-only-memory" class="headerlink" title="Read only memory"></a>Read only memory</h2><p>只读存储器（Read Only Memory，ROM）是一种存储器类型，<strong>用于存储数据和指令</strong>，其中存储的内容在制造过程中被预设并<strong>无法被修改</strong>。ROM中的数据只能被读取，而不能被写入或擦除。</p>
+<h3 id="点标记法（dot-notation）"><a href="#点标记法（dot-notation）" class="headerlink" title="点标记法（dot notation）:"></a>点标记法（dot notation）:</h3><p>以下是使用点标记法（dot notation）来表示只读存储器（ROM）的内容，并说明ROM中电流的流动方向:</p>
+<ol>
+<li>“The contents of a ROM can be indicated using dot notation.”（可以使用点标记法来表示ROM的内容。）： 这句话意味着可以<strong>使用点标记法来表示ROM中存储的数据内容</strong>。点标记法是一种表示二进制数据的方法，其中用点（.）表示二进制位的值。例如，一个4位的ROM中，”1101”可以表示为”.1..”, 其中每个点对应一个二进制位的值。</li>
+<li>“Here, the dots indicate the data. It is not means the lines are simply connected.”（这里，<strong>点表示数据，它并不意味着线路仅仅是连接的</strong>。）： 这句话强调了点标记法中的点仅表示数据的值，而不是简单地表示线路的连接。换句话说，点标记法中的点表示ROM中存储的<strong>数据位的值</strong>，而不是仅仅表示线路是否连接。这是因为ROM中的数据是通过存储元件（如触发器或闪存电容）实现的，数据存储的方式不仅涉及线路连接，还涉及物理元件的状态。</li>
+<li>“The electric current can only flow from the wordlines to bitlines.”（<strong>电流只能从字线流向位线</strong>。）： 这句话指的是在ROM的操作中，电流只能从字线（wordline）流向位线（bitline）。字线是用于选择存储阵列中的特定行的线路，而位线是用于<strong>读取</strong>和写入特定位单元中的数据的线路。在ROM的读取操作中，<strong>电流从被选中的字线流向位线，以读取相应位单元中存储的数据</strong>。写入操作时，字线和位线之间的电流用于将数据写入位单元。</li>
+</ol>
+<h2 id="CPU："><a href="#CPU：" class="headerlink" title="CPU："></a>CPU：</h2><p><strong>获取，解码，执行，读写内存，回写；</strong></p>
+<h4 id="单处理器"><a href="#单处理器" class="headerlink" title="单处理器"></a>单处理器</h4><p>在单个周期(在一个CLK周期内)执行指令。对于最慢的指令，CLK周期必须足够长。</p>
+<h4 id="Multicycle-Processor"><a href="#Multicycle-Processor" class="headerlink" title="Multicycle Processor"></a><strong>Multicycle Processor</strong></h4><p>The multicycle processor breaks an instruction into multiple shorter stepsby adding a group of registers.Thus, some instructions require 5 cycles, but other only require 4 cycles.</p>
+<p>多周期的处理器<br>多周期处理器通过添加一组寄存器将一条指令分解成多个较短的步骤因此，有些指令需要5个周期，而其他指令只需要4个周期。</p>
+<h4 id="管线式处理器"><a href="#管线式处理器" class="headerlink" title="管线式处理器"></a>管线式处理器</h4><p>管线式处理器五个指令可以同时执行，每个阶段一个。流水线使用寄存器将单周期数据路径切割为5段。因此，这些部分可以独立于其他部分工作。<strong>所以每个部分后面都需要加上一个寄存器文件储存输入</strong>。</p>
+<p><img src="https://img1.imgtp.com/2023/06/19/5G3V3TGS.jpg" alt="区别"></p>
+<h2 id="输入输出设备"><a href="#输入输出设备" class="headerlink" title="输入输出设备"></a>输入输出设备</h2><p><strong>是可以与CPU或主内存交换数据的设备(CPU和主内存除外)。</strong></p>
+<p>与I&#x2F;O设备通信内存映射I &#x2F; O内存映射I&#x2F;O设备与主内存使用相同的地址空间。处理器可以从指定地址读写数据以访问I&#x2F;O设备。</p>
+<h4 id="DMA（直接内存访问）"><a href="#DMA（直接内存访问）" class="headerlink" title="DMA（直接内存访问）"></a>DMA（直接内存访问）</h4><p>DMA（直接内存访问）是计算机体系结构中的一种技术，它允许外部设备直接与计算机的内存进行数据传输，而无需CPU的干预。通过使用DMA，外设可以高速地传输大量数据，而无需将数据逐个字节地通过CPU进行处理和复制，从而提高了系统性能和效率。 </p>
+<p>在传统的计算机架构中，当外部设备（如硬盘驱动器、网络适配器、显卡等）需要与内存进行数据交换时，必须通过CPU来完成。这种方式称为程序控制I&#x2F;O（Programmed I&#x2F;O）。在程序控制I&#x2F;O中，CPU将从外设读取或写入数据的任务完全交给自己来处理，这意味着CPU需要逐个字节地传送数据，从而占用了大量的CPU时间和计算资源。</p>
+<p>而DMA技术的引入则改变了这种情况。DMA控制器是一种专门的硬件设备，它具有自己的地址总线、数据总线和控制总线。DMA控制器可以直接访问系统内存，并与外部设备进行高速数据传输，而无需CPU的干预。</p>
+<p>DMA的工作过程如下：</p>
+<ol>
+<li><p>外设向DMA控制器发送数据传输请求。</p>
+</li>
+<li><p>DMA控制器与CPU进行协调，请求获得总线的控制权。</p>
+</li>
+<li><p>CPU授权DMA控制器访问系统总线。</p>
+</li>
+<li><p>DMA控制器通过总线直接访问内存，并与外设进行数据传输。</p>
+</li>
+<li><p>数据传输完成后，DMA控制器释放总线的控制权，通知CPU传输结束。</p>
+</li>
+</ol>
+<p>通过使用DMA，数据可以在外设和内存之间直接传输，而无需CPU的频繁干预。这可以大大提高数据传输速度和系统效率，同时减轻CPU的负担，使CPU能够更多地专注于处理其他重要的计算任务。</p>
+<p>需要注意的是，DMA仍然需要CPU的参与来设置和管理数据传输的参数，例如传输的起始地址、传输长度等。此外，为了确保数据的一致性和正确性，DMA控制器和CPU之间需要进行适当的同步和通信。</p>
+<p>总而言之，DMA是计算机中的一种技术，它允许外设直接与内存进行数据传输，提高了数据传输速度和系统效率，减轻了CPU的负担。</p>
+<h4 id="Port-mapped-I-x2F-O（端口映射I-x2F-O）"><a href="#Port-mapped-I-x2F-O（端口映射I-x2F-O）" class="headerlink" title="Port-mapped I&#x2F;O（端口映射I&#x2F;O）"></a>Port-mapped I&#x2F;O（端口映射I&#x2F;O）</h4><p>Port-mapped I&#x2F;O（端口映射I&#x2F;O）是一种用于访问设备的技术，它使用额外的地址空间（即端口）来与设备进行通信。</p>
+<p>在计算机中，内存和I&#x2F;O设备被分配了不同的地址空间。内存通常使用内存地址进行寻址和访问，而I&#x2F;O设备则使用不同的I&#x2F;O地址进行寻址和访问。在端口映射I&#x2F;O中，为了访问I&#x2F;O设备，计算机体系结构会提供一组专门的I&#x2F;O端口，这些端口是专门为与设备进行通信而预留的。</p>
+<p>每个I&#x2F;O设备都会被分配一个或多个独立的I&#x2F;O端口。通过读取或写入这些特定的I&#x2F;O端口，可以与相应的设备进行通信。与内存地址不同，I&#x2F;O端口通常是一个较小的地址范围，通常以端口号来标识。</p>
+<p>使用端口映射I&#x2F;O时，CPU通过指定端口号来读取或写入设备的寄存器或数据。这些设备可能是输入设备（如键盘、鼠标）或输出设备（如显示器、打印机）。通过读写这些设备的寄存器，可以控制设备的操作和传输数据。</p>
+<p>总结起来，端口映射I&#x2F;O是一种用于访问设备的技术，它使用额外的地址空间（即端口）来与设备进行通信。通过读写特定的I&#x2F;O端口，CPU可以控制设备的操作和传输数据。</p>
+<h4 id="Memory-mapped-I-x2F-O（内存映射I-x2F-O）"><a href="#Memory-mapped-I-x2F-O（内存映射I-x2F-O）" class="headerlink" title="Memory-mapped I&#x2F;O（内存映射I&#x2F;O）"></a>Memory-mapped I&#x2F;O（内存映射I&#x2F;O）</h4><p>Memory-mapped I&#x2F;O（内存映射I&#x2F;O）是一种用于访问设备的技术，它将I&#x2F;O设备映射到与主存储器相同的地址空间中。处理器可以通过读写指定的地址来访问设备进行数据的读取和写入。</p>
+<p>在计算机中，主存储器（RAM）用于存储程序和数据，而I&#x2F;O设备用于输入和输出数据。在内存映射I&#x2F;O中，为了访问I&#x2F;O设备，计算机体系结构将I&#x2F;O设备的寄存器或缓冲区与主存储器的地址空间中的特定地址相关联。</p>
+<p>使用内存映射I&#x2F;O时，设备的寄存器或缓冲区被映射到主存储器的一部分地址范围内。处理器可以像访问主存储器中的数据一样，通过读写相应的地址来访问设备的寄存器或缓冲区。</p>
+<p>例如，假设一个设备的寄存器被映射到主存储器的地址范围0x1000到0x100F。处理器可以使用读操作从地址0x1000读取设备的状态信息，或者使用写操作将数据写入地址0x1004以控制设备的操作。在处理器的视角中，这些地址看起来像是主存储器中的普通内存地址，但实际上它们对应于设备的寄存器或缓冲区。</p>
+<p>通过使用内存映射I&#x2F;O，设备可以像访问内存一样进行读写操作，使得设备的访问更加统一和简化。处理器无需使用专门的I&#x2F;O指令来访问设备，而是直接通过内存地址来进行操作。</p>
+<p>总结起来，内存映射I&#x2F;O是一种将I&#x2F;O设备映射到与主存储器相同的地址空间中的技术。处理器可以通过读写指定的地址来访问设备进行数据的读取和写入。通过使用内存映射I&#x2F;O，设备的访问方式更加统一和简化，处理器可以直接通过内存地址来操作设备。</p>
+<h2 id="汇编语言必须要记的两个图："><a href="#汇编语言必须要记的两个图：" class="headerlink" title="汇编语言必须要记的两个图："></a>汇编语言必须要记的两个图：</h2><p><img src="https://img1.imgtp.com/2023/06/19/QsR31e3x.jpg" alt="2"></p>
+<p><img src="https://img1.imgtp.com/2023/06/19/6Z1BYBwg.jpg" alt="3"></p>
+<h3 id="FP-GP-RA寄存器："><a href="#FP-GP-RA寄存器：" class="headerlink" title="FP,GP,RA寄存器："></a>FP,GP,RA寄存器：</h3><p>以下是对GP（General Purpose，通用寄存器）、FP（Frame Pointer，帧指针）和RA（Return Address，返回地址）寄存器的详细介绍：</p>
+<ol>
+<li><p>GP寄存器（General Purpose，通用寄存器）：</p>
+<ul>
+<li>通用寄存器是一组用于存储通用数据和中间结果的寄存器。它们被设计为具有多种用途，可根据需要用于不同的计算和操作。</li>
+<li>通常，通用寄存器以编号或名称表示，例如R0、R1、R2等。它们在程序执行期间可以用于存储临时变量、函数参数、返回值和其他临时数据。</li>
+<li>通用寄存器的数量和位宽度取决于计算机架构和处理器的设计。常见的架构中，通常有一组固定数量的通用寄存器可供程序员使用。</li>
+</ul>
+</li>
+<li><p>FP寄存器（Frame Pointer，帧指针）：</p>
+<ul>
+<li>帧指针是一个特殊的寄存器，用于在函数调用期间管理函数的活动记录（activation record）或称为帧（frame）。</li>
+<li>在函数调用时，帧指针用于指示当前函数的堆栈帧的起始位置。堆栈帧是一个包含函数局部变量、参数和其他与函数执行相关的信息的区域。</li>
+<li>帧指针的值在函数调用期间保持不变，使得函数可以通过固定偏移量来访问局部变量和参数。它还可以用于恢复函数返回时的堆栈位置。</li>
+</ul>
+</li>
+<li><p>RA寄存器（Return Address，返回地址）：</p>
+<ul>
+<li>返回地址寄存器用于存储函数调用之后要返回的地址。当一个函数调用另一个函数时，当前函数的返回地址会被保存在返回地址寄存器中。</li>
+<li>返回地址是指调用函数的指令的下一条指令的地址，即将控制权返回到调用函数后继续执行的位置。</li>
+<li>当被调用的函数执行完毕时，返回地址寄存器中的值被用来跳转回调用函数的下一条指令，从而实现函数调用的返回。</li>
+</ul>
+<h3 id="SP寄存器"><a href="#SP寄存器" class="headerlink" title="SP寄存器"></a>SP寄存器</h3><p>SP寄存器指示了栈的当前顶部地址，也就是下一个将被弹出的数据的位置。当新数据被推入栈时，SP寄存器的值会减小，指向栈中的更高地址。当数据被弹出栈时，SP寄存器的值会增加，指向栈中的较低地址。因此，SP寄存器通常用于维护和跟踪栈的顶部位置，将栈顶的地址保存在SP寄存器中。所以，陈述是正确的。</p>
+</li>
+</ol>
+<h2 id="缓存："><a href="#缓存：" class="headerlink" title="缓存："></a>缓存：</h2><p>位于CPU与内存之间：缓存-使用缓存当使用缓存时，CPU可以从缓存中请求数据。将数据立即(以非常高的速度)传输到CPU。如果缓存中包含数据(缓存命中)，则缓存可以传递如果缓存不包含数据(缓存丢失)，CPU从内存中取出数据(并将数据放在缓存中以备将来使用)。</p>
+<p>全部读取数看有多少个箭头指向cpu。</p>
+<p><img src="https://img1.imgtp.com/2023/06/19/wFwnmA3h.jpg" alt="1"></p>
+<p>Miss就是去内存中读取的数量</p>
+<p>amat计算就是用两者比例*对应的单位时间再相加即可</p>
+<h2 id="可编程逻辑阵列（Programmable-Logic-Arrays，PLA）："><a href="#可编程逻辑阵列（Programmable-Logic-Arrays，PLA）：" class="headerlink" title="可编程逻辑阵列（Programmable Logic Arrays，PLA）："></a>可编程逻辑阵列（Programmable Logic Arrays，PLA）：</h2><p>可编程逻辑阵列（Programmable Logic Arrays，PLA）是一种<strong>可编程逻辑器件</strong>，用于实现数字电路的逻辑功能。它是一种<strong>具有可编程输入和可编程输出的组合逻辑电路。</strong></p>
+<p>PLA由两个主要部分组成：</p>
+<ol>
+<li><strong>AND阵列</strong>：它由多个可编程的与门组成。每个与门都有多个输入引脚，这些输入引脚可以通过编程进行连接或屏蔽。通过编程，可以确定哪些输入信号在与门中参与运算。</li>
+<li><strong>OR阵列</strong>：它由多个可编程的或门组成。每个或门都有多个输入引脚，这些<strong>输入引脚与AND阵列的输出相连。通过编程，可以确定哪些AND门的输出将作为输入连接到每个或门。</strong></li>
+</ol>
+<p>PLA的编程是<strong>通过设置或烧录内部的开关或存储器单元来完成</strong>的。这些开关或存储器单元的状态决定了逻辑门之间的连接关系，从而实现了特定的逻辑功能。通过重新编程这些开关或存储器单元，可以改变PLA的逻辑功能。</p>
+<p>PLA的主要<strong>优点</strong>是具有灵活性和可重构性。通过重新编程，可以改变PLA的逻辑功能，适应不同的应用需求，而无需更换硬件。这使得PLA成为实现逻辑功能的可编程解决方案之一。</p>
+<p>PLA在数字系统设计中得到广泛应用。它提供了一种灵活和可定制的方式来实现复杂的逻辑功能，同时具有<strong>较低的成本和较短的开发周期。</strong></p>
+<p><img src="https://img1.imgtp.com/2023/06/18/mSLxDjsG.jpg" alt="PLA"></p>
+<p>电路图如下：</p>
+<p><img src="https://img1.imgtp.com/2023/06/18/2j81QRTK.jpg" alt="电路图"></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年07月13日 10:26</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/" title="计算机体系结构(下)">https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/&title=《计算机体系结构(下)》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/&title=《计算机体系结构(下)》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《计算机体系结构(下)》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8B)/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/Second/" class="color2">Second</a>
+      
+    <a href="/Richo.github.io/tags/期末考试复习/" class="color2">期末考试复习</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Read-only-memory"><span class="post-toc-text">Read only memory</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%82%B9%E6%A0%87%E8%AE%B0%E6%B3%95%EF%BC%88dot-notation%EF%BC%89"><span class="post-toc-text">点标记法（dot notation）:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CPU%EF%BC%9A"><span class="post-toc-text">CPU：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E5%A4%84%E7%90%86%E5%99%A8"><span class="post-toc-text">单处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Multicycle-Processor"><span class="post-toc-text">Multicycle Processor</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AE%A1%E7%BA%BF%E5%BC%8F%E5%A4%84%E7%90%86%E5%99%A8"><span class="post-toc-text">管线式处理器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87"><span class="post-toc-text">输入输出设备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DMA%EF%BC%88%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%EF%BC%89"><span class="post-toc-text">DMA（直接内存访问）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Port-mapped-I-x2F-O%EF%BC%88%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84I-x2F-O%EF%BC%89"><span class="post-toc-text">Port-mapped I&#x2F;O（端口映射I&#x2F;O）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Memory-mapped-I-x2F-O%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84I-x2F-O%EF%BC%89"><span class="post-toc-text">Memory-mapped I&#x2F;O（内存映射I&#x2F;O）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%BF%85%E9%A1%BB%E8%A6%81%E8%AE%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9B%BE%EF%BC%9A"><span class="post-toc-text">汇编语言必须要记的两个图：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FP-GP-RA%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%9A"><span class="post-toc-text">FP,GP,RA寄存器：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SP%E5%AF%84%E5%AD%98%E5%99%A8"><span class="post-toc-text">SP寄存器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%93%E5%AD%98%EF%BC%9A"><span class="post-toc-text">缓存：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%AF%E7%BC%96%E7%A8%8B%E9%80%BB%E8%BE%91%E9%98%B5%E5%88%97%EF%BC%88Programmable-Logic-Arrays%EF%BC%8CPLA%EF%BC%89%EF%BC%9A"><span class="post-toc-text">可编程逻辑阵列（Programmable Logic Arrays，PLA）：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          计算机体系结构(上)
+        
+      </span>
+    </a>
+  
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/%E6%97%A0/">无</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/First/" style="font-size: 16.67px;">First</a> <a href="/Richo.github.io/tags/Second/" style="font-size: 20px;">Second</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" style="font-size: 13.33px;">期末考试复习</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/First/" style="font-size: 16.67px;">First</a> <a href="/Richo.github.io/tags/Second/" style="font-size: 20px;">Second</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" style="font-size: 13.33px;">期末考试复习</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

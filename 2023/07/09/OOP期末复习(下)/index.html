@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OOP复习(下) | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="OOP期末复习(下)捕获异常篇：异常处理是一种编程概念，用于处理程序执行过程中可能发生的错误或异常情况。当发生异常情况时，会引发一个异常，表示出现了意外或错误的情况。异常处理提供了一种结构化的方式来捕获和处理这些异常。 在大多数编程语言中，包括Python、Java和C++，使用try-catch块来进行异常处理。下面是它的一般工作流程： 可能引发异常的代码放置在try块中。 如果在try块中发生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOP复习(下)">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="OOP期末复习(下)捕获异常篇：异常处理是一种编程概念，用于处理程序执行过程中可能发生的错误或异常情况。当发生异常情况时，会引发一个异常，表示出现了意外或错误的情况。异常处理提供了一种结构化的方式来捕获和处理这些异常。 在大多数编程语言中，包括Python、Java和C++，使用try-catch块来进行异常处理。下面是它的一般工作流程： 可能引发异常的代码放置在try块中。 如果在try块中发生">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-07-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-13T02:26:46.785Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="Second">
+<meta property="article:tag" content="期末考试复习">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-OOP期末复习(下)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      OOP复习(下)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/Python，开发/">Python，开发</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2023-07-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="OOP期末复习-下"><a href="#OOP期末复习-下" class="headerlink" title="OOP期末复习(下)"></a>OOP期末复习(下)</h2><h2 id="捕获异常篇："><a href="#捕获异常篇：" class="headerlink" title="捕获异常篇："></a>捕获异常篇：</h2><p>异常处理是一种编程概念，用于处理程序执行过程中可能发生的错误或异常情况。当发生异常情况时，会引发一个异常，表示出现了意外或错误的情况。异常处理提供了一种结构化的方式来捕获和处理这些异常。</p>
+<p>在大多数编程语言中，包括Python、Java和C++，使用try-catch块来进行异常处理。下面是它的一般工作流程：</p>
+<p>可能引发异常的代码放置在try块中。</p>
+<p>如果在try块中发生异常，就会抛出或引发该异常。</p>
+<p>抛出的异常被一个或多个catch块捕获。</p>
+<p>catch块通过执行特定的代码来处理异常情况。</p>
+<p>在执行完catch块后，程序会从catch块后面的代码继续运行。</p>
+<p>以下是代码实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 可能引发异常的代码</span></span><br><span class="line">    num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入一个数字：&quot;</span>))</span><br><span class="line">    num2 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入另一个数字：&quot;</span>))</span><br><span class="line">    result = num1 / num2</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;结果：&quot;</span>, result)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;无效的输入。请输入有效的数字。&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：不能除以零。&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;发生错误：&quot;</span>, <span class="built_in">str</span>(e))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在异常处理中，<code>try</code> 块可以与其他关键字搭配使用，以实现更丰富的异常处理逻辑。以下是一些常见的与 <code>try</code> 搭配使用的关键字：</p>
+<p><strong>except</strong>: <code>except</code> 关键字用于<strong>捕获指定类型的异常</strong>，并定义相应的异常处理代码块。可以在 <code>try</code> 块后面跟随一个或多个 <code>except</code> 块，每个 <code>except</code> 块捕获特定类型的异常并处理。可以根据需要指定多个不同类型的异常。</p>
+<p><strong>else</strong>: <code>else</code> 关键字用于定义在 <code>try</code> 块中没有引发异常时要执行的代码块。如果在 <code>try</code> 块中没有发生任何异常，那么将执行 <code>else</code> 块中的代码。<code>else</code> 块是<strong>可选</strong>的。</p>
+<p><strong>finally</strong>: <code>finally</code> 关键字用于定义一个<strong>无论是否发生异常都会执行</strong>的代码块。无论异常是否被捕获和处理，<code>finally</code> 块中的代码都会执行。它主要用于执行一些必要的清理操作，例如关闭文件或释放资源。</p>
+<p>这些关键字可以结合使用，形成更复杂的异常处理结构，以适应各种情况和需求。以下是一个包含 <code>except</code>、<code>else</code> 和 <code>finally</code> 的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 可能引发异常的代码</span></span><br><span class="line">    num1 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入一个数字：&quot;</span>))</span><br><span class="line">    num2 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入另一个数字：&quot;</span>))</span><br><span class="line">    result = num1 / num2</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;无效的输入。请输入有效的数字。&quot;</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;错误：不能除以零。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;结果：&quot;</span>, result)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;异常处理结束。&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，如果用户输入无效的内容（非数字字符）或尝试除以零，相应的异常会被捕获和处理。如果没有异常发生，将执行 <code>else</code> 块中的代码。不管是否发生异常，<code>finally</code> 块中的代码都会得到执行。这样可以确保异常处理的结束和清理工作的完成。</p>
+<h2 id="文件操作："><a href="#文件操作：" class="headerlink" title="文件操作："></a>文件操作：</h2><p>主要想讲一下:</p>
+<p>在 Python 的文件操作中，有多种打开文件的模式。下面列出了常见的文件打开模式及其用途：</p>
+<ol>
+<li><strong>“r” (Read Mode)</strong>:<ul>
+<li>用途：以只读模式打开文件。</li>
+<li>文件指针位置：文件开头。</li>
+<li>如果文件不存在，会引发 <code>FileNotFoundError</code> 异常。</li>
+</ul>
+</li>
+<li><strong>“w” (Write Mode)</strong>:<ul>
+<li>用途：以写入模式打开文件，如果文件存在则清空文件内容，如果文件不存在则创建新文件。</li>
+<li>文件指针位置：文件开头。</li>
+<li>如果文件无法打开，会引发 <code>PermissionError</code> 异常。</li>
+</ul>
+</li>
+<li><strong>“a” (Append Mode)</strong>:<ul>
+<li>用途：以追加模式打开文件，如果文件存在则将内容添加到文件末尾，如果文件不存在则创建新文件。</li>
+<li>文件指针位置：文件末尾。</li>
+<li>如果文件无法打开，会引发 <code>PermissionError</code> 异常。</li>
+</ul>
+</li>
+<li><strong>“x” (Exclusive Creation Mode)</strong>:<ul>
+<li>用途：以排它性创建模式打开文件，只能用于创建新文件，如果文件已存在则会引发 <code>FileExistsError</code> 异常。</li>
+<li>文件指针位置：文件开头。</li>
+<li>如果文件无法创建，会引发 <code>PermissionError</code> 异常。</li>
+</ul>
+</li>
+<li><strong>“t” (Text Mode)</strong>:<ul>
+<li>用途：以文本模式打开文件，默认模式，用于读取或写入文本文件。</li>
+<li>文件指针位置：取决于具体使用情况。</li>
+</ul>
+</li>
+<li><strong>“b” (Binary Mode)</strong>:<ul>
+<li>用途：以二进制模式打开文件，用于读取或写入二进制文件（例如图像、视频等）。</li>
+<li>文件指针位置：取决于具体使用情况。</li>
+</ul>
+</li>
+<li><strong>“+” (Update Mode)</strong>:<ul>
+<li>用途：以更新模式打开文件，可读写文件，用于在同一文件中进行读取和写入操作。</li>
+<li>文件指针位置：取决于具体使用情况。</li>
+</ul>
+</li>
+</ol>
+<p>这些模式可以组合使用，例如 <code>&quot;rt&quot;</code> 表示以文本模式打开文件以供读取。根据具体的需求和操作，选择适合的打开模式可以确保对文件的正确读取和写入操作。记住，在操作完文件后，应当正确地关闭文件，以释放资源并确保数据的完整性。</p>
+<h2 id="数据结构篇："><a href="#数据结构篇：" class="headerlink" title="数据结构篇："></a>数据结构篇：</h2><h3 id="Linked-List-链表"><a href="#Linked-List-链表" class="headerlink" title="Linked List(链表)"></a>Linked List(链表)</h3><p>Linked List（链表）是一种常见的数据结构，用于存储和组织数据。它由一系列节点（Node）组成，每个节点包含两个部分：数据和指向下一个节点的指针。</p>
+<p>Linked List 中的节点通过指针链接在一起，形成一个链式结构。每个节点只知道下一个节点的位置，而不需要在内存中连续存储。这使得插入和删除节点的操作更加高效灵活，但访问节点的随机访问则相对较慢。打个比方：你去医院排队挂号看病，是不是只要拿了那个号码牌就可以随便乱跑了，只要在医生念到你名字的时候再回来就行了。同理，你在内存里面也不需要是连续的，因为你身上有一张号码牌！</p>
+<p><del>比方：可恶，我又被打了！</del>。</p>
+<ol>
+<li><p>插入和删除（在链表头部&#x2F;尾部）：</p>
+<ul>
+<li>插入操作：可以在链表的头部或尾部插入一个新节点。插入新节点时，只需修改节点之间的指针关系，无需移动其他节点。因此，插入操作的时间复杂度为 O(1)。</li>
+<li>删除操作：可以从链表的头部或尾部删除节点。同样，只需修改节点之间的指针关系即可。删除操作的时间复杂度也为 O(1)。</li>
+</ul>
+</li>
+<li><p>双向链表（Doubly Linked List）：</p>
+<ul>
+<li>双向链表是一种改进的链表结构，在每个节点中维护两个指针，一个指向前一个节点，一个指向后一个节点。这样，每个节点既可以向前遍历，也可以向后遍历。</li>
+<li>双向链表支持更多的灵活性和功能。例如，可以在常数时间内删除节点的前驱或后继节点，而不需要遍历整个链表。</li>
+<li>双向链表相对于单向链表的缺点是占用更多的内存空间，因为每个节点需要存储额外的指针。</li>
+</ul>
+</li>
+</ol>
+<p>总结来说，链表是一种动态数据结构，支持高效的插入和删除操作，但对于随机访问则效率较低。双向链表是链表的一种扩展形式，提供了更多功能，但相对占用更多内存。选择使用链表还是双向链表取决于具体的应用需求和操作的频率。</p>
+<h4 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert_at_head</span>(<span class="params">self, data</span>):</span><br><span class="line">        new_node = Node(data)</span><br><span class="line">        new_node.<span class="built_in">next</span> = self.head</span><br><span class="line">        self.head = new_node</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert_at_tail</span>(<span class="params">self, data</span>):</span><br><span class="line">        new_node = Node(data)</span><br><span class="line">        <span class="keyword">if</span> self.head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.head = new_node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            curr_node = self.head</span><br><span class="line">            <span class="keyword">while</span> curr_node.<span class="built_in">next</span>:</span><br><span class="line">                curr_node = curr_node.<span class="built_in">next</span></span><br><span class="line">            curr_node.<span class="built_in">next</span> = new_node</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">display</span>(<span class="params">self</span>):</span><br><span class="line">        curr_node = self.head</span><br><span class="line">        <span class="keyword">while</span> curr_node:</span><br><span class="line">            <span class="built_in">print</span>(curr_node.data, end=<span class="string">&quot; -&gt; &quot;</span>)</span><br><span class="line">            curr_node = curr_node.<span class="built_in">next</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;None&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个链表并进行操作</span></span><br><span class="line">linked_list = LinkedList()</span><br><span class="line">linked_list.insert_at_head(<span class="number">3</span>)</span><br><span class="line">linked_list.insert_at_head(<span class="number">2</span>)</span><br><span class="line">linked_list.insert_at_head(<span class="number">1</span>)</span><br><span class="line">linked_list.insert_at_tail(<span class="number">4</span>)</span><br><span class="line">linked_list.display()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="双链表："><a href="#双链表：" class="headerlink" title="双链表："></a>双链表：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.prev = <span class="literal">None</span></span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DoublyLinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert_at_head</span>(<span class="params">self, data</span>):</span><br><span class="line">        new_node = Node(data)</span><br><span class="line">        <span class="keyword">if</span> self.head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.head = new_node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            new_node.<span class="built_in">next</span> = self.head</span><br><span class="line">            self.head.prev = new_node</span><br><span class="line">            self.head = new_node</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert_at_tail</span>(<span class="params">self, data</span>):</span><br><span class="line">        new_node = Node(data)</span><br><span class="line">        <span class="keyword">if</span> self.head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.head = new_node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            curr_node = self.head</span><br><span class="line">            <span class="keyword">while</span> curr_node.<span class="built_in">next</span>:</span><br><span class="line">                curr_node = curr_node.<span class="built_in">next</span></span><br><span class="line">            curr_node.<span class="built_in">next</span> = new_node</span><br><span class="line">            new_node.prev = curr_node</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">display_forward</span>(<span class="params">self</span>):</span><br><span class="line">        curr_node = self.head</span><br><span class="line">        <span class="keyword">while</span> curr_node:</span><br><span class="line">            <span class="built_in">print</span>(curr_node.data, end=<span class="string">&quot; &lt;-&gt; &quot;</span>)</span><br><span class="line">            curr_node = curr_node.<span class="built_in">next</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;None&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">display_backward</span>(<span class="params">self</span>):</span><br><span class="line">        curr_node = self.head</span><br><span class="line">        <span class="keyword">while</span> curr_node.<span class="built_in">next</span>:</span><br><span class="line">            curr_node = curr_node.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">while</span> curr_node:</span><br><span class="line">            <span class="built_in">print</span>(curr_node.data, end=<span class="string">&quot; &lt;-&gt; &quot;</span>)</span><br><span class="line">            curr_node = curr_node.prev</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;None&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个双向链表并进行操作</span></span><br><span class="line">doubly_linked_list = DoublyLinkedList()</span><br><span class="line">doubly_linked_list.insert_at_head(<span class="number">3</span>)</span><br><span class="line">doubly_linked_list.insert_at_head(<span class="number">2</span>)</span><br><span class="line">doubly_linked_list.insert_at_head(<span class="number">1</span>)</span><br><span class="line">doubly_linked_list.insert_at_tail(<span class="number">4</span>)</span><br><span class="line">doubly_linked_list.display_forward()</span><br><span class="line">doubly_linked_list.display_backward()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h4><p>以下是链表和双向链表中常见操作的时间复杂度</p>
+<p>链表（Linked List）操作的时间复杂度：</p>
+<ul>
+<li>插入（在头部或尾部插入）：O(1)</li>
+<li>删除（在头部或尾部删除）：O(1)</li>
+<li>搜索（按值搜索）：O(n)</li>
+<li>访问（按索引访问）：O(n)</li>
+<li>获取长度：O(n)</li>
+</ul>
+<p>双向链表（Doubly Linked List）操作的时间复杂度：</p>
+<ul>
+<li>插入（在头部或尾部插入）：O(1)</li>
+<li>删除（在头部或尾部删除）：O(1)</li>
+<li>搜索（按值搜索）：O(n)</li>
+<li>访问（按索引访问）：O(n)</li>
+<li>获取长度：O(n)</li>
+</ul>
+<p>需要注意的是，链表和双向链表在插入和删除操作上的时间复杂度是 O(1)，因为只需要修改节点之间的指针关系，而不需要像数组一样进行元素的搬移。然而，搜索、访问和获取长度等操作需要遍历链表中的节点，因此时间复杂度为 O(n)，其中 n 是链表中的节点数。</p>
+<h3 id="二叉树篇："><a href="#二叉树篇：" class="headerlink" title="二叉树篇："></a>二叉树篇：</h3><p>高度的定义为：从结点x向下到某个叶结点<strong>最长简单路径</strong>中<strong>边的条数</strong></p>
+<p>深度是从根节点往下</p>
+<p>对于整棵树来说，最深的叶结点的深度就是树的<strong>深度</strong>；求树根的高度就是求树的高度。 这样树的高度和深度是<strong>相等的</strong>。 </p>
+<p>在m叉树中，m&#x3D;最多出度的那颗节点的出度</p>
+<p>完全m叉树：所有节点的出度都等于m</p>
+<p>下面介绍三种遍历方式：以中间节点为观测点：前序(中左右) ,中序(左中右),后序(左右中)。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二叉树节点定义</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.left = <span class="literal">None</span></span><br><span class="line">        self.right = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后序遍历（Postorder）递归实现</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">postorder_traversal</span>(<span class="params">node</span>):</span><br><span class="line">    <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    postorder_traversal(node.left)</span><br><span class="line">    postorder_traversal(node.right)</span><br><span class="line">    <span class="built_in">print</span>(node.data, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 广度优先遍历（Breadth-First）实现</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">breadth_first_traversal</span>(<span class="params">root</span>):</span><br><span class="line">    <span class="keyword">if</span> root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    queue = []</span><br><span class="line">    queue.append(root)</span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        node = queue.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">print</span>(node.data, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            queue.append(node.left)</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            queue.append(node.right)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前序遍历（Preorder）递归实现</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">preorder_traversal</span>(<span class="params">node</span>):</span><br><span class="line">    <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="built_in">print</span>(node.data, end=<span class="string">&quot; &quot;</span>)</span><br><span class="line">    preorder_traversal(node.left)</span><br><span class="line">    preorder_traversal(node.right)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个二叉树</span></span><br><span class="line">root = Node(<span class="number">1</span>)</span><br><span class="line">root.left = Node(<span class="number">2</span>)</span><br><span class="line">root.right = Node(<span class="number">3</span>)</span><br><span class="line">root.left.left = Node(<span class="number">4</span>)</span><br><span class="line">root.left.right = Node(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后序遍历（Postorder）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;后序遍历：&quot;</span>)</span><br><span class="line">postorder_traversal(root)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 广度优先遍历（Breadth-First）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;广度优先遍历：&quot;</span>)</span><br><span class="line">breadth_first_traversal(root)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前序遍历（Preorder）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;前序遍历：&quot;</span>)</span><br><span class="line">preorder_traversal(root)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash(哈希)"></a>Hash(哈希)</h3><h4 id="Maps-and-Dictionaries（映射和字典）"><a href="#Maps-and-Dictionaries（映射和字典）" class="headerlink" title="Maps and Dictionaries（映射和字典）"></a>Maps and Dictionaries（映射和字典）</h4><p>Maps and Dictionaries（映射和字典）是用于存储键值对的数据结构，它们提供了高效的查找和检索功能。在某些编程语言中，<del>python:你直接报我身份证号码吧。</del>字典是映射的具体实现。</p>
+<h4 id="Hash-Table（哈希表）"><a href="#Hash-Table（哈希表）" class="headerlink" title="Hash Table（哈希表）"></a>Hash Table（哈希表）</h4><p>Hash Table（哈希表）是一种常见的数据结构，用于实现字典和映射。它基于哈希函数将键映射到存储桶（buckets）中，从而实现快速的查找和插入操作。</p>
+<h4 id="Hash-Function（哈希函数）"><a href="#Hash-Function（哈希函数）" class="headerlink" title="Hash Function（哈希函数）"></a>Hash Function（哈希函数）</h4><p>Hash Function（哈希函数）是一种将输入数据映射到固定长度值的函数。它将任意大小的数据转换为固定大小的哈希值，通常是一个整数或字符串。好的哈希函数应该具有均匀分布、高效计算和最小冲突的特性。</p>
+<h4 id="Load-Factor（负载因子）"><a href="#Load-Factor（负载因子）" class="headerlink" title="Load Factor（负载因子）"></a>Load Factor（负载因子）</h4><p>Load Factor（负载因子）是衡量哈希表填满程度的度量。<strong>它表示哈希表中已存储元素的数量与哈希表大小的比值。</strong>负载因子可以帮助我们了解哈希表的空间利用率和性能情况。通常，负载因子越大，哈希表越满，可能会导致冲突增加，从而影响查找和插入操作的性能。</p>
+<p>以下是一个简单的示例代码，演示了使用哈希表实现字典（映射）的基本操作，并介绍了负载因子的概念：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HashTable</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, size</span>):</span><br><span class="line">        self.size = size</span><br><span class="line">        self.table = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(size)]</span><br><span class="line">        self.count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hash_function</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">hash</span>(key) % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, key, value</span>):</span><br><span class="line">        index = self.hash_function(key)</span><br><span class="line">        bucket = self.table[index]</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> bucket:</span><br><span class="line">            <span class="keyword">if</span> pair[<span class="number">0</span>] == key:</span><br><span class="line">                pair[<span class="number">1</span>] = value  <span class="comment"># 如果键已存在，则更新对应的值</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">        bucket.append([key, value])</span><br><span class="line">        self.count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, key</span>):</span><br><span class="line">        index = self.hash_function(key)</span><br><span class="line">        bucket = self.table[index]</span><br><span class="line">        <span class="keyword">for</span> pair <span class="keyword">in</span> bucket:</span><br><span class="line">            <span class="keyword">if</span> pair[<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">return</span> pair[<span class="number">1</span>]  <span class="comment"># 返回对应的值</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span>  <span class="comment"># 如果键不存在，则返回 None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, key</span>):</span><br><span class="line">        index = self.hash_function(key)</span><br><span class="line">        bucket = self.table[index]</span><br><span class="line">        <span class="keyword">for</span> i, pair <span class="keyword">in</span> <span class="built_in">enumerate</span>(bucket):</span><br><span class="line">            <span class="keyword">if</span> pair[<span class="number">0</span>] == key:</span><br><span class="line">                <span class="keyword">del</span> bucket[i]  <span class="comment"># 删除对应的键值对</span></span><br><span class="line">                self.count -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">load_factor</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.count / self.size</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建哈希表</span></span><br><span class="line">hash_table = HashTable(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入键值对</span></span><br><span class="line">hash_table.insert(<span class="string">&quot;apple&quot;</span>, <span class="number">10</span>)</span><br><span class="line">hash_table.insert(<span class="string">&quot;banana&quot;</span>, <span class="number">20</span>)</span><br><span class="line">hash_table.insert(<span class="string">&quot;orange&quot;</span>, <span class="number">30</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取值</span></span><br><span class="line"><span class="built_in">print</span>(hash_table.get(<span class="string">&quot;apple&quot;</span>))  <span class="comment"># 输出: 10</span></span><br><span class="line"><span class="built_in">print</span>(hash_table.get(<span class="string">&quot;banana&quot;</span>))  <span class="comment"># 输出: 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除键值对</span></span><br><span class="line">hash_table.remove(<span class="string">&quot;orange&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算负载因子</span></span><br><span class="line"><span class="built_in">print</span>(hash_table.load_factor())</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，我们定义了一个 <code>HashTable</code> 类，其中包含 <code>insert</code>、<code>get</code>、<code>remove</code> 和 <code>load_factor</code> 方法，用于插入、获取、删除键值对，以及计算负载因子。通过创建 <code>HashTable</code> 对象，并使用相应方法进行操作，我们可以实现对哈希表的基本操作和负载因子的计算。</p>
+<h2 id="期末总结："><a href="#期末总结：" class="headerlink" title="期末总结："></a>期末总结：</h2><p>博主自己也没怎么听过课，纯靠大学生的期末自我救赎，如果发现有错误的，或者看不懂的，欢迎致电博主。最后我和大家祝我考的全会，蒙的全对！(撒花)</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年07月13日 10:26</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/" title="OOP复习(下)">https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/&title=《OOP复习(下)》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/&title=《OOP复习(下)》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OOP复习(下)》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/Second/" class="color2">Second</a>
+      
+    <a href="/Richo.github.io/tags/期末考试复习/" class="color2">期末考试复习</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E4%B8%8B"><span class="post-toc-text">OOP期末复习(下)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%E7%AF%87%EF%BC%9A"><span class="post-toc-text">捕获异常篇：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="post-toc-text">文件操作：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AF%87%EF%BC%9A"><span class="post-toc-text">数据结构篇：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Linked-List-%E9%93%BE%E8%A1%A8"><span class="post-toc-text">Linked List(链表)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="post-toc-text">单链表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8%EF%BC%9A"><span class="post-toc-text">双链表：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="post-toc-text">时间复杂度：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%AF%87%EF%BC%9A"><span class="post-toc-text">二叉树篇：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hash-%E5%93%88%E5%B8%8C"><span class="post-toc-text">Hash(哈希)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Maps-and-Dictionaries%EF%BC%88%E6%98%A0%E5%B0%84%E5%92%8C%E5%AD%97%E5%85%B8%EF%BC%89"><span class="post-toc-text">Maps and Dictionaries（映射和字典）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hash-Table%EF%BC%88%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%89"><span class="post-toc-text">Hash Table（哈希表）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hash-Function%EF%BC%88%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%EF%BC%89"><span class="post-toc-text">Hash Function（哈希函数）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Load-Factor%EF%BC%88%E8%B4%9F%E8%BD%BD%E5%9B%A0%E5%AD%90%EF%BC%89"><span class="post-toc-text">Load Factor（负载因子）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="post-toc-text">期末总结：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/07/09/Welcome%20to%20Richo%20Blog!/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          自我介绍
+        
+      </span>
+    </a>
+  
+  
+    <a href="/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">爬虫</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/%E6%97%A0/">无</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/First/" style="font-size: 16.67px;">First</a> <a href="/Richo.github.io/tags/Second/" style="font-size: 20px;">Second</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" style="font-size: 13.33px;">期末考试复习</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/First/" style="font-size: 16.67px;">First</a> <a href="/Richo.github.io/tags/Second/" style="font-size: 20px;">Second</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" style="font-size: 13.33px;">期末考试复习</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

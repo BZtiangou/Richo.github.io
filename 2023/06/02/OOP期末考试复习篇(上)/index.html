@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OOP复习(上) | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="OOP期末考试复习篇（上）高能预警(破万字) 下面的代码如果有任何问题请自行解决先尝试根据IDE的报错信息自行修改，如果有，百分之99的问题都是缩进问题。实在解决不了就厚一下脸皮找作者拿源码。作者是专业的，除非忍不住~ 类的垃圾回收：Python具有自动垃圾回收（garbage collection）的机制，它会自动检测当所有引用到某个内存块的引用都超出作用域时。Python会自动释放该内存。这种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOP复习(上)">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="OOP期末考试复习篇（上）高能预警(破万字) 下面的代码如果有任何问题请自行解决先尝试根据IDE的报错信息自行修改，如果有，百分之99的问题都是缩进问题。实在解决不了就厚一下脸皮找作者拿源码。作者是专业的，除非忍不住~ 类的垃圾回收：Python具有自动垃圾回收（garbage collection）的机制，它会自动检测当所有引用到某个内存块的引用都超出作用域时。Python会自动释放该内存。这种">
+<meta property="og:locale">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/14/RMoFsNOW.jpg">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/14/Hxh5xFhF.jpg">
+<meta property="article:published_time" content="2023-06-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-13T02:26:57.840Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="Second">
+<meta property="article:tag" content="期末考试复习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/06/14/RMoFsNOW.jpg">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//minhow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/wongminho">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-OOP期末考试复习篇(上)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      OOP复习(上)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/Python，开发/">Python，开发</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2023-06-02
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="OOP期末考试复习篇（上）"><a href="#OOP期末考试复习篇（上）" class="headerlink" title="OOP期末考试复习篇（上）"></a>OOP期末考试复习篇（上）</h1><p><del>高能预警(破万字)</del> 下面的代码如果有任何问题请<del>自行解决</del>先尝试根据IDE的报错信息自行修改，如果有，百分之99的问题都是缩进问题。实在解决不了就厚一下脸皮找作者拿源码。作者是专业的，除非忍不住~</p>
+<h2 id="类的垃圾回收："><a href="#类的垃圾回收：" class="headerlink" title="类的垃圾回收："></a>类的垃圾回收：</h2><p>Python具有自动垃圾回收（garbage collection）的机制，它会自动检测当所有引用到某个内存块的引用都超出作用域时。Python会自动释放该内存。这种自动垃圾回收机制通常工作良好，可以避免<strong>内存泄漏</strong>问题。这个问题有多严重呢？可以自学一下网安，这里不介绍，避免凑字数，其实已经凑了，哈哈哈~</p>
+<p>Python中的gc（garbage collector）模块暴露了Python的底层内存管理机制，即自动垃圾回收器。gc模块包括用于控制垃圾回收器操作的函数，以及用于检查系统中已知的对象（无论是等待回收还是被引用循环困住无法释放）的函数。</p>
+<p>在Python中，类可以定义一个<strong>特殊</strong>的<code>__del__(self)</code>方法，当实例即将被销毁时调用该方法。在大多数情况下，不需要显式定义<code>__del__</code>方法，因为Python的自动垃圾回收机制会自动处理对象的释放。然而，<strong>如果需要在对象被销毁前执行一些特定的操作，可以定义<code>__del__</code>方法来实现。</strong>也就是说，你可以决定它的die法。</p>
+<p>需要注意的是，尽管Python具有自动垃圾回收的功能，但这并不代表它可以处理所有情况。某些情况下，可能会存在引用循环（reference cycles）导致无法释放的对象。在这种情况下，可以使用gc模块的功能来检查并手动解决这些问题。</p>
+<p>总结起来，Python的垃圾回收机制使得大多数情况下不需要显式定义析构函数。但如果需要在对象销毁前执行一些特定操作，可以使用<code>__del__</code>方法。此外，gc模块提供了更细粒度的控制和检查垃圾回收过程的功能。最贴心的是这个模块还是自带的！</p>
+<h2 id="CRC卡篇："><a href="#CRC卡篇：" class="headerlink" title="CRC卡篇："></a>CRC卡篇：</h2><p>摘自OOA（对象导向分析）</p>
+<p>CRC卡中的几个重要元素：</p>
+<ol>
+<li><p>类名（Class Name）：卡片的顶部标注类的名称，用于标识该类的身份。</p>
+</li>
+<li><p>责任（Responsibility）：卡片的左侧列出了类的责任，即该类应该承担的任务和功能。这些责任通常以动词形式表示。</p>
+</li>
+<li><p>协作（Collaboration）：卡片的右侧列出了与该类进行协作的其他类或对象。这些协作关系描述了该类与其他类之间的交互和通信。</p>
+<p>下面是一个简单的示例，展示如何使用CRC卡来设计一个简单的图书馆管理系统：</p>
+<p>角色：图书馆、图书、读者</p>
+<p><strong>Class: Library (图书馆)</strong></p>
+<p>Responsibilities (职责):</p>
+<ul>
+<li>维护图书馆中的图书信息</li>
+<li>提供图书借阅和归还功能</li>
+<li>管理读者信息</li>
+</ul>
+<p>Collaborations (协作):</p>
+<ul>
+<li>与图书合作：借阅和归还图书</li>
+<li>与读者合作：管理读者的借阅记录和信息</li>
+</ul>
+<p><strong>Class: Book (图书)</strong></p>
+<p>Responsibilities (职责):</p>
+<ul>
+<li>记录图书的基本信息（书名、作者、出版日期等）</li>
+<li>提供访问图书信息的方法</li>
+</ul>
+<p>Collaborations (协作):</p>
+<ul>
+<li>与图书馆合作：被借阅和归还</li>
+</ul>
+<p><strong>Class: Reader (读者)</strong></p>
+<p>Responsibilities (职责):</p>
+<ul>
+<li>注册和管理读者信息</li>
+<li>借阅和归还图书</li>
+</ul>
+<p>Collaborations (协作):</p>
+<ul>
+<li>与图书馆合作：借阅和归还图书</li>
+</ul>
+<p>在这个例子中，CRC卡帮助我们识别了三个类（图书馆、图书、读者）以及它们各自的职责和协作关系。通过使用CRC卡，我们可以更清晰地定义类的功能和职责，并帮助团队成员在设计和开发过程中更好地理解和沟通。</p>
+<p>注意：这只是一个简单的示例，实际的系统可能涉及更多的类和复杂的职责和协作关系。使用CRC卡的关键是团队成员之间的合作和讨论，以确保在设计过程中考虑到所有必要的类和其职责。</p>
+<h2 id="UML篇："><a href="#UML篇：" class="headerlink" title="UML篇："></a>UML篇：</h2><p>摘自OOD（对象导向设计）</p>
+<p>将对象导向分析（OOA）的结果转化为实际的软件系统设计。OOA关注问题领域的概念、结构和行为的抽象描述，而OOD则关注如何将这些抽象转化为具体的软件设计和实现。</p>
+<p>OOA（对象导向分析）是软件开发的早期阶段，关注于从问题领域中收集需求和问题描述，将现实世界的问题抽象为对象，并定义对象之间的关系和行为。OOA阶段的目标是理解问题域，并将其抽象为一个概念模型，以便更好地分析和理解问题的本质。</p>
+<p>OOD（对象导向设计）是在OOA的基础上进行的，它将OOA阶段得到的概念模型转化为实际的软件系统设计。OOD关注如何将抽象的对象、关系和行为转化为具体的类、模块和接口，并考虑系统的架构、设计原则、设计模式等。OOD阶段的目标是创建一个高质量、可维护、可扩展的软件设计，为实现阶段提供指导和基础。</p>
+<p>OOP（面向对象编程）是在OOD阶段之后的实现阶段，它是一种编程范式，使用面向对象的概念和原则来编写代码。OOP关注如何使用编程语言的特性和语法来实现OOD阶段设计的类、对象、继承、多态等概念。OOP将OOD阶段设计的概念转化为实际的代码，并通过对象的交互来实现软件系统的功能。</p>
+<p>因此，OOA、OOD和OOP是软件开发过程中的不同阶段和层次，它们相互关联，共同构成了面向对象的开发方法。OOA提供了问题领域的抽象描述，OOD将抽象转化为具体的设计，而OOP则实现了设计的代码。通过这样的有机关系，开发人员可以更好地理解和满足用户需求，创建可维护、灵活和可扩展的软件系统。</p>
+<p>UML的</p>
+<p>主要目的：</p>
+<ol>
+<li>支持关于系统分析和设计的沟通：UML提供了一种统一的语言和符号，用于描述和传达软件系统的分析和设计过程中的概念、结构和行为。它为开发团队成员、领域专家和利益相关者之间的沟通提供了共享的语言和工具。</li>
+<li>支持从问题域到解决方案域的转换：UML的另一个目的是帮助将问题领域（现实世界中的需求和问题描述）转换为解决方案域（软件系统的设计和实现）。通过使用UML的建模技术和图形表示，可以将问题领域中的概念、实体和关系映射到软件系统的构建和实现中。</li>
+</ol>
+</li>
+</ol>
+<h2 id="装饰器篇："><a href="#装饰器篇：" class="headerlink" title="装饰器篇："></a>装饰器篇：</h2><h3 id="1-函数装饰器："><a href="#1-函数装饰器：" class="headerlink" title="1.函数装饰器："></a>1.函数装饰器：</h3><p>​					1.装饰器的工作原理是替换被装饰的函数。</p>
+<p>​					2.当你应用一个装饰器时，装饰器函数会接受被装饰的函数作为参数，并根据需要对其进行修改或扩展。然后，装饰器函数需要返回一个新的函数，该新函数会取代原始的被装饰函数。</p>
+<p>​					3.首先装饰器要有一个名称，比如square,然后它需要一个参数是函数，我这就把形式参数命名成了ofunc。随后就需要编写新的函数来代替旧的函数，也即编写隐式传递函数nf，当然，你可以编写多个newfunction，最后返回的时候只需要返回需要替代的那个函数即可。</p>
+<p>​					4.也就是说咱的add函数已经没有调用了，实际上用的是square的nf,他需要传入n个参数，这n个参数实际上就是ofunc的参数，然后隐式调用nf</p>
+<p>​					5.再次强调square其实只是一个装饰器的名称，不是他被调用</p>
+<p>​					6.然后我们就执行具体的函数内容，比如这里则是将ofunc的返回值变成了平方,强调一下ofunc是函数！</p>
+<p>​					7.最后我们把nf返回给调用者即可</p>
+<p>​			<strong>python代码如下：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">square</span>(<span class="params">ofunc</span>):  <span class="comment"># 定义一个装饰器函数square，接收一个函数作为参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nf</span>(<span class="params">*args</span>):  <span class="comment"># 定义一个内部函数nf，接收任意数量的参数</span></span><br><span class="line">    <span class="keyword">return</span> ofunc(*args) ** <span class="number">2</span>  <span class="comment"># 调用传入的函数ofunc，并将其结果平方后返回</span></span><br><span class="line"><span class="keyword">return</span> nf  <span class="comment"># 返回内部函数nf</span></span><br><span class="line"><span class="meta">@square  </span><span class="comment"># 使用装饰器@square，将下面的函数进行装饰</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x, y</span>):  <span class="comment"># 定义一个函数add，接收两个参数</span></span><br><span class="line">    <span class="keyword">return</span> x + y  <span class="comment"># 返回两个参数的和</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">1</span>, <span class="number">2</span>))  <span class="comment"># 调用装饰后的函数add，并输出结果</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-类方法-classmethod"><a href="#2-类方法-classmethod" class="headerlink" title="2.类方法(classmethod):"></a>2.类方法(classmethod):</h2><p>​	<code>@classmethod</code> 是一个装饰器，用于定义类中的方法。被 <code>@classmethod</code> 装饰的方法不需要实例化类对象即可调用，它们操作的是类本身，而不是类的实例。被传递给 <code>@classmethod</code> 的第一个参数通常被命名为 <code>cls</code>，它代表类本身，而不是实例。使用 <code>cls</code> 参数，可以在方法中访问和修改类的属性或调用其他类方法。</p>
+<p>与普通函数的装饰器不同，类方法通过类本身来调用，而不是通过类的实例。它们可以访问类的属性，而不需要创建类的实例对象。这使得类方法成为在不创建实例的情况下对类进行操作的有用工具。</p>
+<p>以下是一个使用 <code>@classmethod</code> 装饰器的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>:</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">    MyClass.count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_instance_count</span>(<span class="params">cls</span>):</span><br><span class="line">    <span class="keyword">return</span> cls.count</span><br><span class="line"><span class="built_in">print</span>(MyClass.get_instance_count())  <span class="comment"># 输出: 0</span></span><br><span class="line"></span><br><span class="line">obj1 = MyClass()</span><br><span class="line"><span class="built_in">print</span>(MyClass.get_instance_count())  <span class="comment"># 输出: 1</span></span><br><span class="line"></span><br><span class="line">obj2 = MyClass()</span><br><span class="line"><span class="built_in">print</span>(MyClass.get_instance_count())  <span class="comment"># 输出: 2</span></span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，<code>get_instance_count</code> 是一个类方法，它通过 <code>cls</code> 参数访问和返回类属性 <code>count</code>。可以直接通过类调用该方法，而无需创建类的实例。</p>
+<p>需要注意的是，类方法通常用于在类级别上执行操作，而不是在实例级别上执行操作。因此，类方法中不能直接访问实例的属性。</p>
+<h2 id="3-静态方法-staticmethod"><a href="#3-静态方法-staticmethod" class="headerlink" title="3.静态方法(staticmethod):"></a>3.静态方法(staticmethod):</h2><p>​		<code>@staticmethod</code> 是另一个装饰器，用于定义类中的静态方法。静态方法与类方法相似，但没有额外的参数传递给它们。它们既不需要实例化类对象，也不需要类本身作为参数。</p>
+<p>静态方法通常用于执行与类相关但与类的实例无关的操作。它们在逻辑上属于类，但不依赖于类的状态或属性。</p>
+<p>静态方法在以下情况下通常很有用：</p>
+<ul>
+<li>执行与类相关的操作，但不需要访问实例属性或方法。</li>
+<li>在类中的其他方法中被调用，而无需创建实例对象。</li>
+</ul>
+<p>需要注意的是，静态方法与类的状态和实例无关，因此在静态方法中不能使用<code>self</code>或<code>cls</code>参数来引用实例或类本身。如果需要访问类属性或方法，应该使用类方法（<code>@classmethod</code>）而不是静态方法。</p>
+<p>以下是一个使用 <code>@staticmethod</code> 装饰器的示例：</p>
+<p>class MathUtils:<br>    @staticmethod<br>    def add_numbers(x, y):<br>        return x + y</p>
+<p>result &#x3D; MathUtils.add_numbers(3, 5)<br>print(result)  # 输出: 8</p>
+<p>在上面的示例中，<code>add_numbers</code> 是一个静态方法，它接受两个参数 <code>x</code> 和 <code>y</code>，并返回它们的和。我们可以直接通过类调用静态方法，而无需创建类的实例。</p>
+<p>需要注意的是，静态方法与类属性或实例属性无关，它们不可以访问类属性或实例属性。它们仅依赖于传递给它们的参数，并且不对类的状态进行修改。静态方法主要用于组织和封装与类相关的独立功能。</p>
+<h3 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h3><p>1.在静态方法内部无法直接访问类的实例属性和方法，也无法修改类的状态（类属性的值）。静态方法不会隐式地传递实例或类对象作为参数，因此它们不与特定的实例或类关联。</p>
+<p>总结起来，静态方法是一种独立于类实例和类状态的方法，它们可以通过类名直接调用，无法访问实例属性和方法，也无法修改类的状态。静态方法在处理与类相关的操作时很有用，但不需要访问实例或类的状态。</p>
+<p>2.类方法具有对类的状态进行任何更改的能力。类方法是与类关联的方法，可以访问和修改类的状态（类属性）。在类方法内部，可以使用特殊的第一个参数 <code>cls</code> 来引用类对象本身。通过 <code>cls</code> 参数，可以访问和修改类的属性，包括类级别的属性和方法。可以通过类方法来实现对类状态的修改、初始化类属性等操作。</p>
+<p>下面是一个示例代码，展示了类方法如何修改类的状态：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>:</span><br><span class="line">    class_attribute = <span class="string">&quot;Initial Value&quot;</span></span><br><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">class_method</span>(<span class="params">cls</span>):</span><br><span class="line">    cls.class_attribute = <span class="string">&quot;Modified Value&quot;</span></span><br><span class="line"><span class="built_in">print</span>(MyClass.class_attribute)  <span class="comment"># 输出: Initial Value</span></span><br><span class="line"></span><br><span class="line">MyClass.class_method()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(MyClass.class_attribute)  <span class="comment"># 输出: Modified Value</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="测试单元篇："><a href="#测试单元篇：" class="headerlink" title="测试单元篇："></a>测试单元篇：</h2><h3 id="1-比较常见的单元测试："><a href="#1-比较常见的单元测试：" class="headerlink" title="1.比较常见的单元测试："></a>1.比较常见的单元测试：</h3><p>Python的<code>unittest</code>是一个内置的测试框架，用于编写、组织和执行单元测试。说人话，给你的程序进行结果测试，相当于程序考试。只不过不合格苦的不是代码，而是写这串代码的人，和我们考生考试不一样，苦的不是教我们的人，而是考生自己QWQ！！</p>
+<p><code>unittest</code>提供了一组类和方法，用于定义测试用例、执行测试并生成测试报告。它支持自动化执行测试，并提供了丰富的断言方法和测试运行控制功能。</p>
+<p>它的常规步骤如下：</p>
+<ol>
+<li><p>导入<code>unittest</code>模块。</p>
+</li>
+<li><p>创建一个继承自<code>unittest.TestCase</code>的测试类。</p>
+</li>
+<li><p>在测试类中定义测试方法，每个方法以<code>test_</code>开头。</p>
+</li>
+<li><p>在测试方法中使用断言方法对代码的行为进行验证。</p>
+</li>
+<li><p>可选地，可以在测试方法中使用一些特定的方法，如<code>setUp()</code>和<code>tearDown()</code>，在测试前后执行一些准备和清理操作。</p>
+</li>
+<li><p>使用<code>unittest.main()</code>或其他方式运行测试。</p>
+<p>python示例代码如下：</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">import</span> unittest  <span class="comment"># 导入unittest模块，用于编写和运行测试</span></span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span>  <span class="comment"># 定义一个函数foo，它将给定的参数x加1并返回</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTest</span>(unittest.TestCase):  <span class="comment"># 创建一个继承自unittest.TestCase的测试类</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_foo</span>(<span class="params">self</span>):  <span class="comment"># 定义一个测试方法test_foo</span></span><br><span class="line">        self.assertEqual(foo(<span class="number">3</span>), <span class="number">4</span>)  <span class="comment"># 使用断言方法self.assertEqual来验证foo(3)的结果是否等于4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    unittest.main()  <span class="comment"># 运行unittest的主程序，自动发现并执行测试方法`</span></span><br></pre></td></tr></table></figure>
+
+<p>特别需要注意的是这里的调用是运行unittest的主程序，而不是实例一个MT的对象再调用test_foo方法，这种错误的做法是没有任何结果的，虽然不会报错。如果报错了，那是你的码力问题。</p>
+<h3 id="2-文档测试篇："><a href="#2-文档测试篇：" class="headerlink" title="2.文档测试篇："></a>2.文档测试篇：</h3><p>Python的doctest是一种用于测试和文档编写的工具，它允许你在代码的文档字符串中编写测试用例，并自动运行这些测试用例进行验证。</p>
+<p>doctest的测试用例是以<strong>交互式会话</strong>的形式编写在文档字符串中。它模拟了对代码的实际交互，并使用预期的输出结果来验证代码的正确性。这种方式使得测试用例和代码文档保持紧密结合，可以作为示例和使用说明。</p>
+<p>是不是懵逼了？</p>
+<p>那我来解释一下：1.<strong>文档字符串</strong>（也称为docstring）提供了对函数的说明和文档，帮助其他开发人员理解函数的用途和使用方式。它是一种约定俗成的编写文档的方式，并且可以被工具和库用于自动生成文档。</p>
+<p>​								2.<strong>函数的文档字符串</strong>是在函数定义中包含的一个多行字符串，用于描述函数的目的、输入参数、返回值以及示例等信息。它位于函数定义的开头，被三引号（’’’ 或 “””）包围起来。</p>
+<p><strong>文档字符串</strong>的内容通常包括以下几个部分：</p>
+<ol>
+<li>函数的目的和功能的简要描述。</li>
+<li>输入参数的说明，包括参数名称、类型和可能的取值范围等。</li>
+<li>返回值的说明，包括返回结果的类型和可能的取值。</li>
+<li>示例和使用说明，通过使用<code>&gt;&gt;&gt;</code>和预期输出来展示函数的使用方式和期望结果。强调一下&gt;&gt;&gt;表示函数的调用，即函数名+参数</li>
+<li>其他相关信息，如异常处理、注意事项、示例调用等。</li>
+</ol>
+<p>以下是python代码详解</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    返回两个数的和。</span></span><br><span class="line"><span class="string">	示例:</span></span><br><span class="line"><span class="string">	&gt;&gt;&gt; add(3, 3)</span></span><br><span class="line"><span class="string">	6</span></span><br><span class="line"><span class="string">	&gt;&gt;&gt; add(-1, 1)</span></span><br><span class="line"><span class="string">	0</span></span><br><span class="line"><span class="string">	&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> x + y`</span><br><span class="line"><span class="keyword">import</span> doctest</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    doctest.testmod()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="pytest篇："><a href="#pytest篇：" class="headerlink" title="pytest篇："></a>pytest篇：</h3><p><code>pytest</code>是Python中一种功能强大且易于使用的<strong>第三方测试框架</strong>。它提供了简单而灵活的方式来编写测试用例，并支持自动化发现和运行测试。</p>
+<p>与Python内置的<code>unittest</code>相比，<code>pytest</code>具有更简洁的语法和更丰富的功能，能够简化测试编写的过程，并提供丰富的插件生态系统。</p>
+<p>python代码如下：</p>
+<p>def add(x, y):<br>    return x + y</p>
+<p>def test_add():<br>    result &#x3D; add(2, 3)<br>    assert result &#x3D;&#x3D; 5</p>
+<p>def test_subtract():<br>    result &#x3D; add(5, 3)<br>    assert result &#x3D;&#x3D; 2 </p>
+<p>在上面的示例中，我们定义了两个测试函数<code>test_add</code>和<code>test_subtract</code>，它们分别测试了<code>add</code>函数的加法和减法功能。每个测试函数都使用<code>assert</code>语句来断言测试的结果是否符合预期。</p>
+<p>要运行这些测试，只需在命令行中运行<code>pytest</code>命令。<code>pytest</code>会自动发现以<code>test_</code>开头的函数，并执行它们。运行结果将显示每个测试的状态（通过、失败等）以及相关的详细信息。</p>
+<p>强调一下，第三方是让你下载模块的意思pip install pytest,别不看说明就直接跑，然后报错了要抹我脖子。瑟瑟发抖的我QWQ.</p>
+<p>测试篇就到此结束了。如有不懂，算你倒霉。</p>
+<h2 id="python的成语篇："><a href="#python的成语篇：" class="headerlink" title="python的成语篇："></a>python的成语篇：</h2><p>Python idioms指的是在Python编程中常用的惯用法或最佳实践，它们旨在使代码更加清晰、简洁、可读性强，并且符合Python社区的共识。</p>
+<ol>
+<li>列表推导式<code>squares = [x**2 for x in range(1, 6)]</code></li>
+</ol>
+<p>2.生成器表达式 <code>squares = (x**2 for x in range(1, 6))</code></p>
+<p>3.使用enumerate函数获取索引和值：</p>
+<p><code>fruits = [&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;] for i, fruit in enumerate(fruits):     print(i, fruit)</code></p>
+<p>使用<code>enumerate</code>函数可以同时获取迭代对象的索引和值，提高代码的可读性。</p>
+<p>4.使用字典的get方法获取默认值：</p>
+<p><code>fruits = &#123;&#39;apple&#39;: 3, &#39;banana&#39;: 5&#125; count = fruits.get(&#39;orange&#39;, 0)</code></p>
+<p>使用<code>get</code>方法可以在字典中获取指定键的值，如果键不存在，则返回默认值。</p>
+<p>5.使用with语句进行资源管理：</p>
+<p>with open(‘file.txt’, ‘r’) as f:<br>    content &#x3D; f.read()</p>
+<p>6.使用装饰器（Decorators）实现代码重用和功能增强：</p>
+<p>def log(func):<br>    def wrapper(*args, **kwargs):<br>        print(‘Calling’, func.<strong>name</strong>)<br>        return func(*args, **kwargs)<br>    return wrapper</p>
+<p>@log<br>def add(x, y):<br>    return x + y</p>
+<h2 id="设计模式篇："><a href="#设计模式篇：" class="headerlink" title="设计模式篇："></a>设计模式篇：</h2><p>这个比较抽象。指的是在Python编程中常用的设计模式。设计模式是解决常见设计问题的可重复使用的解决方案，它们提供了一种在软件设计中处理特定情况的方法和模板。</p>
+<p>设计模式的目的是提高代码的可重用性、可维护性、可扩展性和可理解性。它们是从实践中总结出来的，经过广泛验证和应用的解决方案。</p>
+<p>首先说四个基本要素：模式名称，问题，解决，后果</p>
+<p>接着是主要分类：行为型、创建型和结构型是设计模式的三个主要分类。它们的区别主要在于它们所关注的问题领域和解决问题的方式。</p>
+<h3 id="行为型设计模式："><a href="#行为型设计模式：" class="headerlink" title="行为型设计模式："></a>行为型设计模式：</h3><ul>
+<li><p>特点：行为型设计模式关注对象之间的交互和职责分配。它们解决的是对象如何相互协作以及彼此之间如何分配职责的问题。</p>
+</li>
+<li><p>例子：观察者模式、策略模式、命令模式等。</p>
+</li>
+<li><p>应用场景：适用于需要管理和调整对象之间的交互和通信方式的情况。通过定义对象之间的关系和行为，实现松耦合和灵活的系统架构。</p>
+<h4 id="迭代器模式（Iterator-Pattern）："><a href="#迭代器模式（Iterator-Pattern）：" class="headerlink" title="迭代器模式（Iterator Pattern）："></a>迭代器模式（Iterator Pattern）：</h4><p>迭代器模式（Iterator Pattern）是一种行为型设计模式：，它提供一种访问集合对象（如列表、字典等）元素的方式，而不暴露其内部结构。迭代器模式将遍历集合的责任封装在迭代器对象中，使得可以使用统一的接口来遍历不同类型的集合。</p>
+<p>在Python中，迭代器模式已经内置在语言中，并且被广泛使用。Python中的可迭代对象（Iterable）是指实现了<code>__iter__()</code>方法的对象，而迭代器对象（Iterator）则是实现了<code>__iter__()</code>和<code>__next__()</code>方法的对象。</p>
+<p>下面是一个简单的示例，演示了如何使用迭代器模式在Python中遍历列表元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyIterator</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.index = <span class="number">0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__next__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">if</span> self.index &gt;= <span class="built_in">len</span>(self.data):</span><br><span class="line">        <span class="keyword">raise</span> StopIteration</span><br><span class="line">    value = self.data[self.index]</span><br><span class="line">    self.index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">my_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">my_iterator = MyIterator(my_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> my_iterator:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>让我解释一下：我们定义了一个<code>MyIterator</code>类，它实现了迭代器接口。该迭代器接受一个列表作为数据，并在每次调用<code>__next__()</code>方法时返回列表中的下一个元素。</p>
+<p>然后，我们创建一个<code>my_iterator</code>对象，并使用<code>for</code>循环遍历该迭代器对象。在每次迭代中，<code>for</code>循环会调用迭代器的<code>__next__()</code>方法来获取下一个元素，并将其打印出来。</p>
+<p>通过迭代器模式，我们可以将遍历集合的责任封装在迭代器对象中，使得使用者可以通过简单的接口来访问集合的元素，而无需了解集合的内部实现细节。这提高了代码的灵活性和可维护性，同时也符合Python的迭代协议，使得迭代在Python中更加便捷和直观。</p>
+<h4 id="策略模式（Strategy-Pattern）："><a href="#策略模式（Strategy-Pattern）：" class="headerlink" title="策略模式（Strategy Pattern）："></a>策略模式（Strategy Pattern）：</h4><p>策略模式（Strategy Pattern）是一种行为型设计模式，它定义了一族算法或行为，并将每个算法封装到独立的类中，使得它们可以相互替换。这种模式允许算法独立于使用它的客户端进行变化，从而提高了代码的灵活性和可维护性。</p>
+<p>在Python中，策略模式通常用于以下情况：</p>
+<ol>
+<li>需要在运行时根据不同的条件选择不同的算法或行为。</li>
+<li>需要将算法的具体实现与调用代码分离，以便于扩展和维护。</li>
+<li>需要实现一个算法族，使得可以在运行时动态选择合适的算法。</li>
+</ol>
+<p>下面是一个简单的示例，说明如何在Python中使用策略模式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentStrategy</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pay</span>(<span class="params">self, amount</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CreditCardPayment</span>(<span class="title class_ inherited__">PaymentStrategy</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pay</span>(<span class="params">self, amount</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Paying $&#123;&#125; with Credit Card&quot;</span>.<span class="built_in">format</span>(amount))</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PayPalPayment</span>(<span class="title class_ inherited__">PaymentStrategy</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pay</span>(<span class="params">self, amount</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Paying $&#123;&#125; with PayPal&quot;</span>.<span class="built_in">format</span>(amount))</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ShoppingCart</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, payment_strategy</span>):</span><br><span class="line">        self.payment_strategy = payment_strategy</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">checkout</span>(<span class="params">self, amount</span>):</span><br><span class="line">    	self.payment_strategy.pay(amount)</span><br><span class="line">credit_card_strategy = CreditCardPayment()</span><br><span class="line">paypal_strategy = PayPalPayment()</span><br><span class="line"></span><br><span class="line">cart = ShoppingCart(credit_card_strategy)</span><br><span class="line">cart.checkout(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">cart.payment_strategy = paypal_strategy</span><br><span class="line">cart.checkout(<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果上述代码出现缩进问题请根据编译器报错位置移动空格即可。</p>
+<p>在上述示例中，我们定义了一个策略接口<code>PaymentStrategy</code>，它包含了一个<code>pay()</code>方法。然后，我们有两个具体的策略类<code>CreditCardPayment</code>和<code>PayPalPayment</code>，它们分别实现了<code>PaymentStrategy</code>接口，并提供了自己的<code>pay()</code>方法。</p>
+<p>在<code>ShoppingCart</code>类中，我们通过构造函数接收一个具体的支付策略，并在<code>checkout()</code>方法中调用支付策略的<code>pay()</code>方法来实现支付功能。</p>
+<p>通过使用策略模式，我们可以在运行时动态地选择不同的支付策略。在示例中，我们创建了一个购物车对象，并分别使用信用卡和PayPal作为支付策略进行结算。</p>
+<p>这样，我们可以根据需要选择不同的支付策略，而无需修改购物车类的代码。策略模式将算法的具体实现与调用代码分离，提供了一种灵活的方式来应对不同的需求，并使代码具有扩展性和可维护性。</p>
+</li>
+</ul>
+<h2 id="创建型设计模式："><a href="#创建型设计模式：" class="headerlink" title="创建型设计模式："></a>创建型设计模式：</h2><ul>
+<li><p>特点：创建型设计模式关注对象的创建机制，以及如何以灵活和可复用的方式创建对象。</p>
+</li>
+<li><p>例子：单例模式、工厂方法模式、抽象工厂模式等。</p>
+</li>
+<li><p>应用场景：适用于需要灵活创建对象并解耦对象的创建过程的情况。它们可以帮助管理对象的生命周期、实现对象的复用，并提供更高级别的对象创建接口。</p>
+<h4 id="Factory-Method-Pattern（工厂方法模式）："><a href="#Factory-Method-Pattern（工厂方法模式）：" class="headerlink" title="Factory Method Pattern（工厂方法模式）："></a>Factory Method Pattern（工厂方法模式）：</h4><p>Factory Method Pattern（工厂方法模式）是一种创建型设计模式，它提供了一种将对象的创建过程封装在一个方法中的方式。这个方法被称为工厂方法，它负责实例化对象并返回给调用者。通过使用工厂方法模式，我们可以在不暴露对象创建逻辑的情况下，让子类决定实例化哪个具体类的对象。</p>
+<p>在Python中，可以使用工厂方法模式来解决对象创建的灵活性和扩展性问题。通常情况下，我们将工厂方法定义在一个基类中，子类可以通过继承这个基类并重写工厂方法来创建不同的对象实例。</p>
+<p>下面是一个示例代码，演示了在Python中如何使用工厂方法模式：</p>
+<p>class Animal:<br>def speak(self):<br>    pass</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod</span><br><span class="line">def create_animal():</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+
+<p>class Dog(Animal):<br>def speak(self):<br>    return “Woof!”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod</span><br><span class="line">def create_animal():</span><br><span class="line">    return Dog()</span><br></pre></td></tr></table></figure>
+
+
+<p>class Cat(Animal):<br>def speak(self):<br>    return “Meow!”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@staticmethod</span><br><span class="line">def create_animal():</span><br><span class="line">    return Cat()</span><br></pre></td></tr></table></figure>
+
+<p>animal_type &#x3D; input(“Enter animal type (dog or cat): “)</p>
+<p>if animal_type &#x3D;&#x3D; “dog”:<br>animal &#x3D; Dog.create_animal()<br>elif animal_type &#x3D;&#x3D; “cat”:<br>animal &#x3D; Cat.create_animal()<br>else:<br>print(“Invalid animal type!”)<br>if animal:<br>print(animal.speak())<br>在上面的代码中，<code>Animal</code>是一个基类，它定义了工厂方法<code>create_animal()</code>。<code>Dog</code>和<code>Cat</code>是<code>Animal</code>的子类，它们分别实现了自己的工厂方法<code>create_animal()</code>和<code>speak()</code>方法。客户端代码通过调用工厂方法来创建相应的动物对象，并调用<code>speak()</code>方法来输出动物的声音。</p>
+<p>通过使用工厂方法模式，我们可以将对象的创建逻辑封装在工厂方法中，从而实现更灵活的对象创建和扩展。这种模式在实际应用中经常用于处理对象的创建和初始化过程，尤其是当对象的创建涉及到一些复杂的逻辑时，工厂方法模式可以提供一种清晰和可维护的解决方案。</p>
+<h4 id="Singleton-Pattern（单例模式）"><a href="#Singleton-Pattern（单例模式）" class="headerlink" title="Singleton Pattern（单例模式）:"></a>Singleton Pattern（单例模式）:</h4><p>Singleton Pattern（单例模式）是一种创建型设计模式，旨在确保类只有一个实例，并提供全局访问点以访问该实例。</p>
+<p>在某些情况下，我们需要确保一个类只能有一个实例，例如数据库连接池、线程池、日志记录器等。使用单例模式可以确保在整个应用程序中只存在一个实例，从而避免了多个实例导致资源浪费或冲突的问题。</p>
+<p>在Python中，可以使用多种方式来实现单例模式，下面是一种常见的实现方式:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>:</span><br><span class="line">    _instance = <span class="literal">None</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span><br><span class="line">    	<span class="keyword">if</span> <span class="keyword">not</span> cls._instance:</span><br><span class="line">        	cls._instance = <span class="built_in">super</span>().__new__(cls, *args, **kwargs)</span><br><span class="line">    	<span class="keyword">return</span> cls._instance</span><br></pre></td></tr></table></figure>
+
+<p>在上述代码中，我们定义了一个名为 <code>Singleton</code> 的类。在 <code>__new__</code> 方法中，我们首先检查类属性 <code>_instance</code> 是否为 <code>None</code>，如果是，表示还没有创建实例，则通过调用<strong>父类</strong>的 <code>__new__</code> 方法创建一个<strong>新实例</strong>，<strong>并将其赋值给 <code>_instance</code> 属性</strong>。如果 <code>_instance</code> 已经存在，表示已经创建过实例，则直接返回该实例。</p>
+<p>使用该实现方式，我们可以保证只有一个 <code>Singleton</code> 实例存在。下面是一个示例代码，展示了如何使用单例模式：</p>
+<p>s1 &#x3D; Singleton()<br>s2 &#x3D; Singleton()</p>
+<p>print(s1 is s2)  # 输出: True，s1 和 s2 是同一个实例</p>
+<p>在上述代码中，我们通过两次创建 <code>Singleton</code> 对象并比较它们是否为同一个实例，输出结果为 <code>True</code>，表明只有一个实例存在。</p>
+<p>需要注意的是，Python 中的单例模式实现方式可能还有其他形式，例如使用装饰器、元类等。以上是其中一种常见的实现方式，但并不是唯一的方式。选择适合具体应用场景的实现方式很重要。</p>
+<p>是不是还有疑惑？父类？可是明明没有看见有继承的父类！让99分的蒟蒻解答一下：在Python中，每个类都会隐式地继承自<code>object</code>类，即使没有显式地指定基类。上例在<code>__new__</code>方法中正确地调用父类<code>object</code>的<code>__new__</code>方法，合理！详细一点就是：<code>Singleton</code>类继承自<code>object</code>类，并在<code>__new__</code>方法中通过<code>super()</code>函数调用了父类<code>object</code>的<code>__new__</code>方法。这样确保了正确的实例创建过程，并将创建的实例赋值给<code>_instance</code>属性。</p>
+</li>
+</ul>
+<h2 id="结构型设计模式："><a href="#结构型设计模式：" class="headerlink" title="结构型设计模式："></a>结构型设计模式：</h2><ul>
+<li><p>特点：结构型设计模式关注对象之间的组合、关联和协作方式，以及如何组织和管理对象之间的关系。</p>
+</li>
+<li><p>例子：适配器模式、桥接模式、装饰者模式等。</p>
+</li>
+<li><p>应用场景：适用于需要处理对象之间关系、组织和管理对象结构的情况。它们可以帮助减少对象之间的耦合度，提供更灵活的系统架构和可扩展性。</p>
+<h4 id="适配器模式（Adapter-Pattern）："><a href="#适配器模式（Adapter-Pattern）：" class="headerlink" title="适配器模式（Adapter Pattern）："></a>适配器模式（Adapter Pattern）：</h4><p>适配器模式（Adapter Pattern）是一种结构型设计模式，它允许将一个类的接口转换成另一个类所期望的接口，从而使得原本由于接口不兼容而无法一起工作的类能够协同工作。</p>
+<p><strong>接口</strong>：接口（Interface）是一种约定或契约，定义了类或对象应该提供的方法、属性或行为。接口描述了一个类或对象可以做什么，而不关注其具体实现细节。</p>
+<p>在Python中，适配器模式常用于以下情况：</p>
+<ol>
+<li>将现有类的接口转换为另一个接口。</li>
+<li>与第三方库或旧版本的代码进行集成。</li>
+</ol>
+<p>通过适配器模式，我们可以将两个不兼容的接口协调起来，而无需修改已有的类或代码。</p>
+<p>不兼容性可能包括以下情况：</p>
+<ol>
+<li><p>方法签名不匹配：两个类具有相同的方法名称，但参数类型、参数个数或返回类型不同。</p>
+</li>
+<li><p>方法命名不一致：两个类具有相似的功能，但方法名称不同。</p>
+</li>
+<li><p>数据类型不匹配：两个类使用不同的数据结构或数据类型来表示相似的概念。</p>
+</li>
+<li><p>业务逻辑不一致：两个类的功能逻辑或行为方式有所不同。</p>
+<p>通过引入适配器类，我们可以在适配器中实现对不兼容接口的转换和协调，以便两个类能够无缝地进行交互。适配器类将原本不兼容的接口封装起来，使得外部调用者无需了解接口的不一致性，而只需通过适配器的统一接口与两个类进行交互。</p>
+</li>
+</ol>
+<p>下面是一个简单的示例，演示了如何使用适配器模式在Python中将一个类的接口转换为另一个类的接口：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Target</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">request</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;如果你看到了我，表示没有替换成功&#x27;</span>)</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Adaptee</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">specific_request</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Adaptee&#x27;s specific request&quot;</span>)</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Adapter</span>(<span class="title class_ inherited__">Target</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, adaptee</span>):</span><br><span class="line">        self.adaptee = adaptee</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">request</span>(<span class="params">self</span>):</span><br><span class="line">    	self.adaptee.specific_request()</span><br><span class="line">adaptee = Adaptee()</span><br><span class="line">adapter = Adapter(adaptee)</span><br><span class="line">adapter.request()</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们有一个<code>Target</code>接口，它定义了期望的接口方法<code>request()</code>。然后，我们有一个<code>Adaptee</code>类，它拥有一个不兼容的方法<code>specific_request()</code>。接下来，我们创建了一个适配器<code>Adapter</code>，它继承自<code>Target</code>并持有一个<code>Adaptee</code>对象。在适配器的<code>request()</code>方法中，我们将调用<code>Adaptee</code>的<code>specific_request()</code>方法。</p>
+<p>通过适配器模式，我们可以使用<code>Adapter</code>类来调用<code>Adaptee</code>类的方法，并将其转换为符合<code>Target</code>接口的调用。这样，我们就可以将原本不兼容的接口协调起来，实现了适配器模式。</p>
+<p>适配器模式的目的是通过适配器类<code>Adapter</code>来解决接口不兼容的问题。在适配器类中，通过将<code>Adaptee</code>类的<code>specific_request()</code>方法适配为<code>Target</code>接口中的<code>request()</code>方法，实现了接口的统一。这样，我们可以通过适配器对象来调用<code>request()</code>方法，从而间接地调用<code>Adaptee</code>类的<code>specific_request()</code>方法。</p>
+<p>适配器模式在Python中常常用于与第三方库或旧版本的代码进行集成，以便于在现有系统中使用新的功能或组件。它提供了一种灵活且不侵入性的方法来实现接口转换和兼容性。</p>
+</li>
+</ul>
+<p>总体而言，行为型设计模式关注对象之间的交互和行为，创建型设计模式关注对象的创建机制，结构型设计模式关注对象之间的组织和关系。它们各自解决了不同层面的设计问题，通过合理应用设计模式可以提高代码的可读性、可维护性和可扩展性，同时帮助构建更灵活和可靠的软件系统。</p>
+<h3 id="Architectural-Patterns（架构模式）："><a href="#Architectural-Patterns（架构模式）：" class="headerlink" title="Architectural Patterns（架构模式）："></a>Architectural Patterns（架构模式）：</h3><p>Architectural Patterns（架构模式）是软件架构中常见的高级设计模式，用于解决系统级别的设计问题。架构模式提供了一种组织和结构化软件系统的方式，定义了系统中各个组件的关系和通信方式。</p>
+<p>架构模式关注的是整体系统的结构、组件之间的交互方式以及系统的可扩展性、可维护性和可重用性。它们定义了一组规范和准则，帮助开发人员在设计和构建大型软件系统时做出明智的决策。</p>
+<h5 id="以下是一些常见的架构模式："><a href="#以下是一些常见的架构模式：" class="headerlink" title="以下是一些常见的架构模式："></a>以下是一些常见的架构模式：</h5><ol>
+<li>分层架构（Layered Architecture）：将系统划分为多个逻辑层，每个层具有特定的职责和功能，实现了松耦合的组件关系。</li>
+<li>客户端-服务器模式（Client-Server Pattern）：将系统划分为客户端和服务器两个独立的部分，客户端发送请求，服务器提供相应的服务。</li>
+<li>模型-视图-控制器（MVC）：将系统划分为模型（Model）、视图（View）和控制器（Controller）三个组件，实现了数据、表示和控制的分离。</li>
+<li>发布-订阅模式（Publish-Subscribe Pattern）：定义了一种发布者（Publisher）和订阅者（Subscriber）之间的松耦合通信方式，发布者发布事件，订阅者接收并响应事件。</li>
+<li>微服务架构（Microservices Architecture）：将系统划分为一组小型、自治的服务，每个服务专注于一个特定的业务功能，并通过轻量级通信机制进行交互。</li>
+<li>事件驱动架构（Event-Driven Architecture）：系统的组件之间通过事件进行通信和协作，当某个事件发生时，相应的处理逻辑会被触发。</li>
+</ol>
+<p>架构模式不是单一的解决方案，而是一种设计思想和指导原则，用于帮助开发人员在设计软件系统时做出适当的选择。选择合适的架构模式取决于系统的需求、复杂性和可扩展性等因素。</p>
+<h3 id="MVC-模型，视图和控制器"><a href="#MVC-模型，视图和控制器" class="headerlink" title="MVC 模型，视图和控制器"></a>MVC 模型，视图和控制器</h3><p>Model-View-Controller（MVC）是一种软件设计模式，用于组织应用程序的结构和逻辑。它通过将应用程序分为三个主要组件来实现这一目标：</p>
+<ol>
+<li>Model（模型）：模型代表应用程序的数据和业务逻辑。它负责处理数据的存储、检索、更新和验证。模型通常包括数据结构、数据库、文件系统或任何其他数据存储机制。</li>
+<li>View（视图）：视图负责将模型中的数据呈现给用户。它负责显示用户界面，并根据模型的状态进行相应的更新。视图可以是图形界面、命令行界面或任何其他形式的用户界面。</li>
+<li>Controller（控制器）：控制器是模型和视图之间的协调者。它接收来自用户界面的输入，处理用户的操作，并更新模型和视图以响应这些操作。控制器还可以处理应用程序的逻辑流程，例如根据用户的操作进行导航和决策。</li>
+</ol>
+<p>MVC的主要思想是将应用程序的不同方面分离开来，以实现更好的代码组织、可维护性和可扩展性。模型、视图和控制器之间的分离使得修改其中一个组件时不会直接影响其他组件，从而提高了代码的灵活性和可重用性。此外，MVC还促进了团队开发，因为不同的开发人员可以同时工作在不同的组件上。</p>
+<p>需要注意的是，尽管MVC是一种常见的设计模式，但在实际应用中可能会有不同的变体和扩展。不同的框架和技术可能会在MVC的基本原则上进行一些修改和调整，以适应特定的需求和环境。</p>
+<p>让我们通过一个简单的示例来说明MVC的工作原理。</p>
+<p>假设我们正在开发一个简单的待办事项应用程序。我们可以使用MVC模式来组织该应用程序的结构。</p>
+<ol>
+<li><p>Model（模型）：</p>
+<ul>
+<li>在这个示例中，我们的模型将包含待办事项的数据，例如任务名称、截止日期和完成状态。</li>
+<li>模型负责处理数据的存储、检索和更新。它可能包括数据库表、类或结构体来表示待办事项。</li>
+</ul>
+</li>
+<li><p>View（视图）：</p>
+<ul>
+<li>视图是用户界面的部分，用于呈现待办事项的信息给用户。</li>
+<li>可能有一个任务列表视图，显示所有待办事项的名称和状态，以及一个任务详细信息视图，显示选定任务的详细信息。</li>
+<li>视图负责将模型中的数据呈现给用户，并根据模型的状态进行更新。</li>
+</ul>
+</li>
+<li><p>Controller（控制器）：</p>
+<ul>
+<li>控制器是模型和视图之间的协调者。</li>
+<li>当用户添加新任务时，控制器接收用户输入并更新模型中的数据。</li>
+<li>当用户选择一个任务时，控制器从模型中检索该任务的详细信息，并通知视图进行更新。</li>
+<li>控制器还可以处理其他逻辑，例如标记任务为已完成、删除任务或重新排序任务列表。</li>
+</ul>
+</li>
+</ol>
+<p>使用MVC模式，我们可以将代码逻辑分离开来，以便更好地管理和维护应用程序。例如，如果我们想要改变任务列表的外观或交互方式，我们只需修改视图部分，而无需修改模型或控制器。同样地，如果我们想要改变数据存储方式，我们只需修改模型部分，而不会影响视图或控制器。</p>
+<p>总之，MVC模式通过将应用程序分为模型、视图和控制器三个组件，帮助我们实现代码的分离和组织，提高应用程序的可维护性和可扩展性。它是一种常用的设计模式，被广泛应用于各种软件开发框架和技术中。</p>
+<h2 id="git部分："><a href="#git部分：" class="headerlink" title="git部分："></a>git部分：</h2><p>Git将数据存储为快照，因此克隆是项目的完整备份</p>
+<p> 好像没啥好看的，直接上命令吧：</p>
+<p><img src="https://img1.imgtp.com/2023/06/14/RMoFsNOW.jpg" alt="git 命令"></p>
+<p><img src="https://img1.imgtp.com/2023/06/14/Hxh5xFhF.jpg" alt="中文版"></p>
+<p>git log 不是登录，是当前分支的版本历史记录</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年07月13日 10:26</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" title="OOP复习(上)">https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/&title=《OOP复习(上)》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/&title=《OOP复习(上)》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OOP复习(上)》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/06/02/OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87(%E4%B8%8A)/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/Second/" class="color2">Second</a>
+      
+    <a href="/Richo.github.io/tags/期末考试复习/" class="color2">期末考试复习</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OOP%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0%E7%AF%87%EF%BC%88%E4%B8%8A%EF%BC%89"><span class="post-toc-text">OOP期末考试复习篇（上）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%B1%BB%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%EF%BC%9A"><span class="post-toc-text">类的垃圾回收：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CRC%E5%8D%A1%E7%AF%87%EF%BC%9A"><span class="post-toc-text">CRC卡篇：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#UML%E7%AF%87%EF%BC%9A"><span class="post-toc-text">UML篇：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8%E7%AF%87%EF%BC%9A"><span class="post-toc-text">装饰器篇：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%9A"><span class="post-toc-text">1.函数装饰器：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E7%B1%BB%E6%96%B9%E6%B3%95-classmethod"><span class="post-toc-text">2.类方法(classmethod):</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95-staticmethod"><span class="post-toc-text">3.静态方法(staticmethod):</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="post-toc-text">区别：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8B%E8%AF%95%E5%8D%95%E5%85%83%E7%AF%87%EF%BC%9A"><span class="post-toc-text">测试单元篇：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%AF%94%E8%BE%83%E5%B8%B8%E8%A7%81%E7%9A%84%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%EF%BC%9A"><span class="post-toc-text">1.比较常见的单元测试：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%96%87%E6%A1%A3%E6%B5%8B%E8%AF%95%E7%AF%87%EF%BC%9A"><span class="post-toc-text">2.文档测试篇：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pytest%E7%AF%87%EF%BC%9A"><span class="post-toc-text">pytest篇：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#python%E7%9A%84%E6%88%90%E8%AF%AD%E7%AF%87%EF%BC%9A"><span class="post-toc-text">python的成语篇：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AF%87%EF%BC%9A"><span class="post-toc-text">设计模式篇：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="post-toc-text">行为型设计模式：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88Iterator-Pattern%EF%BC%89%EF%BC%9A"><span class="post-toc-text">迭代器模式（Iterator Pattern）：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%EF%BC%88Strategy-Pattern%EF%BC%89%EF%BC%9A"><span class="post-toc-text">策略模式（Strategy Pattern）：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="post-toc-text">创建型设计模式：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Factory-Method-Pattern%EF%BC%88%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%89%EF%BC%9A"><span class="post-toc-text">Factory Method Pattern（工厂方法模式）：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Singleton-Pattern%EF%BC%88%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="post-toc-text">Singleton Pattern（单例模式）:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="post-toc-text">结构型设计模式：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88Adapter-Pattern%EF%BC%89%EF%BC%9A"><span class="post-toc-text">适配器模式（Adapter Pattern）：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Architectural-Patterns%EF%BC%88%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%EF%BC%89%EF%BC%9A"><span class="post-toc-text">Architectural Patterns（架构模式）：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="post-toc-text">以下是一些常见的架构模式：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MVC-%E6%A8%A1%E5%9E%8B%EF%BC%8C%E8%A7%86%E5%9B%BE%E5%92%8C%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="post-toc-text">MVC 模型，视图和控制器</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git%E9%83%A8%E5%88%86%EF%BC%9A"><span class="post-toc-text">git部分：</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/06/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          微信小程序开发
+        
+      </span>
+    </a>
+  
+  
+    <a href="/Richo.github.io/2023/06/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">卷积神经网络</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/%E6%97%A0/">无</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/First/" style="font-size: 16.67px;">First</a> <a href="/Richo.github.io/tags/Second/" style="font-size: 20px;">Second</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" style="font-size: 13.33px;">期末考试复习</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/First/" style="font-size: 16.67px;">First</a> <a href="/Richo.github.io/tags/Second/" style="font-size: 20px;">Second</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 10px;">大创</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E5%A4%8D%E4%B9%A0/" style="font-size: 13.33px;">期末考试复习</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

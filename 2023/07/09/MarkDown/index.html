@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>爬虫 | Richo blog</title>
+  <title>Markdown | Richo blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Richo's Blog" />
   
-  <meta name="description" content="爬虫篇前景知识：静态网站和动态网站网站可以根据数据的呈现形式分为动态网站和静态网站:静态网站:静态网站是指全部由HTML 标准通用标记语言的子集)代码格式页面组成的网站，所有的内容包含在网页文件中。所有的数据呈现在页面上，不需要和数据库做交互。动态网站:指网站内容可根据不同情况动态变更的网站，一般情况下动态网站通过和数据库交互来实现，数据会随着数据库进行更新。 动态网页中的数据加载 服务器在想浏览">
+  <meta name="description" content="轻量级标记语言判定一个第三方框架是轻量级还是重量级是从多个方面去衡量的，但是最主要的衡量指标是以启动程序需要的资源来决定。比如，EJB启动的时候，需要消耗大量的资源，内存，CPU等，所以是重量级。而Spring则不，所以是轻量级框架。 此外，主要区别之二是框架的侵入性程度，轻量级的侵入性程度较低： ·    轻量级框架不一定需要继承和实现框架的接口和抽象类来注册和实例化组件。 ·    重量级框架">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬虫">
-<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/index.html">
+<meta property="og:title" content="Markdown">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/index.html">
 <meta property="og:site_name" content="Richo blog">
-<meta property="og:description" content="爬虫篇前景知识：静态网站和动态网站网站可以根据数据的呈现形式分为动态网站和静态网站:静态网站:静态网站是指全部由HTML 标准通用标记语言的子集)代码格式页面组成的网站，所有的内容包含在网页文件中。所有的数据呈现在页面上，不需要和数据库做交互。动态网站:指网站内容可根据不同情况动态变更的网站，一般情况下动态网站通过和数据库交互来实现，数据会随着数据库进行更新。 动态网页中的数据加载 服务器在想浏览">
+<meta property="og:description" content="轻量级标记语言判定一个第三方框架是轻量级还是重量级是从多个方面去衡量的，但是最主要的衡量指标是以启动程序需要的资源来决定。比如，EJB启动的时候，需要消耗大量的资源，内存，CPU等，所以是重量级。而Spring则不，所以是轻量级框架。 此外，主要区别之二是框架的侵入性程度，轻量级的侵入性程度较低： ·    轻量级框架不一定需要继承和实现框架的接口和抽象类来注册和实例化组件。 ·    重量级框架">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-13T02:24:13.774Z">
+<meta property="article:modified_time" content="2023-07-13T02:19:25.804Z">
 <meta property="article:author" content="Richo">
-<meta property="article:tag" content="大创">
 <meta property="article:tag" content="Second">
+<meta property="article:tag" content="First">
 <meta name="twitter:card" content="summary">
   
   
@@ -115,14 +115,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-爬虫篇" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-MarkDown" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      爬虫
+      Markdown
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -130,7 +130,7 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/Richo.github.io/categories/Python/">Python</a>
+                      <a href="/Richo.github.io/categories/language/">language</a>
                   
               </li>
           
@@ -151,78 +151,60 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="爬虫篇"><a href="#爬虫篇" class="headerlink" title="爬虫篇"></a>爬虫篇</h1><h2 id="前景知识："><a href="#前景知识：" class="headerlink" title="前景知识："></a>前景知识：</h2><p><strong>静态网站和动态网站</strong><br>网站可以根据数据的呈现形式分为动态网站和静态网站:静态网站:静态网站是指全部由HTML 标准通用标记语言的子集)代码格式页面组成的网站，所有的内容包含在网页文件中。所有的数据呈现在页面上，不需要和数据库做交互。<br>动态网站:指网站内容可根据不同情况动态变更的网站，一般情况下动态网站通过和数据库交互来实现，数据会随着数据库进行更新。</p>
-<p><strong>动态网页中的数据加载</strong></p>
-<p>服务器在想浏览器或爬虫程序发送数据时，将html代码和数据单独发送，浏览器在接收时通过html中的JavaScript代码渲染数据。</p>
-<p>html中的JavaScript代码在获取到服务器传入的数据后会进行渲染<br>数据会有单独的url，格式多为json格式。</p>
-<p><strong>HTML</strong></p>
-<p>HTML由各种不同含义的标签元素组成 (&lt;标签&#x2F;标签&gt;)</p>
-<p>至少得知道以下标签：</p>
-<ul>
-<li>p:段落标签，一般用来存储文本信息，如影评、文档等数据</li>
-<li>a:超链接标签，用来存放网页中其他页面的连接，在爬取数据时，如果想要获取整站的数据需要，收集网站中的a标签，然后逐个去访问。</li>
-<li>div:区隔标记，没有具体含义。代表了网页中某一块区域。是构造网页时最为常用的一种标签</li>
-<li>img:图片标签，用来存放网站中的图片数据</li>
-</ul>
-<p><strong>层叠样式表(CSS)</strong><br>样式定义如何显示HTML 元素，在网页中为了样式的统一，会使某些数据呈现相同格式，爬虫程序则可以根据这些样式信息去找数据。</p>
-<p>可以定义元素的位置和是否显示，在一些网站中为了避免自己的数据被轻易获取，会使用CSS对数据进行隐藏或修改。</p>
-<p><strong>JS</strong>：</p>
-<p>JavaScript是一种脚本语言，主要用于Web。它用于增强 HTML页面，通常可以嵌入 HTML 代码中。JavaScript 是一种解释型语言。因此，它不需要编译。JavaScript 以交互式和动态的方式呈现网页。这允许页面对事件做出反应，展示特殊效果，接受可变文本验证数据，创建 cookie，检测用户的浏览器等。</p>
-<p><strong>JavaScript的作用</strong><br>JS在网站中可以充当数据的“载体”使前后端进行数据交互。服务器在向浏览器传递数据时可以选择使用JavaScript将数据渲染在html中.<br>一些网站会在请求响应的过程中使用JavaScript生成额外的参数来阻止爬虫程序的访问。<br>JavaScript可以实现Ajax(Asynchronous JavaScript And XML异步JavaScript 及XML)</p>
-<p><strong>请求方法</strong>：<br>get:从指定的资源<strong>请求数据</strong></p>
-<p>查询字符串(名称&#x2F;值对)是在get请求的 URL中发送的。</p>
-<p>get请求有长度限制。</p>
-<p>post:向指定的资源<strong>提交</strong>要被处理的<strong>数据</strong><br>查询字符串(名称&#x2F;值对)是在 post 请求的 HTTP 消息<strong>主体</strong>中发送的</p>
-<p>post 请求对数据长度没有要求</p>
-<p><strong>返回值：</strong></p>
-<p>200 成功</p>
-<p>300+ 重定向(访问到一个不存在的东西，会给你跳转到一个已知的页面)</p>
-<p>400+ 页面不存在</p>
-<p>500+服务器炸了</p>
-<p><strong>反爬：</strong></p>
-<p>1.代理IP   2.伪装头  3.js模拟</p>
-<p><strong>爬虫优化</strong><br>爬取速度:使用<strong>多进程、多线程</strong>等方法加速爬虫程序获取数据的速度异常处理:在数据获取时，可能存在因为网络问题、网址问题导致的程序异常，一个网址出现的异常即可中断整个程序，需要定义异常处理方法。<br><strong>数据保存:</strong><br>-数据清洗<br>数据存储。</p>
-<p><strong>网页的cookie:</strong></p>
-<p>网页的 Cookie 是一种在用户计算机上存储小型文本文件的技术，用于在用户浏览网页时跟踪和存储有关用户的信息。它是通过网页服务器发送给浏览器并存储在用户计算机上的。每次用户访问同一个网站时，浏览器会将存储的 Cookie 信息发送回服务器，以便服务器根据该信息执行相应的操作或提供个性化的体验。</p>
-<p>Cookie有两种类型：会话Cookie和持久Cookie。会话Cookie仅在用户访问网站期间存在，并在关闭浏览器后被删除。持久Cookie存储在用户计算机或设备上，可以在多个会话之间保持有效。持久Cookie具有特定的过期日期或持续时间，直到过期或被用户手动删除。</p>
-<p>Cookie 可以包含各种信息，例如用户的首选项、会话状态、登录凭证等。它们通常用于以下目的：</p>
-<ol>
-<li>会话管理：Cookie 可以跟踪用户的会话状态，例如在用户登录网站时创建一个会话 Cookie，在用户退出或关闭浏览器时销毁该会话。</li>
-<li>个性化体验：网站可以使用 Cookie 存储用户的首选项，如语言选择、主题设置等，以便在用户下次访问时提供个性化的体验。</li>
-<li>跟踪和分析：Cookie 可以用于跟踪用户的行为和活动，例如记录用户访问的页面、点击的链接等，以便网站分析用户行为并改进用户体验。</li>
-<li>广告定向：一些 Cookie 用于跟踪用户的兴趣和偏好，以便向用户提供相关的广告内容。</li>
-<li>跨站点请求伪造（CSRF）防护：Cookie 可以用于防止跨站点请求伪造攻击，通过在请求中包含令牌或验证码来验证请求的合法性</li>
-</ol>
-<h2 id="爬虫工具"><a href="#爬虫工具" class="headerlink" title="爬虫工具"></a>爬虫工具</h2><p><strong>urllib模块简介</strong><br>urilib是Python中内置的HTTP请求库，它提供了一系列用于操作URL的功能，其中包括URL发送请求、解析、对请求异常时的处理和对于robots文件的处理。<strong>因为博主不常用，所以不详细介绍</strong></p>
-<p><strong>Requests模块：</strong></p>
-<p>Requests:让HTTP服务人类<br>Requests是基于urllib库，使用Python实现的简单易用的HTTP库使用起来比urllib简洁很多。<br>Requests在Python2 和Python3中通用，方法完全一样</p>
-<p>requests.get(url，[headers]，[ proxies] [params,] *args): 模拟浏览器向目标主机发送get请求，返回response对象。</p>
-<ul>
-<li>url:服务器对应的地址<br>-headers: HTTP请求中headers字段。</li>
-<li>proxies:设置代理iP地址。<br>params:查询字符串。</li>
-</ul>
-<p>timeout: 超时参数，用于设置请求时间，当超过时间仍未获得响应时，会抛出异常(可以结合retrying模块一起使用)</p>
-<p>使用requests发送请求后会获取一个响应对象response。响应信息:</p>
-<ul>
-<li>response.headers 获取响应头信息<br>response.status_code 响应状态码- response.encoding 获取文本编码格式响应内容</li>
-<li>response.text 响应体 str类tnresponsejson（）解码json数据</li>
-</ul>
-<p>响应内容(二进制)</p>
-<ul>
-<li>response.content 获取二进制响应内容 (推荐)原始响应内容</li>
-<li>response.raw 获取来自服务器的原始套接字响应(需要在请求时指定参数stream&#x3D;True)<br>其他:<br>-response.raise for status) 响应码不为200时抛出异常</li>
-</ul>
-<p>Requests设置cookie信息<br>使用requests处理cookie有三种方法</p>
-<ul>
-<li>把cookie字典放传给请求方法的cookies参数接收。cookies &#x3D;{“cookie的name”.”cookie的value”requests.get(url,headers&#x3D;headers,cookies&#x3D;cookie dict</li>
-<li>使用requests.session处理cookie</li>
-<li>在headers字段中添加cookie字符串headers &#x3D;[“cookie的name”.”cookie的value”</li>
-</ul>
+            <h1 id="轻量级标记语言"><a href="#轻量级标记语言" class="headerlink" title="轻量级标记语言"></a>轻量级标记语言</h1><p>判定一个第三方框架是轻量级还是重量级是从多个方面去衡量的，但是最主要的衡量指标是<strong>以启动程序需要的资源来决定</strong>。比如，EJB启动的时候，需要消耗大量的资源，内存，CPU等，所以是重量级。而Spring则不，所以是轻量级框架。</p>
+<p>此外，主要区别之二是<strong>框架的侵入性程度</strong>，轻量级的侵入性程度较低：</p>
+<p>·    轻量级框架不一定需要继承和实现框架的接口和抽象类来注册和实例化组件。</p>
+<p>·    重量级框架需要继承和实现框架的类或者实现框架的接口，以方便使用框架中间件特性。这就意味着，需要实例化大量的类并且注册到应用中去，虽然可能用不到。</p>
+<p>主要区别之三是<strong>轻量级框架一般是一组独立的特性实现集</strong>，而重量级框架往往依赖于某些或其他类型的容器支持框架的特性。</p>
+<p>主要区别之四是<strong>开发的方便程度</strong>：</p>
+<p>·    轻量级框架在开发中应用非常简单方便</p>
+<p>·    重量级框架开发时则要写一些框架绑定的类，部署、运行及测试过程都较为复杂，开发起来并不方便。</p>
+<p>主要区别之五是<strong>解决问题的侧重点不同</strong>：</p>
+<p>·    轻量级框架侧重于减小开发的复杂度，相应它的处理能力较弱（事务功能弱，不具备分布式处理能力），适用于开发中小型企业应用。</p>
+<p>·    重量级框架则强调高可伸缩性，适合于开发大型企业应用。</p>
+<p>　　<strong>总结一下，轻量级框架的特点：一般是非侵入性的、依赖的东西非常少，占用资源非常少，部署简单，比较容易使用</strong>。</p>
+<p>标题带# 一个#代表一个标题</p>
+<p>&gt;表示引用</p>
+<p>无序列表使用-,</p>
+<p>如无序列表：</p>
+<p>-12</p>
+<p>-12</p>
+<p>任务列表：</p>
+<p>-[] 名字1</p>
+<p>-[] 名字2</p>
+<p>-[x] z</p>
+<p>代码块是用””””</p>
+<p>数学公式：$$ xxxx $$</p>
+<p>表格：</p>
+<p>|姓名|年龄|性别|</p>
+<p>|:—|—:|:–:|   分别代表了左对齐 右对齐 居中</p>
+<p>脚注：</p>
+<p>Xxx[^起飞]</p>
+<p>结尾处：[^起飞]：飞起来</p>
+<p>横线：把文章分为几部分</p>
+<p>-–</p>
+<p>会自动生成一条横线</p>
+<p>链接：</p>
+<p><a href="%5Bwww.4399.com%5D(http://www.4399.com)%E2%80%9D%E4%B8%80%E4%B8%AA%E6%AC%B2%E7%BD%A2%E4%B8%8D%E8%83%BD%E7%9A%84%E7%BD%91%E9%A1%B5%E2%80%9D">文本</a></p>
+<p>引用链接，类似于define </p>
+<p>[文本][id]</p>
+<p>[标题一] 可以快速跳转到标题一</p>
+<p>[id]:<a target="_blank" rel="noopener" href="http://www.4399.com”/">www.4399.com”</a> 111”</p>
+<p><a href="url:会自动帮你生成">url:会自动帮你生成</a>  协议加域名</p>
+<p>** 强调，也就是斜体</p>
+<p>** x** 表示加粗</p>
+<p>反引号表示行内代码‘’</p>
+<p>下划线要使用html的u标签</p>
+<p>如：<u>下划线</u>,表情是:smile  冒号+名称</p>
+<p>行内数学公式使用$xx$</p>
+<p>下标对应着波浪号</p>
+<p>H~2O</p>
+<p>使用&#x3D;&#x3D;&#x3D;&#x3D; 表示高亮</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年07月13日 10:24</p>
-        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/" title="爬虫">https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/</a></p>
+        <p>最后更新： 2023年07月13日 10:19</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/09/MarkDown/" title="Markdown">https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
                 <img src="/Richo.github.io/images/head.jpg" alt="Richo">
@@ -279,7 +261,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/&title=《爬虫》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/&title=《Markdown》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -289,22 +271,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/&title=《爬虫》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/&title=《Markdown》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《爬虫》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Markdown》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -314,7 +296,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/07/09/MarkDown/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -326,9 +308,9 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/Richo.github.io/tags/大创/" class="color3">大创</a>
-      
     <a href="/Richo.github.io/tags/Second/" class="color2">Second</a>
+      
+    <a href="/Richo.github.io/tags/First/" class="color1">First</a>
       
   </li>
 
@@ -341,26 +323,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E7%AF%87"><span class="post-toc-text">爬虫篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E6%99%AF%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="post-toc-text">前景知识：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7"><span class="post-toc-text">爬虫工具</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80"><span class="post-toc-text">轻量级标记语言</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/Richo.github.io/2023/07/09/OOP%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0(%E4%B8%8B)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Richo.github.io/2023/07/09/GCC%20%E5%92%8C%20CPP%E7%AD%89%E5%90%8C%E5%90%97%EF%BC%9F%E7%BC%96%E8%AF%91%E5%99%A8%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          OOP复习(下)
+          编译器
         
       </span>
     </a>
   
   
-    <a href="/Richo.github.io/2023/06/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">微信小程序开发</span>
+    <a href="/Richo.github.io/2023/07/09/Welcome%20to%20Richo%20Blog!/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">自我介绍</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
