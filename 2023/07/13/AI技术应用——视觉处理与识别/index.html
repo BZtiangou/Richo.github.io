@@ -15,12 +15,15 @@
 <meta property="og:site_name" content="Richo blog">
 <meta property="og:description" content="AI技术应用——视觉处理与识别数字图像处理基础计算机视觉：人的视觉感知的周围世界是三维结构，而计算机中的图像是二维的。计算机视觉就是研究如何让计算机像人一样“看”的科学。 计算机视觉在广义上是和图像相关的技术总称。 图像的感知和获取： 数字图像的采集过程类似人眼，使用大量的光敏传感器构成阵列以获取图像。成像的质量由传感器的单元数，尺寸和传感性能决定。 图像数字化： 多数传感器的输出是连续的电压波形">
 <meta property="og:locale">
+<meta property="og:image" content="https://bztiangou.github.io/Richo.github.io/images/face1.png">
+<meta property="og:image" content="https://bztiangou.github.io/Richo.github.io/images/face2.png">
 <meta property="article:published_time" content="2023-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-22T13:58:16.794Z">
+<meta property="article:modified_time" content="2023-08-03T15:40:32.901Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="大创">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bztiangou.github.io/Richo.github.io/images/face1.png">
   
   
     <link rel="icon" href="images/head.jpg">
@@ -162,11 +165,25 @@
 <p>不同分辨率采样的效果:<br>采样间隔越小，图像采样点数越多，空间分辨率高，图像质量好</p>
 <p><strong>量化</strong>：</p>
 <p>数字图像处理的量化过程将采样点的传感器信号转换成离散的整数值。量化后得到离散图像的每个采样点的变化范围称为**灰度级(depth)**。灰度级通常是2的整数次幂。我们用m级或者n位来表示灰度级。图像数据的灰度级越多视觉效果就越好。计算机中最常用的是8位图像例如:<br>一副8位的图像，表示每个采样点有2^8&#x3D;256级<br>从最暗到最亮，可以分辨256个级别。<br>一副32级的灰度图像，每个采样点从最暗到最亮，可以分辨32个级别</p>
-<p>不同灰度级量化的效果：<br>数据量大量化等级越多，图像层次越丰富，灰度分辨率高，图像质量好，</p>
+<p><strong>不同灰度级量化的效果：</strong><br>数据量大量化等级越多，图像层次越丰富，灰度分辨率高，图像质量好。</p>
+<p><strong>神经网络的可解释性差：</strong></p>
+<p>难以对输入和输出的结果进行解释，导致无法对神经网络进行优化。</p>
+<h1 id="MOdelArts"><a href="#MOdelArts" class="headerlink" title="MOdelArts"></a>MOdelArts</h1><p>ModelArts是面向开发者的一站式<strong>AI开发平台</strong>，为机器学习与深度学习提供海量数据预处理及半自动化标注、大规模分布式Training、自动化模型生成，及端-边-云模型按需部署能力，帮助用户快速创建和部署模型，管理全周期AI工作流。</p>
+<p>ModelArts: 基于异腾芯片的全栈自主可控.</p>
+<p>数据标注，模型训练，预测数据。</p>
+<h1 id="AI算法测试"><a href="#AI算法测试" class="headerlink" title="AI算法测试"></a><strong>AI算法测试</strong></h1><p><strong>AI开发工程师</strong>: 负责设计、开发实现、数据验收、自测、调优等工作<br><strong>数据工程师</strong>:负责数据采集、数据清洗数据整合、数据标注、数据质量检测等工作<br><strong>测试工程师</strong>**:负责测试数据采集、测试场景分析、测试方案、测试用例、测试策略、测试自动化、测试验收和评估等工作</p>
+<h2 id="AI应用测试的主要流程"><a href="#AI应用测试的主要流程" class="headerlink" title="AI应用测试的主要流程"></a>AI应用测试的主要流程</h2><p><strong>包括场景分析、特征因子分析、数据构建评测指标、自动化方案，其中数据集的构建是整个流程中非常关键的一步，需要考虑不同场景不同特征因子下的样本以及AI应用上线后的难例样本和新样本。</strong></p>
+<p><strong>特征因子分析</strong><br>特征因子分析，其实就是从输入数据方面出发，分析哪些因素会影响A模型的识别效果，AI开发过程中，数据采集和数据处理是重要的前提步骤，有好数据才有好模型<br>在AI推理过程中，输入好数据也同样重要，有好数据才可能会有好的输出结果</p>
+<p><img src="/Richo.github.io/./images/face1.png" alt="因子1"></p>
+<p><img src="/Richo.github.io/./images/face2.png" alt="image-20230803233247453"></p>
+<p><strong>人脸识别场景下，设置约束条件，引导用户拍摄高质量人脸照片，以提升人脸识别率</strong></p>
+<p><strong>数据构建</strong><br><strong>基于应用场景、特征因子等进行数据集构建，包括但不限于:数据类别、不同因子比例、环境因素、特定要求等。在构建测试阶段的数据集时，需要尽可能地覆盖正式环境中各种各样的数据情况。</strong><br><strong>数据采集、数据清洗和分析理解数据构建数据集流程</strong></p>
+<p><strong>评测指标</strong><br><strong>评测指标分为两大类: 精度指标和性能指标。精度指标在不同的AI技术领域有不同的常用指标如下:</strong></p>
+<p>常用的性能指标有<br>FPS(Frames Per Second)，每秒能处理的图片数;FLOPs(Floating-point Operations Per Second)，模型所需的浮点数处理次数<br>GPU显存占用;<br>QPS(Query Per Second)，衡量AI应用API每秒能响应的请求数</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年07月22日 21:58</p>
+        <p>最后更新： 2023年08月03日 23:40</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/13/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/" title="视觉处理与识别">https://bztiangou.github.io/Richo.github.io/2023/07/13/AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -286,7 +303,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB"><span class="post-toc-text">AI技术应用——视觉处理与识别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80"><span class="post-toc-text">数字图像处理基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A"><span class="post-toc-text">计算机视觉：</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AI%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E8%A7%86%E8%A7%89%E5%A4%84%E7%90%86%E4%B8%8E%E8%AF%86%E5%88%AB"><span class="post-toc-text">AI技术应用——视觉处理与识别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80"><span class="post-toc-text">数字图像处理基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A"><span class="post-toc-text">计算机视觉：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MOdelArts"><span class="post-toc-text">MOdelArts</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AI%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95"><span class="post-toc-text">AI算法测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AI%E5%BA%94%E7%94%A8%E6%B5%8B%E8%AF%95%E7%9A%84%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B"><span class="post-toc-text">AI应用测试的主要流程</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -367,10 +384,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/%E6%97%A0/">无</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/Richo.github.io/tags/XYC-Richard-Richo/" style="font-size: 10px;">XYC/Richard/Richo/</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 17.5px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 15px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12.5px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12.5px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12.5px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 17.5px;">计算机基础</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -403,7 +420,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/Richo.github.io/tags/XYC-Richard-Richo/" style="font-size: 10px;">XYC/Richard/Richo/</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 17.5px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 15px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12.5px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12.5px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12.5px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 17.5px;">计算机基础</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a>
         </div>
     </div>
 </div>
