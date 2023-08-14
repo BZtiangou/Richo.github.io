@@ -16,7 +16,7 @@
 <meta property="og:description" content="实习收获很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水写在about上了~ 虚拟环境的搭建之前都是用anaconda 第三方软件搭建的一个环境，挺好用 但是这次我是使用了python的第三方软件包搭建环境virtualenv 并且在windows 和 linux 系统上都成功激活 对于windows：myenv\Scripts\acti">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-11T03:18:19.804Z">
+<meta property="article:modified_time" content="2023-08-14T07:25:55.913Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="计算机基础">
 <meta property="article:tag" content="python">
@@ -251,8 +251,17 @@
 <li><code>rows = response.xpath(&quot;//tr&quot;)</code>: 这行代码使用 XPath 表达式 <code>//tr</code> 定位到网页中所有的 <code>&lt;tr&gt;</code> 元素，即表格的每一行。<code>rows</code> 是一个 <code>SelectorList</code> 对象，其中包含匹配的所有行元素。</li>
 <li><code>columns = row.xpath(&quot;.//td&quot;)</code>: 在每一行中，通过 XPath 表达式 <code>.//td</code> 定位到该行内所有的 <code>&lt;td&gt;</code> 元素，即表格的每一列。<code>columns</code> 是一个 <code>SelectorList</code> 对象，其中包含匹配的所有列元素。</li>
 <li><code>row_data = [column.xpath(&quot;string(.)&quot;).get().strip() for column in columns]</code>: 在每一列中，通过 XPath 表达式 <code>string(.)</code> 提取该列内的文本内容。<code>.get()</code> 方法获取文本值，<code>strip()</code> 方法去除文本中的空白字符。这行代码创建了一个列表 <code>row_data</code>，其中包含了该行内每个单元格的文本内容。</li>
-<li><code>target_date = datetime.strptime(row_data[-1], &#39;%Y-%m-%d&#39;).date()</code>: 这行代码将该行中最后一列的日期字符串（格式为 <code>YYYY-MM-DD</code>）转换为 <code>datetime.date</code> 对象，以便后续的日</li>
+<li><code>target_date = datetime.strptime(row_data[-1], &#39;%Y-%m-%d&#39;).date()</code>: 这行代码将该行中最后一列的日期字符串（格式为 <code>YYYY-MM-DD</code>）转换为 <code>datetime.date</code> 对象，以便后续.</li>
 </ol>
+<p>当你完成了更改。我先陈述一下我的流程：</p>
+<p>1.首先是git fetch upstream   upstream是我们小组建立的远程仓库别名，我先抓取文件更新下载到本地。可以使用git remote 查看仓库，git remote show upstream 来查看具体信息，如果你忘了的话</p>
+<p>2.可以直接merge，但是我怕会把我未提交的merge掉，所以我求稳，我在merge前我会先使用git status查看状态</p>
+<p>3.比如说我当前的状态是多处修改没有提交，那么我就会选择部分文件为一组提交。使用git add 部分文件的路径（这时候，git status的优势就体现出来了，因为你可以直接cv）使用git add后如果不小心加错了可以使用git reset 恢复</p>
+<p>4.然后你可以使用git commit 提交更改，<del>建议</del>一定要-m 附上更改信息！！！小心push的时候被管理员退回，当然，默认是推送到你自己的远程仓库，防止污染上游仓库。</p>
+<p><strong>省流：</strong></p>
+<p>使用 <code>git add</code> 将修改添加到暂存区。</p>
+<p>使用 <code>git commit</code> 提交暂存区的修改到本地仓库。</p>
+<p>使用 <code>git push</code> 将本地仓库的修改推送到远程仓库，与其他人共享。</p>
 <h1 id="实习日记"><a href="#实习日记" class="headerlink" title="实习日记"></a>实习日记</h1><p><strong>2023-07-13 是实习的第一天，天气晴</strong></p>
 <p>早上起床8点，简单的磨蹭以后已经去到了8.20多，随后光速冲去公司，还好没有迟到。</p>
 <p>随后被软院研究生接应上公司。早上蔡博还带了两个他们公司的员工来参与前端开发。但是好像也是10点多的事了。</p>
@@ -281,7 +290,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年08月11日 11:18</p>
+        <p>最后更新： 2023年08月14日 15:25</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/" title="实现收获">https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
