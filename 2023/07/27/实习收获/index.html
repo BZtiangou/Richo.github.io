@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>实现收获 | Richo blog</title>
+  <title>实习收获 | Richo blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Richo's Blog" />
   
-  <meta name="description" content="实习收获很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水写在about上了~ 虚拟环境的搭建之前都是用anaconda 第三方软件搭建的一个环境，挺好用 但是这次我是使用了python的第三方软件包搭建环境virtualenv 并且在windows 和 linux 系统上都成功激活 对于windows：myenv\Scripts\acti">
+  <meta name="description" content="实习收获很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水从原来about上更新至这篇文章的下半部分了~ 虚拟环境的搭建之前都是用anaconda 第三方软件搭建的一个环境，挺好用 但是这次我是使用了python的第三方软件包搭建环境virtualenv 并且在windows 和 linux 系统上都成功激活 对于windows：myenv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现收获">
+<meta property="og:title" content="实习收获">
 <meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/index.html">
 <meta property="og:site_name" content="Richo blog">
-<meta property="og:description" content="实习收获很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水写在about上了~ 虚拟环境的搭建之前都是用anaconda 第三方软件搭建的一个环境，挺好用 但是这次我是使用了python的第三方软件包搭建环境virtualenv 并且在windows 和 linux 系统上都成功激活 对于windows：myenv\Scripts\acti">
+<meta property="og:description" content="实习收获很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水从原来about上更新至这篇文章的下半部分了~ 虚拟环境的搭建之前都是用anaconda 第三方软件搭建的一个环境，挺好用 但是这次我是使用了python的第三方软件包搭建环境virtualenv 并且在windows 和 linux 系统上都成功激活 对于windows：myenv">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-14T07:25:55.913Z">
+<meta property="article:modified_time" content="2023-08-16T02:53:19.490Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="计算机基础">
 <meta property="article:tag" content="python">
@@ -122,7 +122,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      实现收获
+      实习收获
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -151,7 +151,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="实习收获"><a href="#实习收获" class="headerlink" title="实习收获"></a>实习收获</h1><p>很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水写在about上了~</p>
+            <h1 id="实习收获"><a href="#实习收获" class="headerlink" title="实习收获"></a>实习收获</h1><p>很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水从原来about上更新至这篇文章的下半部分了~</p>
 <h2 id="虚拟环境的搭建"><a href="#虚拟环境的搭建" class="headerlink" title="虚拟环境的搭建"></a>虚拟环境的搭建</h2><p>之前都是用anaconda 第三方软件搭建的一个环境，挺好用</p>
 <p>但是这次我是使用了python的第三方软件包搭建环境virtualenv</p>
 <p>并且在windows 和 linux 系统上都成功激活</p>
@@ -253,15 +253,60 @@
 <li><code>row_data = [column.xpath(&quot;string(.)&quot;).get().strip() for column in columns]</code>: 在每一列中，通过 XPath 表达式 <code>string(.)</code> 提取该列内的文本内容。<code>.get()</code> 方法获取文本值，<code>strip()</code> 方法去除文本中的空白字符。这行代码创建了一个列表 <code>row_data</code>，其中包含了该行内每个单元格的文本内容。</li>
 <li><code>target_date = datetime.strptime(row_data[-1], &#39;%Y-%m-%d&#39;).date()</code>: 这行代码将该行中最后一列的日期字符串（格式为 <code>YYYY-MM-DD</code>）转换为 <code>datetime.date</code> 对象，以便后续.</li>
 </ol>
-<p>当你完成了更改。我先陈述一下我的流程：</p>
+<p><strong>完成更改前</strong>：</p>
+<p>我的流程：</p>
+<p>1.<strong>Fork 项目仓库：</strong>去上游老板那里，需要 Fork 项目的原始仓库到你自己的 GitHub 账号下。这将创建一个你自己的仓库副本。</p>
+<p>2.<strong>克隆仓库：</strong> 将你 Fork 后的仓库克隆到本地。</p>
+<p>3.<strong>创建分支：</strong> 在本地仓库中创建一个新分支，用于你的修改。 这一步看你的项目规模已经合作方式，可有可无</p>
+<p>4.<strong>进行修改：</strong> 添加新功能、修复 bug 等。</p>
+<p>当你<strong>完成了更改</strong>。我先陈述一下我的流程：</p>
 <p>1.首先是git fetch upstream   upstream是我们小组建立的远程仓库别名，我先抓取文件更新下载到本地。可以使用git remote 查看仓库，git remote show upstream 来查看具体信息，如果你忘了的话</p>
 <p>2.可以直接merge，但是我怕会把我未提交的merge掉，所以我求稳，我在merge前我会先使用git status查看状态</p>
 <p>3.比如说我当前的状态是多处修改没有提交，那么我就会选择部分文件为一组提交。使用git add 部分文件的路径（这时候，git status的优势就体现出来了，因为你可以直接cv）使用git add后如果不小心加错了可以使用git reset 恢复</p>
 <p>4.然后你可以使用git commit 提交更改，<del>建议</del>一定要-m 附上更改信息！！！小心push的时候被管理员退回，当然，默认是推送到你自己的远程仓库，防止污染上游仓库。</p>
+<p>5.PR一下，这一步指的是当你push到你自己的本地仓库，比如我就是push到本地仓库的，我不能直接push到上游，这时候我就需要PR，等待管理员审核，就可以merge到上游了。</p>
 <p><strong>省流：</strong></p>
 <p>使用 <code>git add</code> 将修改添加到暂存区。</p>
 <p>使用 <code>git commit</code> 提交暂存区的修改到本地仓库。</p>
 <p>使用 <code>git push</code> 将本地仓库的修改推送到远程仓库，与其他人共享。</p>
+<h2 id="利用openpyxl与fitz"><a href="#利用openpyxl与fitz" class="headerlink" title="利用openpyxl与fitz"></a>利用openpyxl与fitz</h2><h3 id="openyxl"><a href="#openyxl" class="headerlink" title="openyxl:"></a>openyxl:</h3><p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> openpyxl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载工作簿和工作表</span></span><br><span class="line">wb = openpyxl.load_workbook(<span class="string">&#x27;/mnt/c/Users/86176/Desktop/东证期货_2023-07-31_本周重点数据解析及后市观点.xlsx&#x27;</span>)   </span><br><span class="line">sheet = wb[<span class="string">&#x27;本周点评&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定行和列的范围</span></span><br><span class="line">start_row = <span class="number">4</span></span><br><span class="line">end_row = <span class="number">88</span></span><br><span class="line">start_col = <span class="number">1</span></span><br><span class="line">end_col = <span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储提取的文本</span></span><br><span class="line">extracted_text = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历指定范围的单元格</span></span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> sheet.iter_rows(min_row=start_row, max_row=end_row, min_col=start_col, max_col=end_col):</span><br><span class="line">    <span class="keyword">for</span> cell <span class="keyword">in</span> row:</span><br><span class="line">        <span class="keyword">if</span> cell.value <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> <span class="built_in">isinstance</span>(cell.value, <span class="built_in">str</span>):</span><br><span class="line">            extracted_text.append(cell.value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试，打印提取的文本</span></span><br><span class="line"><span class="comment"># for text in extracted_text:</span></span><br><span class="line"><span class="comment">#     print(text)</span></span><br><span class="line"><span class="comment"># for i, string in enumerate(extracted_text):</span></span><br><span class="line">    <span class="comment"># extracted_text[i] = string.replace(&#x27;\n&#x27;,&#x27;&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(extracted_text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>1.我们首先要加载工作本，利用到openyxl.load_workbook()函数，参数是你的路径</p>
+<p>2.工作表的选择：sheet &#x3D; wb[“工作表的名字”]</p>
+<p>如果需要拿走一个范围内的单元格数据：</p>
+<p>for row in sheet.iter_rows()。参数就说你指定的范围，构成一个矩阵，在里面搜查，单元格的数值就是value。</p>
+<p>利用fitz：</p>
+<p>上代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fitz  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取各种关键字的要点信息</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract_variety_opinions</span>(<span class="params">pdf_path, keyword</span>):</span><br><span class="line">    <span class="comment">#用fitz.open来打开pdf文件，和Image类似</span></span><br><span class="line">    doc = fitz.<span class="built_in">open</span>(pdf_path)</span><br><span class="line">    <span class="comment">#下面的内容用来找category,写在循环体外节省时间</span></span><br><span class="line">    taget_page=doc.load_page(<span class="number">1</span>)</span><br><span class="line">    <span class="comment">#因为第二页（从1开始计算）包含了材料以及材料的省流</span></span><br><span class="line">    <span class="comment">#假如它的第一页不再是logo,则改一下page，注意计算机从0开始数</span></span><br><span class="line">    text=taget_page.get_text(<span class="string">&#x27;blocks&#x27;</span>) <span class="comment">#按块将文本分割，其中如果是段落的话也会被分割</span></span><br><span class="line">    <span class="keyword">for</span> tup <span class="keyword">in</span> text:</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> tup:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(item,<span class="built_in">str</span>):  <span class="comment">#这里是把摘取到的数据类型进行比对，因为包含了很多坐标信息在里面</span></span><br><span class="line">                <span class="comment">#这是把那四种材料询问一边，不然会加入不必要的字符串</span></span><br><span class="line">                <span class="keyword">for</span> kind <span class="keyword">in</span> kinds:</span><br><span class="line">                    <span class="comment">#如果是材料的子串，则加入</span></span><br><span class="line">                    <span class="keyword">if</span> kind <span class="keyword">in</span> item:</span><br><span class="line">                        category.append(item.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> page_num <span class="keyword">in</span> <span class="built_in">range</span>(doc.page_count):</span><br><span class="line">        page = doc.load_page(page_num)</span><br><span class="line">        text = page.get_text(<span class="string">&#x27;blocks&#x27;</span>)</span><br><span class="line">        <span class="comment">#下面的内容用来找opinions</span></span><br><span class="line">        string=<span class="string">&quot;&quot;</span></span><br><span class="line">        cnt=-<span class="number">1</span>  <span class="comment">#记录当前是第几个元组</span></span><br><span class="line">        flag=<span class="number">0</span></span><br><span class="line">        <span class="comment">#找到四个类别的钢铁材料</span></span><br><span class="line">        <span class="keyword">for</span> tup <span class="keyword">in</span> text:</span><br><span class="line">            <span class="comment">#flag 是否已经找到目标串的标志</span></span><br><span class="line">            <span class="keyword">if</span> flag==<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            cnt+=<span class="number">1</span></span><br><span class="line">            <span class="comment">#因为在Tuple中，没办法直接匹配子串，所以只能再加一层循环，拿出字符串</span></span><br><span class="line">            <span class="keyword">for</span> item <span class="keyword">in</span> tup:</span><br><span class="line">                <span class="comment">#如果说这个字符串有品种观点，我们就添加它</span></span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">isinstance</span>(item, <span class="built_in">str</span>) <span class="keyword">and</span> keyword <span class="keyword">in</span> item:              </span><br><span class="line">                    string+=item</span><br><span class="line">                    <span class="comment">#如果后续它每加n段，只需要把range的范围添加n即可</span></span><br><span class="line">                    <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">3</span>):</span><br><span class="line">                        <span class="keyword">for</span> c <span class="keyword">in</span> text[cnt+num]:</span><br><span class="line">                            <span class="keyword">if</span> <span class="built_in">isinstance</span>(c,<span class="built_in">str</span>):</span><br><span class="line">                                string+=c</span><br><span class="line">                    opinions.append(string)  <span class="comment">#在这时候，string已经是完整的答案了，所以可以直接append</span></span><br><span class="line">                    flag=<span class="number">1</span></span><br><span class="line">            </span><br><span class="line">                </span><br><span class="line">    doc.close()</span><br><span class="line">    <span class="keyword">return</span> string</span><br><span class="line"></span><br><span class="line"><span class="comment">#opinions里面放着的是品种观点和建议</span></span><br><span class="line"><span class="comment">#category 放的是材料类别,opinions中的顺序和opinions中一致</span></span><br><span class="line">kinds=[<span class="string">&#x27;钢材&#x27;</span>,<span class="string">&#x27;铁矿石&#x27;</span>,<span class="string">&#x27;焦炭&#x27;</span>,<span class="string">&#x27;焦煤&#x27;</span>]</span><br><span class="line">category=[]</span><br><span class="line">opinions=[]</span><br><span class="line">keyword = <span class="string">&quot;【品种观点】&quot;</span></span><br><span class="line">extract_variety_opinions(<span class="string">&#x27;/mnt/c/Users/86176/Desktop/中辉期货.pdf&#x27;</span>, keyword)</span><br><span class="line"></span><br><span class="line"><span class="comment">#需要的结果在opinios和category两个列表里</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="利用谷歌的OCR技术识别图像："><a href="#利用谷歌的OCR技术识别图像：" class="headerlink" title="利用谷歌的OCR技术识别图像："></a>利用谷歌的OCR技术识别图像：</h2><p>库导入：import pytesseract   用来文字识别</p>
+<p>from PIL import Image 用来打开图像</p>
+<p>部分代码如下： 同上，解释直接打在注释里</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">item_completed</span>(<span class="params">self, results, item, info</span>):</span><br><span class="line">        image_path=<span class="string">f&#x27;../media/downloads/<span class="subst">&#123;item[<span class="string">&quot;file_name&quot;</span>]&#125;</span>&#x27;</span>  </span><br><span class="line">        image = Image.<span class="built_in">open</span>(image_path)     <span class="comment">#利用PIL中的Image来打开图片文件</span></span><br><span class="line">        <span class="comment">#下面的参数lang是语言的选择，&#x27;chi_sim&#x27;是中文简体的缩写</span></span><br><span class="line">        extracted_text = pytesseract.image_to_string(image,lang=<span class="string">&#x27;chi_sim&#x27;</span>)         <span class="comment">#image_to_string(ocr技术)</span></span><br><span class="line">        <span class="keyword">match</span> = re.search(<span class="string">r&#x27;5 大 品 种 钢 材 社 会 库 存 (\d+) 万 吨&#x27;</span>,extracted_text) <span class="comment">#正则表达式，其中的()表示一个捕获组</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">match</span>:</span><br><span class="line">            number = <span class="keyword">match</span>.group(<span class="number">1</span>)   <span class="comment">#捕获组0是原始字符串，捕获组(1)才是我们需要的数字</span></span><br><span class="line">            <span class="comment">#下面的内容与OCR关系不大，但是为了完整性我还是留下了部分</span></span><br><span class="line">            update_date=datetime.now().date()</span><br><span class="line">            django_item = FundermentalItem()</span><br><span class="line">            django_item[<span class="string">&#x27;variety&#x27;</span>]=<span class="string">&#x27;钢材&#x27;</span></span><br><span class="line">            django_item[<span class="string">&#x27;data_type&#x27;</span>]=<span class="string">&#x27;五大品种钢材市场库存&#x27;</span></span><br><span class="line">            django_item[<span class="string">&#x27;indicator&#x27;</span>]=<span class="string">&#x27;五大品种市场库存&#x27;</span></span><br><span class="line">            django_item[<span class="string">&#x27;value&#x27;</span>]=number</span><br><span class="line">            django_item[<span class="string">&#x27;unit&#x27;</span>]=<span class="string">&#x27;万吨&#x27;</span></span><br><span class="line">            django_item[<span class="string">&#x27;update_frequency&#x27;</span>]=<span class="string">&#x27;旬度&#x27;</span></span><br><span class="line">            django_item[<span class="string">&#x27;date&#x27;</span>]=update_date</span><br><span class="line">            self.thread_pool.submit(</span><br><span class="line">                self.save_data,</span><br><span class="line">                <span class="built_in">dict</span>(django_item),</span><br><span class="line">                django_item.django_model</span><br><span class="line">            )</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1 id="实习日记"><a href="#实习日记" class="headerlink" title="实习日记"></a>实习日记</h1><p><strong>2023-07-13 是实习的第一天，天气晴</strong></p>
 <p>早上起床8点，简单的磨蹭以后已经去到了8.20多，随后光速冲去公司，还好没有迟到。</p>
 <p>随后被软院研究生接应上公司。早上蔡博还带了两个他们公司的员工来参与前端开发。但是好像也是10点多的事了。</p>
@@ -287,11 +332,13 @@
 <p>在上班的时候顺便摸鱼学了会AI。这不比数据抓取有趣多了，下午的爬虫更改属于是进阶技能了，还没搞定就下班溜了。</p>
 <p><strong>2023-08-10   线下回归实习的第x天   天气晴朗</strong></p>
 <p>经过几天的摸爬滚打，现在对于这份工作已经是比较熟悉了，从几天前爬取西本网页，用了3天都还爬不全信息到后来爬取chinesesteel只用两天，到最后爬tradeclub只用半小时….当然这和网站我后期维护有关。中午午睡太伤脖子了，就不打算睡了，索性直接开打。昨天的集训我们队没人做……对于scrapy框架的使用也是愈发成熟。不过中午的那份面，看似老干妈的辣酱，实际上早已超越了老干妈……另外就是开发组除了我没事，其他人都感冒发烧了。</p>
+<p><strong>2023-08-14   线下回归实习的第x+n天  周一  天气晴朗</strong></p>
+<p>今天带了安卓机来读取电梯卡片数据，几经波折，好像成功了，又好像没成功，明天我再去试一下。今天的任务已经改变成了读取xlxs的数据和pdf的数据。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年08月14日 15:25</p>
-        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/" title="实现收获">https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/</a></p>
+        <p>最后更新： 2023年08月16日 10:53</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/" title="实习收获">https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
                 <img src="/Richo.github.io/images/head.jpg" alt="Richo">
@@ -348,7 +395,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/&title=《实现收获》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/&title=《实习收获》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -358,7 +405,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/&title=《实现收获》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/&title=《实习收获》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -368,7 +415,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《实现收获》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《实习收获》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -410,7 +457,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7"><span class="post-toc-text">实习收获</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA"><span class="post-toc-text">虚拟环境的搭建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#python-%E5%AF%B9%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="post-toc-text">python 对于数据处理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0"><span class="post-toc-text">实习日记</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7"><span class="post-toc-text">实习收获</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA"><span class="post-toc-text">虚拟环境的搭建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#python-%E5%AF%B9%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="post-toc-text">python 对于数据处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8openpyxl%E4%B8%8Efitz"><span class="post-toc-text">利用openpyxl与fitz</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#openyxl"><span class="post-toc-text">openyxl:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8%E8%B0%B7%E6%AD%8C%E7%9A%84OCR%E6%8A%80%E6%9C%AF%E8%AF%86%E5%88%AB%E5%9B%BE%E5%83%8F%EF%BC%9A"><span class="post-toc-text">利用谷歌的OCR技术识别图像：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E4%B9%A0%E6%97%A5%E8%AE%B0"><span class="post-toc-text">实习日记</span></a></li></ol>
         </nav>
     </aside>
     

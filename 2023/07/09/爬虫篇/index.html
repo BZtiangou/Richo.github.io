@@ -16,7 +16,7 @@
 <meta property="og:description" content="爬虫篇前景知识：静态网站和动态网站网站可以根据数据的呈现形式分为动态网站和静态网站:静态网站:静态网站是指全部由HTML 标准通用标记语言的子集)代码格式页面组成的网站，所有的内容包含在网页文件中。所有的数据呈现在页面上，不需要和数据库做交互。动态网站:指网站内容可根据不同情况动态变更的网站，一般情况下动态网站通过和数据库交互来实现，数据会随着数据库进行更新。 动态网页中的数据加载 服务器在想浏览">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-22T14:04:50.221Z">
+<meta property="article:modified_time" content="2023-08-16T01:59:21.776Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="大创">
 <meta property="article:tag" content="实习">
@@ -218,10 +218,16 @@
 <li>使用requests.session处理cookie</li>
 <li>在headers字段中添加cookie字符串headers &#x3D;[“cookie的name”.”cookie的value”</li>
 </ul>
+<h1 id="scrapy爬虫框架："><a href="#scrapy爬虫框架：" class="headerlink" title="scrapy爬虫框架："></a>scrapy爬虫框架：</h1><p>spider:利用蜘蛛将爬取的目标信息打包成一个块，其中要创建item的实例。</p>
+<p>items:物块打包的时候需要创建的实例，它包含不同类型物块的类，都继承自django_model的基类。</p>
+<p>django_model:存储了数据库的一些相关字段，而model的基类又继承自BaseModel</p>
+<p>BaseModel：放在models.py  属于常用的一些工具。它属于自定义类的一种，可以包括创建时间，更新时间和附带的属性</p>
+<p>pipelines: 将块送到管道中过滤，清洗后放入数据库</p>
+<p>其中的piplines需要在spider里面利用custom_settings 中的”ITEM_PIPELINES”字典指定对应的管道以及优先级。一个空的init.py文件可以作为模块的起始位置。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年07月22日 22:04</p>
+        <p>最后更新： 2023年08月16日 09:59</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/" title="爬虫">https://bztiangou.github.io/Richo.github.io/2023/07/09/%E7%88%AC%E8%99%AB%E7%AF%87/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -341,7 +347,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E7%AF%87"><span class="post-toc-text">爬虫篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E6%99%AF%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="post-toc-text">前景知识：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7"><span class="post-toc-text">爬虫工具</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E7%AF%87"><span class="post-toc-text">爬虫篇</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E6%99%AF%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="post-toc-text">前景知识：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7"><span class="post-toc-text">爬虫工具</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6%EF%BC%9A"><span class="post-toc-text">scrapy爬虫框架：</span></a></li></ol>
         </nav>
     </aside>
     
