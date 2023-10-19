@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>软件工程导论 | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="软导大作业-线上商城初始：当我反应过来写的时候已经过去快半个月了~  我根据以往的经验简单构造了一下技术栈：  后端：Django 前端：Vue+Vite   数据库：SQLite（开发），PostgreSQL（部署，如果启用服务器） 数据分析：Pandas、Numpy、Jieba、SnowNLP、WordCloud、Matplotlib、Scikit-learn、PyTorch、ChatGPT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程导论">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="软导大作业-线上商城初始：当我反应过来写的时候已经过去快半个月了~  我根据以往的经验简单构造了一下技术栈：  后端：Django 前端：Vue+Vite   数据库：SQLite（开发），PostgreSQL（部署，如果启用服务器） 数据分析：Pandas、Numpy、Jieba、SnowNLP、WordCloud、Matplotlib、Scikit-learn、PyTorch、ChatGPT">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-09-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-14T09:13:59.457Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="软件工程导论">
+<meta property="article:tag" content="期末考试">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="githubtoo" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-软导大作业" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      软件工程导论
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/软导大作业/">软导大作业</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2023-09-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="软导大作业-线上商城"><a href="#软导大作业-线上商城" class="headerlink" title="软导大作业-线上商城"></a>软导大作业-线上商城</h1><h2 id="初始："><a href="#初始：" class="headerlink" title="初始："></a>初始：</h2><p>当我反应过来写的时候已经过去快半个月了~  我根据以往的经验简单构造了一下技术栈：</p>
+<ul>
+<li>后端：Django</li>
+<li>前端：Vue+Vite  </li>
+<li>数据库：SQLite（开发），PostgreSQL（部署，如果启用服务器）</li>
+<li>数据分析：Pandas、Numpy、Jieba、SnowNLP、WordCloud、Matplotlib、Scikit-learn、PyTorch、ChatGPT</li>
+</ul>
+<p>当然还有项目结构：</p>
+<p><strong>##</strong> <strong>项目结构</strong></p>
+<p>`&#96;&#96;</p>
+<p>QTCrawler</p>
+<p>├── backend (Django后端)</p>
+<p>│  ├── apps</p>
+<p>│  │  ├── authentication (身份认证)</p>
+<p>│  │  │  ├── migrations</p>
+<p>│  │  │  ├── templates</p>
+<p>│  │  │  └── …</p>
+<p>│  │  ├── cart (购物车功能)</p>
+<p>│  │  │  ├── migrations</p>
+<p>│  │  │  ├── templates</p>
+<p>│  │  │  └── …</p>
+<p>│  │  ├── catalog (商品目录和详情)</p>
+<p>│  │  │  ├── migrations</p>
+<p>│  │  │  ├── templates</p>
+<p>│  │  │  └── …</p>
+<p>│  │  └── …</p>
+<p>│  ├── config</p>
+<p>│  │  ├── django</p>
+<p>│  │  └── settings</p>
+<p>│  ├── static</p>
+<p>│  ├── templates (Django模板)</p>
+<p>│  ├── manage.py</p>
+<p>│  └── …</p>
+<p>├── frontend (Vite+Vue前端)</p>
+<p>│  ├── public</p>
+<p>│  ├── src</p>
+<p>│  │  ├── assets</p>
+<p>│  │  ├── components (Vue组件)</p>
+<p>│  │  ├── router (Vue路由)</p>
+<p>│  │  ├── store (VueX状态管理)</p>
+<p>│  │  ├── views (页面视图)</p>
+<p>│  │  ├── App.vue</p>
+<p>│  │  └── main.js</p>
+<p>│  ├── vite.config.js</p>
+<p>│  ├── package.json</p>
+<p>│  └── …</p>
+<p>├── media (媒体资源存储)</p>
+<p>├── ocr_configs (验证码识别配置)</p>
+<p>├── qtcrawler (Scrapy爬虫工程根目录)</p>
+<p>│  └── qtcrawler</p>
+<p>│    ├── spiders (爬虫代码)</p>
+<p>│    └── …</p>
+<p>├── .env (环境变量配置文件)</p>
+<p>├── .gitignore</p>
+<p>├── README.md</p>
+<p>├── requirements.txt (Python依赖库)</p>
+<p>`&#96;&#96;</p>
+<h2 id="部分依赖项的解释说明"><a href="#部分依赖项的解释说明" class="headerlink" title="部分依赖项的解释说明"></a>部分依赖项的解释说明</h2><p>channels        “channels” 是 Django Channels 框架的一部分，用于处理 WebSocket 连接、异步通信和实时应用程序。</p>
+<h2 id="一些简单的配置文件"><a href="#一些简单的配置文件" class="headerlink" title="一些简单的配置文件"></a>一些简单的配置文件</h2><p>.gitignore:</p>
+<p>注释用’#’, *表示匹配0个或多个任意字符</p>
+<p>如：*.sqlite3表示忽略所有的数据库(sqlite3结尾的)</p>
+<p>如果有些文件已经被忽略了，当使用<code>git add</code>时是无法添加的。需要加上<code>-f</code>参数才能强制添加到git中去，这样就能强制添加到缓存中去了。</p>
+<p>如果我们意外的将想要忽略的文件添加到缓存中去了，我们可以使用<code>rm</code>命令将其从中移除：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> --cached test.js </span><br></pre></td></tr></table></figure>
+
+<p>在 .gitingore 文件中，每一行指定一个忽略规则，Git检查忽略规则的时候有多个来源，它的优先级如下（由高到低）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、从命令行中读取可用的忽略规则</span><br><span class="line">2、当前目录定义的规则</span><br><span class="line">3、父级目录定义的规则，依次递推</span><br><span class="line">4、$GIT_DIR/info/exclude 文件中定义的规则</span><br><span class="line">5、core.excludesfile中定义的全局规则</span><br></pre></td></tr></table></figure>
+
+<p>如果你不慎在创建.gitignore文件之前就push了项目，那么即使你在.gitignore文件中写入新的过滤规则，这些规则也不会起作用，Git仍然会对所有文件进行版本管理。简单来说出现这种问题的原因就是Git已经开始管理这些文件了，所以你无法再通过过滤规则过滤它们。所以大家一定要养成在项目开始就创建.gitignore文件的习惯。</p>
+<p><strong>gitignor忽略规则查看</strong> 如果你发下.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查</p>
+<h2 id="聊聊后端："><a href="#聊聊后端：" class="headerlink" title="聊聊后端："></a>聊聊后端：</h2><p>Django:</p>
+<p>URL配置：</p>
+<ul>
+<li><strong>根 URL 配置</strong>：用于项目范围的 URL 映射，包括项目的主页、管理员界面、通用视图等。通常情况下，根 URL 配置文件只有一个，处理项目的顶级 URL 映射。通常位于项目的根目录下，可在项目的设置文件（<code>settings.py</code>）中通过 <code>ROOT_URLCONF</code> 设置指定</li>
+<li><strong>应用级别 URL 配置</strong>：用于应用内的 URL 映射，包括应用的特定功能和视图。每个应用都可以有自己的 <code>urls.py</code> 文件，以定义应用内的 URL 路由。这有助于模块化应用，并将相关的功能组织在一起。</li>
+</ul>
+<p>include函数用于包含其他应用的 URL 配置，可以将其他应用中定义的 URL 路由包含到当前应用的路由中，实现模块化的 URL 配置。相当于套娃。</p>
+<p>as_view()</p>
+<ol>
+<li>在导入类视图时，通常是类似 <code>UserRegisterApi</code> 这样的视图类。</li>
+<li>使用 <code>.as_view()</code> 方法将类视图转换为可调用的函数。</li>
+<li>在 URL 配置中，将这些可调用的函数与特定的 URL 路由路径关联，这样当请求到达该 URL 时，Django 将调用相应的函数处理请求。</li>
+</ol>
+<p>变模型需要这三步：</p>
+<ul>
+<li>编辑 <code>models.py</code> 文件，改变模型。</li>
+<li>运行 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/4.2/ref/django-admin/#django-admin-makemigrations"><code>python manage.py makemigrations</code></a> 为模型的改变生成迁移文件。</li>
+<li>运行 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/4.2/ref/django-admin/#django-admin-migrate"><code>python manage.py migrate</code></a> 来应用数据库迁移。这个 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/4.2/ref/django-admin/#django-admin-migrate"><code>migrate</code></a> 命令选中所有还没有执行过的迁移（Django 通过在数据库中创建一个特殊的表 <code>django_migrations</code> 来跟踪执行过哪些迁移）并应用在数据库上 - 也就是将你对模型的更改同步到数据库结构上</li>
+</ul>
+<p>数据库迁移被分解成生成和应用两个命令是为了让你能够在代码控制系统上提交迁移数据并使其能在多个应用里使用；这不仅仅会让开发更加简单，也给别的开发者和生产环境中的使用带来方便。</p>
+<p>每个视图必须要做的只有两件事：返回一个包含被请求页面内容的 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/4.2/ref/request-response/#django.http.HttpResponse"><code>HttpResponse</code></a> 对象，或者抛出一个异常，比如 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/4.2/topics/http/views/#django.http.Http404"><code>Http404</code></a> 。至于你还想干些什么，随便你。</p>
+<p>你的视图可以从数据库里读取记录，可以使用一个模板引擎（比如 Django 自带的，或者其他第三方的），可以生成一个 PDF 文件，可以输出一个 XML，创建一个 ZIP 文件，你可以做任何你想做的事，使用任何你想用的 Python 库。</p>
+<p>简单聊聊django的表格：</p>
+<p>class UserInfo:<br>id &#x3D; IntegerFieldname   赋值相当于C++的声明</p>
+<p>如果想突然增加一列，记得把前面的也考虑进来。或者NUll打开</p>
+<p>聊聊数据库的增删改查：</p>
+<p>以用户信息为例(比较常见~)</p>
+<p>增：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">models.UserInfo.create(name=<span class="string">&quot;wupeigi&quot;</span>,pwd=<span class="string">&quot;123&quot;</span>,age=<span class="number">19</span>,email=<span class="string">&#x27;xxx@live.com&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>查：filter是条件,查不到是NUll</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#queryset=[ obj,obj,obj,obj ]  这个是返回的列表，回返回一行行的数据</span></span><br><span class="line">models.UserInfo.objects.<span class="built_in">filter</span>(name=<span class="string">&quot;xxx&quot;</span>,age=<span class="number">19</span>)  查询条件name=<span class="string">&quot;xxx&quot;</span>,age=<span class="number">19</span></span><br><span class="line"><span class="comment">#queryset=[ obj,obj,obj,obj ]obj.id obj.nameobj .age obj .pwdv2 = modelsUserInfo.objects.al1()</span></span><br><span class="line"> obi</span><br><span class="line">v3 = models.UserInfo.objects,<span class="built_in">filter</span>(name=<span class="string">&quot;xxx&quot;</span>,age=<span class="number">19</span>).first()  会取列表的第一个obj</span><br></pre></td></tr></table></figure>
+
+<p>删：满足的obj都被删掉</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">models.UserInfo.objects.al1().delete()</span><br><span class="line">models.UserInfo.objects.<span class="built_in">filter</span>(name=<span class="string">&quot;xxx&quot;</span>,age=<span class="number">19</span>).delete()</span><br></pre></td></tr></table></figure>
+
+<p>-修改：条件修改&#x2F;全部修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">models.UserInfo.objects.al1().update(age=<span class="number">19</span>)</span><br><span class="line">models.UserInfo.objects.<span class="built_in">filter</span>(<span class="built_in">id</span>=<span class="number">10</span>).update(age=<span class="number">19</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>序列化</strong>：</p>
+<ul>
+<li>序列化是将模型数据转换为可在网络上传输或存储的格式的过程。这通常意味着将模型实例<strong>转换为JSON、XML或其他格式</strong>，以便客户端能够读取或显示数据。</li>
+<li>序列化通常在读取（查询数据库并将数据发送到客户端）时使用。它将数据库中的模型数据转换为可传递给客户端的数据。</li>
+</ul>
+<p><strong>反序列化</strong>：</p>
+<ul>
+<li>反序列化是将接收到的数据（例如，客户端提交的JSON数据）<strong>转换回模型数据</strong>的过程。这包括验证数据，并确保数据符合模型的规则和字段要求。</li>
+<li>反序列化通常在<strong>创建、更新或验证数据时使用</strong>。它将来自客户端的数据转换为可以用于创建或更新数据库中的模型实例的数据。</li>
+</ul>
+<h2 id="我的个人开发日志"><a href="#我的个人开发日志" class="headerlink" title="我的个人开发日志"></a>我的个人开发日志</h2><p>xx-xx 我也忘了，反正初始了后端，编写了登陆模型啥的就交上去了，记录应该还有~</p>
+<p>9-28，就今天更新的日子，我想去QTC看看他们前端处理的如何，然后就出现了一连串的问题：</p>
+<p>npm run dev ：发现npm 和 node 的版本对不上，node 的版本至少要20.0.5.</p>
+<p>然后就去搞nvm，node的版本管家 ，然后npm install 去下载相应的依赖，然后发现好家伙，炸了~问题还没结束….</p>
+<p>9-29 还是测试一下自己的登录有没有问题</p>
+<p>10-07</p>
+<p>的这次提交，由于没有共同的祖先，而且还遇上了时间线上的问题，git无法直接push到我的仓库，这里卡了半天，首先是解决没有共同祖先的问题，直接在push后面添加一个允许没有关系的提交(问题可能出自我这个项目是我直接创建的，没有克隆而是直接上传文件了)解决时间线的问题主要还是rebase重演。主要问题在于git merge的时候遇到了冲突文件，猜测是没用共同祖先的原因，没法直接上传更改。更改完后用add重新标记一下，最后打包上传冲突。中间还用了stash来暂存更改文件，其实冲突文件就是更改，感觉加不加都一样。</p>
+<p>10-08 CSDN太牛逼了挖草，我卡了一个国庆的数据库迁移版本历史bug，给他两句话解决了……  具体什么个情况呢？我makemigrations生成需要进行迁移的任何新的或已更改的模型信息没有问题，但是当我应用的时候就出现了报错：raise InconsistentMigrationHistory( django.db.migrations.exceptions.InconsistentMigrationHistory: Migration admin.0001_initial is applied before its dependency account.0001_initial on database ‘default’.</p>
+<p><strong>原因：Django中有一个原生的User模型类，admin的模型依赖这个模型类，由于前面一个应用中的模型类User继承了AbstractUser类，所以提示这个错误。</strong></p>
+<p>解决方案：利用sqlite3的交互面板dbshell，利用manage.py,先导出.table，然后全部drop掉</p>
+<p>10-13 ~10-14创建新功能 通过邮箱找回密码</p>
+<p>邮箱是用我自己的163邮箱</p>
+<p>利用from django.utils.crypto import get_random_string 来创建随机令牌</p>
+<p>from django.core.mail import send_mail 来设置发送邮件</p>
+<p>逻辑大概是用户点击找回密码，发送一个post-&gt;需要账号和邮箱两个必须字段，验证通过后会发送一封邮件到预留邮箱，然后用户将令牌和新的密码，用户名重新输入。如果通过，则成功修改</p>
+<p>新增配置文件，新增token表，新增功能</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年10月14日 17:13</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/" title="软件工程导论">https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/&title=《软件工程导论》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/&title=《软件工程导论》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《软件工程导论》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/09/19/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/软件工程导论/" class="color2">软件工程导论</a>
+      
+    <a href="/Richo.github.io/tags/期末考试/" class="color5">期末考试</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A-%E7%BA%BF%E4%B8%8A%E5%95%86%E5%9F%8E"><span class="post-toc-text">软导大作业-线上商城</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9D%E5%A7%8B%EF%BC%9A"><span class="post-toc-text">初始：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%83%A8%E5%88%86%E4%BE%9D%E8%B5%96%E9%A1%B9%E7%9A%84%E8%A7%A3%E9%87%8A%E8%AF%B4%E6%98%8E"><span class="post-toc-text">部分依赖项的解释说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E4%BA%9B%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="post-toc-text">一些简单的配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%8A%E8%81%8A%E5%90%8E%E7%AB%AF%EF%BC%9A"><span class="post-toc-text">聊聊后端：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97"><span class="post-toc-text">我的个人开发日志</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/Richo.github.io/2023/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0(%E7%89%B9)/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title"></span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 12px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 12px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

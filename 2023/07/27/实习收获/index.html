@@ -16,7 +16,7 @@
 <meta property="og:description" content="实习收获很幸运能在大一就迎来第一次正式实习，本次实习将主要负责后端开发。和团队成员一起完成公司的一个app！日常流水从原来about上更新至这篇文章的下半部分了~ 虚拟环境的搭建之前都是用anaconda 第三方软件搭建的一个环境，挺好用 但是这次我是使用了python的第三方软件包搭建环境virtualenv 并且在windows 和 linux 系统上都成功激活 对于windows：myenv">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-16T02:53:19.490Z">
+<meta property="article:modified_time" content="2023-08-17T08:42:30.613Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="计算机基础">
 <meta property="article:tag" content="python">
@@ -192,7 +192,7 @@
 
 
 <p>上述代码的实际效果是一样的，第一行只是使用了python的类型注释。使用冒号是一种类型注解的语法。在Python 3.6及以后的版本中，可以使用类型注解来指定变量的类型。在这里，正在将 <code>html</code> 这个变量标注为 <code>Selector</code> 类型。这对于代码的可读性和类型检查非常有帮助，但不是必需的。</p>
-<p>Xpath</p>
+<p><strong>Xpath</strong></p>
 <p>bodys &#x3D; html.xpath(‘&#x2F;&#x2F;a[@target&#x3D;”_blank”]&#x2F;@href’).extract()</p>
 <p>这行代码使用 XPath 表达式来定位 HTML 中的链接 (<code>&lt;a&gt;</code> 元素的 <code>href</code> 属性)。下面解释一下这个 XPath 表达式的各个部分：</p>
 <ol>
@@ -201,6 +201,7 @@
 <li><code>/@href</code>: 选择选定的 <code>&lt;a&gt;</code> 元素的 <code>href</code> 属性。</li>
 </ol>
 <p>综合起来，这个 XPath 表达式会选择所有具有 <code>target</code> 属性值为 “_blank” 的 <code>&lt;a&gt;</code> 元素，并返回它们的 <code>href</code> 属性的值，即链接的 URL。</p>
+<p><code>/following-sibling::text()[1]</code> 是XPath中的一个表达式，用于在当前节点的后继兄弟节点中定位文本节点</p>
 <p>Chinasteel.py:</p>
 <p>网页参数encode可以使用urlencode 或者使用 quote实现 乱码，可以考虑静态或者动态传输参数</p>
 <p>pipelines.py里面放了下载文件的类(也就是当要下载图片的时候要用)</p>
@@ -337,7 +338,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年08月16日 10:53</p>
+        <p>最后更新： 2023年08月17日 16:42</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/" title="实习收获">https://bztiangou.github.io/Richo.github.io/2023/07/27/%E5%AE%9E%E4%B9%A0%E6%94%B6%E8%8E%B7/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -538,10 +539,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 12px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -574,7 +575,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 12px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
         </div>
     </div>
 </div>

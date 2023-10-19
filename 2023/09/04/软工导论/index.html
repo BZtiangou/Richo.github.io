@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>软件工程导论 | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="认识软工导论Prototype Software : Liunx   Compatibility-integration兼容集成：软件产品可以在多个操作系统使用 Security system-Permission system：安全系统-权限系统：用户或者其他人可能攻击你的产品 Fault tracking 故障追踪：Track and collect bugs from user side.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程导论">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="认识软工导论Prototype Software : Liunx   Compatibility-integration兼容集成：软件产品可以在多个操作系统使用 Security system-Permission system：安全系统-权限系统：用户或者其他人可能攻击你的产品 Fault tracking 故障追踪：Track and collect bugs from user side.">
+<meta property="og:locale">
+<meta property="og:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905091914923.png">
+<meta property="og:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905161149064.png">
+<meta property="og:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905163803535.png">
+<meta property="og:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905164548391.png">
+<meta property="article:published_time" content="2023-09-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-07T02:01:29.155Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="软件工程导论">
+<meta property="article:tag" content="期末考试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905091914923.png">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="githubtoo" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-软工导论" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      软件工程导论
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/软件工程导论/">软件工程导论</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2023-09-04
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="认识软工导论"><a href="#认识软工导论" class="headerlink" title="认识软工导论"></a>认识软工导论</h1><p>Prototype Software : Liunx </p>
+<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905091914923.png" alt="image-20230905091914923"></p>
+<p><strong>Compatibility-integration</strong>兼容集成：软件产品可以在多个操作系统使用</p>
+<p><strong>Security system</strong>-<strong>Permission system</strong>：安全系统-权限系统：用户或者其他人可能攻击你的产品</p>
+<p><strong>Fault tracking</strong> 故障追踪：Track and collect bugs from user side. 追踪用户反映的bug</p>
+<p><strong>Additional</strong> <strong>requirements</strong> <strong>provided</strong> <strong>by</strong> <strong>users</strong>：Users may require customised features 给用户定制功能</p>
+<p>软件工程是概念、方法和工具的集合，其重点是构建大型复杂软件的技术。<br>大意味着它需要很多人一起工作。我们需要学习如何组织人们一起工作。<br>复杂意味着软件有多个相互影响的组件。我们需要学习如何构建软件并降低其复杂性。</p>
+<h2 id="什么是软件工程"><a href="#什么是软件工程" class="headerlink" title="什么是软件工程?"></a>什么是软件工程?</h2><p>软件工程有助于生产:高质量的软件系统</p>
+<p>在给定的预算下</p>
+<p>在规定的截止日期之前</p>
+<p>当需求发生变化时</p>
+<h2 id="开发的六个流程："><a href="#开发的六个流程：" class="headerlink" title="开发的六个流程："></a>开发的六个流程：</h2><p>1.计划 ：decide what software and features to develop</p>
+<p>2.需求捕获：<strong>–</strong> collect requirements from experts &amp; users.</p>
+<p>3.设计和分析：<strong>–</strong> design the software architecture and the overall structure of the program</p>
+<p>4.实现：编程</p>
+<p>5.测试-测试软件的模块和测试软件作为一个整体，以发现错误。</p>
+<p>6.维护-修复用户报告的错误</p>
+<h2 id="软件过程必须包括四个基本的软件工程活动"><a href="#软件过程必须包括四个基本的软件工程活动" class="headerlink" title="软件过程必须包括四个基本的软件工程活动:"></a>软件过程必须包括四个基本的软件工程活动:</h2><p>1.软件规范——必须定义软件的功能及其操作约束。</p>
+<p>2.软件开发——必须生产出符合规范的软件。</p>
+<p>3.软件验证——必须对软件进行验证，以确保它能满足客户的需求。</p>
+<p>4.软件进化——软件必须进化以满足不断变化的客户需求。</p>
+<p>软件过程(活动)1. 软件规范</p>
+<p>理解和定义系统需要哪些服务，并确定系统运行和开发的约束条件。</p>
+<p>需求工程是软件过程的一个特别关键的阶段，因为在这个阶段犯的错误不可避免地会导致系统设计和实现中的后续问题。</p>
+<p>在需求工程过程中有三个主要的活动:需求提取和分析需求规范需求验证此活动的<strong>输出是需求文档。</strong></p>
+<p>软件过程(活动)2. 软件设计与实现软件设计和实现</p>
+<p>可以是一个活动或两个独立的活动。</p>
+<p>设计——根据所开发的系统类型，设计过程中的活动各不相同。它通常包括架构设计、数据库设计、接口设计、组件选择和设计等。相应的输出是文档——系统架构、数据库设计、接口规范、组件描述。</p>
+<p>实现(编程)——是一项单独的活动，通常没有遵循的通用流程。</p>
+<p>软件过程(活动)3.软件验证软件确认</p>
+<p>或者更一般地说，验证和确认(v&amp;v)旨在显示系统既符合其规范又满足系统客户的期望。<strong>程序测试是主要的验证技术</strong>，其中系统使用模拟测试数据执行。验证也可能涉及到从用户需求定义到程序开发的软件过程的每个阶段的检查过程，例如<strong>检查和评审</strong>。(大部分视频和视频的时间和精力都花在了程序测试上。</p>
+<p>软件测试只是验证的一种验证技术</p>
+<p>软件过程(活动)4. 软件演化</p>
+<p>大型软件系统通常有很长的生命周期。在它们的生命周期中，操作软件系统如果要保持有用，就必须进行更改。软件进化的目的是在现有软件中添加、更改或删除特性。它可以看作是一个维护过程，也可以看作是一个新的开发过程。不存在标准的软件变更或发展过程。</p>
+<h1 id="两个模型"><a href="#两个模型" class="headerlink" title="两个模型"></a>两个模型</h1><h2 id="WaterFall-模型"><a href="#WaterFall-模型" class="headerlink" title="WaterFall 模型"></a>WaterFall 模型</h2><p>它将软件开发过程表示为许多阶段(活动)</p>
+<p>前置和后置条件每个阶段的结果是一个或多个被批准(“签字”)的文档。在前一阶段完成之前，下一阶段不应开始。</p>
+<p>瀑布模型是一个计划驱动的过程——您在开始软件开发之前计划并安排所有的过程活动。当你在某一阶段遇到问题时，你在当前阶段下解决问题。你不能回到前一阶段(否则你无法控制风险)。</p>
+<p>瀑布模型只适用于某些类型的目标软件产品:产品非常简单或很小，这样你就可以明确地找出每个阶段的所有潜在问题。在每个阶段都可以预测所有潜在的问题。关键系统通常需要非常昂贵的纠正在实施阶段)，所以我们可以假设我们可以找到所有潜在的问题。广泛的安全分析(安全相关问题的规范和设计)由于一些外部原因，开发只能采用瀑布模型。例如，大型软件系统是由几个合作公司开发的更广泛的工程系统的一部分。每家公司之间的通信费用可能非常昂贵。</p>
+<h2 id="增量开发模型"><a href="#增量开发模型" class="headerlink" title="增量开发模型"></a>增量开发模型</h2><p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905161149064.png" alt="image-20230905161149064"></p>
+<p>渐进式发展(优势)增量开发与瀑布模型相比有三个主要优势:</p>
+<p>1.实现需求变更的成本降低了。(分析和文档的数量明显少于瀑布模型所需的数量。)</p>
+<p>2.对于已经完成的开发工作，更容易获得客户反馈。消费者可以参与软件开发，所以他们可以在早期阶段就发现问题。发现很难从软件设计文档中判断进度。放弃一些难以实现的要求</p>
+<p>3.客户能够比瀑布过程更早地使用软件并从中获得价值。尽可能快地发布软件更容易占领市场尽快获利</p>
+<p>增量开发(限制)从管理的角度来看，增量方法也存在问题:</p>
+<p>进程是不可见的。管理者需要定期交付成果来衡量进度。</p>
+<p>如果系统是快速开发的，那么生成反映系统每个版本的文档是不符合成本效益的。</p>
+<p>随着新增量的增加，系统结构趋于退化。随着新功能以任何可能的方式添加，定期更改会导致代码混乱。</p>
+<p>向系统添加新特性变得越来越困难和昂贵。</p>
+<p>不适合大型、复杂、长寿命的系统。</p>
+<p>大系统需要一个稳定的开端。这必须提前计划，而不是逐步开发。框架或体系结构，不同的团队需要了解他们的工作</p>
+<p>问题提出：设计新核电站的冷却系统的软件开发过程模型选择？</p>
+<p>主要取决于项目的具体需求、限制条件以及相关的风险因素。每种模型都有其优点和缺点，选择应基于项目的独特特点。</p>
+<p>以下是对两种模型的考虑：</p>
+<p>(a) 瀑布模型： 瀑布模型是一种<strong>顺序和线性的软件开发方法</strong>，每个阶段必须在下一个阶段开始之前完成。以下是选择瀑布模型的原因：</p>
+<ol>
+<li><strong>安全关键系统：</strong> 核电站是安全关键系统，冷却系统软件的错误或缺陷可能导致灾难性后果。瀑布模型的严格、阶段性的方法允许在每个阶段进行彻底的设计、文档编制和测试，这对于确保安全和可靠性至关重要。</li>
+<li><strong>法规合规性：</strong> 核电站受到严格的法规标准和合规要求的监管。瀑布模型对文档编制和验证的强调有助于满足这些法规标准并展示尽职尽责。</li>
+<li><strong>稳定性和可预测性：</strong> 瀑布模型可以提供稳定和可预测的开发过程，这对于像核电站软件这样的大规模、任务关键型项目非常重要。</li>
+</ol>
+<p>然而，瀑布模型也有其缺点，如对变更需求的适应性有限以及在开发过程后期发现关键问题的风险。</p>
+<p>(b) 增量式开发模型： 增量式开发，包括敏捷或Scrum等模型，涉及将项目分成更小、可管理的增量或迭代。以下是选择增量式开发的原因：</p>
+<ol>
+<li><strong>适应性：</strong> 如果项目的需求可能会发生变化，或者需要根据不断演变的安全标准或技术进展进行频繁的适应，增量模型在适应这些变化方面更加灵活。</li>
+<li><strong>早期交付：</strong> 增量式开发允许在项目早期交付功能性的增量，有助于验证关键功能并获得用户反馈。</li>
+<li><strong>风险缓解：</strong> 通过交付可工作的增量，项目团队可以早期识别和解决问题，减少后期失败的风险。</li>
+</ol>
+<p>然而，在像核电站这样高度监管和安全关键的环境中，增量式开发可能难以实施，因为<strong>需要严格的文档编制、验证和认证流程</strong>。</p>
+<p>总之，对于核电站冷却系统，更适合采用混合方法。可以从一个结构化且文档丰富的初始阶段（类似于瀑布模型）开始，以确定核心需求、安全措施和法规合规性。一旦基础稳固，可以过渡到增量模型，以允许更多的灵活性、适应性和早期验证，同时在整个项目中保持严格的测试和文档编制，以确保安全和可靠性。最终的选择应与核安全和软件工程领域的专家协商，以满足项目的具体需求。</p>
+<h1 id="集成与配置"><a href="#集成与配置" class="headerlink" title="集成与配置"></a>集成与配置</h1><p>在软件开发中，为了提高效率和减少重复工作，可以重复使用已开发的软件组件。这些组件可以是通用应用系统，对象集合，或者是按照标准开发的Web服务，都可以在不同的软件项目中进行集成和配置，以满足特定的需求。这有助于加快开发过程并提高软件的质量和可维护性。</p>
+<ol>
+<li><strong>独立应用系统：</strong> 这是通用的应用系统，具有许多功能，但需要在特定环境中进行配置以满足特定应用的需求。简单来说，这是一种通用软件系统，可以根据具体应用的要求进行适应和配置。</li>
+<li><strong>对象集合：</strong> 这些对象是作为组件或软件包开发的，旨在与组件框架（例如Python中的第三方库）集成。这意味着这些对象可以轻松地与其他软件组件集成，以增强其功能或提供附加特性。</li>
+<li><strong>Web服务：</strong> 这是按照服务标准开发的，可以通过互联网进行远程调用的软件服务。一个常见的例子是HTTP API，它可以让不同的软件系统通过网络相互通信和共享数据。</li>
+</ol>
+<p>集成与配置优点:</p>
+<p>1.显著减少软件开发工作量(降低成本，提高速度)</p>
+<p>2.显著减少测试工作量，轻松保证产品质量</p>
+<p>缺点:1.有些需求无法实现(受可重用组件的限制)。</p>
+<p>2.可能会失去对系统发展的控制，因为可重用组件的新版本不在控制之下。</p>
+<h1 id="敏捷方法"><a href="#敏捷方法" class="headerlink" title="敏捷方法"></a>敏捷方法</h1><p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905163803535.png" alt="image-20230905163803535"></p>
+<p>所有敏捷方法都有一些共同的特点:</p>
+<p>1.敏捷方法旨在快速生成有用的软件。</p>
+<p>2.敏捷方法是增量开发方法的一种，但通常使用较小的增量。</p>
+<p>3.通常，系统的新版本每两到三周被创建并提供给客户。规范、设计和实现的过程是相互交织的。</p>
+<p>4.广泛的工具支持用于支持开发过程。</p>
+<h2 id="极限编程XP："><a href="#极限编程XP：" class="headerlink" title="极限编程XP："></a>极限编程XP：</h2><ol>
+<li><strong>用户故事（User Stories）：</strong> 用户故事是一种简短的、非正式的需求描述，通常以用户的角度编写，<strong>描述了系统中的一个特定功能或特性</strong>。用户故事通常遵循以下格式：“作为一个[用户角色]，我想要[做某事]，以便[达到某个目标]”。用户故事通常很简洁，重点放在<strong>用户的需求和价值</strong>上，而不是详细的技术规格。它们通常用于与利益相关者（包括开发团队和用户）讨论和共享需求。</li>
+<li><strong>用户卡（User Cards）：</strong> 用户卡是包含用户故事的物理或电子卡片，通常用于在项目团队之间传递和讨论用户需求。每张用户卡片代表一个用户故事，通常包括用户故事的标题、描述和附加信息。用户卡片可以用于组织和跟踪项目需求，使团队能够集中精力开发用户最关心的功能。</li>
+</ol>
+<p>用户卡是XP的需求规范，由用户和开发团队共同创建。</p>
+<p>用户描述可以帮助用户参与建议需求。</p>
+<p>一个用户卡示例</p>
+<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20230905164548391.png" alt="image-20230905164548391"></p>
+<p>每张用户卡代表一个系统功能。(当然，如果消费者提出了太多的用户卡，其中一些可能需要被丢弃。)</p>
+<p>消费者创造故事卡片。开发团队尽早且经常地发布故事(即更新的系统版本)。</p>
+<h3 id="极限编程重构"><a href="#极限编程重构" class="headerlink" title="极限编程重构"></a>极限编程重构</h3><p>重构的例子包括重组类层次结构以删除重复的代码</p>
+<p>重命名属性和方法，以及用调用程序库中定义的方法来替换类似的代码段。</p>
+<p>传统软件工程为变化而设计——预测软件未来的变化，并设计它，以便这些变化可以很容易地实现极限编程。永远不要为变化而设计使用频繁的重构来整理代码  </p>
+<h3 id="极限编程测试优先开发-测试驱动开发"><a href="#极限编程测试优先开发-测试驱动开发" class="headerlink" title="极限编程测试优先开发(测试驱动开发)"></a>极限编程测试优先开发(测试驱动开发)</h3><p>测试驱动是软件工程中最重要的创新之一。</p>
+<p>传统软件编程1. 分析业务逻辑，然后实现该逻辑的功能</p>
+<ol start="2">
+<li><p>创建测试用例来测试功能极限编程：</p>
+<p>1.创建测试用例</p>
+<ol start="2">
+<li><p>编写代码只是为了让函数通过测试;忽略业务逻辑。</p>
+<p>业务逻辑：定义了应用程序如何满足特定的业务需求和功能。这些规则和决策通常在软件代码中实现，以确保应用程序能够按照期望的方式工作，并与特定的业务流程相符。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="结对编程：两人一机，其中一个人告诉另外一个人写什么"><a href="#结对编程：两人一机，其中一个人告诉另外一个人写什么" class="headerlink" title="结对编程：两人一机，其中一个人告诉另外一个人写什么"></a>结对编程：两人一机，其中一个人告诉另外一个人写什么</h3><p>优势：</p>
+<p>1.可以有效沟通，避免潜在的bug</p>
+<p>2.导航员是站在用户的角度分析，因此代码的设计会得到改进</p>
+<p>3.有利于新手程序员更快适应开发</p>
+<h3 id="TO-SUM-UP"><a href="#TO-SUM-UP" class="headerlink" title="TO SUM UP:"></a>TO SUM UP:</h3><p>极限编程（Extreme Programming，XP）中的测试优先开发，也称为测试驱动开发（Test-Driven Development，TDD），是一种软件开发方法，其核心思想是在编写实际功能代码之前，先编写测试用例。这些测试用例定义了你的代码应该如何工作，并且在开发过程中用于验证代码的正确性。以下是对这个方法的更详细解释：</p>
+<ol>
+<li><strong>创建测试用例</strong>：在开始编写实际的功能代码之前，首先明确定义你的需求和功能。然后，为这些功能编写测试用例，这些测试用例描述了你的代码应该如何工作，包括各种输入情况和期望的输出。</li>
+<li><strong>编写测试</strong>：一旦有了测试用例，你就可以开始编写测试代码，以确保它们可以运行并检查代码的正确性。这些测试代码可能会调用尚不存在的函数或方法，因此在实际代码实现之前，这些函数或方法通常只会返回假设的结果（例如，返回空值或占位符值）。</li>
+<li><strong>实现代码</strong>：现在，你可以开始编写实际的功能代码，以使测试用例通过。你的目标是确保所有的测试用例都能够成功运行，即代码通过了这些测试。在编写功能代码时，你的关注点是使测试通过，而不是业务逻辑的实现。</li>
+<li><strong>运行测试</strong>：一旦你编写了功能代码，就运行测试用例来确保代码的正确性。如果测试失败，你需要回到功能代码并修复问题，然后再次运行测试。</li>
+<li><strong>迭代改进</strong>：重复上述步骤，直到所有的测试用例都通过为止。这个过程是一个迭代的过程，可以不断改进代码的质量和正确性。</li>
+</ol>
+<p>通过采用测试驱动开发的方法，你可以确保你的代码在实现业务逻辑之前就具有良好的测试覆盖率。这有助于提前发现和纠正潜在的问题，减少了在后期修复问题的成本。此外，TDD也促使开发者更专注于编写只满足需求的最小功能，有助于代码的简洁性和可维护性。</p>
+<p>总之，测试驱动开发强调了测试在软件开发过程中的重要性，使开发者更注重代码质量和正确性，有助于提高软件的可靠性和可维护性。</p>
+<h1 id="项目管理SPM"><a href="#项目管理SPM" class="headerlink" title="项目管理SPM"></a>项目管理SPM</h1><p>什么是软件项目管理(SPM)?</p>
+<p>SPM是软件工程的重要组成部分。项目需要管理，因为专业的软件工程总是受制于组织的预算和进度限制。</p>
+<p>项目经理(PM)的工作是确保软件项目满足这些约束，并交付高质量的软件。</p>
+<p>良好的管理不能保证项目的成功。糟糕的管理通常会导致项目失败，例如，软件可能会延迟交付，成本超过最初的估计，或者无法满足客户的期望。</p>
+<p>项目管理目标<strong>重要的目标</strong>是:在约定的时间内向客户交付软件。将总成本控制在预算范围内。交付满足客户期望的软件。维持一个连贯的、运转良好的开发团队。这些目标不是软件工程(SE)所独有的，而是所有工程项目的目标。然而，SE项目在许多方面不同于其他类型的工程项目。</p>
+<p>大型软件项目通常被视为“一次性”或“定制”项目，<strong>这是因为每个大型软件开发项目都是独特的</strong></p>
+<p>经验是一次性的，因为技术在不断更新</p>
+<p><strong>产品是无形的。</strong></p>
+<p>过程只能由程序员提供。</p>
+<p><strong>软件过程是可变的，并且特定于组织。</strong></p>
+<p>某些类型系统的工程过程，如建筑和铁路，是很容易理解的。然而，不同的公司使用完全不同的软件开发过程。当一个特定的软件过程可能导致开发问题时，以高信心预测是一个挑战。当软件项目是更广泛的系统工程项目的一部分时，当正在开发新软件时，尤其如此。</p>
+<h3 id="项目经理的工作因组织和正在开发的软件而异。影响软件项目管理方式的重要因素有"><a href="#项目经理的工作因组织和正在开发的软件而异。影响软件项目管理方式的重要因素有" class="headerlink" title="项目经理的工作因组织和正在开发的软件而异。影响软件项目管理方式的重要因素有:"></a>项目经理的工作因组织和正在开发的软件而异。<strong>影响软件项目管理方式</strong>的重要因素有:</h3><p>公司规模:小公司可以通过非正式的管理和团队沟通来运作，不需要正式的政策和管理结构。在大公司中，必须遵循管理等级制度、正式报告和预算以及审批流程。</p>
+<p>软件的客户:如果客户是内部客户，那么客户沟通可以是非正式的，不需要适应客户的工作方式。如果为外部客户开发定制软件，则必须在更正式的沟通渠道上达成协议。</p>
+<p>软件大小:小系统可以由一个小团队开发，他们可以在同一个房间里讨论进度和其他管理问题。大型系统通常需要多个开发团队，这些团队可能在地理上分布在不同的公司。PM必须协调这些团队的活动，并安排他们相互沟通</p>
+<p>软件类型:如果正在开发的软件是消费产品，项目管理决策的正式记录是不必要的。另一方面，如果一个安全关键系统，例如，正在开发的核电站的飞行控制、冷却剂分配系统，所有项目管理决策都应记录并证明是合理的，因为这些决策可能会影响系统的安全。</p>
+<p>组织文化:一些组织的文化是以支持和鼓励个人为基础的，而另一些组织则以团队为中心。大型组织往往是官僚主义的。一些组织有承担风险的文化，而另一些组织则厌恶风险。</p>
+<p>软件开发流程:敏捷过程通常尝试使用“轻量级”管理。更正式的过程需要管理监控，以确保开发团队遵循已定义的过程</p>
+<h3 id="项目管理活动"><a href="#项目管理活动" class="headerlink" title="项目管理活动"></a>项目管理活动</h3><p>下列项目管理活动是所有机构所共通的:</p>
+<p>项目经理负责计划、评估和安排项目开发，并为人员分配任务。</p>
+<p>项目经理监督工作，以确保按照要求的标准执行。风险管理:pm必须评估可能影响项目的风险，监控这些风险，并在问题出现时采取行动。</p>
+<p>人员管理:项目经理负责管理一个团队。他们必须为他们的团队选择人员，并建立有效的团队绩效的工作方式。</p>
+<p>报告:项目经理负责向客户和开发软件的公司经理报告项目的进度。PM必须能够在各个层次上进行沟通，从详细的技术信息到管理总结。他们必须编写简洁、连贯的文档，从详细的项目报告中抽象出重要的信息，并在进度审查期间呈现这些信息。</p>
+<p>建议写作:软件项目的第一阶段可能包括撰写提案以赢得执行某项工作的合同。提案通常描述项目的目标以及如何实施。它还包括成本和进度估计，以及为什么应该将合同授予特定组织或团队的理由。</p>
+<h1 id="风险"><a href="#风险" class="headerlink" title="风险"></a>风险</h1><p>风险识别风险识别涉及识别可能对软件工程过程、正在开发的软件或开发组织构成主要威胁的风险。风险识别可能是一个团队过程，在这个过程中，一个团队聚集在一起对可能的风险进行头脑风暴。或者，项目经理可以根据他们在以前项目中出错的经验来识别风险。</p>
+<h3 id="风险清单可以包括六种类型的风险"><a href="#风险清单可以包括六种类型的风险" class="headerlink" title="风险清单可以包括六种类型的风险:"></a>风险清单可以包括六种类型的风险:</h3><p>评估风险来自于对构建系统所需资源的管理评估。</p>
+<p>组织风险来自开发软件的组织环境。</p>
+<p>人员风险与开发团队中的人员有关。</p>
+<p>需求风险来自于客户需求的变更和管理需求变更的过程。</p>
+<p>技术风险来自用于开发系统的软件或硬件技术。</p>
+<p>工具风险来自用于开发系统的软件工具和其他支持软件。</p>
+<h1 id="人员管理："><a href="#人员管理：" class="headerlink" title="人员管理："></a>人员管理：</h1><p>人员管理有四个重要因素会影响管理者和他所管理的人之间的关系:</p>
+<p><strong>一致性</strong>:项目团队中的所有人都应该以可比的方式对待。没有人期望所有的奖励都是一样的，但人们不应该觉得自己对组织的贡献被低估了。</p>
+<p><strong>尊重</strong>:不同的人有不同的技能，管理者应该尊重这些差异。团队的所有成员都应该有机会做出贡献。在某些情况下，您会发现有些人根本不适合团队，他们无法继续下去，但重要的是不要在项目的早期阶段就对他们下结论。</p>
+<p><strong>包含</strong>:当人们感到别人倾听他们并考虑他们的建议时，他们会有效地做出贡献。重要的是要建立一个工作环境，考虑到所有人的意见，即使是经验最缺乏的工作人员的意见。</p>
+<p><strong>诚实</strong>:作为一名经理，你应该总是诚实地告诉球队哪些方面做得好，哪些方面做得不好。你应该诚实地面对自己的技术知识水平，并在必要时愿意听从知识更丰富的员工。</p>
+<p>作为一名PM，你需要激励与你一起工作的人，这样他们才能最大限度地发挥自己的能力。在实践中，激励意味着组织工作及其环境，以鼓励人们尽可能有效地工作。</p>
+<p>为了提供这种鼓励，我们将试着了解一下人们的动机是什么。</p>
+<p>在软件开发项目中，从管理的角度来看，确保人们的社会、尊重和自我实现需求得到满足是最重要的。</p>
+<h1 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h1><p>项目计划是软件项目经理最重要的工作之一。</p>
+<p>他们将工作分解成几个部分，并将它们分配给项目团队成员。项目计划是在项目开始时创建的，并随着项目的进展而更新，它用于显示工作将如何完成并评估项目的进展。</p>
+<p>项目计划在项目生命周期的三个阶段进行:</p>
+<p>在提案阶段，当你为开发或提供软件系统的合同投标时。</p>
+<p>在项目启动阶段，当你必须计划谁将负责项目，如何将项目分解成增量，如何分配资源，等等。</p>
+<p>在整个项目中定期进行。</p>
+<h2 id="软件项目的成本计算"><a href="#软件项目的成本计算" class="headerlink" title="软件项目的成本计算"></a>软件项目的成本计算</h2><p>在计算软件项目的成本时，有三个主要参数:</p>
+<p>工作成本。这些是支付软件工程师和管理人员的成本。</p>
+<p>硬件和软件成本。这些是购买硬件和软件</p>
+<p>差旅和培训费用。对于大多数项目来说，最大的成本是努力成本。这种工作成本通常被估计为完成一个项目的工作可能需要的个人月的总数。出差和培训费用通常只占工作成本的一小部分。</p>
+<p>定价取胜，是软件定价方法的一个例子，称为“定价取胜”。这意味着公司对客户期望支付的价格有一定的了解，并根据客户的期望价格对合同进行投标。这种定价方法可能看起来不道德和不像商业，但它确实对客户和系统提供商都有好处。</p>
+<h3 id="项目计划通常包括以下内容"><a href="#项目计划通常包括以下内容" class="headerlink" title="项目计划通常包括以下内容:"></a>项目计划通常包括以下内容:</h3><p>简介。简要描述项目的目标。</p>
+<p>项目组织。描述开发团队的组织方式、所涉及的人员以及他们在团队中的角色。</p>
+<p>风险分析。描述可能的项目风险，这些风险出现的可能性，以及建议的风险降低策略。</p>
+<p>硬件和软件资源需求。指定进行开发所需的硬件和软件支持。</p>
+<p>工作分解:将项目分解为多个活动，并确定每个项目活动的输入和输出。</p>
+<p>项目进度:显示活动之间的依赖关系，每个里程碑所需的估计时间，以及活动的人员分配。</p>
+<p>监测和报告机制:定义应生成的管理报告，何时生成这些报告，以及应使用的项目监控机制。</p>
+<h3 id="项目调度"><a href="#项目调度" class="headerlink" title="项目调度"></a>项目调度</h3><p>确定活动</p>
+<p>识别活动依赖关系</p>
+<p>估算活动所需资源</p>
+<p>分配人员参加活动</p>
+<p>创建项目图表软件需求和设计信息</p>
+<p>描述项目进度的条形图</p>
+<p>基于计划的过程和敏捷过程都需要一个初始的项目进度表，尽管敏捷项目计划中包含的细节较少。这个初始进度表用于计划如何将人员分配到项目中，并根据合同承诺检查项目的进度。</p>
+<p>在评估进度表时，您必须提供一些“宽松性”，以允许各种活动中的滑动。这是因为从事项目的人员可能会生病或离开，硬件可能会出现故障，重要的支持软件可能会延迟交付。为了解决这个问题，估计项目所需的工作量和时间可能会增加30%到50%。</p>
+<p>发布计划:它包括选择和细化故事，这些故事将反映在系统版本中要实现的特性，以及故事应该实现的顺序。客户必须参与到这个活动中来。选择一个发布日期，并检查故事，以查看工作量估计是否与该日期一致。如果没有，则从列表中添加或删除故事。</p>
+<p>迭代计划:这是开发可交付系统增量的第一个阶段。选择在迭代期间要实现的故事。当达到交付日期时，开发迭代就完成了，即使所有的描述都没有实现。</p>
+<p>16</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2023年09月07日 10:01</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/" title="软件工程导论">https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/&title=《软件工程导论》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/&title=《软件工程导论》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《软件工程导论》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2023/09/04/%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/软件工程导论/" class="color2">软件工程导论</a>
+      
+    <a href="/Richo.github.io/tags/期末考试/" class="color5">期末考试</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%A4%E8%AF%86%E8%BD%AF%E5%B7%A5%E5%AF%BC%E8%AE%BA"><span class="post-toc-text">认识软工导论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="post-toc-text">什么是软件工程?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%80%E5%8F%91%E7%9A%84%E5%85%AD%E4%B8%AA%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="post-toc-text">开发的六个流程：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E5%BF%85%E9%A1%BB%E5%8C%85%E6%8B%AC%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%B4%BB%E5%8A%A8"><span class="post-toc-text">软件过程必须包括四个基本的软件工程活动:</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">两个模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WaterFall-%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">WaterFall 模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A2%9E%E9%87%8F%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">增量开发模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%9B%86%E6%88%90%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="post-toc-text">集成与配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%8F%E6%8D%B7%E6%96%B9%E6%B3%95"><span class="post-toc-text">敏捷方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8BXP%EF%BC%9A"><span class="post-toc-text">极限编程XP：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B%E9%87%8D%E6%9E%84"><span class="post-toc-text">极限编程重构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B%E6%B5%8B%E8%AF%95%E4%BC%98%E5%85%88%E5%BC%80%E5%8F%91-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91"><span class="post-toc-text">极限编程测试优先开发(测试驱动开发)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%B8%A4%E4%BA%BA%E4%B8%80%E6%9C%BA%EF%BC%8C%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%91%8A%E8%AF%89%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%86%99%E4%BB%80%E4%B9%88"><span class="post-toc-text">结对编程：两人一机，其中一个人告诉另外一个人写什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TO-SUM-UP"><span class="post-toc-text">TO SUM UP:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86SPM"><span class="post-toc-text">项目管理SPM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%8F%E7%90%86%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%9B%A0%E7%BB%84%E7%BB%87%E5%92%8C%E6%AD%A3%E5%9C%A8%E5%BC%80%E5%8F%91%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%80%8C%E5%BC%82%E3%80%82%E5%BD%B1%E5%93%8D%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F%E7%9A%84%E9%87%8D%E8%A6%81%E5%9B%A0%E7%B4%A0%E6%9C%89"><span class="post-toc-text">项目经理的工作因组织和正在开发的软件而异。影响软件项目管理方式的重要因素有:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E6%B4%BB%E5%8A%A8"><span class="post-toc-text">项目管理活动</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%A3%8E%E9%99%A9"><span class="post-toc-text">风险</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A3%8E%E9%99%A9%E6%B8%85%E5%8D%95%E5%8F%AF%E4%BB%A5%E5%8C%85%E6%8B%AC%E5%85%AD%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%A3%8E%E9%99%A9"><span class="post-toc-text">风险清单可以包括六种类型的风险:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%BA%E5%91%98%E7%AE%A1%E7%90%86%EF%BC%9A"><span class="post-toc-text">人员管理：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92"><span class="post-toc-text">项目计划</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%88%90%E6%9C%AC%E8%AE%A1%E7%AE%97"><span class="post-toc-text">软件项目的成本计算</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92%E9%80%9A%E5%B8%B8%E5%8C%85%E6%8B%AC%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="post-toc-text">项目计划通常包括以下内容:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%B0%83%E5%BA%A6"><span class="post-toc-text">项目调度</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2023/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80(%E4%B8%8A)/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          机器学习（特别篇）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/Richo.github.io/2023/07/29/%E9%95%BF%E9%9A%86%E4%B8%80%E6%97%A5%E6%B8%B8/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">长隆一日游</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2023 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 12px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 12px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
