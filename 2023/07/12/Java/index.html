@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://img1.imgtp.com/2023/07/11/D3wQAgz0.png">
 <meta property="article:published_time" content="2023-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-28T14:05:12.527Z">
+<meta property="article:modified_time" content="2023-12-13T10:52:04.263Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="编程语言">
 <meta property="article:tag" content="期末考">
@@ -300,7 +300,7 @@
 <p>name &#x3D; new int [size]</p>
 <p>#中括号的位置也可以放中间，但是影响不大</p>
 <p>静态数组开辟：</p>
-<p>int name [] &#x3D;new int [] {1,2,3};</p>
+<p>int name [] &#x3D;new int []    + {xxx};</p>
 <p>foreach语法和c一样；</p>
 <p>数组的内存分析</p>
 <p>与类相似，也可以实现不同的栈内存对同一块堆内存进行修改！</p>
@@ -310,11 +310,102 @@
 <p>按值传递:将参数值的副本传递给被调用的方法。被调用的方法只对副本起作用。对副本的更改不会影响原始变量的值。<br>通过引用传递被调用的方法可以直接访问调用方中的参数值，并在必要时修改该数据。这可以通过消除复制大量数据的需要来提高性能。</p>
 <p>二维：</p>
 <p>数据类型 数组名称 [] [] &#x3D; new 数据类型[行个数] [列个数];</p>
-<p>静态：数据类型 数组名称 [] [] &#x3D; new 数据类型[] [] </p>
+<h1 id="GUI-lesson7"><a href="#GUI-lesson7" class="headerlink" title="GUI lesson7"></a>GUI lesson7</h1><h2 id="Java-Foundation-Classes（JFC）"><a href="#Java-Foundation-Classes（JFC）" class="headerlink" title="Java Foundation Classes（JFC）"></a>Java Foundation Classes（JFC）</h2><p>JFC 是 Java 中用于创建具有丰富图形功能和用户界面的应用程序的一组功能，它使开发人员能够构建交互性强、外观可定制、无障碍友好且国际化的应用程序。 Swing 是其中的一部分，提供了跨平台的 GUI 组件。</p>
+<p>JFC 包括以下功能：</p>
+<ol>
+<li><strong>Swing GUI 组件（Swing GUI Components）：</strong> JFC 包括 Swing 库，它提供了一组丰富的 GUI 组件，如按钮、文本框、标签、表格、列表框等，用于创建用户友好的桌面应用程序界面。Swing 是 JFC 的一部分，用于构建跨平台的 Java 应用程序的图形用户界面。</li>
+<li><strong>可插拔的外观支持（Pluggable look-and-feel Support）：</strong> JFC 允许应用程序的外观和感觉可以轻松定制。开发人员可以选择不同的外观风格，使应用程序的外观与用户期望的一致。</li>
+<li><strong>无障碍 API（Accessibility API）：</strong> JFC 包括支持无障碍性的 API，使得应用程序更易于使用对于有特殊需求或残障的用户。这意味着开发人员可以创建可访问的应用程序，以确保所有用户都能够轻松地与应用程序进行交互。</li>
+<li><strong>Java 2D API：</strong> Java 2D API 提供了用于处理二维图形和图像的功能，包括绘图、渲染、图像处理等。它使开发人员能够在应用程序中实现丰富的图形功能。</li>
+<li><strong>国际化（Internationalisation）：</strong> JFC 支持国际化，使得开发人员能够轻松地将应用程序本地化为不同的语言和文化环境，以满足不同用户群体的需求。</li>
+</ol>
+<p> <strong>Java Swing</strong> 中的 GUI 组件和如何使用它们来构建图形用户界面（GUI）应用程序的基本概念：</p>
+<ol>
+<li><p><strong>Swing 组件（Swing components）：</strong> 在 Swing 中，GUI 是由图形组件构成的，这些组件是 Java 类的实例。这些组件用于构建用户界面的各个部分，如按钮、文本框、标签等。开发人员可以使用这些组件来构建用户友好的应用程序界面。</p>
+</li>
+<li><p><strong>声明组件对象（Declare objects of them）：</strong> 要使用 Swing 组件，开发人员需要声明这些组件的对象。这通常涉及创建相应组件的实例，然后将它们添加到 GUI 中，以构建应用程序的用户界面。</p>
+</li>
+<li><p><strong>JFrame 组件（JFrame component）：</strong> 通常，GUI 应用程序是建立在 <code>JFrame</code> 组件之上的。<code>JFrame</code> 是一个窗口或容器，用于容纳应用程序的其他组件。它提供了应用程序窗口的框架，并允许开发人员管理窗口的大小、位置以及其他窗口相关的属性。</p>
+</li>
+<li><p><strong>其他常用组件（Other commonly used components）：</strong> 除了 <code>JFrame</code> 外，Swing 还包括许多其他常用的组件，例如：</p>
+<ul>
+<li><code>JLabel</code>：用于显示静态文本或图像的组件。</li>
+<li><code>JButton</code>：实现了可按下的按钮，用于触发操作或事件。</li>
+</ul>
+<p>这些组件允许开发人员创建各种用户界面元素，如标签、按钮等，以构建功能丰富的图形用户界面。</p>
+</li>
+</ol>
+<p>在 Java Swing 中，<code>JDialog</code> 类用于创建顶层容器，通常用于显示对话框。对话框是一种独立的窗口，用于与用户进行短期的交互，例如接受输入或提供信息，而 <code>JDialog</code> 类是创建这些对话框的工具。</p>
+<h2 id="非模态"><a href="#非模态" class="headerlink" title="非模态"></a>非模态</h2><p>“Non-modal” 是一个与用户界面（UI）和用户交互模式相关的术语。在非模态（non-modal）交互中，用户可以在执行一个任务的同时执行其他任务，而不需要完全完成或关闭当前任务。与之相反的是”modal”（模态）交互，其中用户需要完成或关闭当前任务，然后才能继续执行其他任务。</p>
+<p>下面是一些关于非模态（non-modal）的概念和示例：</p>
+<ol>
+<li><strong>同时执行多个任务：</strong> 在非模态的交互中，用户可以同时执行多个任务或操作。例如，用户可以打开多个非模态窗口或对话框，而不需要等待一个窗口的操作完成才能打开另一个窗口。</li>
+<li><strong>实时反馈和更新：</strong> 在非模态交互中，用户可以随时与应用程序的不同部分进行交互，查看实时反馈和更新。例如，用户可以在查看文件的同时进行搜索，而不需要等待搜索任务完成。</li>
+<li><strong>更大的灵活性：</strong> 非模态交互提供了更大的灵活性，用户可以根据需要切换任务，而不受强制的顺序或顺序要求。</li>
+</ol>
+<p>示例：Web浏览器通常采用非模态的交互方式。用户可以同时打开多个选项卡，每个选项卡都代表一个独立的网页或任务。用户可以在不关闭一个选项卡的情况下切换到另一个选项卡，查看不同的网页。这种方式与模态的文件打开对话框不同，后者通常要求用户选择文件后才能继续其他操作。</p>
+<ol>
+<li><strong>图形用户界面（GUI）提供用户友好的交互方式：</strong> GUI 是一种用户界面，它为用户提供了与应用程序进行交互的可视化方式。GUI 往往更容易学习和使用，因为它使用图形元素，如按钮、文本框和菜单，来代表应用程序的功能和选项。</li>
+<li><strong>不同平台上的 GUI 通常有相似的逻辑但不同的外观：</strong> 尽管不同操作系统上的 GUI 可能在外观上有所不同，但它们通常具有相似的逻辑和功能。这使得用户可以在不同平台上使用相似的应用程序而不需要重新学习如何使用它们。</li>
+<li><strong>Swing 是 Java 中常用的 GUI 库：</strong> 在 Java 编程中，Swing 是一个常用的库，用于创建跨平台的 GUI 应用程序。它提供了一组丰富的 GUI 组件和工具，使开发者能够轻松地构建用户友好的图形界面。</li>
+<li><strong>Swing 中的 GUI 组件基于 JComponent 类：</strong> 在 Swing 中，不同的 GUI 组件（如按钮、文本框、标签等）是通过继承自 <code>JComponent</code> 类的子类来实现的。这些组件可以在应用程序中创建和定制，以满足特定的需求。</li>
+<li><strong>Swing 允许不同的布局来组织 GUI 组件：</strong> Swing 提供了布局管理器（Layout Manager）来帮助开发者组织和排列 GUI 组件。这允许开发者创建具有不同布局的用户界面，以实现特定的设计和外观。</li>
+<li><strong>一些典型的 GUI 组件被介绍：</strong> 文本中提到了一些常见的 GUI 组件，包括按钮（buttons）、文本字段（text fields）和菜单项（menu items）。这些组件是构建用户界面的基本构建块，它们可以用于执行各种交互操作。</li>
+</ol>
+<h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><p>在每个文件头上加上package</p>
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p>在并发编程中，程序代码块(例如，方法)在<strong>重叠的时间段内</strong>并发执行</p>
+<p>在并发编程中有两个基本的执行单元:</p>
+<p><strong>进程</strong>:每个进程都有一个自包含的执行环境(完整的、私有的运行时资源集，即它自己的内存空间)  操作系统分配资源的最小单位(包括CPU『这里的CPU指CPU核心』、内存、磁盘IO等)。一个进程可以拥有多个线程。</p>
+<p>线程和进程的关系是密切的，前面所说[线程是CPU调度和分配的基本单位]，但是计算机资源是多种多样的（包括CPU『这里的CPU指CORE核心』、内存、磁盘IO等），因此操作系统在分配这些资源的时候，是以进程为单位进行分配。操作系统调度的也是进程。</p>
+<p><strong>线程</strong>:每个线程存在于一个进程中(每个进程至少有一个线程)，因此线程共享进程的资源，包括内存和打开的文件在Java编程中，我们主要关注线程。线程是CPU调度和分配的基本单位。一个进程下的线程共享该进程的资源和程序代码。</p>
+<p>线程才是真正执行的单位，而执行任务的是CORE核心。于是有【线程是CPU调度和分配的基本单位】。也解释了【不论这个线程是哪个进程的，CPU眼里没有进程的概念这个说法】</p>
+<p>在大多数支持多核的操作系统上，都能实现把一个进程的多个线程放不同的核心上跑。一个进程可能由多个线程组成，而线程的实现有两种方式，一种是内核调度的线程，可以运行在多个核上，还有一种是用户级线程，这个就没办法跑到多个核上了。</p>
+<p>线程可能分为内核态线程和用户态线程。</p>
+<p><strong>上下文切换</strong></p>
+<p>通常，多线程是通过使用上下文切换在操作系统中实现的线程以轮询方式使用短时间槽运行(每个线程轮流进行)，从而产生CPU多任务处理的错觉</p>
+<p>并发的关键是你有处理多个任务的能力，不一定要同时。</p>
+<p>并行的关键是你有同时处理多个任务的能力。</p>
+<p>同步方法：该方法被声明为 <code>synchronized</code>，这意味着一次只能有一个线程执行这个方法。这是为了防止在模拟中两辆车同时进入十字路口，从而避免碰撞。</p>
+<p>synchronized 是 Java 语言中一个关键字，用于实现多线程之间的同步。它有两种主要用法：<br>同步方法：当一个方法被声明为 synchronized 时，它表示该方法在同一时刻只能被一个线程执行。当一个线程进入同步方法时，它会获得一个锁，直到方法执行完毕才释放锁。这样一来，其他线程就需要等待锁的空闲才能执行该方法，从而实现了线程间的同步。<br>同步代码块：在需要同步的代码段前使用 synchronized 关键字，可以确保在执行该代码段时，只有一个线程能够进入同步代码块。这可以用于确保在执行某些操作时，多个线程之间的数据一致性。</p>
+<h1 id="Java-数据库"><a href="#Java-数据库" class="headerlink" title="Java-数据库"></a>Java-数据库</h1><p><strong>序列化和反序列化数据</strong></p>
+<p>序列化是将数据结构或对象转换为<strong>更容易保存或传输的字节流</strong>的过程相反的过程，反序列化，是从字节流构造数据结构或对象的过程</p>
+<p>Java本机序列化</p>
+<p>Java支持实现Serializable接口的对象的本机序列化本机序列化的主要优点是它是内置在Java中的，不需要任何外部库本机序列化的</p>
+<p>主要缺点是它是特定于java的:默认情况下，序列化的对象<strong>不能直接用于其他平台序列化的类</strong>需要实现一个没有参数的构造函数，以及序列化实例变量的标准格式的getter和setter方法</p>
+<p><strong>XML 和 JSON</strong></p>
+<p>XML和JSON的比较JSON是另一种常用的表示对象的格式最初为JavaScript开发，但也可以与Java或其他语言一起使用JSON更紧凑，生成和解析速度更快JSON格式对人类来说更容易读和写</p>
+<p>另一方面，JSON的可扩展性和灵活性不如XML</p>
+<p>JSON更适合简单的数据和web应用程序</p>
+<p>XML更适合大型和复杂的数据，以及需要频繁转换和验证的应用程序</p>
+<p>数据库基础如果应用程序需要处理大量有组织的数据，如表或模式，直接使用文件是不方便的应用程序必须为每种不同的数据结构定义文件格式应用程序必须实现在文件中添加和删除数据数据库是有组织的数据和信息的集合，由数据库管理系统(DBMS)管理。</p>
+<p>DBMS为应用程序提供了<strong>创建数据库、保存不同类型的数据、更新和删除数据等接口</strong>。在多个用户使用相同数据的情况下，DBMS确保数据的<strong>一致性和安全性</strong>.</p>
+<p><strong>关系数据库</strong></p>
+<p>关系数据库是最流行的数据库类型逻辑数据结构和物理文件存储结构是分开的逻辑数据在表中结构化，</p>
+<p>其中每一列是一个属性，每一行是具有系统分配的唯一ID的记录</p>
+<p>数据库可以包括用于不同类型数据的多个表，一个表中的数据可以引用另一个表中的数据</p>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><p>Maven的本质是一个项目管理工具，将项目开发和管理过程抽象成一个项目对象模型(POM)  POM (ProjectObject Model):项目对象模型</p>
+<p><strong>仓库</strong><br>仓库:用于存储资源，包含各种jar包<br>仓库分类:<br>本地仓库:自己电脑上存储资源的仓库，连接远程仓库获取资源远程仓库:非本机电脑上的仓库，为本地仓库提供资源中央仓库:Maven团队维护，存储所有资源的仓库<br>私服:部门&#x2F;公司范围内存储资源的仓库，从中央仓库获取资源<br>私服的作用<br>保存具有版权的资源，包含购买或自主研发的iar<br>中央仓库中的iar都是开源的，不能存储具有版权的资源一定范围内共享资源，仅对内部开放，不对外共享</p>
+<p>可以通过conf对仓库存放的地址进行更改</p>
+<p><strong>坐标</strong><br>什么是坐标?<br>Maven中的坐标用于描述仓库中资源的位置<a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2">https://repo1.maven.org/maven2</a><br>Maven坐标主要组成<br>groupld:定义当前Maven项目隶属组织名称(通常是域名反写，例如:orgmybatis)artifactld:定义当前Maven项目名称(通常是模块名称，例如CRM、SMS)version:定义当前项目版本号<br>packaging:定义该项目的打包方式<br>Maven坐标的作用<br>使用唯一标识，唯一性定位资源位置，通过该标识可以将资源的识别与下载工作交由机器完成</p>
+<p>项目结构：</p>
+<p>在src同层目录下必须包含pom.xml 是用来解释你的项目。包含项目的各种信息(依赖，版本号，打包成jar……)</p>
+<p>执行命令也是在pom.xml下</p>
+<p>main 放 java 和resource两个文件夹。 分别对应源文件和依赖资源</p>
+<p>test  放 java 和resource两个文件夹。 分别对应源文件和依赖资源</p>
+<p>主要命令：</p>
+<p>Maven构建命令使用mvn开头，后面添加功能参数，可以一次执行多个命令，使用空格分隔<br>mvn compile #编译<br>mvn clean #清理<br>mvn test #测试<br>mvn package #打包<br>mvn install #安装到本地仓库</p>
+<p>配置依赖：</p>
+<p>依赖具有传递性</p>
+<p>在xml里面，dependence里面：群组id,项目id，版本号 (统称坐标)<br>如果需要用到不同项目作为资源，需要把另外一个项目的坐标作为依赖写入</p>
+<p>直接依赖：一度依赖</p>
+<p>间接依赖：大于一度的依赖</p>
+<p>可选依赖：+一个optional标签 隐藏依赖</p>
+<p>排除依赖：不要传递过来的依赖</p>
+<p>依赖冲突：路径优先，同路径则声明优先(一度优先级最高)</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年11月28日 22:05</p>
+        <p>最后更新： 2023年12月13日 18:52</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/12/Java/" title="JAVA">https://bztiangou.github.io/Richo.github.io/2023/07/12/Java/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -382,7 +473,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/12/Java/&title=《JAVA》 — Richo blog&source=新手上路，不服憋着" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/12/Java/&title=《JAVA》 — Richo blog&source=当初陪我建站的人，都已离我而去了罢" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -434,7 +525,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java"><span class="post-toc-text">Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="post-toc-text">符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E9%9D%A2"><span class="post-toc-text">内存处理方面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%95%E7%94%A8"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="post-toc-text">垃圾回收</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">类和对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Private"><span class="post-toc-text">Private</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-text">构造方法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#This-%E5%A4%84%E7%90%86"><span class="post-toc-text">This 处理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BC%80%E8%BE%9F"><span class="post-toc-text">定义与开辟</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java"><span class="post-toc-text">Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="post-toc-text">符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E9%9D%A2"><span class="post-toc-text">内存处理方面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%95%E7%94%A8"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="post-toc-text">垃圾回收</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">类和对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Private"><span class="post-toc-text">Private</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-text">构造方法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#This-%E5%A4%84%E7%90%86"><span class="post-toc-text">This 处理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BC%80%E8%BE%9F"><span class="post-toc-text">定义与开辟</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GUI-lesson7"><span class="post-toc-text">GUI lesson7</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java-Foundation-Classes%EF%BC%88JFC%EF%BC%89"><span class="post-toc-text">Java Foundation Classes（JFC）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9D%9E%E6%A8%A1%E6%80%81"><span class="post-toc-text">非模态</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8C%85"><span class="post-toc-text">包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="post-toc-text">线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">Java-数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Maven"><span class="post-toc-text">Maven</span></a></li></ol>
         </nav>
     </aside>
     
@@ -515,10 +606,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -551,7 +642,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 14px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
         </div>
     </div>
 </div>
