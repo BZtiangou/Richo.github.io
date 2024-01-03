@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://img1.imgtp.com/2023/07/11/D3wQAgz0.png">
 <meta property="article:published_time" content="2023-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-13T10:52:04.263Z">
+<meta property="article:modified_time" content="2024-01-01T15:40:14.573Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="编程语言">
 <meta property="article:tag" content="期末考">
@@ -402,10 +402,160 @@
 <p>可选依赖：+一个optional标签 隐藏依赖</p>
 <p>排除依赖：不要传递过来的依赖</p>
 <p>依赖冲突：路径优先，同路径则声明优先(一度优先级最高)</p>
+<h1 id="期末复习"><a href="#期末复习" class="headerlink" title="期末复习"></a>期末复习</h1><h2 id="Swing"><a href="#Swing" class="headerlink" title="Swing"></a>Swing</h2><p>Java Swing是一个用于构建图形用户界面(GUI)的框架，而Swing布局管理器（Swing Layout Managers）是用来帮助开发者管理和安排GUI组件的工具。Swing提供了多种布局管理器，以适应不同的界面设计需求。以下是一些常见的Swing布局管理器：</p>
+<ol>
+<li><p><strong>FlowLayout（流式布局）</strong>：按照添加组件的顺序在容器中从左到右、从上到下排列组件。当一行放不下时，会自动换行到下一行。</p>
+</li>
+<li><p><strong>BorderLayout（边界布局）</strong>：将容器分为五个区域：北、南、东、西和中心。每个区域只能容纳一个组件，用于创建简单的框架结构。</p>
+</li>
+<li><p><strong>GridLayout（网格布局）</strong>：将容器分为行和列，然后将组件按照网格的方式排列。所有的单元格大小相等。</p>
+</li>
+<li><p><strong>CardLayout（卡片布局）</strong>：可以在同一个容器中管理多个组件，但只显示一个组件。通过切换卡片来显示不同的组件。</p>
+</li>
+<li><p><strong>BoxLayout（盒式布局）</strong>：按照水平或垂直方向排列组件。可以灵活地组合水平盒和垂直盒以创建复杂的布局。</p>
+</li>
+<li><p><strong>GridBagLayout（网格袋布局）</strong>：通过设置组件的行、列、行跨度和列跨度等属性，实现更为灵活和复杂的布局。</p>
+</li>
+</ol>
+<p>这些布局管理器可以单独使用，也可以组合使用，以满足不同界面布局的需求。通过选择合适的布局管理器，开发者可以更方便地设计出具有良好外观和用户体验的Swing界面。</p>
+<h2 id="修饰符（Access-Modifier）"><a href="#修饰符（Access-Modifier）" class="headerlink" title="修饰符（Access Modifier）"></a>修饰符（Access Modifier）</h2><p>在Java中，访问修饰符（Access Modifier）用于定义类、方法、变量等在不同类或包中的可见性和访问权限。Java提供了四种主要的访问修饰符：</p>
+<ol>
+<li><strong>public（公共的）:</strong><ul>
+<li>修饰的成员在任何地方都是可见的。</li>
+<li>其他类可以访问公共成员。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> publicVar;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">publicMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>protected（受保护的）:</strong><ul>
+<li>修饰的成员对于同一包中的其他类和所有子类可见。</li>
+<li>其他包中的类不能访问受保护的成员。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="type">int</span> protectedVar;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">protectedMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>default（默认的）:</strong><ul>
+<li>如果没有使用任何访问修饰符，默认为默认访问修饰符。</li>
+<li>修饰的成员对于同一包中的其他类可见，但对于不同包中的类不可见。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="type">int</span> defaultVar;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">defaultMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>private（私有的）:</strong><ul>
+<li>修饰的成员只对于同一类中的其他成员可见，不能被其他类访问。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> privateVar;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">privateMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这些访问修饰符帮助程序员控制类的封装性和成员的可见性，以便有效地设计和组织代码。</p>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p><code>final</code> 是Java中的一个关键字，用于修饰类、方法和变量，具有不同的含义和作用：</p>
+<ol>
+<li><strong>final 类:</strong><ul>
+<li>一个被声明为 <code>final</code> 的类不能被继承。这样的类是最终实现，不允许其他类继承它。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">FinalClass</span> &#123;</span><br><span class="line">    <span class="comment">// code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>final 方法:</strong><ul>
+<li>一个被声明为 <code>final</code> 的方法不能被子类重写。即子类不能修改或覆盖该方法。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">finalMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// code here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>final 变量:</strong><ul>
+<li>一个被声明为 <code>final</code> 的变量是一个常量，其值在声明后不能被修改。如果是基本数据类型，它的值不能改变；如果是引用类型，它指向的对象不能改变，但对象的内部状态可能是可变的。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MY_CONSTANT</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line">    <span class="comment">// code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>final</code> 的使用有助于提高代码的安全性、可读性和性能。在类、方法或变量上使用 <code>final</code> 可以强制一些约定，也可以被编译器用来进行一些优化。</p>
+<h2 id="调用栈（Call-Stack）"><a href="#调用栈（Call-Stack）" class="headerlink" title="调用栈（Call Stack）"></a>调用栈（Call Stack）</h2><p>在Java中，调用栈（Call Stack）是一个存储方法调用的内存区域，用于跟踪程序执行的流程。每当一个方法被调用，一个新的栈帧（Stack Frame）会被创建并推送到调用栈的顶部。当方法执行完成时，对应的栈帧会被弹出。这个过程形成了一个后进先出（LIFO）的结构。</p>
+<p>调用栈的主要作用是跟踪方法的调用关系和管理方法的局部变量。让我们来看一下调用栈的主要组成部分：</p>
+<ol>
+<li><p><strong>栈帧（Stack Frame）:</strong></p>
+<ul>
+<li>每个方法调用在调用栈上都有一个对应的栈帧。</li>
+<li>包含了方法的局部变量、操作数栈、方法返回地址等信息。</li>
+<li>当一个方法被调用时，一个新的栈帧被创建并推送到调用栈的顶部；当方法执行完成时，对应的栈帧会被弹出。</li>
+</ul>
+</li>
+<li><p><strong>局部变量表（Local Variable Table）:</strong></p>
+<ul>
+<li>存储了方法中的局部变量，包括方法参数和在方法中定义的局部变量。</li>
+<li>变量表的索引从0开始，用于快速访问局部变量。</li>
+</ul>
+</li>
+<li><p><strong>操作数栈（Operand Stack）:</strong></p>
+<ul>
+<li>用于存储方法执行过程中的操作数。</li>
+<li>例如，进行算术运算时，操作数会被推送到操作数栈上，然后执行相应的操作。</li>
+</ul>
+</li>
+<li><p><strong>方法返回地址:</strong></p>
+<ul>
+<li>记录了方法调用后需要返回的地址。</li>
+<li>当方法执行完成时，程序会回到这个地址，继续执行调用方法之后的代码。</li>
+</ul>
+</li>
+</ol>
+<p>调用栈的典型使用场景是方法的递归调用。每次递归调用都会在调用栈上创建一个新的栈帧，形成多个嵌套的栈帧，直到递归结束，栈帧一个一个地被弹出。</p>
+<p>理解调用栈对于调试和理解程序执行流程非常重要。如果在递归调用或方法调用中发生错误，通过查看调用栈可以追踪到发生问题的地方。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h2><p>在Java中，用于允许只有一个线程同时访问某个方法的关键字是 <code>synchronized</code>。当一个方法被声明为 synchronized 时，它确保在同一时间内只有一个线程能够在该对象上执行该方法。这对于在多线程环境中防止数据损坏或意外行为非常有用。以下是一个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 同步方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">increment</span><span class="params">()</span> &#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其他非同步方法也可以存在于类中</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getCount</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>increment</code> 方法被声明为 synchronized，确保如果多个线程尝试在同一个 <code>MyClass</code> 对象上调用该方法，只有一个线程能够同时执行它。</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p><code>wait()</code> 方法是 <code>Object</code> 类中的一个方法，而不是 <code>Thread</code> 类的方法。<code>wait()</code> 方法的主要作用是使当前线程暂停执行，等待其他线程通过调用相同对象的 <code>notify()</code> 或 <code>notifyAll()</code> 方法来唤醒它。</p>
+<p>具体来说，当一个线程调用某个对象的 <code>wait()</code> 方法时，它会释放该对象的锁，并进入等待状态，直到其他线程通过相同对象的 <code>notify()</code> 或 <code>notifyAll()</code> 方法来通知它。一旦被通知，线程将重新竞争该对象的锁，并继续执行。</p>
+<h2 id="start"><a href="#start" class="headerlink" title="start()"></a>start()</h2><p>Method <code>start()</code> of a <code>Thread</code> object is invoked to run the thread.</p>
+<p>调用 <code>Thread</code> 对象的 <code>start()</code> 方法来启动线程。</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>使用文件（Using Files）是指在程序中处理文件数据的操作。以下是对这个主题的详细解释：</p>
+<ol>
+<li><p><strong>文件的用途：</strong></p>
+<ul>
+<li>文件用于共享数据并长期保存数据。</li>
+<li>在计算机中，文件是用于存储信息的主要方式，可以包含文本、图像、音频、视频等各种数据。</li>
+</ul>
+</li>
+<li><p><strong>Java 中的文件操作：</strong></p>
+<ul>
+<li>Java 提供了多个类和方法来处理文件和目录，包括创建、读取和写入文件。</li>
+<li>主要的文件操作相关类包括 <code>File</code> 类、<code>FileReader</code> 和 <code>FileWriter</code> 类用于文本文件，以及 <code>FileInputStream</code> 和 <code>FileOutputStream</code> 类用于二进制文件。</li>
+</ul>
+</li>
+<li><p><strong>按顺序读取和写入文件：</strong></p>
+<ul>
+<li>文件通常是按顺序读取和写入的，即通过输入流（Input Stream）和输出流（Output Stream）的方式进行。</li>
+<li>文本文件可以使用字符流进行读写，而二进制文件通常使用字节流进行读写。</li>
+</ul>
+</li>
+<li><p><strong>文本文件和二进制文件：</strong></p>
+<ul>
+<li>在Java中，可以处理文本文件和二进制文件。</li>
+<li><strong>文本文件：</strong> 包含可读的字符数据，通常使用字符流（<code>FileReader</code> 和 <code>FileWriter</code>）进行处理。</li>
+<li><strong>二进制文件：</strong> 包含非文本数据，通常使用字节流（<code>FileInputStream</code> 和 <code>FileOutputStream</code>）进行处理。</li>
+</ul>
+</li>
+</ol>
+<p>以下是一个简单的例子，演示了Java中如何使用字符流和字节流读取和写入文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileReader;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FileExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 写入文本文件</span></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">FileWriter</span> <span class="variable">writer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileWriter</span>(<span class="string">&quot;example.txt&quot;</span>)) &#123;</span><br><span class="line">            writer.write(<span class="string">&quot;Hello, this is a text file example.&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 读取文本文件</span></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">FileReader</span> <span class="variable">reader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileReader</span>(<span class="string">&quot;example.txt&quot;</span>)) &#123;</span><br><span class="line">            <span class="type">int</span> character;</span><br><span class="line">            <span class="keyword">while</span> ((character = reader.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">                System.out.print((<span class="type">char</span>) character);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们使用 <code>FileWriter</code> 写入文本文件，并使用 <code>FileReader</code> 读取文本文件。需要注意的是，在实际应用中，为了更好的性能和灵活性，可能会使用缓冲流（<code>BufferedReader</code> 和 <code>BufferedWriter</code>）来处理文件操作。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年12月13日 18:52</p>
+        <p>最后更新： 2024年01月01日 23:40</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2023/07/12/Java/" title="JAVA">https://bztiangou.github.io/Richo.github.io/2023/07/12/Java/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -473,7 +623,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/12/Java/&title=《JAVA》 — Richo blog&source=当初陪我建站的人，都已离我而去了罢" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2023/07/12/Java/&title=《JAVA》 — Richo blog&source=有需自取，拒绝打赏" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -525,7 +675,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java"><span class="post-toc-text">Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="post-toc-text">符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E9%9D%A2"><span class="post-toc-text">内存处理方面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%95%E7%94%A8"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="post-toc-text">垃圾回收</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">类和对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Private"><span class="post-toc-text">Private</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-text">构造方法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#This-%E5%A4%84%E7%90%86"><span class="post-toc-text">This 处理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BC%80%E8%BE%9F"><span class="post-toc-text">定义与开辟</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GUI-lesson7"><span class="post-toc-text">GUI lesson7</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java-Foundation-Classes%EF%BC%88JFC%EF%BC%89"><span class="post-toc-text">Java Foundation Classes（JFC）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9D%9E%E6%A8%A1%E6%80%81"><span class="post-toc-text">非模态</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8C%85"><span class="post-toc-text">包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="post-toc-text">线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">Java-数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Maven"><span class="post-toc-text">Maven</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java"><span class="post-toc-text">Java</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%A6%E5%8F%B7"><span class="post-toc-text">符号</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E9%9D%A2"><span class="post-toc-text">内存处理方面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%95%E7%94%A8"><span class="post-toc-text">引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="post-toc-text">垃圾回收</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">类和对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Private"><span class="post-toc-text">Private</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-text">构造方法：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#This-%E5%A4%84%E7%90%86"><span class="post-toc-text">This 处理</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84"><span class="post-toc-text">数组</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%BC%80%E8%BE%9F"><span class="post-toc-text">定义与开辟</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GUI-lesson7"><span class="post-toc-text">GUI lesson7</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java-Foundation-Classes%EF%BC%88JFC%EF%BC%89"><span class="post-toc-text">Java Foundation Classes（JFC）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9D%9E%E6%A8%A1%E6%80%81"><span class="post-toc-text">非模态</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8C%85"><span class="post-toc-text">包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="post-toc-text">线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-text">Java-数据库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Maven"><span class="post-toc-text">Maven</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0"><span class="post-toc-text">期末复习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Swing"><span class="post-toc-text">Swing</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%EF%BC%88Access-Modifier%EF%BC%89"><span class="post-toc-text">修饰符（Access Modifier）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#final"><span class="post-toc-text">final</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B0%83%E7%94%A8%E6%A0%88%EF%BC%88Call-Stack%EF%BC%89"><span class="post-toc-text">调用栈（Call Stack）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link"><span class="post-toc-text"></span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized"><span class="post-toc-text">synchronized</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait"><span class="post-toc-text">wait</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#start"><span class="post-toc-text">start()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="post-toc-text">文件操作</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -573,7 +723,7 @@
       <p>
         Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
         Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2023 Richo<br>
+      &copy; 2024 Richo<br>
       </p>
     </div>
   </div>
