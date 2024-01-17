@@ -16,9 +16,8 @@
 <meta property="og:description" content="卷积神经网络真的纯个人理解，有错指出来就好了 卷积神经网络和神经网络的区别： 个人感觉主要区别在于维度数不同，对于卷积神经网络，传入的图片会有一个size,例如5x4x3，其中的5代表了height，4代表了wide，3代表颜色通道，通常是RGB三颜色通道。  两者虽然都是对特征进行提取，但是显然卷积神经网络的误差会小很多   整体架构： 输入层：字面意思 卷积层：这里要牵扯到一个术语叫卷积核，卷">
 <meta property="og:locale">
 <meta property="og:image" content="https://img1.imgtp.com/2023/06/02/0Z34LRvQ.jpg">
-<meta property="og:image" content="https://img1.imgtp.com/2023/06/02/TP24rNOq.jpg">
 <meta property="article:published_time" content="2022-11-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-14T06:50:13.540Z">
+<meta property="article:modified_time" content="2024-01-17T15:27:10.557Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="大创">
 <meta property="article:tag" content="人工智能">
@@ -189,13 +188,36 @@
 <p><img src="https://img1.imgtp.com/2023/06/02/0Z34LRvQ.jpg" alt="CNN结构"></p>
 </li>
 </ol>
-<p>感谢观看！下一篇关于CNN和MINST数据集</p>
-<p>打赏？使不得</p>
-<p><img src="https://img1.imgtp.com/2023/06/02/TP24rNOq.jpg" alt="使不得"></p>
+<h1 id="应用步骤："><a href="#应用步骤：" class="headerlink" title="应用步骤："></a>应用步骤：</h1><h2 id="边缘检测："><a href="#边缘检测：" class="headerlink" title="边缘检测："></a>边缘检测：</h2><p>构造卷积核，与原图片相乘得到新的图片。垂直边缘检测器，水平边缘检测器(由卷积核决定)</p>
+<p>除了那几个简单常见的滤波器(边缘检测用的)，我们可以把9个参数作为w_i 放进矩阵中，然后通过反向传播让神经网络进行计算</p>
+<p><strong>以下都可以视为卷积层的内容：</strong></p>
+<h2 id="Padding"><a href="#Padding" class="headerlink" title="Padding"></a>Padding</h2><p>每次进行卷积计算以后，新得到的图片是肯定会变小的。这是第一个缺点。</p>
+<p>2.图片的边缘信息利用率太低</p>
+<p>padding本质就是在图片的最外围加一圈数值(一般是0)</p>
+<p>两种卷积</p>
+<p>vaild 卷积：不padding</p>
+<p>same 卷积：将生成的图 padding 到和原本图一样的图片大小</p>
+<h2 id="卷积步长"><a href="#卷积步长" class="headerlink" title="卷积步长"></a>卷积步长</h2><p>互相关：数学教材等地方可能会用到，意思就是把卷积核给沿着某两个方向反转。然后再进行计算(在他们的定义中，这属于卷积计算一部分)但是实际上在编程中是不需要用到这个。</p>
+<p>在移动的时候，水平方向和竖直方向移动都会按着这个卷积步长移动。</p>
+<h2 id="三维卷积"><a href="#三维卷积" class="headerlink" title="三维卷积"></a>三维卷积</h2><p>当图片不再是只有黑白，具有RGB三原色的时候，就是三维卷积了</p>
+<p>三维卷积的原图片的三个值分别是 高 宽 颜色通道</p>
+<p>卷积核一般是x * x * 3    3和原图片的维度一样</p>
+<p>卷积计算：</p>
+<p>每层卷积核和对应的原图片的某个颜色层的值相乘得到一个数值，三个颜色图层计算完以后，再相加，最后得到一个值</p>
+<p>同时检测多个界限：</p>
+<p>得到的多张图片就叠起来。所以得到的图片就应该是x * x *多个</p>
+<p>对于单层卷积网络：</p>
+<p>上述的卷积核可以看成是一个w，然后后面+上一个公共通用的偏差值b，然后相乘的过程可以视为线性变换的过程，最后通过ReLu等非线性变换修正。然后得到的值就是下一层的激活值。</p>
+<h1 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h1><p>可以提高鲁棒性，缩小模型的大小</p>
+<p>池化超参包括f(过滤器size)和s(步长) 一般不用padding </p>
+<p>公式和卷积层一样适用</p>
+<p>分类：</p>
+<p>最大值池化</p>
+<p>平均值池化</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2023年08月14日 14:50</p>
+        <p>最后更新： 2024年01月17日 23:27</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2022/12/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="卷积神经网络">https://bztiangou.github.io/Richo.github.io/2022/12/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -315,7 +337,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="post-toc-text">卷积神经网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="post-toc-text">卷积神经网络和神经网络的区别：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%EF%BC%9A"><span class="post-toc-text">整体架构：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E5%B1%82%EF%BC%9A%E5%AD%97%E9%9D%A2%E6%84%8F%E6%80%9D"><span class="post-toc-text">输入层：字面意思</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82%EF%BC%9A"><span class="post-toc-text">卷积层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82%EF%BC%9A"><span class="post-toc-text">池化层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82%EF%BC%9A"><span class="post-toc-text">全连接层：</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="post-toc-text">卷积神经网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="post-toc-text">卷积神经网络和神经网络的区别：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%EF%BC%9A"><span class="post-toc-text">整体架构：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E5%B1%82%EF%BC%9A%E5%AD%97%E9%9D%A2%E6%84%8F%E6%80%9D"><span class="post-toc-text">输入层：字面意思</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82%EF%BC%9A"><span class="post-toc-text">卷积层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82%EF%BC%9A"><span class="post-toc-text">池化层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82%EF%BC%9A"><span class="post-toc-text">全连接层：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BA%94%E7%94%A8%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="post-toc-text">应用步骤：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%EF%BC%9A"><span class="post-toc-text">边缘检测：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Padding"><span class="post-toc-text">Padding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E6%AD%A5%E9%95%BF"><span class="post-toc-text">卷积步长</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">三维卷积</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="post-toc-text">池化层</span></a></li></ol>
         </nav>
     </aside>
     
