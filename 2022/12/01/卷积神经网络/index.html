@@ -8,21 +8,21 @@
   
     <meta name="keywords" content="Richo's Blog" />
   
-  <meta name="description" content="卷积神经网络真的纯个人理解，有错指出来就好了 卷积神经网络和神经网络的区别： 个人感觉主要区别在于维度数不同，对于卷积神经网络，传入的图片会有一个size,例如5x4x3，其中的5代表了height，4代表了wide，3代表颜色通道，通常是RGB三颜色通道。  两者虽然都是对特征进行提取，但是显然卷积神经网络的误差会小很多   整体架构： 输入层：字面意思 卷积层：这里要牵扯到一个术语叫卷积核，卷">
+  <meta name="description" content="卷积神经网络背景知识一.张量、向量、标量的区别 标量，向量，矩阵它们三个也是张量，标量是零维的张量，向量是一维的张量，矩阵是二维的张量。 二.卷积核（kernel）和过滤器（filter）的区别  卷积核就是由长和宽来指定的，是一个二维的概念。 而过滤器是是由长、宽和深度指定的，是一个三维的概念。 过滤器可以看做是卷积核的集合。 过滤器比卷积核高一个维度——深度。   如上图: 上述操作描述了对一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卷积神经网络">
 <meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2022/12/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="Richo blog">
-<meta property="og:description" content="卷积神经网络真的纯个人理解，有错指出来就好了 卷积神经网络和神经网络的区别： 个人感觉主要区别在于维度数不同，对于卷积神经网络，传入的图片会有一个size,例如5x4x3，其中的5代表了height，4代表了wide，3代表颜色通道，通常是RGB三颜色通道。  两者虽然都是对特征进行提取，但是显然卷积神经网络的误差会小很多   整体架构： 输入层：字面意思 卷积层：这里要牵扯到一个术语叫卷积核，卷">
+<meta property="og:description" content="卷积神经网络背景知识一.张量、向量、标量的区别 标量，向量，矩阵它们三个也是张量，标量是零维的张量，向量是一维的张量，矩阵是二维的张量。 二.卷积核（kernel）和过滤器（filter）的区别  卷积核就是由长和宽来指定的，是一个二维的概念。 而过滤器是是由长、宽和深度指定的，是一个三维的概念。 过滤器可以看做是卷积核的集合。 过滤器比卷积核高一个维度——深度。   如上图: 上述操作描述了对一">
 <meta property="og:locale">
-<meta property="og:image" content="https://img1.imgtp.com/2023/06/02/0Z34LRvQ.jpg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201121195053531.gif#pic_center">
 <meta property="article:published_time" content="2022-11-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-17T15:27:10.557Z">
+<meta property="article:modified_time" content="2024-02-04T15:21:17.869Z">
 <meta property="article:author" content="Richo">
 <meta property="article:tag" content="大创">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img1.imgtp.com/2023/06/02/0Z34LRvQ.jpg">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201121195053531.gif#pic_center">
   
   
     <link rel="icon" href="images/head.jpg">
@@ -153,13 +153,28 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p><strong>真的纯个人理解，有错指出来就好了</strong></p>
-<h3 id="卷积神经网络和神经网络的区别："><a href="#卷积神经网络和神经网络的区别：" class="headerlink" title="卷积神经网络和神经网络的区别："></a>卷积神经网络和神经网络的<strong>区别</strong>：</h3><ol>
-<li><p>个人感觉主要区别在于维度数不同，对于卷积神经网络，传入的图片会有一个size,例如5x4x3，其中的5代表了height，4代表了wide，3代表颜色通道，通常是RGB三颜色通道。</p>
-</li>
-<li><p>两者虽然都是对特征进行提取，但是显然卷积神经网络的误差会小很多</p>
-</li>
-</ol>
+            <h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><h3 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h3><p><strong>一.张量、向量、标量的区别</strong></p>
+<p>标量，向量，矩阵它们三个也是张量，标量是零维的张量，向量是一维的张量，矩阵是二维的张量。</p>
+<p><strong>二.卷积核（kernel）和过滤器（filter）的区别</strong></p>
+<ul>
+<li>卷积核就是由长和宽来指定的，是一个二维的概念。</li>
+<li>而过滤器是是由长、宽和深度指定的，是一个三维的概念。</li>
+<li>过滤器可以看做是卷积核的集合。</li>
+<li>过滤器比卷积核高一个维度——深度。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20201121195053531.gif#pic_center" alt="kernel 与 filter"></p>
+<p>如上图:</p>
+<p>上述操作描述了对一张RGB（三通道）图像进行卷积操作的过程。具体地，使用了三个大小为 3 × 3 的卷积核，每个卷积核对应一个通道。这三个卷积核分别在红色通道、绿色通道和蓝色通道上进行卷积操作，得到三个单通道的特征图。然后，将这三个特征图逐元素相加，得到最终的合成特征图。这个合成特征图捕捉了输入图像的不同通道上的特征信息，通过这样的操作，我们可以更全面地理解图像中的结构和内容。这整个过程中，<strong>三个卷积核的集合称为过滤器</strong>，而<strong>每个过滤器对应生成一个最终的特征图</strong>。</p>
+<p>但是如果是在单通道情况下，其实过滤器和卷积核可以看做一个东西，即 filter&#x3D;kernel 。</p>
+<p><strong>三.范数</strong></p>
+<p>一般地可以认为范数可以描述两个量之间的距离关系。</p>
+<p><strong>四.卷积核的深度与通道数</strong></p>
+<p>卷积核的深度”就是该层输入的featuremap的通道数。“卷积核的数量”和“输出深度”是相同的，即一个卷积核对应一层输出。</p>
+<p><strong>输入数据的通道数</strong> (有时候也叫深度)决定了卷积核的通道数。 2.<strong>输出的通道数</strong> (最右边的那六张图)是由<strong>多少个</strong>卷积核来决定的。</p>
+<p><strong>五.模型量化</strong></p>
+<p>模型量化在最初的定义里是为了压缩模型参数，比如韩松在ICLR2016上获得best paper的论文，首次提出了参数量化方法。其使用k-mean聚类，让相近的数值聚类到同一个聚类中心，复用同一个数值，从而达到用更少的数值表示更多的数，这是量化操作的一种方案。反过来，从量化数变到原始数的过程，称之为反量化，反量化操作完之后，模型就可以按照原来的方式进行正常的计算。</p>
+<p>我们认为绝大部分的模型量化算法都能压缩参数，因此压缩参数的实用性不存在问题。</p>
+<h3 id="卷积神经网络和神经网络的区别："><a href="#卷积神经网络和神经网络的区别：" class="headerlink" title="卷积神经网络和神经网络的区别："></a>卷积神经网络和神经网络的区别：</h3><p>CNN主要专注于处理具有网格结构的数据，能够更好地捕捉输入数据的空间结构和局部特征，而神经网络（MLP）则是一种更通用的结构，适用于各种深度学习任务，但对于图像等具有明显结构的数据，CNN通常更为有效。在实际应用中，这两种结构也可以组合使用，构建更为复杂的深度学习模型。</p>
 <h3 id="整体架构："><a href="#整体架构：" class="headerlink" title="整体架构："></a>整体架构：</h3><ol>
 <li><h4 id="输入层：字面意思"><a href="#输入层：字面意思" class="headerlink" title="输入层：字面意思"></a><strong>输入层</strong>：字面意思</h4></li>
 <li><h4 id="卷积层："><a href="#卷积层：" class="headerlink" title="卷积层："></a><strong>卷积层</strong>：</h4><p>这里要牵扯到一个术语叫<strong>卷积核</strong>，卷积核理解成，你要提取什么特征，卷积核就长什么样。(你说你要买凶杀人，总不能连照片都不给杀手吧) 卷积核的组成是一个矩阵，用于和输入进行计算，注意是点积而不是矩阵乘法。卷积核的size, 比如3x3x3 就是表示我要以3x3作为一部分区域进行计算，第三个维度的3则表示input 的第三个维度，两则必须相等。对于输出图像，也叫特征图的size而言有三个维度：x,y,z，前两个维度显然可以用数学公式总结出来：对于步长为一的时候，特征比较丰富。<br>$$</p>
@@ -172,7 +187,7 @@
 <p>   刚刚我们的点积操作是对于一步一步移动而言，其实我们还可以跳步。如果2格2格移动，输出的图像更小的，7<em>7的输入图像，最后输出是3</em>3的图像，因此输入与输出图像之间的关系，公式需要更新。</p>
 <p>   当然卷积核也可以不止一个，同时对于每一个颜色通道也可以使用不同的卷积核进行卷积，但是输出只有一个，所以记得要把输出矩阵的对应位置的结果进行相加。你也可以设置一个常数b，在对应位置相加时记得加上。但是<strong>对于同一个卷积层，不是中间卷积！</strong>你的卷积核规格必须是相同的，不能对一个图像进行3x3的卷积的同时也进行4x4的卷积。</p>
 <p>   <strong>中间卷积</strong>：进一步特征提取。就是把上一次的结果当成这一次的input进行卷积，这个时候你的卷积核可以采取新的size,但是得提一嘴因为你的input的第三维度可能过高，所以最后出来的第三维度过高也是正常的。</p>
-<p>   综上我们可以得到卷积结果计算公式：<br>   $$<br>       H_2&#x3D;(H_1-F_H+2P)&#x2F;S+1<br>    $$</p>
+<p>   综上我们可以得到卷积结果计算公式：<br>   $$<br>   H_2&#x3D;(H_1-F_H+2P)&#x2F;S+1<br>    $$</p>
 <p>   $$<br>   W_2&#x3D;(W_1-F_W+2P)&#x2F;S+1<br>$$</p>
 <p>其中下标是1表示输入，2表示输出特征图，F表示卷积核</p>
 <p><strong>卷积参数共享</strong>：意思是对于每一个小区域都是用同一个卷积核进行卷积，可以省下巨额时间花费，权重参数比较少。</p>
@@ -180,14 +195,16 @@
 <li><h4 id="池化层："><a href="#池化层：" class="headerlink" title="池化层："></a>池化层：</h4><p>简单描述：压缩。</p>
 <p>最大池化：选择不同区域size自选，直接选择最大值最为那个区域的代表。很常用。</p>
 </li>
-<li><h4 id="全连接层："><a href="#全连接层：" class="headerlink" title="全连接层："></a>全连接层：</h4><p>简单描述：图像搞来搞去也还是图像，我们要的是结果！总不能人脸识别出来的结果是你的图片吧。</p>
+<li><h4 id="全连接层FC："><a href="#全连接层FC：" class="headerlink" title="全连接层FC："></a>全连接层FC：</h4><p>简单描述：图像搞来搞去也还是图像，我们要的是结果！总不能人脸识别出来的结果是你的图片吧。</p>
 <p>这时候就需要全连接层把图像映射成一个结果，像or不像？或者是其他你想要的结果。</p>
 <p>拉长：也即处理特征图，没见过一个长方体和矩阵相乘吧？没见过就对了，我也没见过。所以我们在全连接之前需要对特征图进行拉长。就是转换成一个向量，因为它巨长，所以这个操作被称为拉长。然后就可以跟矩阵相乘得到结果。</p>
-<p>如下图：</p>
-<p>​	</p>
-<p><img src="https://img1.imgtp.com/2023/06/02/0Z34LRvQ.jpg" alt="CNN结构"></p>
 </li>
 </ol>
+<p><strong>六.优化器</strong></p>
+<p>优化器是深度学习中用于调整模型参数以最小化损失函数的算法。其主要目标是通过不断调整模型参数，使得模型在训练数据上的损失逐渐减小，从而提高模型的性能。</p>
+<p>在 PyTorch 中，可以使用 <code>torch.optim</code> 模块来实现各种优化器，例如 <code>SGD</code>、<code>Adam</code> 等。这些优化器会在训练过程中不断更新模型参数，以最小化损失函数。</p>
+<p><strong>七.随机种子</strong></p>
+<p>通常用于初始化随机数生成器，使得每次运行程序时得到的随机结果是可复现的。在深度学习中，使用随机种子可以确保在相同的初始条件下每次运行训练过程得到相同的结果，这对于实验的可重复性和结果的比较非常重要。</p>
 <h1 id="应用步骤："><a href="#应用步骤：" class="headerlink" title="应用步骤："></a>应用步骤：</h1><h2 id="边缘检测："><a href="#边缘检测：" class="headerlink" title="边缘检测："></a>边缘检测：</h2><p>构造卷积核，与原图片相乘得到新的图片。垂直边缘检测器，水平边缘检测器(由卷积核决定)</p>
 <p>除了那几个简单常见的滤波器(边缘检测用的)，我们可以把9个参数作为w_i 放进矩阵中，然后通过反向传播让神经网络进行计算</p>
 <p><strong>以下都可以视为卷积层的内容：</strong></p>
@@ -209,15 +226,53 @@
 <p>对于单层卷积网络：</p>
 <p>上述的卷积核可以看成是一个w，然后后面+上一个公共通用的偏差值b，然后相乘的过程可以视为线性变换的过程，最后通过ReLu等非线性变换修正。然后得到的值就是下一层的激活值。</p>
 <h1 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h1><p>可以提高鲁棒性，缩小模型的大小</p>
+<p>降维、去除冗余信息、对特征进行压缩、简化网络复杂度、减小计算量、减小内存消耗等等。各种说辞吧，总的理解就是减少参数量</p>
 <p>池化超参包括f(过滤器size)和s(步长) 一般不用padding </p>
 <p>公式和卷积层一样适用</p>
 <p>分类：</p>
 <p>最大值池化</p>
 <p>平均值池化</p>
+<h2 id="鲁棒性"><a href="#鲁棒性" class="headerlink" title="鲁棒性"></a>鲁棒性</h2><p>模型的鲁棒性指的是模型对于输入数据中的扰动、噪声或变化的稳定性和容忍度。一个鲁棒性强的模型在面对输入数据的变化或异常情况时能够保持较好的性能，而不会因为输入的微小扰动或变化而产生显著的性能下降。</p>
+<p>在机器学习和深度学习中，鲁棒性是一个重要的性质，因为实际的应用场景中经常会面对来自各种来源的不确定性和噪声。鲁棒性强的模型更能够适应不同的数据分布，泛化到新的、稍微不同的数据上，并在面对噪声或异常情况时表现良好。</p>
+<p>一些提高模型鲁棒性的方法包括：</p>
+<ol>
+<li><p><strong>数据增强（Data Augmentation）：</strong> 在训练时对训练数据进行一些随机变换，如旋转、缩放、翻转等，以模拟实际应用中可能遇到的变化。</p>
+</li>
+<li><p><strong>正则化（Regularization）：</strong> 使用正则化技术，如权重正则化、dropout等，可以减少模型对训练数据的过拟合，提高对新数据的泛化能力。</p>
+</li>
+<li><p><strong>对抗训练（Adversarial Training）：</strong> 通过在训练中引入对抗样本，使模型对于输入数据的微小扰动有更好的鲁棒性。</p>
+</li>
+<li><p><strong>集成学习（Ensemble Learning）：</strong> 将多个模型的预测结果结合起来，可以提高整体模型的鲁棒性。</p>
+</li>
+<li><p><strong>模型设计和架构选择：</strong> 使用一些经过验证的轻量级、深度可分离卷积等设计策略，以及选择合适的模型架构，有助于构建更加鲁棒的模型。</p>
+</li>
+</ol>
+<p>鲁棒性对于模型的实际应用非常关键，尤其是在面对真实世界中的不确定性和复杂性时。</p>
+<h1 id="深度可分离卷积"><a href="#深度可分离卷积" class="headerlink" title="深度可分离卷积"></a>深度可分离卷积</h1><p>在MobileNetV2中，<code>expand_ratio</code> 是指扩展比率，用于控制在进行深度可分离卷积（depthwise separable convolution）时，中间层的通道数相对于输入通道数的倍数。</p>
+<p>在MobileNetV2的每个Inverted Residual Block中，有一个深度可分离卷积的部分，它包含三个阶段：</p>
+<ol>
+<li><p><strong>扩张阶段（Expansion Phase）：</strong> 在这一阶段，通过使用 1x1 卷积进行特征通道的扩张。<code>expand_ratio</code> 就是控制扩张的倍数，即中间层的通道数相对于输入通道数的倍数。如果 <code>expand_ratio</code> 为 1，表示不进行扩张，中间层通道数与输入通道数相同。</p>
+</li>
+<li><p><strong>深度可分离卷积阶段（Depthwise Separable Convolution Phase）：</strong> 在这一阶段，使用深度可分离卷积，分为深度卷积和逐点卷积。深度卷积使用具有相同数量的输入和输出通道的卷积核（3x3卷积核），而逐点卷积使用 1x1 卷积核将通道数映射回到较小的值。</p>
+</li>
+<li><p><strong>融合阶段（Linear Combination Phase）：</strong> 最后，通过 1x1 卷积将通道数减少到期望的输出通道数。</p>
+</li>
+</ol>
+<p>通过控制 <code>expand_ratio</code>，可以在保持模型轻量级的同时，增加一些中间层的复杂性。这样的设计旨在在一定程度上提高模型的表达能力，同时仍然保持较少的参数和计算开销。通常，<code>expand_ratio</code> 的选择是在实验中进行调整，以达到最佳的性能和模型大小的平衡。</p>
+<p>在MobileNetV2的Inverted Residual Block中，”中间层”通常指的是深度可分离卷积的输出结果。具体而言，这个中间层由以下步骤组成：</p>
+<ol>
+<li><strong>扩张阶段（Expansion Phase）：</strong> 使用 1x1 卷积扩张输入通道数，得到一个中间层。</li>
+<li><strong>深度可分离卷积阶段（Depthwise Separable Convolution Phase）：</strong> 使用深度可分离卷积对中间层进行处理，产生新的特征表示。</li>
+<li><strong>融合阶段（Linear Combination Phase）：</strong> 通过 1x1 卷积将通道数调整为期望的输出通道数，形成最终的中间层。</li>
+</ol>
+<p>这个中间层在整个模型中起到传递和学习特征的作用。通过在不同的层次上进行特征表示的转换，神经网络可以学习更复杂和抽象的特征，从而提高模型的性能。在深度学习中，中间层的设计和特征学习是模型性能的关键因素之一。</p>
+<h1 id="基于在github上已经部署的模型进行调用"><a href="#基于在github上已经部署的模型进行调用" class="headerlink" title="基于在github上已经部署的模型进行调用"></a>基于在github上已经部署的模型进行调用</h1><p>一个样例代码(给足了注释)<br>在官方文档的基础上稍微作了点修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="comment"># torch.hub.load是PyTorch库中用于从GitHub仓库加载模型、数据等资源的函数。</span></span><br><span class="line"><span class="comment"># 模型的权重会被下载并保存在系统的临时目录中</span></span><br><span class="line">model = torch.hub.load(<span class="string">&#x27;pytorch/vision:v0.10.0&#x27;</span>, <span class="string">&#x27;mobilenet_v2&#x27;</span>, pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 将加载的模型切换到评估（inference）模式,禁用一些训练时使用的特定层</span></span><br><span class="line">model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="comment"># 用于通过URL下载文件并保存到本地</span></span><br><span class="line">url, filename = (<span class="string">r&quot;C:\Users\86176\Desktop\dog.jpg&quot;</span>, <span class="string">r&quot;C:\Users\86176\Desktop\dog.jpg&quot;</span>)</span><br><span class="line"><span class="comment"># 使用本地</span></span><br><span class="line"><span class="comment"># try:</span></span><br><span class="line"><span class="comment">#     urllib.request.urlretrieve(url, filename)</span></span><br><span class="line"><span class="comment"># except urllib.error.URLError as e:</span></span><br><span class="line"><span class="comment">#     print(f&quot;Error: &#123;e&#125;&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 PyTorch 和 torchvision 对一个图像进行预处理，并使用预训练的 MobileNetV2 模型进行推理</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> transforms</span><br><span class="line"><span class="comment"># 打开一个图像文件</span></span><br><span class="line">input_image = Image.<span class="built_in">open</span>(filename)</span><br><span class="line"><span class="comment"># 创建了一个图像预处理的管道，其中包括将图像大小调整为 256x256 像素，然后在中心裁剪为 224x224 像素。</span></span><br><span class="line"><span class="comment"># transforms.ToTensor() 将图像转换为 PyTorch 的张量。</span></span><br><span class="line"><span class="comment"># transforms.Normalize 对张量进行标准化，使用指定的均值和标准差。这是为了使输入符合 MobileNetV2 模型预训练时的标准。</span></span><br><span class="line">preprocess = transforms.Compose([</span><br><span class="line">    transforms.Resize(<span class="number">256</span>),</span><br><span class="line">    transforms.CenterCrop(<span class="number">224</span>),</span><br><span class="line">    <span class="comment"># 将图像转换为 PyTorch 的张量</span></span><br><span class="line">    transforms.ToTensor(),</span><br><span class="line">    <span class="comment"># 对张量进行标准化</span></span><br><span class="line">    transforms.Normalize(mean=[<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>], std=[<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>]),</span><br><span class="line">])</span><br><span class="line">input_tensor = preprocess(input_image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加一个维度，以创建一个 mini-batch</span></span><br><span class="line">input_batch = input_tensor.unsqueeze(<span class="number">0</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># move the input and model to GPU for speed if available</span></span><br><span class="line"><span class="comment"># 移动输入和模型到 GPU（如果可用）</span></span><br><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    input_batch = input_batch.to(<span class="string">&#x27;cuda&#x27;</span>)</span><br><span class="line">    model.to(<span class="string">&#x27;cuda&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 确保在推理时不进行梯度计算，因为这里只是对模型进行前向传播而不是训练</span></span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    output = model(input_batch)</span><br><span class="line"><span class="comment"># Tensor of shape 1000, with confidence scores over ImageNet&#x27;s 1000 classes</span></span><br><span class="line"><span class="built_in">print</span>(output[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># The output has unnormalized scores. To get probabilities, you can run a softmax on it.</span></span><br><span class="line"><span class="comment"># 处理输出结果</span></span><br><span class="line"><span class="comment"># 使用 softmax 函数将模型输出的分数转换为概率，以便更容易理解预测结果。</span></span><br><span class="line"><span class="comment"># softmax 操作将原始分数转换为概率，使得所有类别的概率之和为 1</span></span><br><span class="line">probabilities = torch.nn.functional.softmax(output[<span class="number">0</span>], dim=<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(probabilities)</span><br></pre></td></tr></table></figure>
+
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2024年01月17日 23:27</p>
+        <p>最后更新： 2024年02月04日 23:21</p>
         <p>原始链接： <a class="post-url" href="/Richo.github.io/2022/12/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="卷积神经网络">https://bztiangou.github.io/Richo.github.io/2022/12/01/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</a></p>
         <footer>
             <a href="https://bztiangou.github.io/Richo.github.io">
@@ -337,7 +392,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="post-toc-text">卷积神经网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="post-toc-text">卷积神经网络和神经网络的区别：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%EF%BC%9A"><span class="post-toc-text">整体架构：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E5%B1%82%EF%BC%9A%E5%AD%97%E9%9D%A2%E6%84%8F%E6%80%9D"><span class="post-toc-text">输入层：字面意思</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82%EF%BC%9A"><span class="post-toc-text">卷积层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82%EF%BC%9A"><span class="post-toc-text">池化层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82%EF%BC%9A"><span class="post-toc-text">全连接层：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BA%94%E7%94%A8%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="post-toc-text">应用步骤：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%EF%BC%9A"><span class="post-toc-text">边缘检测：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Padding"><span class="post-toc-text">Padding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E6%AD%A5%E9%95%BF"><span class="post-toc-text">卷积步长</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">三维卷积</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="post-toc-text">池化层</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="post-toc-text">卷积神经网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="post-toc-text">背景知识</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%92%8C%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="post-toc-text">卷积神经网络和神经网络的区别：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%EF%BC%9A"><span class="post-toc-text">整体架构：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BE%93%E5%85%A5%E5%B1%82%EF%BC%9A%E5%AD%97%E9%9D%A2%E6%84%8F%E6%80%9D"><span class="post-toc-text">输入层：字面意思</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82%EF%BC%9A"><span class="post-toc-text">卷积层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82%EF%BC%9A"><span class="post-toc-text">池化层：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82FC%EF%BC%9A"><span class="post-toc-text">全连接层FC：</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BA%94%E7%94%A8%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="post-toc-text">应用步骤：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%EF%BC%9A"><span class="post-toc-text">边缘检测：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Padding"><span class="post-toc-text">Padding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%B7%E7%A7%AF%E6%AD%A5%E9%95%BF"><span class="post-toc-text">卷积步长</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E7%BB%B4%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">三维卷积</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="post-toc-text">池化层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%B2%81%E6%A3%92%E6%80%A7"><span class="post-toc-text">鲁棒性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF"><span class="post-toc-text">深度可分离卷积</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%9C%A8github%E4%B8%8A%E5%B7%B2%E7%BB%8F%E9%83%A8%E7%BD%B2%E7%9A%84%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E8%B0%83%E7%94%A8"><span class="post-toc-text">基于在github上已经部署的模型进行调用</span></a></li></ol>
         </nav>
     </aside>
     
@@ -418,10 +473,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/sql/">sql</a><a class="category-link" href="/Richo.github.io/categories/web/">web</a><a class="category-link" href="/Richo.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/web%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web开发</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -454,7 +509,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/web%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web开发</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
         </div>
     </div>
 </div>

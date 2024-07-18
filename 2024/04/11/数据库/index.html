@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据库 | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="引言XAMPP 的主要目的是提供一个简单易用的开发环境，使开发人员能够在本地计算机上快速搭建和测试动态 Web 应用程序，而不必在真实的服务器上进行。它适用于各种操作系统，包括 Windows、Linux 和 macOS。 BIG IDEA – Organizing data based on the natural structure of the data for efficient sear">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="引言XAMPP 的主要目的是提供一个简单易用的开发环境，使开发人员能够在本地计算机上快速搭建和测试动态 Web 应用程序，而不必在真实的服务器上进行。它适用于各种操作系统，包括 Windows、Linux 和 macOS。 BIG IDEA – Organizing data based on the natural structure of the data for efficient sear">
+<meta property="og:locale">
+<meta property="og:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20240305144742900.png">
+<meta property="og:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20240306201421394.png">
+<meta property="article:published_time" content="2024-04-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-11T10:49:23.095Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="期末考">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20240305144742900.png">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        新手上路，不服憋着
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="githubtoo" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-数据库" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      数据库
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/sql/">sql</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2024-04-11
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>XAMPP 的主要目的是提供一个简单易用的开发环境，使开发人员能够在本地计算机上快速搭建和测试动态 Web 应用程序，而不必在真实的服务器上进行。它适用于各种操作系统，包括 Windows、Linux 和 macOS。</p>
+<p>BIG IDEA – Organizing data based on the natural structure of the data for efficient search 基于数据组织数据<br>据结构自然高效搜索</p>
+<p>数据库就是：<strong>结构化信息或数据的有序集合</strong></p>
+<p>数据：描述现实世界的符号</p>
+<p>数据模型（Data Model）是<strong>数据特征的抽象，它从抽象层次上描述了系统的静态特征、动态行为和约束条件，为数据库系统的信息表示与操作提供一个抽象的框架</strong>。 数据模型所描述的内容有三部分，分别是数据结构、数据操作和数据约束。</p>
+<p>数据模式<strong>Data Schema，对数据格式进行描述和定义的模型</strong>。 数据模式是一种规范化的方式，用于描述和定义数据的结构、关系和属性。</p>
+<p>将数据模型看成一种语言(死板的)，然后将这种模型套在某个企业中所产生的一个结果就是数据模式(灵活的)，具体：学生信息系统用到了一个关系数据模型，而对学生信息表的描述就是schema</p>
+<p>关系模式&#x3D;&#x3D;表</p>
+<p>每一行称之为一个元组，每一列为一个属性。</p>
+<p>物理schema: 就是这个数据库是如何存储在磁盘中的</p>
+<p>概念 schema:对每一张表的一个描述，逻辑结构，基表。 </p>
+<p>view 模式: 用户看见的数据，基于基本映射出来的，不一定真的存在，有可能是基于基表计算出来的</p>
+<p>逻辑独立性：当概念schema发生变化的时候，view可以不受变化(受了就想办法修改映射)，而基于view 模式开发的应用程序是不会受影响</p>
+<p>物理独立性：当数据存储结构发生变化，不会影响逻辑独立性</p>
+<p>最大好处：三级模式，两级映射，两级独立性</p>
+<p>数据库重要的特点是：<br>1.为用户存储的数据提供备份，用户可以在需要时检索数据。<br>2.提供访问数据的用户界面。<br>3.只有经过授权的用户才能访问存储的数据。<br>4.数据存储在一个中心位置，但多个授权用户可以访问数据。</p>
+<h1 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h1><h2 id="层次数据模型："><a href="#层次数据模型：" class="headerlink" title="层次数据模型："></a>层次数据模型：</h2><p>像树一样一层一层往下铺：比如学校有很多院系，院系又包括很多专业…………</p>
+<p>那其中的某个专业就为一个记录，每个记录有若干个域组成</p>
+<p>PCR关系：双亲子女关系，一对多，每个记录类型只能有一个双亲</p>
+<h2 id="网状数据模型："><a href="#网状数据模型：" class="headerlink" title="网状数据模型："></a>网状数据模型：</h2><p>一个数据模型称为set（系）描述一个一对多</p>
+<p>多的称为主记录，少的称之为属记录，主记录也可以是另外一个系的属记录</p>
+<p>描述记录的某一个属性可以是向量</p>
+<p>引入link记录，链表，使用一对多的记录完成多对多的记录</p>
+<p>分为C-S set  直接把主和属用链表穿起来 和 EMP链表是多了一个L1表头，表头再穿起来后面的</p>
+<p>查询：遍历链表</p>
+<p>上述两种都是硬连接，物理指针，过程化语言(描述怎么连接才能查)</p>
+<h2 id="关系模型："><a href="#关系模型：" class="headerlink" title="关系模型："></a>关系模型：</h2><p>基本数据结构：表 (关系)</p>
+<p>sql 非过程化语言，软连接(soft link)，非物理指针，可以抽象理解为逻辑指针(非指针)</p>
+<p>要求每一个属性的取值都是原子，不可再分（不可表中套表），取值范围称为域domain</p>
+<p>域中的结果两两组合就是笛卡尔乘积</p>
+<h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><p>1.行和列可以以任何顺序排列<br>2.没有两行是相同的<br>3.属于特定属性的所有值都来自同一域<br>4.属性是原子的<br>5.属性可以有NULL值(但不是主键)</p>
+<h3 id="几个键定义"><a href="#几个键定义" class="headerlink" title="几个键定义"></a>几个键定义</h3><p>全键：要用一整条才能确定</p>
+<p>超键(super key): 在关系中能唯一标识元组的属性集称为关系模式的超键</p>
+<p>候选键(candidate key): 不含有多余属性的超键称为候选键。也就是在候选键中，若再删除属性，就不是键了！</p>
+<p>主键(primary key): 用户选作元组标识的一个候选键程序主键</p>
+<p>外键(foreign key)：用一张表的某个键去引用其他表中的元组，  那么在当前这个表中称为外键，而在被引用的表称为属性。</p>
+<p>如果当你定义了一个外键，那它不能指向空，否则会报错</p>
+<p>举例：</p>
+<p>学生信息（学号 身份证号 性别 年龄 身高 体重 宿舍号）和 宿舍信息（宿舍号 楼号）</p>
+<p>超键：只要含有“学号”或者“身份证号”两个属性的集合就叫超键，例如R1（学号 性别）、R2（身份证号 身高）、R3（学号 身份证号）等等都可以称为超键！</p>
+<p>候选键：不含有多余的属性的超键，比如（学号）、（身份证号）都是候选键，又比如R1中学号这一个属性就可以唯一标识元组了。</p>
+<p>主键：就是用户从很多候选键选出来的一个键就是主键，比如你要求学号是主键，那么身份证号就不可以是主键了！有一个唯一性。</p>
+<p>外键：宿舍号就是学生信息表的外键</p>
+<h3 id="域完整性约束："><a href="#域完整性约束：" class="headerlink" title="域完整性约束："></a>域完整性约束：</h3><p>插入的元素是否满足定义</p>
+<p>实体完整性约束：</p>
+<p>主键不能为空</p>
+<h3 id="五个基本操作"><a href="#五个基本操作" class="headerlink" title="五个基本操作"></a>五个基本操作</h3><p>一.选择操作(selection) 水平方向查找</p>
+<p>二.投影操作(projection) 把不需要的列删除</p>
+<p>三.笛卡尔乘积(corss-product) 把两个关系结合起来(表)</p>
+<p>四.集合差(Set-different)  A-B: 把属于关系A不属于关系B的找出来</p>
+<p>五.并操作(Union)  把两个关系中相同的元组合并起来</p>
+<p>只要满足这五个基本操作就算完备</p>
+<h4 id="一元操作"><a href="#一元操作" class="headerlink" title="一元操作"></a>一元操作</h4><p>投影</p>
+<p>三件重要事情：</p>
+<p>1.投影结果关系的模式：就是由投影操作这个运算符的这个属性列表里面的属性组成，结果是由这堆属性组成的新关系</p>
+<p>2.投影操作会删除掉完全相同的两条元组(删重复)</p>
+<p>3.但是实际上它会询问用户是否删掉重复元组(考虑实际情况)</p>
+<p>选择操作</p>
+<p>1.本身不会造成重复元组</p>
+<p>2.生成的schema和原关系的一样</p>
+<p>3.操作是可以组合(关系代数)</p>
+<h4 id="二元操作"><a href="#二元操作" class="headerlink" title="二元操作"></a>二元操作</h4><p>集合的并交叉</p>
+<p>要求：参与集合运算的两个关系必须满足并兼容：</p>
+<p>1.有相同个数的属性  </p>
+<p>2.对应属性的类型是一样的</p>
+<p>和数学里面的相似</p>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> ...) <span class="keyword">UNION</span> (<span class="keyword">SELECT</span> ...)</span><br><span class="line">(<span class="keyword">SELECT</span> ...) <span class="keyword">INTERSECT</span> (<span class="keyword">SELECT</span> ...)</span><br><span class="line">(<span class="keyword">SELECT</span> ...) <span class="keyword">EXCEPT</span> (<span class="keyword">SELECT</span> ...)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="笛卡尔乘积"><a href="#笛卡尔乘积" class="headerlink" title="笛卡尔乘积"></a>笛卡尔乘积</h4><p>和数学相似</p>
+<p>从一个关系中选出一个元组和另外一个关系的所有元组全连接起来</p>
+<p>但是可能会出现相同属性名的情况，这时候可以使用关系代数指明重复情况的处理操作</p>
+<p><strong>连接操作</strong>是笛卡尔乘积和选择操作叠加，符号是蝴蝶结</p>
+<p>等值连接：将特定相同的属性的元组进行连接</p>
+<p>自然连接：按照所有公共属性相等进行的连接(用的最多)</p>
+<p>除法</p>
+<p>对于两个关系A,B。A&#x2F;B，就是对于所有关系属性在B中，A中如果也有这个，那么这些相同属性除外以后的结果就是A&#x2F;B。</p>
+<p>具象理解：A是供应商，B是制造商，在A中找到所有能满足B的，然后把零件拆出来就是结果</p>
+<h1 id="SQL语言与用户系统-模型（6-9英方没讲）"><a href="#SQL语言与用户系统-模型（6-9英方没讲）" class="headerlink" title="SQL语言与用户系统  模型（6-9英方没讲）"></a>SQL语言与用户系统  模型（6-9英方没讲）</h1><p>时态数据模型：添加了一个时间点上的数据信息</p>
+<p>XML数据模型：不同应用进行数据交换</p>
+<p>数据模型是DBMS的核心，DBMS必须支持某一种数据模型</p>
+<h2 id="提供给用户的接口："><a href="#提供给用户的接口：" class="headerlink" title="提供给用户的接口："></a>提供给用户的接口：</h2><p>查询语言</p>
+<p>GUI</p>
+<p>APIS	在应用程序层解决</p>
+<p>class library</p>
+<h2 id="查询语言"><a href="#查询语言" class="headerlink" title="查询语言"></a>查询语言</h2><p>形式 ： sql</p>
+<p>填表</p>
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><p>SQL不是编程语言，但是可以嵌入C里面变成</p>
+<p>非过程语言，不需要告诉它怎么做，只需要告诉它你要的结果</p>
+<p>DDL语言：表的创建与删除……</p>
+<p>QL语言：检索</p>
+<p>DML语言：插入和删除</p>
+<p>DCL语言：用户控制</p>
+<h2 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h2><p>基表在硬盘中真的存在，视图映射：虚表</p>
+<p>不同类型的数据库产品支持的数据类型不同</p>
+<p>对布尔表达式：真假或者不知道(NULL)</p>
+<p>Unique: 表中的某个属性是否允许重复，定义后就不允许重复</p>
+<p>Default：自动填补</p>
+<p>PRxxx key:主键</p>
+<p>foreign key:外键，引用别人做主键</p>
+<p>check约束条件：某个属性满足某个要求</p>
+<p>SELECT (distinct)  目标属性组成的列表</p>
+<p>from 从哪个表(关系表的列表)  可以在这里设计别名</p>
+<p>where       查询结果满足什么条件</p>
+<p>实现：</p>
+<p>用笛卡尔乘积把需要的表相连， FROM</p>
+<p>然后筛选，  WHERE</p>
+<p>然后根据target list 做一个投影， PROJECT</p>
+<p>然后删重复(可选)    DISTINCT</p>
+<p>可以使用-匹配一个字符%匹配多个 或者 ？* 看系统</p>
+<p>SELEcT S.age, age1&#x3D;S.age-5, 2*S.age As age2</p>
+<p>给结果属性起名字，对结果进行操作</p>
+<p>不能简单把or和 and兑换</p>
+<h1 id="实际操作："><a href="#实际操作：" class="headerlink" title="实际操作："></a>实际操作：</h1><p>mysql -u xx -p登录</p>
+<p>create database lesson 创建数据库</p>
+<p>drop database lesson 删除数据库</p>
+<p>CREATE TABLE Staff(StaffNo INTEGER, Salary FLOAT, Lname VARCHAR(20));</p>
+<p>创建职员表，列名+数据范围</p>
+<p>desc staff 查看表中结构！</p>
+<p>drop table name 删除某张表</p>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO table_name (column1, column2, column3, ...)</span><br><span class="line">VALUES (value1, value2, value3, ...);</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>table_name</code> 是你要插入数据的表的名称。</li>
+<li><code>column1</code>, <code>column2</code>, <code>column3</code>, … 是表中的列名。</li>
+<li><code>value1</code>, <code>value2</code>, <code>value3</code>, … 是要插入的具体数值。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">insert into viewing(ClientNo,PropertyNo,ViewDate,Comment,Salary)</span><br><span class="line">   values(1,1,&#x27;2024-04-09&#x27;,&#x27;123&#x27;,1500);</span><br></pre></td></tr></table></figure>
+
+<p>SELECT LastName, Salary AS MonthlySalary<br>FROM Employees<br>ORDER BY MonthlySalary DESC;</p>
+<ol>
+<li><code>SELECT LastName, Salary AS MonthlySalary</code>：这是 <code>SELECT</code> 子句，表示我们要检索的列。我们选择了姓氏列 <code>LastName</code> 和工资列 <code>Salary</code>，并且使用 <code>AS</code> 关键字将工资列重命名为 <code>MonthlySalary</code>。</li>
+<li><code>FROM Employees</code>：这是 <code>FROM</code> 子句，表示我们要从 <code>Employees</code> 表中检索数据。</li>
+<li><code>ORDER BY MonthlySalary DESC</code>：这是 <code>ORDER BY</code> 子句，表示我们要对结果按照 <code>MonthlySalary</code> 列进行排序，<code>DESC</code> 表示按照降序排序（即从高到低）。    ASC是升序！</li>
+</ol>
+<p><em>– 选择所有列的所有行</em><br><strong>SELECT</strong> * <strong>FROM</strong> users;</p>
+<p><em>– 选择特定列的所有行</em><br><strong>SELECT</strong> username, email <strong>FROM</strong> users;</p>
+<p><em>– 添加 WHERE 子句，选择满足条件的行</em><br><strong>SELECT</strong> * <strong>FROM</strong> users <strong>WHERE</strong> is_active &#x3D; <strong>TRUE</strong>;</p>
+<p><em>– 添加 ORDER BY 子句，按照某列的升序排序</em><br><strong>SELECT</strong> * <strong>FROM</strong> users <strong>ORDER</strong> <strong>BY</strong> birthdate;</p>
+<p><em>– 添加 ORDER BY 子句，按照某列的降序排序</em><br><strong>SELECT</strong> * <strong>FROM</strong> users <strong>ORDER</strong> <strong>BY</strong> birthdate <strong>DESC</strong>;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, ...</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span>;</span><br></pre></td></tr></table></figure>
+
+<p>不同的操作符：&#x3D;代表等于 &lt;&gt;或者 ！&#x3D;代表不等于</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
+<thead>
+<tr>
+<th>CHAR</th>
+<th>0-255 bytes</th>
+<th>定长字符串</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>VARCHAR</td>
+<td>0-65535 bytes</td>
+<td>变长字符串</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小 ( bytes)</th>
+<th align="left">范围</th>
+<th align="left">格式</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DATE</td>
+<td align="left">3</td>
+<td align="left">1000-01-01&#x2F;9999-12-31</td>
+<td align="left">YYYY-MM-DD</td>
+<td align="left">日期值</td>
+</tr>
+<tr>
+<td align="left">TIME</td>
+<td align="left">3</td>
+<td align="left">‘-838:59:59’&#x2F;‘838:59:59’</td>
+<td align="left">HH:MM:SS</td>
+<td align="left">时间值或持续时间</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">1</td>
+<td align="left">1901&#x2F;2155</td>
+<td align="left">YYYY</td>
+<td align="left">年份值</td>
+</tr>
+<tr>
+<td align="left">DATETIME</td>
+<td align="left">8</td>
+<td align="left">‘1000-01-01 00:00:00’ 到 ‘9999-12-31 23:59:59’</td>
+<td align="left">YYYY-MM-DD hh:mm:ss</td>
+<td align="left">混合日期和时间值</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">4</td>
+<td align="left">‘1970-01-01 00:00:01’ UTC 到 ‘2038-01-19 03:14:07’ UTC结束时间是第 <strong>2147483647</strong> 秒，北京时间 <strong>2038-1-19 11:14:07</strong>，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td align="left">YYYY-MM-DD hh:mm:ss</td>
+<td align="left">混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+<p>Date 和 time 分开记忆就好了</p>
+<p>更新：</p>
+<p>UPDATE table_name<br>SET column1 &#x3D; value1, column2 &#x3D; value2, …<br>WHERE condition;</p>
+<p>删除某条记录：</p>
+<p>DELETE FROM table_name<br>WHERE condition;</p>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p> Aggregate functions — SUM — AVG — MIN — MAX — COUNT</p>
+<p>在 <code>WHERE</code> 子句中使用聚合函数通常是不允许的，因为 <code>WHERE</code> 子句在数据被分组前对行进行过滤。</p>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(salary) <span class="keyword">AS</span> myMin,</span><br><span class="line"><span class="built_in">MAX</span>(salary) <span class="keyword">AS</span> myMax,</span><br><span class="line"><span class="built_in">AVG</span>(salary) <span class="keyword">AS</span> myAvg,</span><br><span class="line"><span class="built_in">SUM</span>(salary) <span class="keyword">AS</span> mySum</span><br><span class="line"><span class="keyword">FROM</span> Staff;</span><br></pre></td></tr></table></figure>
+
+<p>Count 对表中的行进行计算，包括空行和null</p>
+<p>group by，汇总</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> branchNo,</span><br><span class="line"><span class="built_in">Count</span>(staffNo) <span class="keyword">AS</span> myCount,</span><br><span class="line"><span class="built_in">SUM</span>(salary) <span class="keyword">AS</span> mySum</span><br><span class="line"><span class="keyword">FROM</span> Staff</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> branchNo;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>GROUP BY ClientNo</code> 表示将结果集按照 <code>ClientNo</code> 列的值进行分组。 同值为一组，反之另外一组</p>
+<p><code>HAVING</code> 子句通常与 <code>GROUP BY</code> 子句一起使用，用于在对结果集进行分组后对分组进行过滤。它允许您使用聚合函数对分组后的结果进行筛选，并且仅保留满足特定条件的分组。</p>
+<p>操作符：</p>
+<p>常见：all      in     any    exists（如果列表存在）BETWWEN</p>
+<p>例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM Staff WHERE</span><br><span class="line">Position &lt;&gt; &#x27;Manager&#x27; AND Salary &gt; ANY</span><br><span class="line">(SELECT Salary FROM Staff WHERE Position = &#x27;Manager&#x27;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="歧义"><a href="#歧义" class="headerlink" title="歧义"></a>歧义</h2><p>当查询多个表，并且都有同一个列名的时候(Salary)</p>
+<p>需要使用表.Salary来指明具体是要哪一个表的Salary</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Viewing.Salary</span><br><span class="line"><span class="keyword">FROM</span> Viewing, staff</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>WHERE</code> 子句中使用聚合函数通常是不允许的，因为 <code>WHERE</code> 子句在数据被分组前对行进行过滤。</p>
+<p>想要比较一个列的值与另一个表的<strong>所有行的聚合值</strong>，可以使用 <code>HAVING</code> 子句来筛选分组，而不是在 <code>WHERE</code> 子句中进行筛选。</p>
+<p>尝试在 <code>WHERE</code> 子句中引用别名 <code>S</code>，但是在同一个查询中，别名是不能在 <code>WHERE</code> 子句中直接使用的。</p>
+<p>别名是在查询结果中创建的，而 <code>WHERE</code> 子句是在数据被检索和处理之前执行的。因此，<code>WHERE</code> 子句不能直接使用别名.</p>
+<p><code>HAVING</code> 子句是用于在 <code>GROUP BY</code> 子句后对分组进行过滤的</p>
+<p>错误代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> Viewing.Salary <span class="keyword">as</span> S</span><br><span class="line">  <span class="keyword">from</span> Viewing,staff</span><br><span class="line">  <span class="keyword">where</span> S.salary<span class="operator">&gt;</span><span class="number">1000</span></span><br><span class="line">  ;</span><br></pre></td></tr></table></figure>
+
+<p>但是可以使用嵌套查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">    <span class="keyword">SELECT</span> Viewing.Salary <span class="keyword">AS</span> S</span><br><span class="line">    <span class="keyword">FROM</span> Viewing, staff</span><br><span class="line">) <span class="keyword">AS</span> derived_table</span><br><span class="line"><span class="keyword">WHERE</span> S <span class="operator">&gt;</span> <span class="number">1000</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对于错误代码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> Salary <span class="keyword">from</span> Viewing <span class="keyword">where</span> Salary <span class="operator">&gt;</span> <span class="built_in">sum</span>(Salary);</span><br><span class="line">ERROR <span class="number">1111</span> (HY000): Invalid use <span class="keyword">of</span> <span class="keyword">group</span> <span class="keyword">function</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> Salary <span class="keyword">from</span> Viewing <span class="keyword">having</span> Salary <span class="operator">&gt;</span> <span class="built_in">sum</span>(Salary);</span><br><span class="line">ERROR <span class="number">1140</span> (<span class="number">42000</span>): <span class="keyword">In</span> aggregated query <span class="keyword">without</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span>, expression #<span class="number">1</span> <span class="keyword">of</span> <span class="keyword">SELECT</span> list <span class="keyword">contains</span> nonaggregated <span class="keyword">column</span> <span class="string">&#x27;lesson.Viewing.Salary&#x27;</span>; this <span class="keyword">is</span> incompatible <span class="keyword">with</span> sql_mode<span class="operator">=</span>only_full_group_by</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以这样修改：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询所有薪水大于整个表中所有薪水的员工</span></span><br><span class="line"><span class="keyword">SELECT</span> Salary</span><br><span class="line"><span class="keyword">FROM</span> Viewing</span><br><span class="line"><span class="keyword">WHERE</span> Salary <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">SUM</span>(Salary) <span class="keyword">FROM</span> Viewing);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 查询分组后薪水大于平均薪水的员工</span></span><br><span class="line"><span class="keyword">SELECT</span> Salary</span><br><span class="line"><span class="keyword">FROM</span> Viewing</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Salary</span><br><span class="line"><span class="keyword">HAVING</span> Salary <span class="operator">&gt;</span> <span class="built_in">AVG</span>(Salary);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在子查询嵌套时，必须将子查询用括号括起来，以确保其被正确解析。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> Salary <span class="operator">&gt;</span> (<span class="keyword">SELECT</span> <span class="built_in">SUM</span>(Salary) <span class="keyword">FROM</span> Viewing);</span><br></pre></td></tr></table></figure>
+
+<p>MySQL 要求 <code>SELECT</code> 列表中的非聚合列必须在 <code>GROUP BY</code> 子句中或者作为聚合函数的参数。</p>
+<h1 id="join"><a href="#join" class="headerlink" title="join"></a>join</h1><p>在 SQL 中，有几种不同类型的 JOIN 操作，其中包括 INNER JOIN、LEFT JOIN、RIGHT JOIN、FULL JOIN 等。这些 JOIN 操作的区别在于它们如何处理连接的数据和匹配不同表之间的行。</p>
+<ol>
+<li><p><strong>INNER JOIN</strong>：</p>
+<ul>
+<li><p>INNER JOIN 返回两个表之间匹配的行，也就是说，它只返回那些在连接条件下在两个表中都存在的行。</p>
+</li>
+<li><p>INNER JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1</span><br><span class="line">INNER JOIN table2</span><br><span class="line">ON table1.column = table2.column;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>LEFT JOIN</strong>：</p>
+<ul>
+<li><p>LEFT JOIN 返回左表中的所有行，以及右表中与左表匹配的行。如果右表中没有与左表匹配的行，则右表中的所有列都将包含 NULL 值。</p>
+</li>
+<li><p>LEFT JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1</span><br><span class="line">LEFT JOIN table2</span><br><span class="line">ON table1.column = table2.column;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>RIGHT JOIN</strong>：</p>
+<ul>
+<li><p>RIGHT JOIN 返回右表中的所有行，以及左表中与右表匹配的行。如果左表中没有与右表匹配的行，则左表中的所有列都将包含 NULL 值。</p>
+</li>
+<li><p>RIGHT JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1</span><br><span class="line">RIGHT JOIN table2</span><br><span class="line">ON table1.column = table2.column;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>FULL JOIN</strong>：</p>
+<ul>
+<li><p>FULL JOIN 返回左表和右表中的所有行，如果左表和右表之间没有匹配的行，则会在结果中显示 NULL 值。</p>
+</li>
+<li><p>FULL JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1</span><br><span class="line">FULL JOIN table2</span><br><span class="line">ON table1.column = table2.column;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>CROSS JOIN</strong>：</p>
+<ul>
+<li><p>CROSS JOIN 返回两个表的笛卡尔积，即左表中的每一行都与右表中的每一行组合，生成的结果是两个表的行数相乘的行数。</p>
+</li>
+<li><p>CROSS JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1</span><br><span class="line">CROSS JOIN table2;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<p>在 JOIN 操作中，连接条件通常是通过使用 ON 子句来指定的，该子句将表中的列进行匹配。然而，您也可以在 WHERE 子句中使用连接条件，这在一些情况下会产生相同的结果。</p>
+<p><strong>NATURAL JOIN</strong> 和 <strong>EQUAL JOIN</strong> 不是标准的 JOIN 类型，它们是 JOIN 操作的特殊情况。</p>
+<ul>
+<li><p><strong>NATURAL JOIN</strong>：</p>
+<ul>
+<li><p>NATURAL JOIN 是一种自然连接，它基于两个表中相同列名的匹配来连接这两个表。</p>
+</li>
+<li><p>NATURAL JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1</span><br><span class="line">NATURAL JOIN table2;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自然连接会自动查找两个表中列名相同的列，并将它们用作连接条件。请注意，如果有多列具有相同的列名，则它们都将用作连接条件。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>EQUAL JOIN</strong>：</p>
+<ul>
+<li><p>EQUAL JOIN 是一种连接，它使用 EQUALS (&#x3D;) 操作符来连接两个表中的列。</p>
+</li>
+<li><p>EQUAL JOIN 语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT column1, column2, ...</span><br><span class="line">FROM table1, table2</span><br><span class="line">WHERE table1.column = table2.column;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 EQUAL JOIN 中，连接条件直接在 WHERE 子句中指定，并且使用 EQUALS (&#x3D;) 操作符来比较两个表中的列。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>需要注意的是，尽管 NATURAL JOIN 和 EQUAL JOIN 可能会简化一些查询，但在实际中并不推荐使用它们，因为它们可能会导致不可预期的结果。使用明确的连接条件和 JOIN 类型可以更清晰地表达您的意图，并且更容易理解和维护。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT </span><br><span class="line">    CASE </span><br><span class="line">        WHEN Salary &gt;= 1500 THEN &#x27;a&#x27;</span><br><span class="line">        ELSE &#x27;b&#x27;</span><br><span class="line">    END AS Salary_Group,</span><br><span class="line">    COUNT(*) AS Count</span><br><span class="line">FROM </span><br><span class="line">    viewing</span><br><span class="line">GROUP BY </span><br><span class="line">    Salary_Group;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">  case</span><br><span class="line">  when Salary &gt;= 1500 then &quot;a&quot;</span><br><span class="line">  else</span><br><span class="line">  &quot;b&quot;</span><br><span class="line">  end as salarya,</span><br><span class="line">  count(*) as num</span><br><span class="line">  from viewing</span><br><span class="line">  group by</span><br><span class="line">  salarya;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>创建A职员表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------------+---------------+</span><br><span class="line">| employee_id | employee_name | department_id |</span><br><span class="line">+-------------+---------------+---------------+</span><br><span class="line">|           1 | Alice         |           101 |</span><br><span class="line">|           2 | Bob           |           102 |</span><br><span class="line">|           3 | Charlie       |           101 |</span><br><span class="line">|           4 | David         |           103 |</span><br><span class="line">|           5 | Eve           |           102 |</span><br><span class="line">+-------------+---------------+---------------+</span><br></pre></td></tr></table></figure>
+
+<p>创建B 部门表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+---------------+-----------------+</span><br><span class="line">| department_id | department_name |</span><br><span class="line">+---------------+-----------------+</span><br><span class="line">|           101 | Engineering     |</span><br><span class="line">|           102 | Marketing       |</span><br><span class="line">|           103 | Finance         |</span><br><span class="line">+---------------+-----------------+</span><br></pre></td></tr></table></figure>
+
+<p>如果直接from 两个表的话，则会直接按照笛卡尔乘积连接，可以加where ，也叫普通连接</p>
+<h3 id="Equi-Join-等值连接"><a href="#Equi-Join-等值连接" class="headerlink" title="Equi Join (等值连接)"></a>Equi Join (等值连接)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT *</span><br><span class="line">FROM employees</span><br><span class="line">JOIN departments ON employees.department_id = departments.department_id;</span><br></pre></td></tr></table></figure>
+
+<p>在这个查询中，我们使用了 INNER JOIN 子句，并且指定了连接条件。等值连接是 Theta Join 的一种特殊情况，其中连接条件使用等号。</p>
+<ol start="3">
+<li>Natural Join (自然连接)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy codeSELECT *</span><br><span class="line">FROM employees</span><br><span class="line">NATURAL JOIN departments;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+-------------+---------------+---------------+---------------+-----------------+</span><br><span class="line">| employee_id | employee_name | department_id | department_id | department_name |</span><br><span class="line">+-------------+---------------+---------------+---------------+-----------------+</span><br><span class="line">|           1 | Alice         |           101 |           101 | Engineering     |</span><br><span class="line">|           2 | Bob           |           102 |           102 | Marketing       |</span><br><span class="line">|           3 | Charlie       |           101 |           101 | Engineering     |</span><br><span class="line">|           4 | David         |           103 |           103 | Finance         |</span><br><span class="line">|           5 | Eve           |           102 |           102 | Marketing       |</span><br></pre></td></tr></table></figure>
+
+<p>自然连接是等值连接的一种特殊情况，其中连接条件基于两个表中具有相同名称的列。在我们的例子中，<code>department_id</code> 是共享的列，因此它们被用作连接条件。</p>
+<p>Semi Join (半连接)</p>
+<p>半连接是一种 Theta Join，它只输出一个表的结果集，而不是两个表的结果集。它通常用于筛选出满足特定条件的行，而不需要返回与另一个表相关的信息。</p>
+<p>Self Join (自连接)</p>
+<p>自连接是指一个表与自身进行连接。它通常用于比较同一个表中不同行之间的数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code-- 查询同一部门中不同员工之间的组合</span><br><span class="line">SELECT e1.employee_name AS employee1, e2.employee_name AS employee2</span><br><span class="line">FROM employees e1</span><br><span class="line">JOIN employees e2 ON e1.department_id = e2.department_id AND e1.employee_id &lt; e2.employee_id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cross-Join-交叉连接"><a href="#Cross-Join-交叉连接" class="headerlink" title="Cross Join (交叉连接)"></a>Cross Join (交叉连接)</h3><p>交叉连接是一种连接，它返回两个表的 Cartesian 乘积，即两个表的每一行都与另一个表的每一行进行组合。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code-- 查询所有员工与所有部门的组合</span><br><span class="line">SELECT *</span><br><span class="line">FROM employees</span><br><span class="line">CROSS JOIN departments;</span><br></pre></td></tr></table></figure>
+
+<p>结果将是员工表中的每一行与部门表中的每一行进行组合，产生的结果集将包含所有可能的组合。</p>
+<p>右外连接（RIGHT JOIN）</p>
+<p>右外连接会返回右表（第二个表）中的所有行，以及与左表（第一个表）中匹配的行。如果左表中没有匹配的行，则右表中的列将显示为 NULL。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 查询所有员工及其所在部门，如果某个员工没有分配到部门，则部门名称列将显示 NULL</span><br><span class="line">SELECT e.employee_name, d.department_name</span><br><span class="line">FROM employees e</span><br><span class="line">RIGHT JOIN departments d ON e.department_id = d.department_id;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+---------------+-----------------+</span><br><span class="line">| employee_name | department_name |</span><br><span class="line">+---------------+-----------------+</span><br><span class="line">| Charlie       | Engineering     |</span><br><span class="line">| Alice         | Engineering     |</span><br><span class="line">| Eve           | Marketing       |</span><br><span class="line">| Bob           | Marketing       |</span><br><span class="line">| David         | Finance         |</span><br><span class="line">+---------------+-----------------+</span><br></pre></td></tr></table></figure>
+
+<p>全外连接（FULL JOIN）</p>
+<p>全外连接会返回两个表中的所有行，并将没有匹配的行的列填充为 NULL。</p>
+<h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><p>依赖：</p>
+<p>函数依赖FD：基本，一个或者一组属性的值可以指定另外一组属性，比如学号决定学生姓名</p>
+<p>多值依赖MVD：一个确定的属性可以确定另外一组属性的多组值，比如确定一个老师可以确定他教的多个科目。FD是多值的特例。</p>
+<p>连接依赖JD：无损连接分解：把一个大表分成多个表后，如果可以连接回一个大表（<strong>不能多也不能少</strong>），则是无损连接。</p>
+<p><strong>结论：如果能实现一个无损链接，则大表的属性存在连接依赖</strong></p>
+<p>数据库设计分三个阶段实现<br>概念-独立于所有物理因素的模型数据<br>逻辑-细化概念模型并将其映射到关系模型(或其他数据库模型，如面向对象模型)<br>物理-将逻辑模型映射到特定的数据库管理系统(例如MySQL)</p>
+<h2 id="关系范式："><a href="#关系范式：" class="headerlink" title="关系范式："></a>关系范式：</h2><h3 id="1-属性原子，不可再分-：建表失败"><a href="#1-属性原子，不可再分-：建表失败" class="headerlink" title="1.属性原子，不可再分  ：建表失败"></a>1.属性原子，不可再分  ：建表失败</h3><h3 id="2-不存在属性对主键的部分依赖。"><a href="#2-不存在属性对主键的部分依赖。" class="headerlink" title="2.不存在属性对主键的部分依赖。"></a>2.不存在属性对主键的部分依赖。</h3><p>反例：(学号+学科)作为主键，可以确定这名学生的某门科目成绩，但是，如果这张表还存在学生的个人信息(名字，性别)这些只由学号一个主键就能确定的，则不满足二范式。   会导致：插入删除异常与数据冗余</p>
+<p>解决方法：一事一地。一张表管一件事。</p>
+<h3 id="3-不存在属性对主键的传递依赖。"><a href="#3-不存在属性对主键的传递依赖。" class="headerlink" title="3.不存在属性对主键的传递依赖。"></a>3.不存在属性对主键的传递依赖。</h3><p>反例：（员工编号）主键，工资级别，工资。主键控制了工资级别，工资依赖工资级别。</p>
+<p>会导致：插入和删除异常，更新异常。</p>
+<p>BCNF范式，比3更严格：</p>
+<p>要求A1-&gt;A2 A1必须是主键</p>
+<p>4.消除多值依赖</p>
+<p>5.消除连接依赖</p>
+<p>面向过程：</p>
+<p>处理事情的流程，那件事情需要那些表格，直接设计出来。见效快</p>
+<p>难以处理重复性，模拟人的事情</p>
+<p>面向数据：</p>
+<p>用户需求分析</p>
+<p>概念设计</p>
+<p>逻辑设计</p>
+<p>物理设计</p>
+<h2 id="ER建模"><a href="#ER建模" class="headerlink" title="ER建模"></a>ER建模</h2><p>实体-关系（ER）建模的一些核心概念和方法。概念设计</p>
+<ol>
+<li><strong>领域模型</strong>：ER建模的首要目标是建立一个与特定领域相关的模型。领域可以是任何一种主题，如公司业务、医疗记录、图书馆管理等。该模型旨在捕获和描述领域内的关键概念和关系。</li>
+<li><strong>实体、关系和属性</strong>：在领域模型中，有三个基本概念：实体、关系和属性。实体代表领域中的具体事物或概念，关系表示实体之间的连接或关联，属性是描述实体和关系的特征或性质。</li>
+<li><strong>主键和备用键</strong>：实体和关系的属性中，可能存在一些特殊的属性，用于唯一标识实体或关系。这些特殊的属性被称为主键，确保了实体或关系的唯一性。备用键则是备选的唯一标识符，可以用于特定情况下的数据操作。</li>
+<li><strong>完整性约束</strong>：为了维护领域的一致性和正确性，需要定义一些完整性约束。这些约束规定了数据的合法性和有效性，防止了不符合规定的数据插入、更新或删除操作。</li>
+<li><strong>交付成果</strong>：ER建模的结果通常包括两个主要成果：ER模型图和数据字典。ER模型图是对领域模型的可视化表示，用图形方式展示了实体、关系和属性之间的关系。数据字典则是对模型中各个元素的详细说明和定义，包括属性类型、长度、约束等信息。</li>
+<li><strong>文档化</strong>：文档化是ER建模过程中的重要环节。通过详细的文档记录，可以确保对模型的理解和使用的一致性，同时也为模型的维护和更新提供了便利。</li>
+</ol>
+<h3 id="实体类型（Entity-Type）："><a href="#实体类型（Entity-Type）：" class="headerlink" title="实体类型（Entity Type）："></a>实体类型（Entity Type）：</h3><ol>
+<li><strong>实体类型具有物理存在</strong>：<ul>
+<li>**员工 (Staff)**：在一个公司的数据库中，员工是一个实体类型。每个员工都有自己的唯一标识符，如员工编号，以及属性，如姓名、工作职位、工资等。每个员工都是一个实体类型的实例或实体发生（Entity Occurrence）。</li>
+<li>**房产 (Property)**：在一个房地产公司的数据库中，房产是一个实体类型。每个房产都有独特的属性，如地址、面积、价格等。每个房产的物理存在使其成为一个实体类型。</li>
+<li>**客户 (Customer)**：在一个零售公司或服务提供商的数据库中，客户是一个实体类型。每个客户都有唯一的标识符（如客户编号）、联系信息（如姓名、地址、电话）等属性。每个客户都代表了实体类型的一个实例。</li>
+</ul>
+</li>
+<li><strong>实体类型具有概念上的存在</strong>：<ul>
+<li>**查看和检查 (Viewing and Inspection)**：在一个房地产中介公司的数据库中，查看和检查可以被视为实体类型，即使它们没有物理上的存在。每次查看或检查可能具有时间、地点、参与人员等属性。每个查看或检查事件都是实体类型的一个实例。</li>
+</ul>
+</li>
+</ol>
+<p>实体类型-图形表示<br>以实体名称标示的矩形<br>实体名称中每个单词的首字母都是大写的<br>-例如，Property For Rent<br>通常，实体类型使用“名词”或“名词短语”命名</p>
+<h3 id="关系类型（Relationship-Types）："><a href="#关系类型（Relationship-Types）：" class="headerlink" title="关系类型（Relationship Types）："></a>关系类型（Relationship Types）：</h3><ol>
+<li><p><strong>关系类型的概念</strong>：</p>
+<p>关系类型描述了不同实体类型之间的有意义的关联。它们捕捉了实体类型之间的语义联系，帮助我们理解数据领域中的不同概念之间的关系。关系类型由关联的实体类型组成，而每个实体类型的实例都可以参与到一个或多个关系中。</p>
+</li>
+<li><p><strong>举例</strong>：</p>
+<ul>
+<li><strong>‘拥有’关系（Owns）</strong>：假设我们正在设计一个汽车销售公司的数据库。在这个数据库中，我们可能有两个实体类型：客户（Customer）和汽车（Car）。这两个实体类型之间存在一个关系类型，即拥有关系。每个关系实例表示一位客户拥有一辆汽车。因此，拥有关系类型连接了客户实体类型和汽车实体类型。</li>
+<li><strong>‘供应’关系（Supplies）</strong>：考虑一个供应链管理系统的情况，其中我们有两个实体类型：供应商（Supplier）和产品（Product）。这两个实体类型之间可以存在一个供应关系类型。每个供应关系实例表示一个供应商提供了某种产品。因此，供应关系类型连接了供应商实体类型和产品实体类型。</li>
+</ul>
+</li>
+<li><p><strong>关系实例</strong>：</p>
+<p>关系实例是关系类型的具体发生，它包含了参与到关系中的每个实体类型的一个实例。例如，在上面的示例中，如果我们有一个客户名为Alice，拥有一辆品牌为Toyota的汽车，那么这将是一个拥有关系的一个实例。同样，如果一个供应商名为XYZ Company提供了一辆品牌为Honda的汽车，那么这将是一个供应关系的一个实例。</p>
+</li>
+</ol>
+<p>实体名称中每个单词的首字母都是大写的<br>·通常一段关系是用“动词”或“动词组”来命名的</p>
+<p>·关系有意义的方向用“箭头”来标记</p>
+<p>三元四元关系用菱形来表示</p>
+<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20240305144742900.png" alt="image-20240305144742900"></p>
+<p>L06最后一张图</p>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><p>1.Identify entity types（识别实体类型） - 在这个步骤中，系统分析师会识别所有相关的实体，这些实体是系统中的关键对象，如“客户”、“订单”、“产品”等。<br>2.Identify relationship types（识别关系类型） - 确定实体之间的关系，例如“客户下订单”、“订单包含产品”等。关系可以是一对一（1:1）、一对多（1:N）或多对多（M:N）。<br>3.Identify and associate attributes with entity or relationship types（识别并关联属性和实体或关系类型） - 为每个实体或关系类型确定属性，属性是描述实体的特征，如“客户”的属性可能包括“姓名”、“地址”、“电话”等。<br>4.Determine attribute domains（确定属性域） - 为每个属性定义可能的值范围或数据类型，例如“姓名”可能是字符串，而“年龄”可能是整数。<br>5.Determine candidate, primary and alternate key attributes（确定候选键、主键和备选键属性） - 识别能够唯一标识实体实例的属性，这些属性称为键。候选键是可以用来唯一标识实体的属性或属性组合，主键是从候选键中选出的一个用于实际标识实体实例，备选键是其他的候选键。<br>6.Consider use of enhanced modelling concepts (optional)(考虑使用增强建模概念（可选）) - 这个步骤是可选的，它涉及到使用更高级的建模技术，如继承、多态、关联等。<br>7.Check model for redundancy（检查模型中的冗余） - 确保模型中没有重复的实体、关系或属性，这有助于保持数据的准确性和一致性。<br>8.Validate conceptual model against user transactions（将概念模型与用户交易validate） - 确保模型能够满足用户的需求，即模型能够捕捉到所有用户交易中需要的数据和行为。<br>9.Review conceptual data model with user（与用户一起审查概念数据模型） - 与用户一起检查概念数据模型，确保模型符合他们的理解和需求。</p>
+<h2 id="multiplicity（多重性）"><a href="#multiplicity（多重性）" class="headerlink" title="multiplicity（多重性）"></a>multiplicity（多重性）</h2><p>在描述实体之间的关系时，multiplicity 用来指明一个实体类型在一个关系中可以出现的确切次数，或者它可能出现的次数范围。<br>这里解释了 multiplicity range（多重性范围）的概念，它由两部分组成：<br>Min（最小值） - 这代表参与关系的实体类型的最少出现次数。<br>Max（最大值） - 这代表参与关系的实体类型的最多出现次数。<br>举例来说，如果你看到一个 multiplicity range（多重性范围）被指定为 0…1，这意味着：<br>Min &#x3D; 0 - 表示实体类型在这个关系中可以出现零次。<br>Max &#x3D; 1 - 表示实体类型在这个关系中可以出现一次，并且最多一次。<br>这里的 “Cardinality”（基数）指的是 max 的值，它描述了一个实体类型在一个关系中的最大出现次数。而 “Participation”（参与度）指的是 min 的值，它描述了一个实体类型是否必须存在于关系中。</p>
+<p><img src="C:\Users\86176\AppData\Roaming\Typora\typora-user-images\image-20240306201421394.png" alt="image-20240306201421394"></p>
+<p>CREATE DOMAIN SexType AS CHAR(1) </p>
+<p>DEFAULT ‘M’ </p>
+<p>CHECK (VALUE IN (‘M’, ‘F’));</p>
+<p>可以自定义一个SexType 然后用check来确保输入的字符满足要求</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Staff (</span><br><span class="line">StaffNo <span class="type">VARCHAR</span>(<span class="number">5</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Lname <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">Salary <span class="type">FLOAT</span> <span class="keyword">CHECK</span> (Salary <span class="keyword">BETWEEN</span> <span class="number">50</span> <span class="keyword">and</span> <span class="number">20000</span>),</span><br><span class="line">HireDate <span class="type">DATE</span>,</span><br><span class="line">Sex SexType);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对于 <code>StaffNo</code> 和 <code>Lname</code> 字段，使用了 <code>NOT NULL</code> 约束，确保这两个字段的值不能为空。</li>
+<li>对于 <code>Salary</code> 字段，使用了 <code>CHECK</code> 约束，定义了一个域约束，限制了薪资的范围。</li>
+<li>最后指出，如果对表格进行更新或插入操作时不满足约束条件，操作将会失败。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUBSTRING</span>(Lname <span class="keyword">FROM</span> <span class="number">1</span> <span class="keyword">TO</span> <span class="number">3</span>),  <span class="comment">-- 从 Lname 字段中提取第一个到第三个字符的子字符串</span></span><br><span class="line">       <span class="keyword">CONVERT</span>(<span class="type">INTEGER</span> Salary),        <span class="comment">-- 将 Salary 字段转换为整数类型</span></span><br><span class="line">       <span class="built_in">EXTRACT</span>(<span class="keyword">YEAR</span> <span class="keyword">FROM</span> HireDate)     <span class="comment">-- 从 HireDate 字段中提取年份</span></span><br><span class="line"><span class="keyword">FROM</span> Staff;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中三个标量函数  SUBSTRING CONVERT EXTRACT</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建一个名为 Viewing 的表格，其中包含 ClientNo、PropertyNo 和 ViewingDate 三个字段。</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Viewing (</span><br><span class="line">    ClientNo <span class="type">VARCHAR</span>(<span class="number">5</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    PropertyNo <span class="type">VARCHAR</span>(<span class="number">5</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    ViewingDate <span class="type">DATE</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (ClientNo, PropertyNo),  <span class="comment">-- 使用 ClientNo 和 PropertyNo 组合成复合主键</span></span><br><span class="line">    <span class="keyword">UNIQUE</span> (ViewingDate)                 <span class="comment">-- 使用 ViewingDate 作为备选键，并确保其唯一性</span></span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>ViewingDate</code> 字段被指定为备选键，并且通过 <code>UNIQUE</code> 关键字确保其唯一性。这意味着每个观看日期的值在表格中必须是唯一的，但不是主键。</p>
+<p>备选键提供了另一种方法来唯一标识表格中的数据，而不必使用主键。备选键通常用于对数据库表格中的数据进行索引或查找。</p>
+<h2 id="IEF"><a href="#IEF" class="headerlink" title="IEF"></a>IEF</h2><p>SQL（结构化查询语言）中的完整性增强功能（IEF），这些功能用于确保数据库的完整性。以下是对其中每个要点的解释：</p>
+<ol>
+<li><strong>数据库的活跃性</strong>：传统上，我们将数据库视为静态的存储库。但实际上，现实中的数据库通常非常“活跃”，可能会有数百个用户同时对数据库进行查询和更新。</li>
+<li><strong>数据库完整性的重要性</strong>：由于数据库是在不断变化的环境中被使用的，因此确保数据库的完整性非常重要。完整性保证了数据的准确性、一致性和可靠性。</li>
+<li><strong>完整性增强功能（IEFs）</strong>：SQL提供了一系列功能，被称为完整性增强功能（IEFs），用于帮助数据库设计人员指定和强制执行各种类型的完整性约束，以确保数据库的完整性。这些功能包括：<ul>
+<li><strong>域约束（Domain Constraints）</strong>：限制特定字段（域）中的数据值范围或类型，以确保数据的有效性。</li>
+<li><strong>必需数据（Required Data）</strong>：指定某些字段或属性中的数据是必需的，确保数据的完整性。</li>
+<li><strong>实体完整性（Entity Integrity）</strong>：确保每个实体（记录或行）都有一个唯一的标识符，通常是主键，以确保数据的唯一性和一致性。</li>
+<li><strong>引用完整性（Referential Integrity）</strong>：确保在关系数据库中引用的数据的一致性，通常通过外键关系来实现。</li>
+<li><strong>企业约束（Enterprise Constraints）</strong>：指定数据库中的业务规则和约束，以确保数据库中存储的数据符合业务需求和规范。</li>
+</ul>
+</li>
+</ol>
+<p>总的来说，这些完整性增强功能帮助数据库设计人员确保数据库中的数据保持一致性、有效性和可靠性，即使在多用户并发访问的情况下也能够保持数据库的完整性。</p>
+<h1 id="外键引用动作（Referential-Actions）"><a href="#外键引用动作（Referential-Actions）" class="headerlink" title="外键引用动作（Referential Actions）"></a>外键引用动作（Referential Actions）</h1><p>当父表（Parent Table）中的关键属性（Key Attribute）被修改时，应该如何处理子表（Child Table）中的相关数据。SQL 提供了四种可选的外键引用动作（Referential Actions），用于在定义外键关系时指定对子表中相关数据的处理方式。</p>
+<ol>
+<li><strong>CASCADE</strong>：对子表中的相关行应用父表的修改。换句话说，当父表中的关键属性被修改时，相应的子表中的行也会被修改，以保持一致性。</li>
+<li><strong>SET NULL</strong>：将子表中相关的外键设置为 NULL。当父表中的关键属性被修改时，子表中的相关外键将被设置为 NULL 值。</li>
+<li><strong>SET DEFAULT</strong>：将子表中相关的外键设置为默认值。当父表中的关键属性被修改时，子表中的相关外键将被设置为预先定义的默认值。</li>
+<li><strong>NO ACTION</strong>：拒绝操作（默认选项）。当父表中的关键属性被修改时，如果子表中存在相关的行，则不允许父表中的修改操作。</li>
+</ol>
+<p>针对提出的问题，“DreamHome DBMS” 中的客户信息被移除时，对于 Viewing 表中的 ClientNo，最合适的操作是将外键设置为 CASCADE。这意味着当父表中的客户信息被删除时，相应的 Viewing 表中与该客户相关的数据行也会被自动删除，以保持数据一致性。</p>
+<p>举例：</p>
+<p>假设有两个表格：Client 表格和Viewing 表格。</p>
+<ol>
+<li>Client 表格包含客户信息：</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Client (</span><br><span class="line">    ClientNo <span class="type">VARCHAR</span>(<span class="number">5</span>) <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    Name <span class="type">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">    Phone <span class="type">VARCHAR</span>(<span class="number">15</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Viewing 表格包含了客户观看的房产信息，其中 ClientNo 是一个外键，引用于 Client 表格中的 ClientNo 字段：</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Viewing (</span><br><span class="line">    ViewingID <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    PropertyNo <span class="type">VARCHAR</span>(<span class="number">5</span>),</span><br><span class="line">    ClientNo <span class="type">VARCHAR</span>(<span class="number">5</span>),</span><br><span class="line">    ViewingDate <span class="type">DATE</span>,</span><br><span class="line">    <span class="keyword">FOREIGN</span> KEY (ClientNo) <span class="keyword">REFERENCES</span> Client(ClientNo) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，Viewing 表格中的 ClientNo 字段是一个外键，它引用了 Client 表格中的 ClientNo 字段。在定义外键关系时，使用了 <code>ON DELETE CASCADE</code> 选项，这意味着如果 Client 表格中的某个客户被删除，与该客户相关的 Viewing 表格中的所有观看记录也会被自动删除。</p>
+<p>例如，如果我们从 Client 表格中删除了一个客户记录：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Client <span class="keyword">WHERE</span> ClientNo <span class="operator">=</span> <span class="string">&#x27;C001&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>那么，Viewing 表格中所有包含该客户的观看记录也会被自动删除，以确保数据库的一致性。这就是 CASCADE 动作的作用。</p>
+<p>例子：</p>
+<p>当你设计一个房地产管理系统时，你可能会有两个表：Staff（员工）和PropertyForRent（出租房产）。每个员工可能会被分配管理一个或多个出租房产。</p>
+<ol>
+<li><strong>Staff表</strong>：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>StaffNo</th>
+<th>Name</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S001</td>
+<td>John Doe</td>
+<td>Manager</td>
+</tr>
+<tr>
+<td>S002</td>
+<td>Jane Smith</td>
+<td>Assistant</td>
+</tr>
+</tbody></table>
+<ol>
+<li><strong>PropertyForRent表</strong>：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>PropertyNo</th>
+<th>Address</th>
+<th>StaffNo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P001</td>
+<td>123 Main St.</td>
+<td>S001</td>
+</tr>
+<tr>
+<td>P002</td>
+<td>456 Elm St.</td>
+<td>S002</td>
+</tr>
+</tbody></table>
+<p>在这个例子中，PropertyForRent表中的StaffNo列是一个外键，它引用了Staff表中的StaffNo列。这意味着在PropertyForRent表中的每一行中，StaffNo的值必须在Staff表中有对应的StaffNo值。</p>
+<p>例如，如果要将一栋房产分配给一个不存在于Staff表中的员工，比如StaffNo为S003的员工，那么这个操作将会违反参照完整性，因为Staff表中不存在StaffNo为S003的员工。在这种情况下，数据库会拒绝这个操作，并抛出错误信息，确保参照完整性得到维护。</p>
+<p>同样地，如果尝试删除Staff表中的某个StaffNo值，而该StaffNo值在PropertyForRent表中有相关联的房产记录，这也会违反参照完整性，因为这会导致PropertyForRent表中存在对已删除员工的引用。数据库会拒绝这个操作，以维护参照完整性。</p>
+<p>企业约束（Business Rules），即一些涉及到多个表格的约束条件，以及如何在数据库中定义这些约束以确保其只需定义一次。</p>
+<p>具体地，它提供了一个例子说明了如何创建一个企业约束以确保员工不管理超过100个物业。</p>
+<ol>
+<li><strong>企业约束的目的</strong>：<ul>
+<li>在真实的业务场景中，有些规则涉及到多个表格，因此定义这些约束只需一次，以确保数据库的一致性和正确性。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建一个名为 StaffNotOverLoaded 的断言（Assertion），用于确保员工不管理超过100个物业。</span></span><br><span class="line"><span class="keyword">CREATE</span> ASSERTION StaffNotOverLoaded</span><br><span class="line"><span class="keyword">CHECK</span> (<span class="keyword">NOT</span> <span class="keyword">EXISTS</span></span><br><span class="line">    (<span class="keyword">SELECT</span> StaffNo <span class="keyword">FROM</span> PropertyForRent</span><br><span class="line">     <span class="keyword">GROUP</span> <span class="keyword">BY</span> StaffNo <span class="keyword">HAVING</span> <span class="built_in">COUNT</span> (<span class="operator">*</span>) <span class="operator">&gt;</span> <span class="number">100</span>)</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，使用了断言（Assertion）来定义一个企业约束，名为 StaffNotOverLoaded。这个约束通过子查询检查 PropertyForRent 表格中每个员工（StaffNo）管理的物业数量是否超过100个。如果存在任何员工管理超过100个物业的情况，则该约束条件将不被满足。</p>
+<ol>
+<li><strong>将约束应用到表格</strong>：</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> PropertyForRent (</span><br><span class="line">    ...,</span><br><span class="line">    <span class="keyword">CONSTRAINT</span> StaffNotOverLoaded</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在表格创建时，通过在表格定义中添加 CONSTRAINT 子句，将 StaffNotOverLoaded 约束应用到 PropertyForRent 表格中。这确保了在数据库中创建或更新 PropertyForRent 表格时，将自动检查并执行 StaffNotOverLoaded 约束，以确保员工管理的物业数量不超过100个。</p>
+<h1 id="触发器（Triggers）的概念以及它们在数据库管理系统中的作用和使用情况。"><a href="#触发器（Triggers）的概念以及它们在数据库管理系统中的作用和使用情况。" class="headerlink" title="触发器（Triggers）的概念以及它们在数据库管理系统中的作用和使用情况。"></a>触发器（Triggers）的概念以及它们在数据库管理系统中的作用和使用情况。</h1><ol>
+<li><strong>触发器的用途</strong>：<ul>
+<li>在某些情况下，真实世界中的业务规则无法通过约束来实现，这时就需要使用触发器。</li>
+<li>例如，当一个客户查看超过10个物业时，通知分行经理发送电子邮件，这种情况通常难以通过简单的约束来实现。</li>
+</ul>
+</li>
+</ol>
+<p>代码实例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建一个存储过程，用于发送邮件通知给分行经理</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> NotifyBranchManager</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="comment">-- 在这里编写发送邮件的逻辑，例如使用存储过程或调用外部邮件服务</span></span><br><span class="line">    <span class="comment">-- 这里只是一个示例，具体的实现取决于数据库系统和邮件服务的集成方式</span></span><br><span class="line">    <span class="comment">-- 在真实环境中需要根据实际情况进行配置和实现</span></span><br><span class="line">    PRINT <span class="string">&#x27;Sending email notification to branch manager...&#x27;</span>;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line">GO</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建触发器，当客户查看房产时触发</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> NotifyBranchManagerTrigger</span><br><span class="line"><span class="keyword">ON</span> Viewing</span><br><span class="line">AFTER <span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">DECLARE</span> <span class="variable">@ClientNo</span> <span class="type">VARCHAR</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">DECLARE</span> <span class="variable">@ViewCount</span> <span class="type">INT</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 获取新插入的查看记录的客户号和查看数量</span></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="variable">@ClientNo</span> <span class="operator">=</span> ClientNo, <span class="variable">@ViewCount</span> <span class="operator">=</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) </span><br><span class="line">    <span class="keyword">FROM</span> Viewing</span><br><span class="line">    <span class="keyword">WHERE</span> ClientNo <span class="operator">=</span> (<span class="keyword">SELECT</span> ClientNo <span class="keyword">FROM</span> inserted)</span><br><span class="line">    <span class="keyword">GROUP</span> <span class="keyword">BY</span> ClientNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">-- 如果查看数量超过10，则调用通知分行经理的存储过程</span></span><br><span class="line">    IF <span class="variable">@ViewCount</span> <span class="operator">&gt;</span> <span class="number">10</span></span><br><span class="line">    <span class="keyword">BEGIN</span></span><br><span class="line">        <span class="keyword">EXEC</span> NotifyBranchManager;</span><br><span class="line">    <span class="keyword">END</span>;</span><br><span class="line"><span class="keyword">END</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li><strong>触发器的机制</strong>：<ul>
+<li>不同的数据库管理系统通常提供了触发器机制，允许在数据库操作发生时自动执行特定的操作。</li>
+<li>触发器可以包含过程化代码，例如 if&#x2F;then&#x2F;else 结构、函数调用等，以实现复杂的业务逻辑。</li>
+</ul>
+</li>
+<li><strong>触发器的优缺点</strong>：<ul>
+<li>触发器可以实现复杂的数据库操作，提供更高级别的业务逻辑控制。</li>
+<li>但触发器可能会增加数据库的复杂性，因为触发器中的规则是隐含的，不容易直接观察到。</li>
+<li>此外，触发器并不是 ANSI 标准的一部分，因此在不同的数据库系统中可能会有不同的实现和行为。</li>
+</ul>
+</li>
+<li><strong>是否应该成为 ANSI 标准</strong>：<ul>
+<li>对于触发器是否应该成为 ANSI 标准的问题，可以考虑在标准中提供一种通用的触发器语法和行为，以提高跨不同数据库系统的互操作性和一致性。</li>
+</ul>
+</li>
+</ol>
+<p>综上所述，触发器是一种用于实现复杂业务逻辑的强大工具，但需要谨慎使用，以避免增加数据库的复杂性和维护难度。同时，是否将触发器纳入 ANSI 标准可能需要权衡不同数据库系统的需求和互操作性。</p>
+<p>假设我们有两个表格：Client（客户）和Viewing（观看记录），以及一个触发器，当客户查看超过10个物业时，触发器会通知分行经理发送电子邮件。</p>
+<p>首先，我们创建表格和触发器：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="comment">-- 创建客户表格</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Client (</span><br><span class="line">    ClientID <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    Name <span class="type">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">    Email <span class="type">VARCHAR</span>(<span class="number">100</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建观看记录表格</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Viewing (</span><br><span class="line">    ViewingID <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    ClientID <span class="type">INT</span>,</span><br><span class="line">    PropertyNo <span class="type">VARCHAR</span>(<span class="number">5</span>),</span><br><span class="line">    ViewingDate <span class="type">DATE</span>,</span><br><span class="line">    <span class="keyword">FOREIGN</span> KEY (ClientID) <span class="keyword">REFERENCES</span> Client(ClientID)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建触发器</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> NotifyBranchManager</span><br><span class="line">AFTER <span class="keyword">INSERT</span> <span class="keyword">ON</span> Viewing</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="type">ROW</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">DECLARE</span> view_count <span class="type">INT</span>;</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">INTO</span> view_count <span class="keyword">FROM</span> Viewing <span class="keyword">WHERE</span> ClientID <span class="operator">=</span> NEW.ClientID;</span><br><span class="line">    IF view_count <span class="operator">&gt;</span> <span class="number">10</span> <span class="keyword">THEN</span></span><br><span class="line">        <span class="comment">-- 这里可以添加发送电子邮件的代码，这里只是模拟</span></span><br><span class="line">        <span class="keyword">INSERT</span> <span class="keyword">INTO</span> Notification (Message) <span class="keyword">VALUES</span> (<span class="string">&#x27;Client with ID &#x27;</span> <span class="operator">||</span> NEW.ClientID <span class="operator">||</span> <span class="string">&#x27; viewed more than 10 properties.&#x27;</span>);</span><br><span class="line">    <span class="keyword">END</span> IF;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们创建了两个表格：Client 表格用于存储客户信息，Viewing 表格用于存储观看记录。然后，我们创建了一个名为 NotifyBranchManager 的触发器。当在 Viewing 表格中插入新的观看记录时，触发器会在每次插入操作之后执行。</p>
+<p>触发器中的代码会计算特定客户（由 NEW.ClientID 指定）的观看记录数量，并检查是否超过了10个。如果超过了10个，触发器会执行某些操作（在这里只是模拟发送电子邮件），通知分行经理。</p>
+<p>这个例子演示了如何使用触发器来实现对于复杂业务规则的处理，以及如何在特定条件下触发某些操作。</p>
+<h1 id="数据库中的模式（Schema）的概念以及它的作用。"><a href="#数据库中的模式（Schema）的概念以及它的作用。" class="headerlink" title="数据库中的模式（Schema）的概念以及它的作用。"></a>数据库中的模式（Schema）的概念以及它的作用。</h1><ol>
+<li><strong>模式的定义</strong>：<ul>
+<li>模式是命名的数据库管理系统（DBMS）对象的集合，包括表格、域、约束、视图、触发器等等。</li>
+</ul>
+</li>
+<li><strong>多用户数据库管理系统中的模式</strong>：<ul>
+<li>多用户数据库管理系统可以包含多个模式。</li>
+<li>每个模式都由特定的用户所拥有。</li>
+</ul>
+</li>
+<li><strong>数据库管理员（DBA）对模式的管理</strong>：<ul>
+<li>数据库管理员负责管理模式，包括创建（CREATE）和删除（DROP）模式。</li>
+</ul>
+</li>
+<li><strong>模式的存储</strong>：<ul>
+<li>模式信息通常存储在特殊的系统表中。</li>
+<li>这些系统表记录了数据库中所有模式的信息，包括它们所包含的对象和所属的用户等。</li>
+</ul>
+</li>
+<li><strong>不同DBMS管理模式的方式</strong>：<ul>
+<li>不同的数据库管理系统有不同的方式来管理模式。</li>
+<li>有些DBMS可能采用特定的语法或系统表来管理模式，而另一些可能使用不同的方法。</li>
+</ul>
+</li>
+</ol>
+<p>综上所述，模式是数据库中的一个重要概念，它提供了一种组织和管理数据库对象的方式。通过使用模式，可以将数据库对象划分为不同的逻辑单元，并进行有效的管理和维护。</p>
+<p>简单的示例来说明数据库模式的概念。</p>
+<p>假设我们有一个简单的图书馆数据库，其中包含书籍信息、借阅记录等。我们可以创建一个名为 “library” 的模式来组织这些对象。</p>
+<ol>
+<li><strong>创建模式</strong>：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code</span><br><span class="line">CREATE SCHEMA library;</span><br></pre></td></tr></table></figure>
+
+<p>这将创建一个名为 “library” 的模式。</p>
+<ol>
+<li><strong>在模式中创建表格</strong>：</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="keyword">CREATE</span> <span class="keyword">TABLE</span> library.books (</span><br><span class="line">    book_id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    title <span class="type">VARCHAR</span>(<span class="number">100</span>),</span><br><span class="line">    author <span class="type">VARCHAR</span>(<span class="number">50</span>),</span><br><span class="line">    isbn <span class="type">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line">	</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> library.borrow_records (</span><br><span class="line">    record_id <span class="type">INT</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    book_id <span class="type">INT</span>,</span><br><span class="line">    borrower_id <span class="type">INT</span>,</span><br><span class="line">    borrow_date <span class="type">DATE</span>,</span><br><span class="line">    return_date <span class="type">DATE</span>,</span><br><span class="line">    <span class="keyword">FOREIGN</span> KEY (book_id) <span class="keyword">REFERENCES</span> library.books(book_id)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>这里我们在 “library” 模式中创建了两个表格：books（存储书籍信息）和 borrow_records（存储借阅记录）。books 表格包含书籍的基本信息，而 borrow_records 表格用于记录借阅操作，它包含了书籍的借阅和归还日期，以及借阅者的信息。</p>
+<ol>
+<li><strong>模式的使用</strong>：</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="keyword">INSERT</span> <span class="keyword">INTO</span> library.books (book_id, title, author, isbn) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;Introduction to SQL&#x27;</span>, <span class="string">&#x27;John Doe&#x27;</span>, <span class="string">&#x27;978-1234567890&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> library.borrow_records (record_id, book_id, borrower_id, borrow_date, return_date) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="number">1001</span>, <span class="string">&#x27;2024-03-01&#x27;</span>, <span class="keyword">NULL</span>);</span><br></pre></td></tr></table></figure>
+
+<p>通过模式名称 “library”，我们可以在查询和操作表格时指定模式，以便将对象组织在一起，提高可读性和维护性。</p>
+<p>通过这个示例，我们展示了如何使用模式来组织数据库中的对象，并说明了模式的作用。</p>
+<h1 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h1><p><code>ALTER TABLE</code> 是一种 SQL 命令，用于<strong>修改数据库表格的结构</strong>，例如添加、删除或修改表格的列、约束或索引等。</p>
+<p>具体来说，<code>ALTER TABLE</code> 可以用于执行以下操作：</p>
+<ol>
+<li><strong>添加列</strong>：通过 <code>ADD COLUMN</code> 子句向表格中添加新的列。</li>
+<li><strong>删除列</strong>：通过 <code>DROP COLUMN</code> 子句从表格中删除指定的列。</li>
+<li><strong>修改列</strong>：通过 <code>ALTER COLUMN</code> 子句修改表格中列的数据类型、约束或其他属性。</li>
+<li><strong>添加约束</strong>：通过 <code>ADD CONSTRAINT</code> 子句向表格中添加新的约束，如主键约束、外键约束、唯一约束等。</li>
+<li><strong>删除约束</strong>：通过 <code>DROP CONSTRAINT</code> 子句从表格中删除指定的约束。</li>
+<li><strong>重命名表格</strong>：通过 <code>RENAME TO</code> 子句重命名表格。</li>
+</ol>
+<p>例如，以下是一些使用 <code>ALTER TABLE</code> 命令的示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sqlCopy code<span class="comment">-- 添加列</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> new_column <span class="type">INT</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除列</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> column_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改列</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> column_name <span class="keyword">SET</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 添加约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> pk_constraint <span class="keyword">PRIMARY</span> KEY (column_name);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name <span class="keyword">DROP</span> <span class="keyword">CONSTRAINT</span> pk_constraint;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 重命名表格</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> table_name RENAME <span class="keyword">TO</span> new_table_name;</span><br></pre></td></tr></table></figure>
+
+<p>总之，<code>ALTER TABLE</code> 是一种用于修改数据库表格结构的 SQL 命令，提供了对表格进行动态更改的能力，以满足不同的数据库需求。</p>
+<h1 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h1><ol>
+<li><p><strong>Schema（模式）</strong>：在数据库中，模式是指一组命名的数据库管理系统（DBMS）对象的集合，包括表（Tables）、域（Domains）、约束（Constraints）、视图（Views，稍后会介绍）、触发器（Triggers）等等。</p>
+</li>
+<li><p><strong>多用户数据库管理系统</strong>：一个多用户的数据库管理系统可以包含多个模式。每个模式都由特定的用户所拥有。</p>
+</li>
+<li><p><strong>模式的所有者</strong>：每个模式都有一个所有者，通常是数据库中的一个用户。这个用户对该模式拥有完全的控制权，包括对模式中的对象进行创建、删除等操作。</p>
+</li>
+<li><p><strong>数据库管理员（DBA）</strong>：数据库管理员负责管理模式，包括创建（CREATE）、删除（DROP）等操作。他们有权对数据库进行管理和维护。</p>
+</li>
+<li><p><strong>模式的管理</strong>：模式的信息通常存储在特殊的系统表中，以便系统能够有效地管理和维护这些信息。</p>
+</li>
+<li><p><strong>不同DBMS的管理方式</strong>：不同的数据库管理系统可能有不同的方式来管理模式。因此，不同的DBMS可能会有一些差异，但基本的概念和原理通常是相似的。业约束（Business Rules）的概念和用法，以及如何在SQL中定义它们。以下是对其中每个要点的解释：</p>
+<ol>
+<li><p><strong>企业约束的概念</strong>：企业约束是指涉及多个表的约束条件，通常是基于业务规则而不是特定于单个表的数据完整性。企业约束的目的是确保数据库中的数据满足特定的业务规则或要求。</p>
+</li>
+<li><p><strong>定义企业约束</strong>：在SQL中，可以使用ASSERTION关键字来定义企业约束。企业约束的定义通常涉及多个表之间的数据关系和条件。</p>
+</li>
+<li><p><strong>企业约束的示例</strong>：在给出的例子中，企业约束指定了一个业务规则：一个员工最多管理100个房产。为了实现这个约束，使用了一个名为StaffNotOverLoaded的ASSERTION，并通过CHECK子句来定义条件。</p>
+<ul>
+<li>CHECK子句中的查询（SELECT语句）用于检查PropertyForRent表中每个员工（StaffNo）所管理的房产数量是否超过100个。</li>
+<li>NOT EXISTS用于确保在查询结果中不存在符合条件（管理房产数量超过100个）的记录。</li>
+<li>GROUP BY和HAVING子句用于对每个员工分组，并计算他们管理的房产数量。</li>
+</ul>
+</li>
+<li><p><strong>应用企业约束到表</strong>：企业约束可以应用到表上，以确保在执行INSERT、UPDATE和DELETE操作时，业务规则得到遵守。</p>
+<ul>
+<li>在给出的例子中，使用CONSTRAINT关键字将StaffNotOverLoaded约束应用到PropertyForRent表上。</li>
+</ul>
+<p>通过定义企业约束，可以有效地将业务规则与数据库中的数据一致性保持结合起来，确保数据库中存储的数据符合业务需求和规范。</p>
+</li>
+</ol>
+</li>
+</ol>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2024年04月11日 18:49</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库">https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/&title=《数据库》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/&title=《数据库》 — Richo blog&source=有需自取，拒绝打赏" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数据库》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2024/04/11/%E6%95%B0%E6%8D%AE%E5%BA%93/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/期末考/" class="color4">期末考</a>
+      
+    <a href="/Richo.github.io/tags/数据库/" class="color4">数据库</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BC%95%E8%A8%80"><span class="post-toc-text">引言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">数据模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B1%82%E6%AC%A1%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="post-toc-text">层次数据模型：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BD%91%E7%8A%B6%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="post-toc-text">网状数据模型：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="post-toc-text">关系模型：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="post-toc-text">特性：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%87%A0%E4%B8%AA%E9%94%AE%E5%AE%9A%E4%B9%89"><span class="post-toc-text">几个键定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%9F%E5%AE%8C%E6%95%B4%E6%80%A7%E7%BA%A6%E6%9D%9F%EF%BC%9A"><span class="post-toc-text">域完整性约束：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%94%E4%B8%AA%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="post-toc-text">五个基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%80%E5%85%83%E6%93%8D%E4%BD%9C"><span class="post-toc-text">一元操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%8C%E5%85%83%E6%93%8D%E4%BD%9C"><span class="post-toc-text">二元操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E4%B9%98%E7%A7%AF"><span class="post-toc-text">笛卡尔乘积</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SQL%E8%AF%AD%E8%A8%80%E4%B8%8E%E7%94%A8%E6%88%B7%E7%B3%BB%E7%BB%9F-%E6%A8%A1%E5%9E%8B%EF%BC%886-9%E8%8B%B1%E6%96%B9%E6%B2%A1%E8%AE%B2%EF%BC%89"><span class="post-toc-text">SQL语言与用户系统  模型（6-9英方没讲）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8F%90%E4%BE%9B%E7%BB%99%E7%94%A8%E6%88%B7%E7%9A%84%E6%8E%A5%E5%8F%A3%EF%BC%9A"><span class="post-toc-text">提供给用户的接口：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80"><span class="post-toc-text">查询语言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQL"><span class="post-toc-text">SQL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%9D%E7%95%99%E5%AD%97"><span class="post-toc-text">保留字</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="post-toc-text">实际操作：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="post-toc-text">插入数据</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">数据类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="post-toc-text">聚合函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%AD%A7%E4%B9%89"><span class="post-toc-text">歧义</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#join"><span class="post-toc-text">join</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="post-toc-text">例子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Equi-Join-%E7%AD%89%E5%80%BC%E8%BF%9E%E6%8E%A5"><span class="post-toc-text">Equi Join (等值连接)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Cross-Join-%E4%BA%A4%E5%8F%89%E8%BF%9E%E6%8E%A5"><span class="post-toc-text">Cross Join (交叉连接)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="post-toc-text">数据库设计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E7%B3%BB%E8%8C%83%E5%BC%8F%EF%BC%9A"><span class="post-toc-text">关系范式：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%B1%9E%E6%80%A7%E5%8E%9F%E5%AD%90%EF%BC%8C%E4%B8%8D%E5%8F%AF%E5%86%8D%E5%88%86-%EF%BC%9A%E5%BB%BA%E8%A1%A8%E5%A4%B1%E8%B4%A5"><span class="post-toc-text">1.属性原子，不可再分  ：建表失败</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%B1%9E%E6%80%A7%E5%AF%B9%E4%B8%BB%E9%94%AE%E7%9A%84%E9%83%A8%E5%88%86%E4%BE%9D%E8%B5%96%E3%80%82"><span class="post-toc-text">2.不存在属性对主键的部分依赖。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E4%B8%8D%E5%AD%98%E5%9C%A8%E5%B1%9E%E6%80%A7%E5%AF%B9%E4%B8%BB%E9%94%AE%E7%9A%84%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E3%80%82"><span class="post-toc-text">3.不存在属性对主键的传递依赖。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ER%E5%BB%BA%E6%A8%A1"><span class="post-toc-text">ER建模</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9E%E4%BD%93%E7%B1%BB%E5%9E%8B%EF%BC%88Entity-Type%EF%BC%89%EF%BC%9A"><span class="post-toc-text">实体类型（Entity Type）：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%B3%E7%B3%BB%E7%B1%BB%E5%9E%8B%EF%BC%88Relationship-Types%EF%BC%89%EF%BC%9A"><span class="post-toc-text">关系类型（Relationship Types）：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="post-toc-text">实现步骤</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#multiplicity%EF%BC%88%E5%A4%9A%E9%87%8D%E6%80%A7%EF%BC%89"><span class="post-toc-text">multiplicity（多重性）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IEF"><span class="post-toc-text">IEF</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A4%96%E9%94%AE%E5%BC%95%E7%94%A8%E5%8A%A8%E4%BD%9C%EF%BC%88Referential-Actions%EF%BC%89"><span class="post-toc-text">外键引用动作（Referential Actions）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%88Triggers%EF%BC%89%E7%9A%84%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E5%AE%83%E4%BB%AC%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5%E3%80%82"><span class="post-toc-text">触发器（Triggers）的概念以及它们在数据库管理系统中的作用和使用情况。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%BC%8F%EF%BC%88Schema%EF%BC%89%E7%9A%84%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E3%80%82"><span class="post-toc-text">数据库中的模式（Schema）的概念以及它的作用。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ALTER-TABLE"><span class="post-toc-text">ALTER TABLE</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Schema"><span class="post-toc-text">Schema</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/Richo.github.io/2024/06/13/Web%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A4%8D%E4%B9%A0%E5%BB%BA%E8%AE%AE%EF%BC%9A/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          web开发
+        
+      </span>
+    </a>
+  
+  
+    <a href="/Richo.github.io/2023/11/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%EF%BC%9A/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">深度学习</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2024 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/sql/">sql</a><a class="category-link" href="/Richo.github.io/categories/web/">web</a><a class="category-link" href="/Richo.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/web%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web开发</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/web%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web开发</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
