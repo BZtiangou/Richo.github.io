@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>部署定时任务 | Richo blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Richo's Blog" />
+  
+  <meta name="description" content="使用 Django-Celery + Redis 实现定时任务完整指南背景需求在调用（DeepSeek）API的服务时，我们为每个用户设置了每日50次的API调用限额。为了实现每日零点的自动重置功能，需要构建可靠的定时任务系统。 技术选型对比   方案 优势 劣势 适用场景    Linux Crontab 系统级支持，配置简单 与Django环境隔离，日志管理不便 简单脚本任务   APSche">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署定时任务">
+<meta property="og:url" content="https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="Richo blog">
+<meta property="og:description" content="使用 Django-Celery + Redis 实现定时任务完整指南背景需求在调用（DeepSeek）API的服务时，我们为每个用户设置了每日50次的API调用限额。为了实现每日零点的自动重置功能，需要构建可靠的定时任务系统。 技术选型对比   方案 优势 劣势 适用场景    Linux Crontab 系统级支持，配置简单 与Django环境隔离，日志管理不便 简单脚本任务   APSche">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-05-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-14T14:45:24.477Z">
+<meta property="article:author" content="Richo">
+<meta property="article:tag" content="后端开发">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="images/head.jpg">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/Richo.github.io/css/style.css">
+
+  
+<script src="/Richo.github.io/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/Richo.github.io/" class="left">
+                    <span class="site-title">Richo&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/Richo.github.io/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/Richo.github.io/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/Richo.github.io/">
+                    <img src="/Richo.github.io/images/head.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Richo&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        来都来了,github点个关注呗
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="githubtoo" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="https://github.com/BZtiangou/">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-使用 Django-Celery + Redis 实现定时任务完整指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      部署定时任务
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/Richo.github.io/categories/后端开发/">后端开发</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2025-05-10
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="使用-Django-Celery-Redis-实现定时任务完整指南"><a href="#使用-Django-Celery-Redis-实现定时任务完整指南" class="headerlink" title="使用 Django-Celery + Redis 实现定时任务完整指南"></a>使用 Django-Celery + Redis 实现定时任务完整指南</h1><h2 id="背景需求"><a href="#背景需求" class="headerlink" title="背景需求"></a>背景需求</h2><p>在调用（DeepSeek）API的服务时，我们为每个用户设置了每日50次的API调用限额。为了实现每日零点的自动重置功能，需要构建可靠的定时任务系统。</p>
+<h2 id="技术选型对比"><a href="#技术选型对比" class="headerlink" title="技术选型对比"></a>技术选型对比</h2><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>优势</th>
+<th>劣势</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linux Crontab</td>
+<td>系统级支持，配置简单</td>
+<td>与Django环境隔离，日志管理不便</td>
+<td>简单脚本任务</td>
+</tr>
+<tr>
+<td>APScheduler</td>
+<td>纯Python实现，轻量级</td>
+<td>缺乏分布式支持，可靠性较低</td>
+<td>单机简单定时任务</td>
+</tr>
+<tr>
+<td><strong>Celery + Redis</strong></td>
+<td>分布式支持，任务可追溯，集成Django</td>
+<td>需要额外中间件，配置较复杂</td>
+<td>生产环境可靠定时任务（本文选择）</td>
+</tr>
+</tbody></table>
+<p>最终选择组合：</p>
+<ul>
+<li>**Celery 5.3+**：分布式任务队列</li>
+<li>**Redis 6+**：消息代理 &amp; 结果存储</li>
+<li>**django-celery-beat 2.5+**：基于数据库的调度器</li>
+<li>**Supervisor 4.2+**：进程守护</li>
+</ul>
+<h2 id="完整实现步骤"><a href="#完整实现步骤" class="headerlink" title="完整实现步骤"></a>完整实现步骤</h2><h3 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1. 环境配置"></a>1. 环境配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装核心组件</span><br><span class="line">pip install celery redis django-celery-beat django-celery-results</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Django-配置（settings-py）"><a href="#2-Django-配置（settings-py）" class="headerlink" title="2. Django 配置（settings.py）"></a>2. Django 配置（settings.py）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Application 配置</span><br><span class="line">INSTALLED_APPS = [</span><br><span class="line">    ...</span><br><span class="line">    &#x27;django_celery_beat&#x27;,</span><br><span class="line">    &#x27;django_celery_results&#x27;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"># Celery 核心配置</span><br><span class="line">CELERY_BROKER_URL = &#x27;redis://127.0.0.1:6379/0&#x27;  # Broker 隔离使用专用DB</span><br><span class="line">CELERY_RESULT_BACKEND = &#x27;django-db&#x27;             # 推荐使用数据库存储结果</span><br><span class="line">CELERY_TIMEZONE = &#x27;Asia/Shanghai&#x27;</span><br><span class="line">CELERY_TASK_SERIALIZER = &#x27;json&#x27;</span><br><span class="line">CELERY_BEAT_SCHEDULER = &#x27;django_celery_beat.schedulers:DatabaseScheduler&#x27;  # 持久化调度</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-创建-Celery-实例（celery-py）"><a href="#3-创建-Celery-实例（celery-py）" class="headerlink" title="3. 创建 Celery 实例（celery.py）"></a>3. 创建 Celery 实例（celery.py）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># backend/celery.py（与settings.py同级）</span><br><span class="line">import os</span><br><span class="line">from celery import Celery</span><br><span class="line"></span><br><span class="line">os.environ.setdefault(&#x27;DJANGO_SETTINGS_MODULE&#x27;, &#x27;backend.settings&#x27;)</span><br><span class="line"></span><br><span class="line">app = Celery(&#x27;backend&#x27;)</span><br><span class="line">app.config_from_object(&#x27;django.conf:settings&#x27;, namespace=&#x27;CELERY&#x27;)</span><br><span class="line">app.autodiscover_tasks()</span><br><span class="line"></span><br><span class="line"># 可选调试任务</span><br><span class="line">@app.task(bind=True)</span><br><span class="line">def debug_task(self):</span><br><span class="line">    print(f&#x27;Request: &#123;self.request!r&#125;&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>文件作用说明：</p>
+<ul>
+<li>初始化Celery实例并与Django设置集成</li>
+<li>自动发现各app下的tasks.py</li>
+<li>建立Django ORM与Celery的桥梁</li>
+</ul>
+<h3 id="4-定时任务开发"><a href="#4-定时任务开发" class="headerlink" title="4. 定时任务开发"></a>4. 定时任务开发</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># account/tasks.py</span><br><span class="line">from celery import shared_task</span><br><span class="line">from django.utils import timezone</span><br><span class="line">from .models import CustomUser</span><br><span class="line">import logging</span><br><span class="line"></span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">@shared_task</span><br><span class="line">def reset_call_times():</span><br><span class="line">    &quot;&quot;&quot;安全重置调用次数&quot;&quot;&quot;</span><br><span class="line">    try:</span><br><span class="line">        updated = CustomUser.objects.all().update(call_times=0)</span><br><span class="line">        logger.info(f&quot;[&#123;timezone.now()&#125;] 成功重置 &#123;updated&#125; 用户调用次数&quot;)</span><br><span class="line">        return &#123;&quot;status&quot;: &quot;success&quot;, &quot;updated_users&quot;: updated&#125;</span><br><span class="line">    except Exception as e:</span><br><span class="line">        logger.error(f&quot;重置失败: &#123;str(e)&#125;&quot;)</span><br><span class="line">        raise self.retry(exc=e, countdown=60)  # 失败后重试</span><br></pre></td></tr></table></figure>
+
+<p>最佳实践：</p>
+<ol>
+<li>使用Django ORM的update方法提升批量更新效率</li>
+<li>添加详细日志记录</li>
+<li>实现自动重试机制</li>
+<li>返回结构化结果</li>
+</ol>
+<h3 id="5-配置周期性任务"><a href="#5-配置周期性任务" class="headerlink" title="5. 配置周期性任务"></a>5. 配置周期性任务</h3><p>在Django Admin中创建：</p>
+<ol>
+<li>访问 <code>/admin/django_celery_beat/periodictask/</code></li>
+<li>新建Crontab计划（0 0 * * *）</li>
+<li>关联reset_call_times任务</li>
+</ol>
+<p>或通过代码创建：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from django_celery_beat.models import CrontabSchedule, PeriodicTask</span><br><span class="line"></span><br><span class="line">schedule, _ = CrontabSchedule.objects.get_or_create(</span><br><span class="line">    minute=&#x27;0&#x27;,</span><br><span class="line">    hour=&#x27;0&#x27;,</span><br><span class="line">    day_of_week=&#x27;*&#x27;,</span><br><span class="line">    day_of_month=&#x27;*&#x27;,</span><br><span class="line">    month_of_year=&#x27;*&#x27;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">PeriodicTask.objects.get_or_create(</span><br><span class="line">    crontab=schedule,</span><br><span class="line">    name=&#x27;Daily Reset API Calls&#x27;,</span><br><span class="line">    task=&#x27;account.tasks.reset_call_times&#x27;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-Supervisor-配置优化"><a href="#6-Supervisor-配置优化" class="headerlink" title="6. Supervisor 配置优化"></a>6. Supervisor 配置优化</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">; /etc/supervisor/conf.d/celery.conf</span><br><span class="line"></span><br><span class="line">[program:celery_worker]</span><br><span class="line">command=/var/www/gps_inf/venv/bin/celery -A backend worker --loglevel=info --concurrency=4 -n worker.%%h</span><br><span class="line">directory=/var/www/gps_inf</span><br><span class="line">user=www-data</span><br><span class="line">numprocs=1</span><br><span class="line">stdout_logfile=/var/log/celery/worker.log</span><br><span class="line">stderr_logfile=/var/log/celery/worker.err.log</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">stopwaitsecs=30</span><br><span class="line">environment=</span><br><span class="line">    PYTHONPATH=&quot;/var/www/gps_inf&quot;,</span><br><span class="line">    DJANGO_SETTINGS_MODULE=&quot;backend.settings&quot;,</span><br><span class="line">    CELERYD_LOG_LEVEL=&quot;INFO&quot;</span><br><span class="line"></span><br><span class="line">[program:celery_beat]</span><br><span class="line">command=/var/www/gps_inf/venv/bin/celery -A backend beat --loglevel=info --scheduler django_celery_beat.schedulers:DatabaseScheduler</span><br><span class="line">directory=/var/www/gps_inf</span><br><span class="line">user=www-data</span><br><span class="line">stdout_logfile=/var/log/celery/beat.log</span><br><span class="line">stderr_logfile=/var/log/celery/beat.err.log</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=unexpected</span><br><span class="line">stopwaitsecs=30</span><br><span class="line">environment=</span><br><span class="line">    CELERYBEAT_SCHEDULE_FILENAME=&quot;/var/run/celery/celerybeat-schedule&quot;,</span><br><span class="line">    PYTHONPATH=&quot;/var/www/gps_inf&quot;</span><br></pre></td></tr></table></figure>
+
+<p>关键配置说明：</p>
+<ul>
+<li><code>user=www-data</code>: 以Web服务用户身份运行，确保文件权限一致性</li>
+<li><code>--scheduler</code>: 指定数据库调度器实现持久化</li>
+<li><code>-n worker.%%h</code>: 唯一节点命名防止冲突</li>
+<li>环境变量注入保证Django正确初始化</li>
+</ul>
+<h3 id="7-服务管理命令"><a href="#7-服务管理命令" class="headerlink" title="7. 服务管理命令"></a>7. 服务管理命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 配置生效</span><br><span class="line">sudo supervisorctl reread &amp;&amp; sudo supervisorctl update</span><br><span class="line"></span><br><span class="line"># 进程管理</span><br><span class="line">sudo supervisorctl start all    # 启动全部</span><br><span class="line">sudo supervisorctl restart celery_beat  # 单独重启Beat</span><br><span class="line"></span><br><span class="line"># 状态监控</span><br><span class="line">sudo supervisorctl status</span><br></pre></td></tr></table></figure>
+
+<p>预期输出示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">celery_beat          RUNNING   pid 252677, uptime 0:48:26</span><br><span class="line">celery_worker        RUNNING   pid 294264, uptime 0:04:07</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-监控与调试"><a href="#8-监控与调试" class="headerlink" title="8. 监控与调试"></a>8. 监控与调试</h3><p><strong>查看任务队列状态</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -n 0</span><br><span class="line">&gt; KEYS *</span><br><span class="line">&gt; TYPE celery          # 查看任务队列类型</span><br><span class="line">&gt; LLEN celery          # 查看待处理任务数</span><br></pre></td></tr></table></figure>
+
+<p><strong>任务跟踪技巧</strong>：</p>
+<ol>
+<li><p>在Django Admin查看任务结果</p>
+</li>
+<li><p>使用Flower监控工具：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flower</span><br><span class="line">celery -A backend flower --port=5555</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>日志分析：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /var/log/celery/worker.log -n 50</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="常见问题解决方案"><a href="#常见问题解决方案" class="headerlink" title="常见问题解决方案"></a>常见问题解决方案</h2><h3 id="1-权限问题（重点！）"><a href="#1-权限问题（重点！）" class="headerlink" title="1. 权限问题（重点！）"></a>1. 权限问题（重点！）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permission denied: &#x27;celerybeat-schedule&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/run/celery</span><br><span class="line">sudo chown -R www-data:www-data /var/run/celery</span><br><span class="line">sudo chmod 770 /var/run/celery</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-模块导入失败"><a href="#2-模块导入失败" class="headerlink" title="2. 模块导入失败"></a>2. 模块导入失败</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named &#x27;django_celery_results&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><strong>排查步骤</strong>：</p>
+<ol>
+<li><p>检查虚拟环境：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/www/gps_inf/venv/bin/pip list | grep celery</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证Python路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">print(sys.path)  # 确保项目路径存在</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-Beat调度不同步"><a href="#3-Beat调度不同步" class="headerlink" title="3. Beat调度不同步"></a>3. Beat调度不同步</h3><p><strong>现象</strong>：Admin修改计划后未生效<br> ​<strong>​处理方案​</strong>​：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl restart celery_beat</span><br><span class="line"># 或使用信号重载</span><br><span class="line">sudo kill -HUP $(cat /var/run/celery/beat.pid)</span><br></pre></td></tr></table></figure>
+
+<h2 id="架构示意图"><a href="#架构示意图" class="headerlink" title="架构示意图"></a>架构示意图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[用户请求] --&gt; B[Django应用]</span><br><span class="line">    B --&gt;|触发异步任务| C[Redis Broker]</span><br><span class="line">    C --&gt; D[Celery Worker]</span><br><span class="line">    D --&gt;|执行任务| E[PostgreSQL]</span><br><span class="line">    F[Celery Beat] --&gt;|定时触发| C</span><br><span class="line">    G[Supervisor] --&gt;|进程守护| D &amp; F</span><br></pre></td></tr></table></figure>
+
+<p>触发异步任务执行任务定时触发进程守护进程守护用户请求Django应用Redis BrokerCelery WorkerPostgreSQLCelery BeatSupervisor</p>
+<h2 id="性能优化建议"><a href="#性能优化建议" class="headerlink" title="性能优化建议"></a>性能优化建议</h2><ol>
+<li><p>连接池配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># settings.py</span><br><span class="line">CELERY_BROKER_POOL_LIMIT = 20  # Redis连接池大小</span><br><span class="line">CELERY_REDIS_MAX_CONNECTIONS = 100</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Worker调优</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--concurrency=$(nproc)  # 按CPU核心数设置</span><br><span class="line">--maxtasksperchild=100  # 防止内存泄漏</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果过期设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CELERY_RESULT_EXPIRES = 3600  # 任务结果保留1小时</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="扩展应用场景"><a href="#扩展应用场景" class="headerlink" title="扩展应用场景"></a>扩展应用场景</h2><ol>
+<li>API调用频率限制</li>
+<li>批量数据处理</li>
+<li>异步邮件发送</li>
+<li>定期数据备份</li>
+<li>系统状态监控</li>
+</ol>
+<p>通过本文的实践，我们不仅实现了每日调用次数的自动重置，更建立了一个可扩展的分布式任务处理平台。下次当需要添加新的定时任务时，只需在tasks.py中添加新方法并在Admin中配置触发规则即可。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2025年05月14日 22:45</p>
+        <p>原始链接： <a class="post-url" href="/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/" title="部署定时任务">https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/</a></p>
+        <footer>
+            <a href="https://bztiangou.github.io/Richo.github.io">
+                <img src="/Richo.github.io/images/head.jpg" alt="Richo">
+                Richo
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/Richo.github.io/images/wechatpay.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/Richo.github.io/images/wechatpay.jpg">
+                <img class="reward-select-item-wechat" src="/Richo.github.io/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/Richo.github.io/images/zhifubao.jpg">
+                <img class="reward-select-item-alipay" src="/Richo.github.io/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/&title=《部署定时任务》 — Richo blog&pic=/images/banner.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/&title=《部署定时任务》 — Richo blog&source=有需自取，拒绝打赏" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《部署定时任务》 — Richo blog&url=https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/&via=https://bztiangou.github.io/Richo.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bztiangou.github.io/Richo.github.io/2025/05/10/%E4%BD%BF%E7%94%A8%20Django-Celery%20+%20Redis%20%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/Richo.github.io/tags/后端开发/" class="color5">后端开发</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-Django-Celery-Redis-%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97"><span class="post-toc-text">使用 Django-Celery + Redis 实现定时任务完整指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%83%8C%E6%99%AF%E9%9C%80%E6%B1%82"><span class="post-toc-text">背景需求</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%AF%B9%E6%AF%94"><span class="post-toc-text">技术选型对比</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="post-toc-text">完整实现步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="post-toc-text">1. 环境配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-Django-%E9%85%8D%E7%BD%AE%EF%BC%88settings-py%EF%BC%89"><span class="post-toc-text">2. Django 配置（settings.py）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-%E5%88%9B%E5%BB%BA-Celery-%E5%AE%9E%E4%BE%8B%EF%BC%88celery-py%EF%BC%89"><span class="post-toc-text">3. 创建 Celery 实例（celery.py）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%BC%80%E5%8F%91"><span class="post-toc-text">4. 定时任务开发</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E9%85%8D%E7%BD%AE%E5%91%A8%E6%9C%9F%E6%80%A7%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">5. 配置周期性任务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-Supervisor-%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="post-toc-text">6. Supervisor 配置优化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="post-toc-text">7. 服务管理命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-%E7%9B%91%E6%8E%A7%E4%B8%8E%E8%B0%83%E8%AF%95"><span class="post-toc-text">8. 监控与调试</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="post-toc-text">常见问题解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%81%EF%BC%89"><span class="post-toc-text">1. 权限问题（重点！）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%E5%A4%B1%E8%B4%A5"><span class="post-toc-text">2. 模块导入失败</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Beat%E8%B0%83%E5%BA%A6%E4%B8%8D%E5%90%8C%E6%AD%A5"><span class="post-toc-text">3. Beat调度不同步</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%B6%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="post-toc-text">架构示意图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE"><span class="post-toc-text">性能优化建议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="post-toc-text">扩展应用场景</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/Richo.github.io/2025/03/24/domjudge/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">domjudge</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2025 Richo<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://bztiangou.github.io/Richo.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/Richo.github.io/categories/C-%EF%BC%8C%E5%BC%80%E5%8F%91%E5%BA%95%E5%B1%82/">C++，开发底层</a><a class="category-link" href="/Richo.github.io/categories/CS/">CS</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8CCSS%EF%BC%8CXML/">CS，CSS，XML</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8Cmath/">CS，math</a><a class="category-link" href="/Richo.github.io/categories/CS%EF%BC%8C%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">CS，数字电路</a><a class="category-link" href="/Richo.github.io/categories/JAVA/">JAVA</a><a class="category-link" href="/Richo.github.io/categories/Python/">Python</a><a class="category-link" href="/Richo.github.io/categories/Python%EF%BC%8C%E5%BC%80%E5%8F%91/">Python，开发</a><a class="category-link" href="/Richo.github.io/categories/language/">language</a><a class="category-link" href="/Richo.github.io/categories/life/">life</a><a class="category-link" href="/Richo.github.io/categories/python%EF%BC%8Ccs/">python，cs</a><a class="category-link" href="/Richo.github.io/categories/sql/">sql</a><a class="category-link" href="/Richo.github.io/categories/web/">web</a><a class="category-link" href="/Richo.github.io/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a><a class="category-link" href="/Richo.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="category-link" href="/Richo.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/">软件工程导论</a><a class="category-link" href="/Richo.github.io/categories/%E8%BD%AF%E5%AF%BC%E5%A4%A7%E4%BD%9C%E4%B8%9A/">软导大作业</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/Richo.github.io/tags/domjudge-%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">domjudge/实习</a> <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/web%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web开发</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10px;">后端开发</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/Richo.github.io/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/Richo.github.io/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/Richo.github.io/tags/domjudge-%E5%AE%9E%E4%B9%A0/" style="font-size: 10px;">domjudge/实习</a> <a href="/Richo.github.io/tags/life/" style="font-size: 10px;">life</a> <a href="/Richo.github.io/tags/python/" style="font-size: 10px;">python</a> <a href="/Richo.github.io/tags/web%E5%BC%80%E5%8F%91/" style="font-size: 10px;">web开发</a> <a href="/Richo.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16px;">人工智能</a> <a href="/Richo.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10px;">后端开发</a> <a href="/Richo.github.io/tags/%E5%A4%A7%E5%88%9B/" style="font-size: 16px;">大创</a> <a href="/Richo.github.io/tags/%E5%AE%9E%E4%B9%A0/" style="font-size: 12px;">实习</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91/" style="font-size: 10px;">开发</a> <a href="/Richo.github.io/tags/%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">开发基础</a> <a href="/Richo.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/Richo.github.io/tags/%E6%96%87%E6%A1%A3%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">文档语言</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83/" style="font-size: 20px;">期末考</a> <a href="/Richo.github.io/tags/%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95/" style="font-size: 14px;">期末考试</a> <a href="/Richo.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/Richo.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 12px;">编程规范</a> <a href="/Richo.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 12px;">编程语言</a> <a href="/Richo.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/" style="font-size: 10px;">编译器</a> <a href="/Richo.github.io/tags/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">网络基础</a> <a href="/Richo.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/Richo.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" style="font-size: 12px;">软件工程导论</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/Richo.github.io/js/search.js"></script>
+
+
+<script src="/Richo.github.io/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/Richo.github.io/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/Richo.github.io/js/animate.js"></script>
+
+
+
+  
+<script src="/Richo.github.io/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
